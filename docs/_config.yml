@@ -1,0 +1,10 @@
+title: City of New Orleans Network Standards
+description: Official wired Ethernet and WiFi standards for the City of New Orleans
+baseurl: "/networkstandards"
+url: "https://neworleansiti.github.io"
+
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+  - jekyll-remote-theme
+
+markdown: kramdown
