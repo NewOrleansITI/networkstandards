@@ -39,7 +39,7 @@ This documentation is licensed under [Creative Commons Attribution 4.0 Internati
 ## Contact
 
 - **Maintainers:** City of New Orleans ITI Networking Team
-- **Email:** [Add your team email]
+- **Email:** networkingteam@nola.gov
 - **Issues:** [Open an issue](https://github.com/NewOrleansITI/network-standards/issues)
 
 ---
