@@ -8,7 +8,7 @@ Thank you for your interest in contributing to the City of New Orleans network s
 
 Best for: Suggestions, error reports, questions, or if you're not familiar with Git.
 
-1. Go to the [Issues page](https://github.com/NewOrleansITI/network-standards/issues)
+1. Go to the [Issues page](https://github.com/NewOrleansITI/networkstandards/issues)
 2. Click **"New Issue"**
 3. Select the appropriate template:
    - **Standard Update Request** — Suggest changes to existing standards
@@ -25,7 +25,7 @@ Best for: Technical contributors who want to directly propose documentation chan
 1. **Fork the repository** — Click the "Fork" button on the main repo page
 2. **Clone your fork** locally:
    ```bash
-   git clone https://github.com/YOUR-USERNAME/network-standards.git
+   git clone https://github.com/YOUR-USERNAME/networkstandards.git
    cd network-standards
    ```
 3. **Create a branch** for your changes:
