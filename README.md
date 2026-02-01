@@ -10,11 +10,11 @@ This repository contains the official network infrastructure standards, specific
 
 ### Ethernet Standards
 - [Cabling Standards](docs/ethernet/cabling-standards.md) — Cable types, specifications, and installation requirements
-- [Switch Specifications](docs/ethernet/switch-specifications.md) — Approved switch models and configurations
+- [Switch Specifications](docs/ethernet/switch-specifications.md) — Approved switch standards and guidelines
 - [Port Configurations](docs/ethernet/port-configurations.md) — Standard port assignments and VLAN mappings
 
 ### WiFi Standards
-- [Access Point Specifications](docs/wifi/access-point-specs.md) — Approved AP models and placement guidelines
+- [Access Point Specifications](docs/wifi/access-point-specs.md) — Adopted WiFi standards and placement guidelines
 - [SSID Standards](docs/wifi/ssid-standards.md) — Network naming conventions and security settings
 - [Deployment Procedures](docs/wifi/deployment-procedures.md) — Installation, testing, and handoff procedures
 
@@ -25,7 +25,7 @@ This repository contains the official network infrastructure standards, specific
 
 ## Contributing
 
-We welcome contributions from city IT staff, contractors, and the broader community. There are two ways to contribute:
+We welcome contributions from city staff, subject matter experts, and the broader community. There are two ways to contribute:
 
 1. **Submit an Issue** — Suggest changes, report errors, or request new documentation
 2. **Submit a Pull Request** — Directly propose changes to the documentation
