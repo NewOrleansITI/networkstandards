@@ -21,7 +21,7 @@ This repository contains the official network infrastructure standards, specific
 ## Quick Links
 
 - [Contributing Guide](CONTRIBUTING.md) — How to suggest changes or contribute
-- [GitHub Pages Site](https://neworleansiti.github.io/network-standards/) — Web-friendly documentation view
+- [GitHub Pages Site](https://neworleansiti.github.io/networkstandards/) — Web-friendly documentation view
 
 ## Contributing
 
@@ -40,7 +40,7 @@ This documentation is licensed under [Creative Commons Attribution 4.0 Internati
 
 - **Maintainers:** City of New Orleans ITI Networking Team
 - **Email:** networkingteam@nola.gov
-- **Issues:** [Open an issue](https://github.com/NewOrleansITI/network-standards/issues)
+- **Issues:** [Open an issue](https://github.com/NewOrleansITI/networkstandards/issues)
 
 ---
 
