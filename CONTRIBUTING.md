@@ -81,7 +81,7 @@ When contributing documentation, please follow these guidelines:
 ## Questions?
 
 - Open an issue with the **Question** label
-- Contact the ITI Networking Team at [Add email]
+- Contact the ITI Networking Team at networkingteam@nola.gov
 
 ---
 
