@@ -1,6 +1,6 @@
 ---
 title: WiFi 7 Deployment Procedures
-version: 3.0.0
+version: 3.1.0
 status: Supported
 last_updated: 2026-02-02
 reference: BICSI TDMM 14th Edition, TIA-569-E, IEEE 802.11be-2024
@@ -137,6 +137,7 @@ flowchart TD
 | PoE | **802.3bt budget ≥ total AP power (30-50W/AP)** | IEEE 802.3bt-2018 |
 | Channels | No co-channel interference (including 6 GHz) | IEEE 802.11be |
 | SSIDs | Per [SSID Standards](ssid-standards.md) | Internal |
+| **SSID count** | **≤4 SSIDs per AP (hard limit)** | [SSID Count Limits](ssid-standards.md#ssid-count-limits) |
 | Security | WPA3, 802.1X configured | NIST SP 800-153 |
 
 ### Approval Process
@@ -307,6 +308,20 @@ flowchart TD
 | Roaming | ≤100 ms | Roaming test app | Seamless handoff with MLO |
 | MLO failover | Seamless | Band disconnect test | No session interruption |
 | Client capacity | Per design | Load test | No degradation at target |
+
+### SSID Configuration Validation
+
+| Test | Requirement | Method | Pass Criteria |
+|------|-------------|--------|---------------|
+| **SSID count** | **≤4 SSIDs per AP** | Management platform audit | No AP exceeds 4 SSIDs |
+| SSID names | Match approved standards | Management platform | Only NOLA-CORP, NOLA-GUEST, NOLA-IOT, NOLA-SECURE |
+| SSID-to-VLAN mapping | Correct VLAN per SSID | Configuration review | Per [SSID Standards](ssid-standards.md) |
+
+**SSID Count Audit Procedure:**
+1. Export AP configuration from management platform
+2. Count SSIDs configured per physical AP
+3. **Reject deployment if any AP exceeds 4 SSIDs**
+4. Document SSID inventory in validation report
 
 ### Security Testing
 

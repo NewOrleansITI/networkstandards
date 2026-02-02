@@ -1,6 +1,6 @@
 ---
 title: SSID and Wireless Security Standards
-version: 3.0.0
+version: 3.1.0
 status: Supported
 last_updated: 2026-02-02
 ieee_reference: IEEE 802.11be-2024, 802.11i, 802.11w, 802.1X-2020
@@ -232,6 +232,199 @@ flowchart TD
 | Certificate requirement | User + Device | Dual certificate validation |
 
 **WiFi 7 MLO Benefit:** Multi-Link Operation ensures seamless connectivity for secure systems by maintaining simultaneous links across bands—if one band experiences interference, traffic continues on alternate links without session interruption.
+
+---
+
+## SSID Count Limits
+
+### Policy Statement
+
+> **Hard Limit: Maximum 4 SSIDs per access point.**
+>
+> This is a mandatory configuration limit with no exceptions. All City of New Orleans wireless deployments must not exceed four (4) SSIDs per physical access point. This limit applies regardless of AP model, vendor, or deployment scenario.
+
+### Current SSID Inventory
+
+The City of New Orleans wireless network operates at **maximum SSID capacity**:
+
+| SSID | Purpose | Status |
+|------|---------|--------|
+| NOLA-CORP | Corporate devices | Required |
+| NOLA-GUEST | Guest/visitor access | Required |
+| NOLA-IOT | IoT devices | Required |
+| NOLA-SECURE | High-security systems | Required |
+
+**No additional SSIDs may be configured.** Requests for new SSIDs must be addressed by consolidating existing use cases or leveraging VLAN/RADIUS-based policy differentiation within existing SSIDs.
+
+### Technical Justification
+
+#### Beacon Frame Overhead
+
+Each SSID requires its own beacon frame broadcast per IEEE 802.11:
+
+```mermaid
+graph LR
+    subgraph BEACON_CYCLE["Beacon Transmission per SSID"]
+        B1["Beacon 1<br/>102.4 ms"]
+        B2["Beacon 2<br/>102.4 ms"]
+        B3["Beacon 3<br/>102.4 ms"]
+        BN["...continuous"]
+    end
+
+    B1 --> B2 --> B3 --> BN
+
+    subgraph OVERHEAD["Airtime Consumed"]
+        O1["2.8% at 1 Mbps<br/>(2.4 GHz legacy)"]
+        O2["0.47% at 6 Mbps<br/>(5 GHz / 6 GHz)"]
+    end
+```
+
+- **Beacon interval:** 100 TU (102.4 ms) = ~10 beacons/second per SSID
+- **Beacon transmission rate:** Lowest mandatory rate for compatibility
+  - 2.4 GHz: 1 Mbps (802.11b compatibility) or 6 Mbps (OFDM-only)
+  - 5 GHz: 6 Mbps (OFDM mandatory minimum)
+  - 6 GHz: 6 Mbps (OFDM mandatory minimum)
+- **Beacon frame size:** 350 bytes average (2,800 bits) for WiFi 6/7 with HE/EHT capabilities
+
+**Per-SSID Airtime Calculation (2.4 GHz at 1 Mbps worst case):**
+```
+Transmission time = 2,800 bits ÷ 1 Mbps = 2.8 ms per beacon
+Beacons per second = 10
+Airtime per SSID = 2.8 ms × 10 = 28 ms/second = 2.8% airtime
+```
+
+#### Airtime Consumption by Band
+
+| Band | Beacon Rate | Airtime per SSID | 4 SSIDs Total |
+|------|-------------|------------------|---------------|
+| 2.4 GHz (1 Mbps legacy) | 1 Mbps | **2.8%** | **11.2%** |
+| 2.4 GHz (OFDM-only) | 6 Mbps | 0.47% | 1.9% |
+| 5 GHz | 6 Mbps | 0.47% | 1.9% |
+| 6 GHz | 6 Mbps | 0.47% | 1.9% |
+
+**Critical insight:** 2.4 GHz with legacy client compatibility is the bottleneck. Four SSIDs consume over 11% of available airtime in beacon overhead alone.
+
+#### Additional Management Frame Overhead
+
+Beacons are not the only overhead. Each SSID multiplies management frame traffic:
+
+| Frame Type | Frequency | Impact per Additional SSID |
+|------------|-----------|----------------------------|
+| Beacons | 10/second continuous | Fixed 2.8% airtime (2.4 GHz legacy) |
+| Probe Responses | Per client scan | Multiplied per SSID (1 response per SSID per probe) |
+| Authentication | Per association | Minor |
+| Association | Per connection | Minor |
+| Disassociation | Per roam/disconnect | Minor |
+
+**Probe Response Amplification:** When clients scan for networks, the AP must respond with a probe response for *each* configured SSID. In high-density environments (50+ clients), probe storms multiply by the SSID count. Four SSIDs means 4× the probe response traffic compared to a single SSID.
+
+#### Cumulative Airtime Impact Model
+
+**2.4 GHz Band, 50 Clients, Legacy Rates Enabled:**
+
+| SSIDs | Beacon Overhead | Probe Overhead (est.) | Total Mgmt Overhead | Status |
+|-------|-----------------|----------------------|---------------------|--------|
+| 1 | 2.8% | 1-2% | ~4% | ✅ Optimal |
+| 2 | 5.6% | 2-4% | ~8% | ✅ Good |
+| 3 | 8.4% | 3-6% | ~12% | ✅ Acceptable |
+| **4** | **11.2%** | **4-8%** | **~16-19%** | ✅ **Maximum** |
+| 5 | 14.0% | 5-10% | ~20-24% | ❌ Degraded |
+| 6 | 16.8% | 6-12% | ~24-29% | ❌ Poor |
+| 8 | 22.4% | 8-16% | ~32-38% | ❌ Severe |
+
+```mermaid
+xychart-beta
+    title "Management Overhead vs SSID Count (2.4 GHz)"
+    x-axis "Number of SSIDs" [1, 2, 3, 4, 5, 6, 7, 8]
+    y-axis "Airtime Overhead %" 0 --> 40
+    bar [4, 8, 12, 18, 22, 27, 32, 38]
+    line [20, 20, 20, 20, 20, 20, 20, 20]
+```
+
+**The 20% Threshold:** Industry consensus identifies 20% management overhead as the point where user experience degrades noticeably—increased latency, reduced throughput, and connection reliability issues. At 4 SSIDs, deployments remain under this threshold. A 5th SSID pushes into the degradation zone.
+
+### Vendor Recommendations
+
+All major enterprise wireless vendors independently recommend limiting SSIDs to 4 or fewer per AP:
+
+#### Cisco Systems
+> "Cisco recommends configuring no more than three to four SSIDs per AP... Each SSID requires additional beacons, probe responses, and management overhead that directly reduces available airtime for client data."
+>
+> — *Cisco Wireless LAN Design Guide, 2024*
+
+#### Aruba (HPE)
+> "Best practice is to limit SSIDs to four or fewer per radio. Beyond this, beacon overhead and probe response traffic significantly impact RF efficiency and client capacity."
+>
+> — *Aruba Validated Reference Design, High-Density WLAN*
+
+#### Juniper Mist
+> "We recommend no more than 4 SSIDs per AP. Each additional SSID adds approximately 2-5% management overhead depending on band and client density."
+>
+> — *Mist AI-Driven Wireless Best Practices*
+
+#### Meraki (Cisco)
+> "Creating more than 4 SSIDs will reduce the overall throughput for each network due to the additional overhead from beacon frames."
+>
+> — *Meraki Documentation: Wireless SSIDs*
+
+#### Vendor Consensus Summary
+
+| Vendor | Recommended Max | Platform Hard Limit | Notes |
+|--------|-----------------|---------------------|-------|
+| Cisco | 3-4 | 16 | Explicit design guidance |
+| Aruba/HPE | 4 | 16 | Validated reference design |
+| Juniper Mist | 4 | 8 | AI-driven best practices |
+| Meraki | 4 | 15 | Performance warning at 4+ |
+| Extreme | 4 | 16 | RF planning guidance |
+
+### Compliance and Enforcement
+
+This 4-SSID limit is a **mandatory technical standard**, not a guideline. Violations cause measurable performance degradation affecting all wireless users on the affected access point.
+
+#### Enforcement Requirements
+
+| Requirement | Implementation |
+|-------------|----------------|
+| New deployments | Must not exceed 4 SSIDs at commissioning |
+| Existing deployments | Audit and remediate if exceeding 4 SSIDs |
+| Change requests | SSID additions rejected if limit reached |
+| Exceptions | **None permitted** |
+
+#### Handling Requests for Additional SSIDs
+
+When a 5th SSID is requested:
+
+1. **Reject the request** — The limit is non-negotiable
+2. **Evaluate consolidation** — Can existing SSIDs be consolidated via VLAN assignment or RADIUS attributes?
+3. **Evaluate policy differentiation** — Can the use case share an existing SSID with different policies based on user/device authentication?
+4. **Document the denial** — Reference this standard and the performance impact data
+
+```mermaid
+flowchart TD
+    A[New SSID Request] --> B{Current SSID Count?}
+    B -->|"< 4"| C[Evaluate business need]
+    B -->|"= 4"| D[REJECT: Limit reached]
+    C --> E{Approved?}
+    E -->|Yes| F[Configure new SSID]
+    E -->|No| G[Document denial]
+    D --> H{Alternative solution?}
+    H -->|Consolidate SSIDs| I[Merge use cases]
+    H -->|RADIUS differentiation| J[Policy-based separation]
+    H -->|VLAN assignment| K[Dynamic VLAN via 802.1X]
+    H -->|No alternative| G
+    I --> F
+    J --> L[Use existing SSID]
+    K --> L
+```
+
+### IEEE 802.11 Standards References
+
+| Standard | Relevance |
+|----------|-----------|
+| IEEE 802.11-2020 §9.3.3.3 | Beacon frame format and timing |
+| IEEE 802.11-2020 §11.1.3.1 | Beacon interval (default 100 TU) |
+| IEEE 802.11-2020 §17.3.8.2 | OFDM mandatory data rates |
+| IEEE 802.11b-1999 §18.1 | Legacy 1 Mbps, 2 Mbps rates (2.4 GHz) |
 
 ---
 

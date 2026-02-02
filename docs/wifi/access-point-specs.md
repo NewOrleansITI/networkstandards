@@ -1,6 +1,6 @@
 ---
 title: Wireless Access Point Specifications
-version: 3.0.0
+version: 3.1.0
 status: Supported
 last_updated: 2026-02-02
 ieee_reference: IEEE 802.11be-2024, 802.11ax-2021, 802.3bt-2018
@@ -52,6 +52,25 @@ timeline
 | **Preamble Puncturing** | Transmit around interference rather than abandoning channel—improves reliability |
 | **Deterministic Latency** | Sub-5ms latency targets for real-time applications (VoIP, video, public safety) |
 | **4096-QAM** | 20% throughput efficiency improvement over WiFi 6/6E |
+
+## Configuration Limits
+
+### Maximum SSIDs per Access Point
+
+> **Hard Limit: 4 SSIDs maximum per access point.**
+
+This limit applies to all AP models, vendors, and deployment scenarios. Exceeding 4 SSIDs causes measurable performance degradation due to beacon overhead and management frame amplification.
+
+| Configuration | Limit | Enforcement |
+|---------------|-------|-------------|
+| SSIDs per AP | **4 maximum** | Mandatory — no exceptions |
+| Current deployment | 4 SSIDs configured | At capacity |
+
+**Technical basis:** Each SSID consumes 2-3% airtime on 2.4 GHz (legacy rates) for beacon transmission alone. Additional overhead from probe responses, authentication, and association frames compounds with client density. Industry consensus identifies 20% management overhead as the degradation threshold—4 SSIDs stays below this; 5+ SSIDs exceeds it.
+
+**Vendor consensus:** Cisco, Aruba, Juniper Mist, Meraki, and Extreme all recommend ≤4 SSIDs per AP in their design guidance.
+
+See [SSID Standards — SSID Count Limits](ssid-standards.md#ssid-count-limits) for complete technical justification.
 
 ## Minimum Specifications by Environment
 
