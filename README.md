@@ -94,7 +94,7 @@ New standards or significant changes require a Request for Comments (RFC):
 4. **Decision** — Maintainer approval or rejection with rationale
 5. **Implementation** — PR submitted referencing accepted RFC
 
-See [PRD.md](PRD.md) for the complete governance model and RFC lifecycle.
+See the [Contributing Guide](CONTRIBUTING.md) for the complete governance model and RFC lifecycle.
 
 ## Project Structure
 
@@ -111,8 +111,6 @@ networkstandards/
 │   ├── ISSUE_TEMPLATE/      # Issue templates
 │   ├── workflows/           # GitHub Actions
 │   └── PULL_REQUEST_TEMPLATE.md
-├── CLAUDE.md                # AI assistant guidelines
-├── PRD.md                   # Product requirements document
 ├── CONTRIBUTING.md          # Contribution guidelines
 ├── CODE_OF_CONDUCT.md       # Community standards
 └── README.md                # This file
@@ -143,7 +141,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 | Resource | Description |
 |----------|-------------|
 | [Documentation Site](https://neworleansiti.github.io/networkstandards/) | Web-friendly documentation |
-| [PRD.md](PRD.md) | Full project requirements and governance |
 | [AI Guidelines](AI_ASSISTANT_GUIDELINES.md) | AI assistant interaction rules |
 | [RFC Template](rfcs/RFC-TEMPLATE.md) | Template for standards proposals |
 
