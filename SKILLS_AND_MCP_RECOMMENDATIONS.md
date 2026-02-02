@@ -144,7 +144,7 @@ graph TD
 
 ### 3.1 What is MCP?
 
-MCP (Model Context Protocol) enables AI assistants like Claude to interact with external tools and data sources. For this project, MCPs can automate research, documentation, and community management tasks.
+MCP (Model Context Protocol) enables AI assistants to interact with external tools and data sources. For this project, MCPs can automate research, documentation, and community management tasks.
 
 ### 3.2 Recommended MCPs
 
@@ -259,7 +259,7 @@ graph LR
     subgraph CRITERIA["Evaluation Criteria"]
         E1["Security<br/>Data protection"]
         E2["Reliability<br/>Uptime, accuracy"]
-        E3["Integration<br/>Works with Claude"]
+        E3["Integration<br/>Works with AI tools"]
         E4["Cost<br/>Free or low-cost"]
         E5["Maintenance<br/>Active development"]
     end
@@ -287,11 +287,11 @@ graph LR
 
 | MCP | Status | Notes |
 |-----|--------|-------|
-| GitHub MCP | ✅ Available | Via Claude in Chrome extension |
-| Web Search | ✅ Available | Built into Claude |
-| Web Fetch | ✅ Available | Built into Claude |
-| File System | ✅ Available | Via Claude desktop/computer use |
-| Memory | ✅ Available | Claude's memory feature |
+| GitHub MCP | ✅ Available | Via browser extension |
+| Web Search | ✅ Available | Built into AI assistant |
+| Web Fetch | ✅ Available | Built into AI assistant |
+| File System | ✅ Available | Via desktop/computer use |
+| Memory | ✅ Available | AI memory feature |
 
 ---
 
