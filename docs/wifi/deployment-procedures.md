@@ -109,6 +109,8 @@ flowchart LR
 
 ## Phase 2: Design and Planning
 
+> **Cross-Reference:** Design submission requirements, review timelines, and approval criteria are defined in [WiFi Design Standards](design-standards.md). This section covers the deployment workflow after design approval.
+
 ### Design Review Checklist
 
 ```mermaid
@@ -130,7 +132,7 @@ flowchart TD
 
 | Check | Criteria | Standard Reference |
 |-------|----------|-------------------|
-| Coverage | ≥-65 dBm in office areas (all bands) | BICSI TDMM |
+| Coverage | ≥-67 dBm secondary coverage (all bands) | [Design Standards](design-standards.md) |
 | Capacity | AP count supports user density | Site survey |
 | Cabling | Cat6A to each AP location | TIA-568.2-D |
 | Switch ports | **All ports 2.5G+ minimum (1 GbE-only switches prohibited)** | IEEE 802.3bz |
@@ -145,7 +147,7 @@ flowchart TD
 | Step | Action | Responsible | Timeline |
 |------|--------|-------------|----------|
 | 1 | Submit design package | Contractor/Vendor | — |
-| 2 | Technical review | ITI Network Team | 5 business days |
+| 2 | Technical review | ITI Network Team | 15 days (standard) / 20 days (complex) |
 | 3 | Address feedback | Contractor/Vendor | As needed |
 | 4 | Written approval | ITI Network Team | 2 business days |
 | 5 | Schedule installation | Project manager | Coordinate with facility |
@@ -277,7 +279,7 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    A[Post-Installation Survey] --> B{RSSI ≥ -65 dBm<br/>in office areas?}
+    A[Post-Installation Survey] --> B{RSSI ≥ -67 dBm<br/>secondary coverage?}
     B -->|Yes| C{SNR ≥ 25 dB?}
     B -->|No| D[Adjust AP placement<br/>or add APs]
     C -->|Yes| E{No dead zones?}
@@ -290,9 +292,8 @@ flowchart TD
 
 | Test | Target | Tool | Pass Criteria |
 |------|--------|------|---------------|
-| RSSI (office) | ≥-65 dBm | Survey tool | All areas covered |
-| RSSI (conference) | ≥-60 dBm | Survey tool | High-priority rooms |
-| SNR | ≥25 dB | Survey tool | Adequate signal quality |
+| Secondary coverage | ≥-67 dBm from 2nd AP | Survey tool | All occupied spaces |
+| SNR | ≥25 dB | Survey tool | All occupied spaces |
 | Dead zones | None | Walk test | Continuous coverage |
 | Channel interference | Minimal | Spectrum analyzer | Co-channel ≤-85 dBm |
 

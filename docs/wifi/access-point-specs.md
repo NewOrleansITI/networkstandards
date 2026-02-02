@@ -246,21 +246,34 @@ pie title 7-Year TCO Breakdown - WiFi 7 Deployment (50 APs)
 
 ```mermaid
 graph TD
-    subgraph COVERAGE["Coverage Standards"]
-        OFFICE["Office/Cubicle<br/>-65 dBm RSSI<br/>40 MHz channels"]
-        CONF["Conference Room<br/>-60 dBm RSSI<br/>40 MHz channels"]
-        PUBLIC["Public Area<br/>-67 dBm RSSI<br/>20-40 MHz channels"]
-        OUTDOOR["Outdoor<br/>-70 dBm RSSI<br/>20 MHz channels"]
+    subgraph COVERAGE["Coverage Standards (All Environments)"]
+        SECONDARY["Secondary Coverage<br/>≥ -67 dBm from 2 APs"]
+        SNR["Signal Quality<br/>≥ 25 dB SNR"]
+        OVERLAP["AP Overlap<br/>15-20%"]
     end
+
+    SECONDARY --> RELIABILITY["Redundancy if AP fails"]
+    SNR --> QUALITY["Usable signal quality"]
 ```
 
-| Environment | Target RSSI | Minimum SNR | Channel Width | Overlap |
-|-------------|-------------|-------------|---------------|---------|
-| Office/cubicle | ≥-65 dBm | ≥25 dB | 40 MHz (5 GHz) | 15-20% |
-| Conference room | ≥-60 dBm | ≥30 dB | 40 MHz (5 GHz) | 20% |
-| Public lobby | ≥-67 dBm | ≥20 dB | 20-40 MHz | 15% |
-| Auditorium | ≥-65 dBm | ≥25 dB | 20 MHz (density) | 20% |
-| Outdoor | ≥-70 dBm | ≥20 dB | 20 MHz | 10-15% |
+> **Design Standard:** All deployments must achieve **-67 dBm secondary coverage** (signal from at least 2 APs) with **25 dB minimum SNR** throughout occupied spaces. See [WiFi Design Standards](design-standards.md) for complete requirements.
+
+| Requirement | Threshold | Standard Reference |
+|-------------|-----------|-------------------|
+| Secondary coverage RSSI | ≥ -67 dBm from 2nd strongest AP | Design Standards |
+| Minimum SNR | ≥ 25 dB | Design Standards |
+| Coverage overlap | 15-20% between adjacent APs | BICSI TDMM |
+| Dead zones | None permitted in occupied spaces | Design Standards |
+
+**Channel Width by Band:**
+
+| Band | Standard Width | High-Density Width |
+|------|---------------|-------------------|
+| 2.4 GHz | 20 MHz only | 20 MHz |
+| 5 GHz | 40-80 MHz | 20-40 MHz |
+| 6 GHz | 160-320 MHz | 80-160 MHz |
+
+**Cross-Reference:** For complete design requirements including floor plan submission, review SLA, validation survey procedures, and remediation process, see [WiFi Design Standards](design-standards.md).
 
 ### Mounting Standards
 
