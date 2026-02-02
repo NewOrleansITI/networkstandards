@@ -314,10 +314,13 @@ flowchart TD
 |------|-------------|--------|---------------|
 | SSID verification | Only approved SSIDs | Survey scan | No rogue SSIDs |
 | 802.1X auth | Successful authentication | Test client | Correct VLAN assigned |
+| **OWE encryption (guest)** | Guest SSID uses OWE | Test client + capture | Encrypted traffic (not readable) |
 | Guest portal | Portal redirect works | Test client | Terms required |
 | Client isolation | Clients cannot reach each other | Ping test | No response |
-| PMF | Management frames protected | Capture analysis | Encrypted |
+| PMF | Management frames protected | Capture analysis | Encrypted (all SSIDs) |
 | Rogue AP detection | System detects rogues | Test with rogue | Alert generated |
+
+**OWE Validation (Mandatory):** Guest network validation must confirm OWE encryption is active. Connect with an OWE-capable device (iOS 13+, Android 10+, Windows 10+) and verify traffic is encrypted via packet capture. See [OWE Enhanced Open Standards](../security/owe-enhanced-open.md).
 
 ### Validation Report Template
 
