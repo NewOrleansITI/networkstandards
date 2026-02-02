@@ -146,6 +146,23 @@ Required for building exteriors, parking areas, and outdoor public spaces.
 | Mounting | Pole or wall mount with security hardware | — |
 | Lightning protection | Integrated or external surge protection | — |
 
+#### Outdoor AP Cabling Requirements
+
+All outdoor AP installations must comply with the [Outdoor Installation Requirements](../ethernet/cabling-standards.md#outdoor-installation-requirements) in the Structured Cabling Standards. Key requirements:
+
+| Requirement | Specification |
+|-------------|---------------|
+| Pathway | Conduit required for all permanent installations |
+| Conduit type | RMC/IMC below 12 ft; Schedule 80 PVC with metal transition above 12 ft |
+| Wall penetration | Modular mechanical seal (Link-Seal or equivalent) |
+| Surge protection | **Required at both ends** (device and switch/panel) |
+| Cable jacket | Outdoor-rated (CMX/CMXT/direct burial) even inside conduit |
+| Grounding | Per NEC 250 and TIA-607-D; NFPA 780 for public safety facilities |
+| Security hardware | Torx or hex-socket screws on accessible enclosures |
+| Contractor | Licensed low-voltage contractor required |
+
+**Temporary outdoor AP deployments** (events, construction) may use IP67 weatherproof jack enclosures for a maximum of 6 months.
+
 ## Industry Adoption Data
 
 ### WiFi 7 Enterprise Adoption

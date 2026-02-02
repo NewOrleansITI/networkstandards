@@ -288,6 +288,17 @@ INTERFACE camera-port
   POE priority high
 ```
 
+#### Outdoor Camera Installation Requirements
+
+Outdoor cameras must comply with the [Outdoor Installation Requirements](cabling-standards.md#outdoor-installation-requirements). Key requirements:
+
+- **Conduit pathway** required from building interior to camera location
+- **Surge protection at both ends** (camera and switch/panel)
+- **Outdoor-rated cable** (CMX/CMXT) even inside conduit
+- **Modular mechanical seal** at wall penetration
+- **Security hardware** (Torx/hex-socket) on accessible junction boxes
+- **Licensed low-voltage contractor** required for installation
+
 ### IoT Device Port
 
 For sensors, displays, and smart devices.
