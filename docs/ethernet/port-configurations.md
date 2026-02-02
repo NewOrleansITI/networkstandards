@@ -1,9 +1,9 @@
 ---
 title: Port Configurations and VLAN Standards
-version: 2.0.0
+version: 3.0.0
 status: Supported
 last_updated: 2026-02-02
-ieee_reference: IEEE 802.1Q-2022, 802.1X-2020
+ieee_reference: IEEE 802.1Q-2022, 802.1X-2020, 802.3bt-2018
 ---
 
 # Port Configurations and VLAN Standards
@@ -190,33 +190,52 @@ INTERFACE printer-port
   DOT1X mab ENABLE
 ```
 
-### Access Point Port
+### Access Point Port (WiFi 7)
 
-For wireless access points requiring multiple VLANs.
+For WiFi 7 wireless access points requiring multiple VLANs and high-power PoE.
+
+**Critical Requirements for WiFi 7:**
+- 802.3bt PoE (60-90W) — PoE+ is insufficient
+- Multi-gig port (2.5GbE minimum) — 1GbE bottlenecks WiFi 7 throughput
+- Trunk with all wireless VLANs including 6 GHz SSIDs
 
 ```mermaid
 flowchart LR
-    AP[Access Point] --> TRUNK[Trunk Port]
-    TRUNK --> VLANS["Native: VLAN 10 (MGMT)<br/>Tagged: 20, 30, 100, 200"]
+    AP[WiFi 7 Access Point] --> PORT[Multi-Gig Trunk Port]
+    PORT --> CONFIG["Port Speed: 2.5G/5G/10G<br/>PoE: 802.3bt (60W+)<br/>Native: VLAN 10 (MGMT)<br/>Tagged: 20, 30, 100, 200"]
 ```
 
 | Setting | Value | Rationale |
 |---------|-------|-----------|
+| Port speed | 2.5 GbE minimum (5/10 GbE preferred) | WiFi 7 throughput exceeds 1 Gbps |
 | Mode | Trunk | Multiple SSIDs need multiple VLANs |
 | Native VLAN | 10 (MGMT) | AP management traffic |
 | Allowed VLANs | 10, 20, 30, 100, 200 | Corp, Voice, Guest, IoT |
 | PortFast | Trunk mode | Fast AP boot |
+| PoE class | 802.3bt Type 3/4 | WiFi 7 requires 30-50W typical |
+| PoE priority | Critical | Ensure AP power during budget constraints |
 
 ```
 INTERFACE ap-port
   DESCRIPTION "AP-[Building]-[Location]"
+  SPEED auto 2500 5000 10000
   MODE trunk
   TRUNK native-vlan 10
   TRUNK allowed-vlan 10,20,30,100,200
   SPANNING-TREE portfast trunk ENABLE
   SPANNING-TREE bpduguard ENABLE
-  POE priority high
+  POE priority critical
+  POE limit class 6
 ```
+
+#### WiFi 7 AP Port Verification Checklist
+
+| Check | Requirement | Verified |
+|-------|-------------|----------|
+| Port speed | Negotiated 2.5G or higher | ☐ |
+| PoE allocation | 60W+ allocated | ☐ |
+| LLDP | AP detected with correct power class | ☐ |
+| All VLANs | Traffic passing on all SSIDs | ☐ |
 
 ### Security Camera Port
 

@@ -1,16 +1,18 @@
 ---
-title: WiFi Deployment Procedures
-version: 2.0.0
+title: WiFi 7 Deployment Procedures
+version: 3.0.0
 status: Supported
 last_updated: 2026-02-02
-reference: BICSI TDMM 14th Edition, TIA-569-E
+reference: BICSI TDMM 14th Edition, TIA-569-E, IEEE 802.11be-2024
 ---
 
-# WiFi Deployment Procedures
+# WiFi 7 Deployment Procedures
 
 ## Overview
 
-This document defines the standard procedures for deploying wireless networks in City of New Orleans facilities. All deployments follow BICSI best practices and require documented site surveys, design approvals, and validation testing before handoff.
+This document defines the standard procedures for deploying WiFi 7 (IEEE 802.11be) wireless networks in City of New Orleans facilities. All deployments follow BICSI best practices and require documented site surveys, design approvals, and validation testing before handoff.
+
+**WiFi 7 Mandatory:** All new wireless deployments must use WiFi 7 (802.11be) access points per [Access Point Specifications](access-point-specs.md).
 
 ## Standards References
 
@@ -94,13 +96,14 @@ flowchart LR
 |-------------|----------|--------|
 | Coverage heat maps (2.4 GHz) | ✅ | PDF/PNG |
 | Coverage heat maps (5 GHz) | ✅ | PDF/PNG |
-| Coverage heat maps (6 GHz) | If WiFi 6E | PDF/PNG |
+| Coverage heat maps (6 GHz) | ✅ **Required for WiFi 7** | PDF/PNG |
 | AP placement map with coordinates | ✅ | PDF + coordinates |
-| Channel plan | ✅ | Spreadsheet |
-| Interference report | ✅ | PDF |
+| Channel plan (including 320 MHz) | ✅ | Spreadsheet |
+| Interference report (all bands) | ✅ | PDF |
 | Bill of materials | ✅ | Spreadsheet |
 | Mounting details per AP | ✅ | Photo + notes |
-| Power requirements | ✅ | PoE budget calc |
+| Power requirements (802.3bt) | ✅ | PoE budget calc (30-50W/AP) |
+| Multi-gig port requirements | ✅ | Switch port mapping |
 
 ---
 
@@ -127,11 +130,12 @@ flowchart TD
 
 | Check | Criteria | Standard Reference |
 |-------|----------|-------------------|
-| Coverage | ≥-65 dBm in office areas | BICSI TDMM |
+| Coverage | ≥-65 dBm in office areas (all bands) | BICSI TDMM |
 | Capacity | AP count supports user density | Site survey |
 | Cabling | Cat6A to each AP location | TIA-568.2-D |
-| PoE | Switch budget ≥ total AP power draw | IEEE 802.3at/bt |
-| Channels | No co-channel interference | IEEE 802.11 |
+| Switch ports | **Multi-gig (2.5G+) for each AP** | IEEE 802.3bz |
+| PoE | **802.3bt budget ≥ total AP power (30-50W/AP)** | IEEE 802.3bt-2018 |
+| Channels | No co-channel interference (including 6 GHz) | IEEE 802.11be |
 | SSIDs | Per [SSID Standards](ssid-standards.md) | Internal |
 | Security | WPA3, 802.1X configured | NIST SP 800-153 |
 
@@ -153,13 +157,23 @@ flowchart TD
 
 | Item | Verification | Status |
 |------|--------------|--------|
-| All equipment received | Inventory check | ☐ |
+| All equipment received | Inventory check (WiFi 7 APs) | ☐ |
 | Serial numbers documented | Asset tracking | ☐ |
 | Network ports active | Port test | ☐ |
-| PoE verified | Power delivery test | ☐ |
+| **Multi-gig negotiation** | Verify 2.5G/5G/10G link speed | ☐ |
+| **PoE 802.3bt verified** | Power delivery test (60W+ available) | ☐ |
 | Ceiling/wall access confirmed | Physical inspection | ☐ |
 | Installation window scheduled | Calendar confirmed | ☐ |
 | Facility contact available | Contact verified | ☐ |
+
+#### WiFi 7 Infrastructure Prerequisites
+
+| Requirement | Verification | Fail Action |
+|-------------|--------------|-------------|
+| Switch supports 802.3bt | Check switch model/specs | Replace switch or add injector |
+| Switch has multi-gig ports | Verify 2.5G/5G capability | Upgrade switch |
+| Cat6A cabling | Verify cable category | Re-cable if Cat5e/Cat6 |
+| PoE budget sufficient | Calculate total AP power draw | Add PoE budget or split across switches |
 
 ### Mounting Standards
 
@@ -189,12 +203,14 @@ graph TD
 
 | Requirement | Standard | Notes |
 |-------------|----------|-------|
-| Cable category | Cat6A minimum | Per [Cabling Standards](../ethernet/cabling-standards.md) |
+| Cable category | **Cat6A required** | Supports multi-gig (2.5G/5G/10G) for WiFi 7 backhaul |
 | Plenum rating | CMP if above drop ceiling | Per local fire code |
 | Cable length | ≤100 meters total | TIA-568.2-D |
 | Service loop | 3-5 feet at AP location | For future maintenance |
 | Labeling | Both ends per TIA-606-C | AP-[Building]-[Location] |
 | Cable management | Velcro ties, J-hooks | No zip ties on Cat6A |
+
+**Note:** Cat6 cabling limits multi-gig speeds to 55m maximum. All new AP drops must use Cat6A to support full WiFi 7 backhaul requirements.
 
 ### Installation Quality Checklist
 
@@ -241,12 +257,16 @@ flowchart LR
 | AP name | `AP-[Building]-[Location]` | ☐ |
 | Location | Correct site/building/floor | ☐ |
 | SSIDs | All required SSIDs assigned | ☐ |
+| Channel (6 GHz) | Per channel plan (160/320 MHz) | ☐ |
 | Channel (5 GHz) | Per channel plan | ☐ |
 | Channel (2.4 GHz) | Per channel plan (1, 6, or 11) | ☐ |
+| Multi-Link Operation | Enabled | ☐ |
 | Transmit power | Per design or auto | ☐ |
 | VLAN tagging | Native + tagged correct | ☐ |
 | 802.1X | RADIUS servers configured | ☐ |
 | Management IP | Assigned and reachable | ☐ |
+| Uplink speed | Verified 2.5G+ negotiation | ☐ |
+| PoE class | Verified 802.3bt allocation | ☐ |
 
 ---
 
@@ -279,10 +299,13 @@ flowchart TD
 
 | Test | Target | Method | Pass Criteria |
 |------|--------|--------|---------------|
-| Throughput | ≥100 Mbps | iPerf3 to wired server | 90% of tests pass |
-| Latency | ≤20 ms | Ping to gateway | Average ≤20 ms |
+| Throughput (6 GHz) | ≥500 Mbps | iPerf3 to wired server | WiFi 7 client, 160 MHz |
+| Throughput (5 GHz) | ≥200 Mbps | iPerf3 to wired server | 90% of tests pass |
+| Throughput (2.4 GHz) | ≥50 Mbps | iPerf3 to wired server | Legacy device baseline |
+| Latency | ≤15 ms | Ping to gateway | Average ≤15 ms |
 | Jitter | ≤10 ms | Continuous ping | 95th percentile |
-| Roaming | ≤150 ms | Roaming test app | Seamless handoff |
+| Roaming | ≤100 ms | Roaming test app | Seamless handoff with MLO |
+| MLO failover | Seamless | Band disconnect test | No session interruption |
 | Client capacity | Per design | Load test | No degradation at target |
 
 ### Security Testing

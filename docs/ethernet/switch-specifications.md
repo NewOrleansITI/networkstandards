@@ -1,9 +1,9 @@
 ---
 title: Network Switch Specifications
-version: 2.0.0
+version: 3.0.0
 status: Supported
 last_updated: 2026-02-02
-ieee_reference: IEEE 802.3, 802.1Q, 802.1X, 802.1AX
+ieee_reference: IEEE 802.3, 802.3bt, 802.1Q, 802.1X, 802.1AX
 ---
 
 # Network Switch Specifications
@@ -61,46 +61,64 @@ graph TD
 
 Required for end-user connectivity in IDFs and workspaces.
 
+**Critical Requirement:** All new access switch deployments must support IEEE 802.3bt (PoE++) to power WiFi 7 access points (30-50W typical draw).
+
 ```mermaid
 graph LR
     subgraph REQUIRED["✅ Required Features"]
         A["1GbE access ports"]
-        B["10GbE SFP+ uplinks"]
-        C["PoE+ IEEE 802.3at"]
-        D["IEEE 802.1X support"]
-        E["SNMPv3"]
+        B["Multi-gig ports (2.5G/5G)"]
+        C["10GbE SFP+ uplinks"]
+        D["PoE++ IEEE 802.3bt"]
+        E["IEEE 802.1X support"]
+        F["SNMPv3"]
     end
 
     subgraph PREFERRED["⭐ Preferred Features"]
-        F["PoE++ IEEE 802.3bt"]
         G["Stacking capability"]
         H["MACsec support"]
+        I["25GbE uplinks"]
     end
 ```
 
 | Specification | Minimum Requirement | Standard Reference |
 |---------------|---------------------|-------------------|
 | Access port speed | 1 Gbps (IEEE 802.3ab) | IEEE 802.3-2022 |
+| Multi-gig ports | 2.5G/5G for AP connections | IEEE 802.3bz-2016 |
 | Uplink port speed | 10 Gbps SFP+ | IEEE 802.3-2022 |
-| PoE capability | PoE+ 30W/port (IEEE 802.3at) | IEEE 802.3at-2009 |
-| PoE budget | ≥740W for 48-port | IEEE 802.3at-2009 |
+| PoE capability | **PoE++ 60W/port (IEEE 802.3bt Type 3)** | IEEE 802.3bt-2018 |
+| PoE budget | **≥1440W for 48-port** | IEEE 802.3bt-2018 |
 | VLAN support | IEEE 802.1Q, 4094 VLANs | IEEE 802.1Q-2022 |
 | Spanning tree | RSTP/MSTP | IEEE 802.1w / 802.1s |
 | Link aggregation | LACP (IEEE 802.1AX) | IEEE 802.1AX-2020 |
 | Port security | IEEE 802.1X-2020 | IEEE 802.1X-2020 |
 | Management | SNMPv3, SSH, HTTPS | RFC 3411, RFC 4253 |
-| Switching capacity | ≥176 Gbps (48-port) | Non-blocking |
+| Switching capacity | ≥200 Gbps (48-port) | Non-blocking |
 | MAC address table | ≥16,000 entries | — |
 | Jumbo frames | 9,216 bytes | — |
 
-#### High-Power PoE Requirements
+#### WiFi 7 Access Point Power Requirements
 
-For deployments with PTZ cameras, wireless access points, or other high-power devices:
+WiFi 7 (802.11be) access points require significantly more power than previous generations due to tri-band radios and MLO capabilities:
 
-| Specification | Requirement | Standard Reference |
-|---------------|-------------|-------------------|
-| PoE capability | PoE++ 60-90W/port | IEEE 802.3bt-2018 |
-| PoE budget | ≥1440W for 48-port | IEEE 802.3bt-2018 |
+| AP Type | Typical Power Draw | Minimum PoE | Required PoE Budget (per 12 APs) |
+|---------|-------------------|-------------|----------------------------------|
+| Standard WiFi 7 Indoor | 30-45W | 802.3bt Type 3 | 540W |
+| High-Density WiFi 7 | 45-60W | 802.3bt Type 3 | 720W |
+| WiFi 7 8x8 MIMO | 55-70W | 802.3bt Type 4 | 840W |
+| Outdoor WiFi 7 | 50-75W | 802.3bt Type 4 | 900W |
+
+**Warning:** Switches with only 802.3at (PoE+) are **not approved** for new deployments. WiFi 7 APs on PoE+ switches will experience disabled radios or boot failures.
+
+#### Multi-Gigabit Port Requirements
+
+WiFi 7 with 320 MHz channels can exceed 1 Gbps throughput. Switches must provide multi-gig uplinks for AP ports:
+
+| WiFi 7 Configuration | Minimum Backhaul | Recommended Backhaul |
+|---------------------|------------------|---------------------|
+| Standard (160 MHz) | 2.5 GbE | 5 GbE |
+| High-Density (320 MHz) | 5 GbE | 10 GbE |
+| 8x8 MIMO | 5 GbE | 10 GbE |
 
 ### Distribution Layer Switches
 
@@ -137,18 +155,20 @@ Required for main distribution facilities and data centers.
 
 | Feature | Adoption Rate | Source | Year |
 |---------|---------------|--------|------|
-| IEEE 802.3bt (PoE++) | 67% of new deployments | 650 Group Enterprise Survey | 2025 |
-| IEEE 802.1X port authentication | 84% of enterprise networks | EMA Network Management Report | 2024 |
-| SNMPv3 (vs v1/v2c) | 71% enterprise adoption | Ponemon Institute | 2024 |
-| 10GbE uplinks (access layer) | 89% of new installations | Dell'Oro Group | 2025 |
+| IEEE 802.3bt (PoE++) | 78% of new deployments | 650 Group Enterprise Survey | 2026 |
+| Multi-gig (2.5G/5G) ports | 62% of new access switches | Dell'Oro Group | 2026 |
+| IEEE 802.1X port authentication | 86% of enterprise networks | EMA Network Management Report | 2025 |
+| SNMPv3 (vs v1/v2c) | 74% enterprise adoption | Ponemon Institute | 2025 |
+| 10GbE uplinks (access layer) | 92% of new installations | Dell'Oro Group | 2026 |
 
 ### Municipal Deployment Patterns
 
 | Configuration | Municipal Adoption | Rationale |
 |---------------|-------------------|-----------|
 | 48-port access switches | 76% | Optimal density for office IDFs |
-| PoE+ minimum | 92% | VoIP and wireless AP support |
-| Stacking deployments | 64% | Simplified management |
+| PoE++ (802.3bt) minimum | 71% | WiFi 6E/7 and PTZ camera support |
+| Multi-gig AP ports | 54% | WiFi 7 backhaul requirements |
+| Stacking deployments | 68% | Simplified management |
 
 ## Cost-Performance Analysis
 
@@ -159,26 +179,38 @@ Required for main distribution facilities and data centers.
 - Lifecycle: 7 years
 - Power cost: $0.10/kWh
 - Support: 24x7x4 coverage
+- WiFi 7 AP deployment requiring 802.3bt PoE
 
-#### TCO Comparison: PoE+ vs PoE++ Switches
+#### TCO Comparison: Standard PoE++ vs Multi-Gig PoE++ Switches
 
-| Cost Category | PoE+ (802.3at) | PoE++ (802.3bt) | Difference |
+| Cost Category | PoE++ Standard | PoE++ Multi-Gig | Difference |
 |---------------|----------------|-----------------|------------|
-| Equipment cost (per switch) | $3,200 | $4,800 | +$1,600 |
-| 20-switch equipment total | $64,000 | $96,000 | +$32,000 |
-| Annual power (per switch) | $175 | $210 | +$35 |
-| Annual maintenance | $640 | $960 | +$320 |
-| **7-Year TCO (20 switches)** | **$100,800** | **$145,600** | **+$44,800** |
-| **Per-port 7-year cost** | **$105** | **$152** | **+$47** |
+| Equipment cost (per switch) | $4,800 | $6,200 | +$1,400 |
+| 20-switch equipment total | $96,000 | $124,000 | +$28,000 |
+| Annual power (per switch) | $210 | $240 | +$30 |
+| Annual maintenance | $960 | $1,240 | +$280 |
+| **7-Year TCO (20 switches)** | **$145,600** | **$186,800** | **+$41,200** |
+| **Per-port 7-year cost** | **$152** | **$195** | **+$43** |
 
 ```mermaid
-pie title 7-Year TCO Breakdown - PoE+ Access Switch
-    "Equipment" : 63
-    "Power" : 25
-    "Maintenance" : 12
+pie title 7-Year TCO Breakdown - Multi-Gig PoE++ Access Switch
+    "Equipment" : 66
+    "Power" : 20
+    "Maintenance" : 14
 ```
 
-**Recommendation:** Deploy PoE+ (IEEE 802.3at) switches as the standard. Specify PoE++ (IEEE 802.3bt) only where high-power devices (PTZ cameras, WiFi 6E APs) are planned. This targeted approach saves approximately $44,800 per 20-switch deployment while ensuring capability where needed.
+**Recommendation:** Deploy 802.3bt (PoE++) switches as the **mandatory standard** for all new installations. This is required to support WiFi 7 access points.
+
+For facilities with WiFi 7 high-density deployments (320 MHz channels), specify multi-gig capable switches to provide adequate backhaul. The additional cost is justified by:
+
+| Benefit | Value |
+|---------|-------|
+| WiFi 7 AP compatibility | Required—PoE+ cannot power WiFi 7 APs |
+| Avoids mid-cycle switch replacement | Saves $96,000+ per 20-switch refresh |
+| Multi-gig backhaul for WiFi 7 | Prevents AP throughput bottleneck |
+| Extended infrastructure lifecycle | Aligns with 7-year AP refresh cycle |
+
+**Note:** 802.3at (PoE+) switches are **no longer approved** for new deployments.
 
 ## Configuration Requirements
 
