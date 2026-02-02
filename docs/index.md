@@ -28,7 +28,7 @@ This documentation provides standardized specifications and procedures for deplo
 
 - **City IT Staff:** Reference these standards for all new deployments and upgrades
 - **Contractors/Vendors:** Ensure all proposals and installations comply with these standards
-- **Community Contributors:** See our [Contributing Guide](https://github.com/NewOrleansITI/network-standards/blob/main/CONTRIBUTING.md) to suggest improvements
+- **Community Contributors:** See our [Contributing Guide](https://github.com/NewOrleansITI/networkstandards/blob/main/CONTRIBUTING.md) to suggest improvements
 
 ## Version Information
 
