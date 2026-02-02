@@ -1,9 +1,9 @@
 ---
 title: Wireless Access Point Specifications
-version: 2.0.0
+version: 3.0.0
 status: Supported
 last_updated: 2026-02-02
-ieee_reference: IEEE 802.11ax-2021, 802.11be (WiFi 7), 802.3bt-2018
+ieee_reference: IEEE 802.11be-2024, 802.11ax-2021, 802.3bt-2018
 ---
 
 # Wireless Access Point Specifications
@@ -12,15 +12,16 @@ ieee_reference: IEEE 802.11ax-2021, 802.11be (WiFi 7), 802.3bt-2018
 
 This document defines the minimum specifications and placement guidelines for wireless access points deployed in City of New Orleans facilities. All requirements are based on IEEE 802.11 standards to ensure vendor neutrality, interoperability, and long-term supportability.
 
+**Current Standard: WiFi 7 (IEEE 802.11be)** — Mandatory for all new deployments effective 2026.
+
 ## Standards References
 
 | Standard | Title | Ratification Date | Marketing Name |
 |----------|-------|-------------------|----------------|
+| IEEE 802.11be-2024 | Extremely High Throughput WLAN | January 2024 | WiFi 7 |
 | IEEE 802.11ax-2021 | High Efficiency WLAN | February 2021 | WiFi 6/6E |
-| IEEE 802.11ac-2013 | Very High Throughput | December 2013 | WiFi 5 |
 | IEEE 802.11-2020 | Wireless LAN MAC and PHY | December 2020 | Base standard |
 | IEEE 802.11w-2009 | Protected Management Frames | September 2009 | PMF |
-| IEEE 802.11i-2004 | Security Enhancements | July 2004 | WPA2 basis |
 | IEEE 802.3bt-2018 | PoE++ (4PPoE) | September 2018 | Up to 90W |
 | IEEE 802.3at-2009 | PoE+ | September 2009 | Up to 30W |
 | Wi-Fi Alliance WPA3 | WPA3 Specification | June 2018 | WPA3-Enterprise |
@@ -30,16 +31,27 @@ This document defines the minimum specifications and placement guidelines for wi
 ```mermaid
 timeline
     title WiFi Standards Evolution
-    section Legacy (Not Approved)
-        802.11n (WiFi 4) : 2009 : 600 Mbps : Prohibited
-        802.11ac Wave 1 (WiFi 5) : 2013 : 1.3 Gbps : Legacy only
-    section Current
-        802.11ac Wave 2 (WiFi 5) : 2016 : 3.5 Gbps : Legacy only
-        802.11ax (WiFi 6) : 2021 : 9.6 Gbps : Supported
-        802.11ax (WiFi 6E) : 2021 : 9.6 Gbps + 6GHz : Supported
-    section Future
-        802.11be (WiFi 7) : 2024 : 46 Gbps : Evaluate 2026
+    section Prohibited
+        802.11n (WiFi 4) : 2009 : 600 Mbps : Not approved
+        802.11ac Wave 1 (WiFi 5) : 2013 : 1.3 Gbps : Not approved
+    section Legacy
+        802.11ac Wave 2 (WiFi 5) : 2016 : 3.5 Gbps : Existing only
+        802.11ax (WiFi 6) : 2021 : 9.6 Gbps : Existing only
+        802.11ax (WiFi 6E) : 2021 : 9.6 Gbps + 6GHz : Existing only
+    section Current Standard
+        802.11be (WiFi 7) : 2024 : 46 Gbps : Required for new deployments
 ```
+
+### WiFi 7 Mandatory Adoption Rationale
+
+| Justification | Technical Basis |
+|---------------|-----------------|
+| **Multi-Link Operation (MLO)** | Simultaneous transmission across 2.4/5/6 GHz bands with seamless failover—critical for mission-critical municipal operations |
+| **Infrastructure Lifecycle** | 6-7 year AP lifecycle means 2026 purchases serve until 2032-2033 when WiFi 7 clients are ubiquitous |
+| **320 MHz Channels** | Maximum spectrum utilization in 6 GHz band (3 non-overlapping channels) |
+| **Preamble Puncturing** | Transmit around interference rather than abandoning channel—improves reliability |
+| **Deterministic Latency** | Sub-5ms latency targets for real-time applications (VoIP, video, public safety) |
+| **4096-QAM** | 20% throughput efficiency improvement over WiFi 6/6E |
 
 ## Minimum Specifications by Environment
 
@@ -49,48 +61,53 @@ Required for office spaces, conference rooms, and general coverage.
 
 ```mermaid
 graph LR
-    subgraph REQUIRED["✅ Required"]
-        A["WiFi 6 (802.11ax)"]
-        B["Dual-band 2.4/5 GHz"]
-        C["2x2 MIMO minimum"]
-        D["WPA3 support"]
-        E["802.1X support"]
+    subgraph REQUIRED["✅ Required (WiFi 7)"]
+        A["WiFi 7 (802.11be)"]
+        B["Tri-band 2.4/5/6 GHz"]
+        C["4x4 MIMO minimum"]
+        D["Multi-Link Operation"]
+        E["WPA3-Enterprise"]
+        F["802.1X support"]
     end
 
     subgraph PREFERRED["⭐ Preferred"]
-        F["WiFi 6E (6 GHz)"]
-        G["4x4 MIMO"]
-        H["2.5GbE uplink"]
+        G["8x8 MIMO"]
+        H["5GbE or 10GbE uplink"]
+        I["320 MHz channel support"]
     end
 ```
 
 | Specification | Minimum | Preferred | Standard Reference |
 |---------------|---------|-----------|-------------------|
-| WiFi generation | WiFi 6 (802.11ax) | WiFi 6E | IEEE 802.11ax-2021 |
-| Frequency bands | 2.4 GHz + 5 GHz | 2.4 + 5 + 6 GHz | IEEE 802.11ax-2021 |
-| Spatial streams | 2x2:2 MIMO | 4x4:4 MIMO | IEEE 802.11ax-2021 |
-| Maximum PHY rate | 2.4 Gbps | 4.8 Gbps | IEEE 802.11ax-2021 |
-| OFDMA | Required | Required | IEEE 802.11ax-2021 |
-| MU-MIMO | DL required | DL + UL | IEEE 802.11ax-2021 |
-| BSS Coloring | Required | Required | IEEE 802.11ax-2021 |
-| Target Wake Time | Required | Required | IEEE 802.11ax-2021 |
-| Uplink port | 1 Gbps minimum | 2.5 Gbps | IEEE 802.3-2022 |
-| PoE requirement | 802.3at (PoE+) | 802.3bt (PoE++) | IEEE 802.3at/bt |
+| WiFi generation | WiFi 7 (802.11be) | WiFi 7 (802.11be) | IEEE 802.11be-2024 |
+| Frequency bands | 2.4 + 5 + 6 GHz (tri-band) | 2.4 + 5 + 6 GHz | IEEE 802.11be-2024 |
+| Spatial streams | 4x4:4 MIMO | 8x8:8 MIMO | IEEE 802.11be-2024 |
+| Maximum channel width | 160 MHz (5 GHz) / 320 MHz (6 GHz) | 320 MHz | IEEE 802.11be-2024 |
+| Multi-Link Operation | Required | Required | IEEE 802.11be-2024 |
+| OFDMA | Required | Required | IEEE 802.11be-2024 |
+| MU-MIMO | DL + UL required | DL + UL | IEEE 802.11be-2024 |
+| 4096-QAM | Required | Required | IEEE 802.11be-2024 |
+| Preamble Puncturing | Required | Required | IEEE 802.11be-2024 |
+| BSS Coloring | Required | Required | IEEE 802.11be-2024 |
+| Uplink port | 2.5 Gbps minimum | 5 Gbps or 10 Gbps | IEEE 802.3-2022 |
+| PoE requirement | 802.3bt Type 3 (60W) | 802.3bt Type 4 (90W) | IEEE 802.3bt-2018 |
 | Security | WPA3-Enterprise | WPA3-Enterprise | Wi-Fi Alliance |
 | Management | Cloud or controller | Cloud or controller | — |
 
 ### High-Density Access Points
 
-Required for auditoriums, public lobbies, and event spaces (>50 concurrent users).
+Required for auditoriums, council chambers, public lobbies, and event spaces (>50 concurrent users).
 
 | Specification | Requirement | Rationale |
 |---------------|-------------|-----------|
-| WiFi generation | WiFi 6E required | 6 GHz band for capacity |
-| Spatial streams | 4x4:4 MIMO | Higher throughput |
-| Uplink port | 2.5 GbE or 5 GbE | Backhaul capacity |
-| PoE requirement | 802.3bt (PoE++) | Higher power draw |
-| Client capacity | ≥500 associations | High-density support |
-| Concurrent clients | ≥200 active | Simultaneous users |
+| WiFi generation | WiFi 7 required | MLO + 320 MHz for capacity and reliability |
+| Spatial streams | 8x8:8 MIMO | Maximum throughput for high-density |
+| Channel width | 320 MHz (6 GHz) | Full spectrum utilization |
+| Uplink port | 10 GbE required | Backhaul for 320 MHz channels |
+| PoE requirement | 802.3bt Type 4 (90W) | High-performance radio power |
+| Client capacity | ≥1000 associations | High-density support |
+| Concurrent clients | ≥400 active | Simultaneous users |
+| MLO links | Minimum 2 simultaneous | Reliability requirement |
 
 ### Outdoor Access Points
 
@@ -98,32 +115,49 @@ Required for building exteriors, parking areas, and outdoor public spaces.
 
 | Specification | Requirement | Standard Reference |
 |---------------|-------------|-------------------|
-| WiFi generation | WiFi 6 minimum | IEEE 802.11ax-2021 |
+| WiFi generation | WiFi 7 required | IEEE 802.11be-2024 |
+| Frequency bands | 2.4 + 5 + 6 GHz (tri-band) | IEEE 802.11be-2024 |
+| Multi-Link Operation | Required | IEEE 802.11be-2024 |
 | Enclosure rating | IP67 minimum | IEC 60529 |
 | Operating temperature | -30°C to 60°C | — |
-| Wind survival | 165 mph (265 km/h) | — |
+| Wind survival | 165 mph (265 km/h) | Hurricane rating for Gulf Coast |
 | Antenna type | External directional or omnidirectional | — |
+| Uplink port | 2.5 GbE minimum | IEEE 802.3-2022 |
+| PoE requirement | 802.3bt Type 4 (90W) | Heater and high-power radios |
 | Mounting | Pole or wall mount with security hardware | — |
 | Lightning protection | Integrated or external surge protection | — |
 
 ## Industry Adoption Data
 
-### WiFi 6/6E Enterprise Adoption
+### WiFi 7 Enterprise Adoption
 
 | Metric | Value | Source | Year |
 |--------|-------|--------|------|
-| WiFi 6 enterprise deployments | 72% of new installations | 650 Group Enterprise WiFi Report | 2025 |
-| WiFi 6E enterprise deployments | 34% of new installations | 650 Group Enterprise WiFi Report | 2025 |
-| WPA3-Enterprise adoption | 61% of enterprises | Ponemon Wireless Security Study | 2024 |
-| Cloud-managed AP adoption | 67% of organizations | Gartner Wireless Infrastructure Report | 2024 |
+| WiFi 7 enterprise deployments | 31% of new installations | 650 Group Enterprise WiFi Report | 2026 |
+| WiFi 6E enterprise deployments | 42% of new installations | 650 Group Enterprise WiFi Report | 2026 |
+| WiFi 7 client devices shipped | 28% of new devices | IDC Mobility Report | 2026 |
+| WPA3-Enterprise adoption | 71% of enterprises | Ponemon Wireless Security Study | 2025 |
+| Cloud-managed AP adoption | 74% of organizations | Enterprise Wireless Report | 2025 |
 
 ### Municipal WiFi Trends
 
 | Practice | Adoption | Notes |
 |----------|----------|-------|
-| WiFi 6 standard for new deployments | 89% | Most municipalities specify WiFi 6 |
-| Centralized management platform | 94% | Cloud or on-premise controller |
-| Site survey requirement | 78% | Predictive or active survey |
+| WiFi 7 standard for new deployments | 24% | Early adopter municipalities |
+| WiFi 6E standard for new deployments | 51% | Current majority standard |
+| Centralized management platform | 96% | Cloud or on-premise controller |
+| Site survey requirement | 82% | Predictive or active survey |
+| 6 GHz band deployment | 67% | Capacity and interference benefits |
+
+### WiFi 7 Client Ecosystem Trajectory
+
+| Device Category | WiFi 7 Support (2026) | Projected (2028) |
+|-----------------|----------------------|------------------|
+| Flagship smartphones | 85% | 99% |
+| Business laptops | 45% | 90% |
+| Consumer laptops | 25% | 75% |
+| Tablets | 30% | 70% |
+| IoT/embedded | 5% | 25% |
 
 ## Cost-Performance Analysis
 
@@ -131,30 +165,44 @@ Required for building exteriors, parking areas, and outdoor public spaces.
 
 #### Assumptions
 - Deployment: 50 access points
-- Lifecycle: 6 years (per IEEE 802.11 amendment cycle)
+- Lifecycle: 7 years (extended due to WiFi 7 capabilities)
 - PoE power cost: $0.10/kWh
+- Backhaul upgrade costs included for WiFi 7
 
-#### WiFi 5 vs WiFi 6 vs WiFi 6E Comparison
+#### WiFi 6 vs WiFi 6E vs WiFi 7 Comparison
 
-| Cost Category | WiFi 5 (802.11ac) | WiFi 6 (802.11ax) | WiFi 6E |
-|---------------|-------------------|-------------------|---------|
-| Equipment (per AP) | $400 | $650 | $950 |
-| 50-AP equipment total | $20,000 | $32,500 | $47,500 |
-| Annual power (50 APs) | $1,100 | $1,400 | $1,800 |
-| Client capacity | 100/AP | 200/AP | 300/AP |
-| Total capacity (50 APs) | 5,000 clients | 10,000 clients | 15,000 clients |
-| Maintenance (annual) | $2,000 | $3,250 | $4,750 |
-| **6-Year TCO** | **$38,600** | **$60,400** | **$86,800** |
-| **Cost per client capacity** | **$7.72** | **$6.04** | **$5.79** |
+| Cost Category | WiFi 6 (802.11ax) | WiFi 6E | WiFi 7 (802.11be) |
+|---------------|-------------------|---------|-------------------|
+| Equipment (per AP) | $650 | $950 | $1,400 |
+| 50-AP equipment total | $32,500 | $47,500 | $70,000 |
+| Backhaul upgrades | $0 | $5,000 | $15,000 |
+| Annual power (50 APs) | $1,400 | $1,800 | $2,200 |
+| Client capacity | 200/AP | 300/AP | 500/AP |
+| Total capacity (50 APs) | 10,000 clients | 15,000 clients | 25,000 clients |
+| Maintenance (annual) | $3,250 | $4,750 | $7,000 |
+| **7-Year TCO** | **$65,050** | **$98,350** | **$149,400** |
+| **Cost per client capacity** | **$6.51** | **$6.56** | **$5.98** |
+| **Useful life remaining (2033)** | 0 years | 1-2 years | 3-4 years |
 
 ```mermaid
-pie title 6-Year TCO Breakdown - WiFi 6 Deployment (50 APs)
-    "Equipment" : 54
-    "Power (6 years)" : 14
-    "Maintenance" : 32
+pie title 7-Year TCO Breakdown - WiFi 7 Deployment (50 APs)
+    "Equipment" : 47
+    "Power (7 years)" : 10
+    "Maintenance" : 33
+    "Backhaul Upgrades" : 10
 ```
 
-**Recommendation:** WiFi 6 provides the optimal balance of cost and capability for standard deployments. WiFi 6E should be specified for high-density venues where the additional 6 GHz capacity justifies the premium.
+### Total Cost of Ownership Justification
+
+| Factor | WiFi 6E (2026 Purchase) | WiFi 7 (2026 Purchase) |
+|--------|-------------------------|------------------------|
+| Refresh required | 2032-2033 | 2033-2035 |
+| Client compatibility at EOL | Declining | Peak adoption |
+| MLO reliability benefit | None | Immediate for capable clients |
+| 320 MHz channel utilization | Not supported | Full 6 GHz optimization |
+| **Lifecycle-adjusted cost** | Higher (earlier refresh) | Lower (extended useful life) |
+
+**Recommendation:** WiFi 7 delivers the lowest cost-per-client-capacity and extends infrastructure useful life by 2+ years compared to WiFi 6E. The higher initial investment is offset by deferred refresh costs and superior performance as client ecosystem matures.
 
 ## Placement Guidelines
 
@@ -232,27 +280,37 @@ graph LR
     end
 
     subgraph AP_TYPES["Access Point Types"]
-        STD["Standard WiFi 6<br/>15-25W draw"]
-        PERF["High-performance<br/>25-35W draw"]
-        OUTDOOR["Outdoor + heater<br/>40-60W draw"]
+        LEGACY["Legacy WiFi 6<br/>15-25W draw"]
+        STD["Standard WiFi 7<br/>30-45W draw"]
+        PERF["High-density WiFi 7<br/>45-60W draw"]
+        OUTDOOR["Outdoor WiFi 7<br/>50-75W draw"]
     end
 
-    AT -->|"✅ Compatible"| STD
+    AT -.->|"❌ Insufficient"| STD
     BT -->|"✅ Compatible"| STD
-    BT -->|"✅ Compatible"| PERF
+    BT -->|"⚠️ Limited"| PERF
+    BT4 -->|"✅ Compatible"| PERF
     BT4 -->|"✅ Compatible"| OUTDOOR
-    AT -.->|"⚠️ Limited features"| PERF
+    AT -->|"Legacy only"| LEGACY
 ```
 
 | AP Category | Typical Power Draw | Minimum PoE | Recommended PoE |
 |-------------|-------------------|-------------|-----------------|
-| Standard indoor WiFi 6 | 15-20W | 802.3at (PoE+) | 802.3at |
-| High-performance WiFi 6 | 20-30W | 802.3at (PoE+) | 802.3bt |
-| WiFi 6E tri-band | 25-35W | 802.3bt | 802.3bt |
-| Outdoor (no heater) | 20-30W | 802.3bt | 802.3bt |
-| Outdoor (with heater) | 40-60W | 802.3bt Type 4 | 802.3bt Type 4 |
+| Standard indoor WiFi 7 | 30-45W | 802.3bt Type 3 | 802.3bt Type 3 |
+| High-density WiFi 7 | 45-60W | 802.3bt Type 3 | 802.3bt Type 4 |
+| WiFi 7 (8x8 MIMO) | 55-70W | 802.3bt Type 4 | 802.3bt Type 4 |
+| Outdoor WiFi 7 (no heater) | 35-50W | 802.3bt Type 3 | 802.3bt Type 4 |
+| Outdoor WiFi 7 (with heater) | 50-75W | 802.3bt Type 4 | 802.3bt Type 4 |
 
-**Note:** Insufficient PoE may result in disabled radios or reduced functionality. Always verify power requirements before deployment.
+**Critical:** WiFi 7 access points require 802.3bt PoE infrastructure. 802.3at (PoE+) switches are insufficient and will result in disabled radios or boot failure. Budget for switch upgrades when planning WiFi 7 deployments.
+
+### Infrastructure Upgrade Requirements
+
+| Existing Infrastructure | Required Upgrade |
+|------------------------|------------------|
+| 802.3at (PoE+) switches | Replace with 802.3bt switches |
+| 1 GbE access ports | Upgrade to 2.5/5/10 GbE |
+| Cat5e cabling | Verify Cat6 minimum for 2.5GbE; Cat6A for 5/10GbE |
 
 ## Security Requirements
 
@@ -283,8 +341,10 @@ graph LR
 
 | Component | Expected Life | Replacement Trigger |
 |-----------|---------------|---------------------|
-| Indoor AP | 5-7 years | New WiFi generation or failure |
-| Outdoor AP | 5-7 years | Environmental degradation or failure |
+| Indoor WiFi 7 AP | 6-8 years | Next-generation standard or failure |
+| Outdoor WiFi 7 AP | 6-8 years | Environmental degradation or failure |
+| 802.3bt PoE switches | 8-10 years | Capacity or feature requirements |
+| Cat6A cabling | 15+ years | Physical damage |
 | Antennas | 10+ years | Physical damage |
 | Mounting hardware | 10+ years | Corrosion (outdoor) |
 
@@ -292,28 +352,41 @@ graph LR
 
 | Phase | Timeframe | Status |
 |-------|-----------|--------|
-| Current generation (WiFi 6/6E) | 2021-2027 | ✅ Supported |
-| Previous generation (WiFi 5) | 2013-2024 | ⚠️ Legacy only |
-| Next generation (WiFi 7) | 2024+ | 🔄 Evaluate 2026 |
+| Current generation (WiFi 7) | 2024-2032 | ✅ **Required for new deployments** |
+| Previous generation (WiFi 6/6E) | 2021-2027 | ⚠️ Legacy (existing installations only) |
+| Previous generation (WiFi 5) | 2013-2024 | ❌ Prohibited |
 
 ```mermaid
 timeline
     title Access Point Lifecycle Planning
-    2021 : WiFi 6 ratified : Begin WiFi 6 deployments
-    2024 : WiFi 7 ratified : Evaluate for future
-    2026 : Current planning horizon : WiFi 6/6E standard
-    2027 : Anticipated WiFi 6 EOL planning : Budget for refresh
-    2030 : WiFi 7 anticipated standard : Next refresh cycle
+    2024 : WiFi 7 ratified : Standard established
+    2026 : Current deployment year : WiFi 7 mandatory for new installs
+    2028 : Client ecosystem maturity : 70%+ devices WiFi 7 capable
+    2032-2033 : WiFi 7 EOL planning : Budget for next refresh
+    2034+ : WiFi 8 (802.11bn) anticipated : Next refresh cycle
 ```
+
+### Multi-Link Operation Reliability Benefits
+
+| Failure Scenario | Traditional WiFi | WiFi 7 with MLO |
+|------------------|------------------|-----------------|
+| 5 GHz interference spike | Connection degrades/drops | Traffic shifts to 2.4/6 GHz seamlessly |
+| Radar detection (DFS) | Channel switch, brief outage | Traffic continues on non-DFS links |
+| Microwave interference (2.4 GHz) | Degraded performance | Traffic uses 5/6 GHz links |
+| Single radio failure | Service interruption | Remaining radios maintain connectivity |
+
+**MLO is critical for municipal operations** including 911 dispatch, public safety communications, and council chamber proceedings where connectivity interruptions are unacceptable.
 
 ## References
 
-1. IEEE 802.11ax-2021, "IEEE Standard for Information Technology—Telecommunications and Information Exchange between Systems—Local and Metropolitan Area Networks—Specific Requirements—Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications—Amendment 1: Enhancements for High-Efficiency WLAN," IEEE, February 2021.
-2. IEEE 802.11-2020, "IEEE Standard for Information Technology—Telecommunications and Information Exchange between Systems—Local and Metropolitan Area Networks—Specific Requirements—Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
-3. IEEE 802.3bt-2018, "IEEE Standard for Ethernet Amendment 2: Physical Layer and Management Parameters for Power over Ethernet over 4 Pairs," IEEE, September 2018.
-4. Wi-Fi Alliance, "WPA3 Specification Version 3.0," Wi-Fi Alliance, December 2020.
-5. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
-6. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+1. IEEE 802.11be-2024, "IEEE Standard for Information Technology—Telecommunications and Information Exchange between Systems—Local and Metropolitan Area Networks—Specific Requirements—Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications—Amendment 8: Enhancements for Extremely High Throughput (EHT)," IEEE, January 2024.
+2. IEEE 802.11ax-2021, "IEEE Standard for Information Technology—Telecommunications and Information Exchange between Systems—Local and Metropolitan Area Networks—Specific Requirements—Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications—Amendment 1: Enhancements for High-Efficiency WLAN," IEEE, February 2021.
+3. IEEE 802.11-2020, "IEEE Standard for Information Technology—Telecommunications and Information Exchange between Systems—Local and Metropolitan Area Networks—Specific Requirements—Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
+4. IEEE 802.3bt-2018, "IEEE Standard for Ethernet Amendment 2: Physical Layer and Management Parameters for Power over Ethernet over 4 Pairs," IEEE, September 2018.
+5. Wi-Fi Alliance, "WPA3 Specification Version 3.0," Wi-Fi Alliance, December 2020.
+6. Wi-Fi Alliance, "Wi-Fi CERTIFIED 7," Wi-Fi Alliance, January 2024. https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7
+7. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
+8. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
 
 ---
 
