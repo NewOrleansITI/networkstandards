@@ -1,10 +1,11 @@
 ---
 title: Structured Cabling Standards
-version: 2.0.0
+version: 3.0.0
 status: Supported
 last_updated: 2026-02-02
 tia_reference: TIA-568.2-D, TIA-569-E, TIA-606-C
 iso_reference: ISO/IEC 11801-1:2017
+ieee_reference: IEEE 802.3bz-2016
 ---
 
 # Structured Cabling Standards
@@ -48,11 +49,23 @@ graph LR
     PROHIBITED -->|"Replace"| CAT6A
 ```
 
-| Category | Standard | Max Frequency | Max Distance | 10GBASE-T Support | Status |
-|----------|----------|---------------|--------------|-------------------|--------|
-| Cat6A | TIA-568.2-D | 500 MHz | 100 meters | Full (100m) | **Supported** |
-| Cat6 | TIA-568.2-D | 250 MHz | 100 meters | Limited (55m) | Legacy |
-| Cat5e | — | 100 MHz | 100 meters | No | Prohibited |
+| Category | Standard | Max Frequency | Max Distance | Multi-Gig/10GBASE-T Support | Status |
+|----------|----------|---------------|--------------|----------------------------|--------|
+| Cat6A | TIA-568.2-D | 500 MHz | 100 meters | 2.5G/5G/10G full (100m) | **Required** |
+| Cat6 | TIA-568.2-D | 250 MHz | 100 meters | 2.5G/5G limited (55m), 10G (55m) | Legacy |
+| Cat5e | — | 100 MHz | 100 meters | No multi-gig support | Prohibited |
+
+### WiFi 7 Backhaul Requirements
+
+**Critical:** WiFi 7 access points require multi-gigabit backhaul (2.5 Gbps minimum) to avoid throughput bottlenecks. Cat6A is **mandatory** for all new AP drops.
+
+| WiFi 7 Configuration | Required Backhaul | Cable Requirement |
+|---------------------|-------------------|-------------------|
+| Standard (160 MHz) | 2.5 GbE | Cat6A (100m) or Cat6 (55m max) |
+| High-Density (320 MHz) | 5 GbE | Cat6A required |
+| 8x8 MIMO | 10 GbE | Cat6A required |
+
+**Note:** Cat6 is not approved for new AP installations due to distance limitations for multi-gig speeds.
 
 ### Industry Adoption
 
@@ -92,7 +105,7 @@ pie title 15-Year TCO Breakdown - Cat6A (per run)
     "Installation labor" : 90
 ```
 
-**Recommendation:** Cat6A provides 40% lower 15-year TCO due to extended lifecycle and elimination of mid-cycle replacement. The 10 Gbps capability ensures compatibility with evolving standards through 2040+.
+**Recommendation:** Cat6A provides 40% lower 15-year TCO due to extended lifecycle and elimination of mid-cycle replacement. The multi-gig (2.5G/5G/10G) capability is **required** for WiFi 7 access point backhaul and ensures compatibility with evolving standards through 2040+.
 
 ### Backbone Cabling (Between Telecommunications Rooms)
 

@@ -1,9 +1,9 @@
 ---
 title: SSID and Wireless Security Standards
-version: 2.0.0
+version: 3.0.0
 status: Supported
 last_updated: 2026-02-02
-ieee_reference: IEEE 802.11i, 802.11w, 802.1X-2020
+ieee_reference: IEEE 802.11be-2024, 802.11i, 802.11w, 802.1X-2020
 wpa_reference: WPA3-Enterprise (Wi-Fi Alliance)
 ---
 
@@ -97,11 +97,12 @@ graph LR
 | PMF (802.11w) | Required | IEEE 802.11w-2009 |
 | RADIUS server | Primary + Secondary | RFC 2865 |
 | VLAN assignment | 20 (CORP) | IEEE 802.1Q |
-| Bands | 5 GHz preferred, 2.4 GHz available | — |
+| Bands | **6 GHz preferred**, 5 GHz, 2.4 GHz available | IEEE 802.11be-2024 |
+| Multi-Link Operation | Enabled (WiFi 7 clients) | IEEE 802.11be-2024 |
 | Broadcast SSID | Hidden | Security best practice |
 | Client isolation | Disabled | Inter-client communication allowed |
 | Fast roaming | 802.11r (FT) enabled | IEEE 802.11r-2008 |
-| Band steering | Enabled (prefer 5 GHz) | — |
+| Band steering | Enabled (prefer 6 GHz → 5 GHz → 2.4 GHz) | — |
 
 #### Authentication Flow
 
@@ -220,10 +221,13 @@ flowchart TD
 | PMF (802.11w) | Required | Management frame protection |
 | Additional | MAC allowlist | Defense in depth |
 | VLAN assignment | 50 (SECURE) | Restricted network |
-| Bands | 5 GHz only | Performance and security |
+| Bands | **6 GHz preferred**, 5 GHz fallback | Performance, security, less interference |
+| Multi-Link Operation | Enabled (WiFi 7 clients) | Reliability for critical systems |
 | Broadcast SSID | Hidden | Reduce visibility |
 | Client isolation | Disabled | Authorized inter-client |
 | Certificate requirement | User + Device | Dual certificate validation |
+
+**WiFi 7 MLO Benefit:** Multi-Link Operation ensures seamless connectivity for secure systems by maintaining simultaneous links across bands—if one band experiences interference, traffic continues on alternate links without session interruption.
 
 ---
 
@@ -233,19 +237,21 @@ flowchart TD
 
 | Security Feature | Adoption Rate | Source | Year |
 |------------------|---------------|--------|------|
-| WPA3-Enterprise | 61% of enterprises | Ponemon Wireless Security Study | 2024 |
-| 802.1X authentication | 84% of enterprise WiFi | EMA Network Management Report | 2024 |
-| Certificate-based auth (EAP-TLS) | 52% of 802.1X deployments | Gartner Identity Report | 2024 |
-| Guest network isolation | 94% of organizations | Gartner Network Security Survey | 2023 |
-| PMF (802.11w) enabled | 67% of enterprise APs | Wi-Fi Alliance Survey | 2024 |
+| WPA3-Enterprise | 71% of enterprises | Ponemon Wireless Security Study | 2025 |
+| 802.1X authentication | 86% of enterprise WiFi | EMA Network Management Report | 2025 |
+| Certificate-based auth (EAP-TLS) | 58% of 802.1X deployments | Gartner Identity Report | 2025 |
+| Guest network isolation | 96% of organizations | Gartner Network Security Survey | 2025 |
+| PMF (802.11w) enabled | 78% of enterprise APs | Wi-Fi Alliance Survey | 2025 |
+| 6 GHz band enabled | 67% of WiFi 6E/7 deployments | 650 Group | 2026 |
 
 ### Municipal Wireless Security
 
 | Practice | Adoption | Notes |
 |----------|----------|-------|
-| Separate guest SSID | 98% | Nearly universal |
-| IoT network isolation | 76% | Growing requirement |
-| WPA3 deployment | 54% | Accelerating adoption |
+| Separate guest SSID | 99% | Universal requirement |
+| IoT network isolation | 82% | Growing requirement |
+| WPA3 deployment | 71% | Accelerating with WiFi 7 |
+| 6 GHz (WiFi 7) deployment | 31% | Early adopters, growing rapidly |
 
 ## Security Requirements
 
@@ -309,14 +315,29 @@ graph LR
         CH157["Channel 157"]
         CH161["Channel 161"]
     end
+
+    subgraph BAND_6["6 GHz Band (WiFi 7 - Preferred)"]
+        CH6_1["1-93 (20 MHz)"]
+        CH6_160["3 × 160 MHz channels"]
+        CH6_320["3 × 320 MHz channels"]
+    end
 ```
 
 | Band | Channel Width | Recommended Channels |
 |------|---------------|---------------------|
 | 2.4 GHz | 20 MHz only | 1, 6, 11 (non-overlapping) |
-| 5 GHz (non-DFS) | 40 MHz | 36/40, 44/48, 149/153, 157/161 |
-| 5 GHz (DFS) | 40 MHz | Use if non-DFS exhausted |
-| 6 GHz (WiFi 6E) | 80 MHz | Per site survey |
+| 5 GHz (non-DFS) | 40-80 MHz | 36/40, 44/48, 149/153, 157/161 |
+| 5 GHz (DFS) | 40-80 MHz | Use if non-DFS exhausted |
+| 6 GHz (WiFi 7) | **160-320 MHz** | 3 non-overlapping 320 MHz channels |
+
+### WiFi 7 (802.11be) Channel Considerations
+
+| Feature | Configuration | Benefit |
+|---------|---------------|---------|
+| 320 MHz channels | Enable in 6 GHz | Maximum throughput for high-density |
+| Preamble puncturing | Enable | Use spectrum around interference |
+| MLO link pairs | 5 GHz + 6 GHz preferred | Reliability with performance |
+| Band preference | 6 GHz > 5 GHz > 2.4 GHz | Maximize WiFi 7 capabilities |
 
 ### Power Settings
 
