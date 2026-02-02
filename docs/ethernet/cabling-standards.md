@@ -3,7 +3,7 @@ title: Structured Cabling Standards
 version: 3.0.0
 status: Supported
 last_updated: 2026-02-02
-tia_reference: TIA-568.2-D, TIA-569-E, TIA-606-C
+tia_reference: TIA-568.2-D, TIA-569-E, TIA-606-C, TIA-607-D
 iso_reference: ISO/IEC 11801-1:2017
 ieee_reference: IEEE 802.3bz-2016
 ---
@@ -24,6 +24,9 @@ This document defines the structured cabling standards for all wired network inf
 | TIA-606-C | Administration Standard for Telecommunications Infrastructure | February 2017 | Labeling and documentation |
 | ISO/IEC 11801-1 | Generic Cabling - Part 1: General Requirements | November 2017 | International cabling standard |
 | ANSI/NECA/BICSI 568 | Installing Commercial Building Telecommunications Cabling | 2016 | Installation best practices |
+| TIA-607-D | Generic Telecommunications Bonding and Grounding | August 2019 | Grounding infrastructure |
+| NFPA 780 | Standard for Installation of Lightning Protection Systems | 2023 | Lightning protection (public safety) |
+| IEC 60529 | Degrees of Protection Provided by Enclosures (IP Code) | 2013 | Outdoor enclosure ratings |
 
 ## Approved Cable Types
 
@@ -245,6 +248,109 @@ Per TIA-1152-A Field Testing Standard:
 - Failed runs must be re-terminated and re-tested
 - Permanent link testing preferred; channel testing acceptable
 
+## Outdoor Installation Requirements
+
+This section defines requirements for low-voltage cabling pathways serving outdoor-mounted devices including wireless access points, IP cameras, access control devices, intercoms, emergency call stations, and public address speakers.
+
+See [Outdoor Cabling Design](../plans/2026-02-02-outdoor-cabling-design.md) for complete specifications including inspection checklists and installation details.
+
+### Installation Classifications
+
+| Classification | Definition | Pathway Requirement |
+|----------------|------------|---------------------|
+| **Permanent** | All outdoor installations not meeting temporary criteria | Conduit with hardened security standard |
+| **Temporary** | Event-based deployments only (festivals, construction, seasonal) | IP67 weatherproof jack enclosure; 6-month maximum |
+
+**Contractor Requirement:** All permanent outdoor installations must be performed by or inspected by a licensed low-voltage contractor who certifies NEC compliance.
+
+### Conduit Requirements (Permanent Installations)
+
+| Application | Required Conduit | NEC Article |
+|-------------|------------------|-------------|
+| Exposed runs below 12 ft, public areas | Rigid Metal Conduit (RMC) or IMC | 344 / 342 |
+| Exposed runs at/above 12 ft, pole mounts | Schedule 80 PVC with metal transition at device | 352 |
+| Protected runs (inside walls to penetration) | EMT with compression fittings | 358 |
+| Direct burial segments | Schedule 80 PVC or RMC (18" / 6" depth) | 352 / 344 |
+
+**Fitting Requirements:**
+- Metallic conduit: Compression or threaded only; set-screw fittings prohibited outdoors
+- PVC conduit: Solvent-welded or gasketed mechanical fittings
+- All PVC runs require metal transition (LFMC) at device connection
+
+### Wall Penetration Sealing
+
+| Requirement | Specification |
+|-------------|---------------|
+| Seal type | Modular mechanical seal (Link-Seal, Thunderline, or equivalent) |
+| Water resistance | Watertight to 15 psi minimum |
+| Fire rating | Match wall assembly rating; firestop at interior face |
+| Drip loop | Required below all penetrations |
+
+**Prohibited:** Silicone caulk as sole seal, spray foam, unsealed sleeves with putty.
+
+### Surge Protection and Grounding
+
+Outdoor cable runs require surge protection at **both ends**:
+
+| Location | Device Type | Specification |
+|----------|-------------|---------------|
+| Device end (outdoor) | Inline PoE surge protector | IEEE 802.3bt; Cat6A; IP66+ if exposed |
+| Panel end (indoor) | Rack-mount or inline surge protector | IEEE 802.3bt; Cat6A; bonded to TGB |
+
+**Surge Protector Minimums:** ≤50V clamping, ≥10 kA capacity, ≤1ns response, 10 Gbps data rate.
+
+**Grounding:** Per NEC Article 250 and TIA-607-D. Public safety facilities (police, fire, 911) require NFPA 780 lightning protection system integration.
+
+### Outdoor Cable Requirements
+
+| Requirement | Specification |
+|-------------|---------------|
+| Cable category | Cat6A minimum |
+| Jacket rating | CMX, CMXT, or direct burial (outdoor-rated required even inside conduit) |
+| Temperature rating | -40°C to +75°C minimum |
+| Water resistance | Gel-filled or dry water-blocking tape |
+
+**Prohibited for outdoor runs:** CMR (riser), CMP (plenum), standard CM jackets.
+
+### Temporary Installation Requirements
+
+| Requirement | Specification |
+|-------------|---------------|
+| Enclosure rating | IP67 minimum |
+| Maximum duration | 6 months; convert to permanent conduit if extended |
+| Surge protection | Required at both ends (same as permanent) |
+| Wall penetrations | Must use proper seal system; no temporary methods |
+
+### Physical Security
+
+| Requirement | Specification |
+|-------------|---------------|
+| Security fasteners | Torx or hex-socket screws on all accessible junction boxes and enclosures |
+| Mounting height | Document height; RMC/IMC required below 12 ft in public areas |
+| Conduit routing | Route to minimize accessibility where architecturally feasible |
+| Weatherproof fittings | Wet-location rated hubs at all device entries |
+
+### Documentation Requirements
+
+All permanent outdoor installations require:
+
+- Photo documentation (pre-installation, pathway, penetrations, surge protectors, grounding, final)
+- Signed inspection checklist
+- Cable test results
+- As-built drawings updated with pathway routing
+- Contractor code compliance certification
+
+### Code References
+
+| Code/Standard | Application |
+|---------------|-------------|
+| NEC Articles 725, 800, 820 | Low-voltage circuit classifications |
+| NEC Articles 342, 344, 352, 358 | Conduit types and installation |
+| NEC Article 250 | Grounding and bonding |
+| TIA-607-D | Telecommunications bonding and grounding |
+| NFPA 780 | Lightning protection (public safety facilities) |
+| IEC 60529 | IP enclosure ratings |
+
 ## Security Considerations
 
 ### Physical Security (per NIST SP 800-53)
@@ -299,10 +405,14 @@ timeline
 2. TIA-568.3-D, "Optical Fiber Cabling and Components Standard," Telecommunications Industry Association, June 2016.
 3. TIA-569-E, "Telecommunications Pathways and Spaces," Telecommunications Industry Association, June 2019.
 4. TIA-606-C, "Administration Standard for Telecommunications Infrastructure," Telecommunications Industry Association, February 2017.
-5. TIA-1152-A, "Requirements for Field Test Instruments and Measurements for Balanced Twisted-Pair Cabling," Telecommunications Industry Association, 2016.
-6. ISO/IEC 11801-1:2017, "Information technology — Generic cabling for customer premises — Part 1: General requirements," International Organization for Standardization, November 2017.
-7. BICSI TDMM, 14th Edition, "Telecommunications Distribution Methods Manual," BICSI, 2018.
-8. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," National Institute of Standards and Technology, September 2020.
+5. TIA-607-D, "Generic Telecommunications Bonding and Grounding (Earthing) for Customer Premises," Telecommunications Industry Association, August 2019.
+6. TIA-1152-A, "Requirements for Field Test Instruments and Measurements for Balanced Twisted-Pair Cabling," Telecommunications Industry Association, 2016.
+7. ISO/IEC 11801-1:2017, "Information technology — Generic cabling for customer premises — Part 1: General requirements," International Organization for Standardization, November 2017.
+8. BICSI TDMM, 14th Edition, "Telecommunications Distribution Methods Manual," BICSI, 2018.
+9. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," National Institute of Standards and Technology, September 2020.
+10. NFPA 780, "Standard for the Installation of Lightning Protection Systems," National Fire Protection Association, 2023.
+11. IEC 60529, "Degrees of Protection Provided by Enclosures (IP Code)," International Electrotechnical Commission, 2013.
+12. NFPA 70 (NEC), "National Electrical Code," National Fire Protection Association, 2023.
 
 ---
 
