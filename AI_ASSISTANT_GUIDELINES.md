@@ -1,5 +1,5 @@
-# CLAUDE.md
-## AI Assistant Guidelines for Network Standards Repository
+# AI Assistant Guidelines
+## Guidelines for Network Standards Repository
 
 **Version:** 1.0.0  
 **Last Updated:** February 2, 2026  

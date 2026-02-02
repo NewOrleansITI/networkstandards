@@ -57,8 +57,7 @@ RFC: <!-- RFC number if applicable -->
 
 **Reviewer Notes:**
 - Standards changes require 30-day minimum review period
-- Verify compliance with CLAUDE.md rules
 - Check for vendor neutrality violations
-- Confirm all claims are cited
+- Confirm all claims are cited with sources
 
 *Thank you for contributing to the City of New Orleans Network Standards!*
