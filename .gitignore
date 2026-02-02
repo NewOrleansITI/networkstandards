@@ -1,1 +1,4 @@
 files.zip
+
+# Claude Code local files
+.claude/
