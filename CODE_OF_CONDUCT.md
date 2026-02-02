@@ -2,16 +2,31 @@
 
 ## City of New Orleans Network Standards Repository
 
-**Version:** 1.0.0  
+**Version:** 1.1.0
 **Effective Date:** February 2, 2026
 
 ---
 
 ## Our Commitment
 
-The City of New Orleans Network Standards Repository is committed to providing a professional, respectful, and harassment-free environment for everyone participating in our community. We expect all participants to uphold the highest standards of professional conduct.
+Welcome to the City of New Orleans Network Standards Repository! We're building something valuable together—vendor-neutral documentation that helps our city's infrastructure serve everyone better.
+
+We believe the best communities are built on mutual respect and a shared commitment to learning. Whether you're a seasoned network engineer or just getting started, you belong here.
 
 This Code of Conduct applies to all repository spaces, including issues, pull requests, discussions, and any other communication channels associated with this project.
+
+---
+
+## Community First Philosophy
+
+**We lead with education, not punishment.** Most issues arise from misunderstandings, not malice.
+
+- **Assume good intent** — When someone makes a mistake, start with a friendly conversation
+- **Coach first** — Private feedback is almost always more effective than public correction
+- **Build people up** — Help contributors learn and grow, even when addressing problems
+- **Reserve bans for bad actors** — Permanent exclusion is for those who genuinely want to cause harm
+
+The vast majority of contributors will never need anything beyond a friendly nudge. That's exactly how it should be.
 
 ---
 
@@ -98,15 +113,15 @@ graph LR
 
 ### Serious Violations
 
-| Violation | Description | First Offense |
-|-----------|-------------|---------------|
-| **Profanity** | Use of vulgar, obscene, or offensive language | 7-day suspension |
-| **Harassment** | Repeated unwelcome contact or attention | 7-day suspension |
-| **Personal attacks** | Insulting or demeaning individuals | 7-day suspension |
-| **Discrimination** | Bias based on protected characteristics | Permanent ban |
-| **Trolling** | Deliberately inflammatory or disruptive posts | Warning → Ban |
-| **Spam** | Unsolicited promotional content | Immediate removal |
-| **Vendor promotion** | Marketing specific products or services | Warning → Ban |
+| Violation | Description | First Offense | Repeat |
+|-----------|-------------|---------------|--------|
+| **Profanity** | Use of vulgar, obscene, or offensive language | Warning | Suspension |
+| **Harassment** | Repeated unwelcome contact or attention | Warning | Suspension |
+| **Personal attacks** | Insulting or demeaning individuals | Warning | Suspension |
+| **Discrimination** | Bias based on protected characteristics | Permanent ban | — |
+| **Trolling** | Deliberately inflammatory or disruptive posts | Warning | Suspension |
+| **Spam** | Unsolicited promotional content | Removal | Warning |
+| **Vendor promotion** | Marketing specific products or services | Warning | Suspension |
 
 ### Moderate Violations
 
@@ -148,25 +163,24 @@ This Code of Conduct applies to:
 ```mermaid
 flowchart TD
     A[Violation Reported/Observed] --> B{Severity?}
-    
+
     B -->|Zero Tolerance| C[Immediate Permanent Ban]
-    B -->|Serious| D[7-Day Suspension]
-    B -->|Moderate| E[Warning Issued]
-    B -->|Minor| F[Private Coaching]
-    
-    D --> G{Second Offense?}
-    G -->|Yes| C
-    G -->|No| H[Return After Suspension]
-    
-    E --> I{Repeated?}
-    I -->|Yes| D
-    I -->|No| J[Continue Participation]
-    
-    F --> K{Pattern?}
-    K -->|Yes| E
-    K -->|No| J
-    
-    C --> L[Account Blocked<br/>Contributions Removed]
+    B -->|Serious/Moderate| D[Private Coaching]
+    B -->|Minor| D
+
+    D --> E{Resolved?}
+    E -->|Yes| F[Continue Participation]
+    E -->|Pattern continues| G[Formal Warning]
+
+    G --> H{Behavior improves?}
+    H -->|Yes| F
+    H -->|No| I[Suspension 7-30 days]
+
+    I --> J{Returns and repeats?}
+    J -->|No| F
+    J -->|Yes| C
+
+    C --> K[Account Blocked<br/>No Appeal for Zero Tolerance]
 ```
 
 ### Enforcement Actions
@@ -175,7 +189,7 @@ flowchart TD
 |-------|--------|----------|--------|
 | **Coaching** | Private feedback on behavior | N/A | N/A |
 | **Warning** | Public or private notice | Documented | N/A |
-| **Suspension** | Temporary participation ban | 7-30 days | After 48 hours |
+| **Suspension** | Temporary participation ban | 7-30 days | N/A |
 | **Permanent Ban** | Permanent exclusion | Indefinite | After 6 months |
 
 ### Reporting Violations
@@ -203,14 +217,16 @@ To report a Code of Conduct violation:
 
 ### Appeal Process
 
-Participants who have been sanctioned may appeal by:
+Only permanent bans may be appealed. Participants who have been permanently banned may request reconsideration by:
 
-1. Waiting the required period (48 hours for suspensions, 6 months for bans)
+1. Waiting at least 6 months from the date of the ban
 2. Emailing networkingteam@nola.gov with:
-   - The original violation
-   - Why you believe the decision was incorrect
-   - What steps you've taken to prevent recurrence
+   - Acknowledgment of the original violation
+   - What you've learned from the experience
+   - Why you believe you should be allowed to return
 3. Awaiting review by the maintainer (within 14 days)
+
+**Note:** Zero tolerance violations (threats, harassment, doxxing) result in permanent bans with no appeal option.
 
 Appeals are reviewed by the maintainer with input from the reviewer team. Decisions are final.
 
@@ -254,6 +270,7 @@ This Code of Conduct is adapted from:
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 1.1.0 | 2026-02-02 | Lighter tone; education-first approach; graduated responses for serious violations; appeals limited to permanent bans only |
 | 1.0.0 | 2026-02-02 | Initial release |
 
 ---
