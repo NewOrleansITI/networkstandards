@@ -39,6 +39,14 @@ This documentation provides standardized specifications and procedures for deplo
 | [IP Addressing Standards](layer3/ip-addressing.md) | IP allocation, subnetting, DHCP, and IPAM standards |
 | [Routing Standards](layer3/routing-standards.md) | OSPF, BGP, FHRP, and route management |
 
+### Network Services
+
+| Document | Description |
+|----------|-------------|
+| [DNS Standards](services/dns-standards.md) | DNS architecture, DNSSEC, zone management, and security |
+| [DHCP Standards](services/dhcp-standards.md) | DHCP server configuration, failover, scopes, and IPAM integration |
+| [NTP Standards](services/ntp-standards.md) | Time synchronization hierarchy, NTS security, and accuracy requirements |
+
 ## How to Use This Documentation
 
 - **City IT Staff:** Reference these standards for all new deployments and upgrades
