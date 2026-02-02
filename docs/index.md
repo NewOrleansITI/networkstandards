@@ -32,6 +32,13 @@ This documentation provides standardized specifications and procedures for deplo
 | [WPA3-Enterprise Standards](security/wpa3-enterprise.md) | WPA3-Enterprise wireless security requirements |
 | [Network Segmentation](security/network-segmentation.md) | VLAN architecture, security zones, and microsegmentation |
 
+### Layer 3 (Network)
+
+| Document | Description |
+|----------|-------------|
+| [IP Addressing Standards](layer3/ip-addressing.md) | IP allocation, subnetting, DHCP, and IPAM standards |
+| [Routing Standards](layer3/routing-standards.md) | OSPF, BGP, FHRP, and route management |
+
 ## How to Use This Documentation
 
 - **City IT Staff:** Reference these standards for all new deployments and upgrades

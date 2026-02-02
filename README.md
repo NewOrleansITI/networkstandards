@@ -42,6 +42,13 @@ All standards are derived exclusively from public governing bodies (IEEE, ANSI, 
 | [WPA3-Enterprise Standards](docs/security/wpa3-enterprise.md) | WPA3-Enterprise wireless security requirements | Supported |
 | [Network Segmentation](docs/security/network-segmentation.md) | VLAN architecture, security zones, microsegmentation | Supported |
 
+### Layer 3 (Network)
+
+| Document | Description | Status |
+|----------|-------------|--------|
+| [IP Addressing Standards](docs/layer3/ip-addressing.md) | IP allocation, subnetting, DHCP, IPAM | Supported |
+| [Routing Standards](docs/layer3/routing-standards.md) | OSPF, BGP, FHRP, route management | Supported |
+
 ## Standards Framework
 
 All documentation references standards from recognized public governing bodies only:
@@ -148,10 +155,10 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 - [x] Switching Standards (Specifications, Port Configurations)
 - [x] Wireless Standards (AP Specs, SSID, Deployment)
 - [x] Security Standards (802.1X, WPA3-Enterprise, Segmentation)
+- [x] Layer 3 Standards (IP Addressing, Routing, FHRP)
 
 ### Planned
 
-- [ ] Layer 3 Standards (Routing, IP Addressing)
 - [ ] Network Services (DNS, DHCP, NTP)
 - [ ] QoS and Traffic Management
 - [ ] Certificate Management and PKI
