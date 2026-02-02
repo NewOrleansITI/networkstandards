@@ -161,7 +161,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 | Resource | Description |
 |----------|-------------|
 | [Documentation Site](https://neworleansiti.github.io/networkstandards/) | Web-friendly documentation |
-| [Skills & MCP Guide](SKILLS_AND_MCP_RECOMMENDATIONS.md) | Team skills assessment and AI tooling recommendations |
 | [RFC Template](rfcs/RFC-TEMPLATE.md) | Template for standards proposals |
 
 ## Roadmap
