@@ -18,6 +18,7 @@ All standards are derived exclusively from public governing bodies (IEEE, ANSI, 
 
 **Current Key Policies:**
 - **WiFi 7 Mandatory** — All new AP deployments must use 802.11be (2026)
+- **Multi-Gig Mandatory** — All new switch ports must be 2.5 GbE minimum; 1 GbE-only switches prohibited
 - **4 SSID Maximum** — Hard limit per access point for performance
 - **OWE Required** — Guest networks must use Enhanced Open encryption
 

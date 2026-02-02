@@ -67,6 +67,21 @@ graph LR
 
 **Note:** Cat6 is not approved for new AP installations due to distance limitations for multi-gig speeds.
 
+### Multi-Gig Switch Port Support
+
+Cat6A cabling infrastructure is **required** to support the [Multi-Gig Port Mandate](switch-specifications.md#multi-gig-port-mandate-effective-2026). All new switch access ports must operate at 2.5 Gbps minimum, with many deployments requiring 5 Gbps or 10 Gbps.
+
+| Switch Port Speed | Cat6 Support | Cat6A Support |
+|-------------------|--------------|---------------|
+| 2.5GBASE-T | ≤55m | 100m |
+| 5GBASE-T | ≤55m | 100m |
+| 10GBASE-T | ≤55m | 100m |
+
+**Cabling implications:**
+- All new horizontal runs **must** use Cat6A to support mandatory 2.5G+ switch ports at full 100m distance
+- Existing Cat6 runs limit multi-gig speeds to 55m maximum
+- Cat5e cannot support multi-gig speeds and must be replaced
+
 ### Industry Adoption
 
 | Source | Cat6A Adoption Rate | Year |
@@ -105,7 +120,7 @@ pie title 15-Year TCO Breakdown - Cat6A (per run)
     "Installation labor" : 90
 ```
 
-**Recommendation:** Cat6A provides 40% lower 15-year TCO due to extended lifecycle and elimination of mid-cycle replacement. The multi-gig (2.5G/5G/10G) capability is **required** for WiFi 7 access point backhaul and ensures compatibility with evolving standards through 2040+.
+**Recommendation:** Cat6A provides 40% lower 15-year TCO due to extended lifecycle and elimination of mid-cycle replacement. The multi-gig (2.5G/5G/10G) capability is **required** for the mandatory 2.5 GbE minimum switch port standard (see [Multi-Gig Port Mandate](switch-specifications.md#multi-gig-port-mandate-effective-2026)) and WiFi 7 access point backhaul, ensuring compatibility with evolving standards through 2040+.
 
 ### Backbone Cabling (Between Telecommunications Rooms)
 

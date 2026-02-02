@@ -104,6 +104,25 @@ flowchart LR
 | Guest network isolation | 94% implementation | Gartner Network Security Survey | 2023 |
 | 802.1X deployment | 84% of enterprises | EMA Network Management Report | 2024 |
 
+## Port Speed Requirements (Multi-Gig Mandate)
+
+> **Policy: All new switch access ports must be 2.5 Gbps minimum. 1 GbE-only switches are prohibited for new deployments.**
+
+This mandate ensures infrastructure readiness for WiFi 7, USB4/Thunderbolt 4 devices, and high-bandwidth applications. See [Switch Specifications](switch-specifications.md#multi-gig-port-mandate-effective-2026) for full policy details.
+
+### Minimum Port Speed by Device Type
+
+| Port Type | Minimum Speed | Recommended Speed | Standard |
+|-----------|---------------|-------------------|----------|
+| Workstation | 2.5 Gbps | 2.5 Gbps | IEEE 802.3bz-2016 |
+| VoIP Phone | 2.5 Gbps | 2.5 Gbps | IEEE 802.3bz-2016 |
+| Printer | 2.5 Gbps | 2.5 Gbps | IEEE 802.3bz-2016 |
+| Security Camera | 2.5 Gbps | 5 Gbps | IEEE 802.3bz-2016 |
+| IoT Device | 2.5 Gbps | 2.5 Gbps | IEEE 802.3bz-2016 |
+| WiFi 7 AP | 2.5 Gbps | 5/10 Gbps | IEEE 802.3bz-2016 |
+
+**Auto-negotiation required:** All multi-gig ports must auto-negotiate to support legacy 1 GbE devices during the transition period.
+
 ## Port Configuration Templates
 
 > **Note:** Configuration examples use generic pseudocode. Actual CLI syntax varies by platform. Refer to vendor documentation for specific implementation.
@@ -121,6 +140,7 @@ flowchart LR
 
 | Setting | Value | Standard |
 |---------|-------|----------|
+| Port speed | 2.5 Gbps (auto-negotiate) | IEEE 802.3bz-2016 |
 | Mode | Access | IEEE 802.1Q |
 | Data VLAN | 20 (CORP) | — |
 | Voice VLAN | 30 (VOIP) | IEEE 802.1Q |
@@ -134,6 +154,7 @@ flowchart LR
 ```
 INTERFACE access-port
   DESCRIPTION "[Building]-[Room]-[Jack]"
+  SPEED auto 2500 1000
   MODE access
   ACCESS-VLAN 20
   VOICE-VLAN 30
@@ -149,16 +170,18 @@ INTERFACE access-port
 
 For dedicated phone ports without PC passthrough.
 
-| Setting | Value |
-|---------|-------|
-| Mode | Access |
-| VLAN | 30 (VOIP) |
-| Authentication | LLDP-MED or 802.1X |
-| Port security | Max 1 MAC |
+| Setting | Value | Standard |
+|---------|-------|----------|
+| Port speed | 2.5 Gbps (auto-negotiate) | IEEE 802.3bz-2016 |
+| Mode | Access | IEEE 802.1Q |
+| VLAN | 30 (VOIP) | — |
+| Authentication | LLDP-MED or 802.1X | IEEE 802.1AB-2016 |
+| Port security | Max 1 MAC | Best practice |
 
 ```
 INTERFACE phone-port
   DESCRIPTION "VOIP-[Building]-[Room]"
+  SPEED auto 2500 1000
   MODE access
   ACCESS-VLAN 30
   SPANNING-TREE portfast ENABLE
@@ -173,6 +196,7 @@ For network printers and multifunction devices.
 
 | Setting | Value | Rationale |
 |---------|-------|-----------|
+| Port speed | 2.5 Gbps (auto-negotiate) | IEEE 802.3bz-2016 |
 | Mode | Access | Single VLAN |
 | VLAN | 40 (PRINT) | Isolated from workstations |
 | Authentication | MAB (MAC Authentication Bypass) | Printers lack 802.1X |
@@ -181,6 +205,7 @@ For network printers and multifunction devices.
 ```
 INTERFACE printer-port
   DESCRIPTION "PRINT-[Building]-[Room]"
+  SPEED auto 2500 1000
   MODE access
   ACCESS-VLAN 40
   SPANNING-TREE portfast ENABLE
@@ -243,6 +268,7 @@ For IP security cameras.
 
 | Setting | Value | Rationale |
 |---------|-------|-----------|
+| Port speed | 2.5 Gbps (5 Gbps recommended) | IEEE 802.3bz-2016, 4K cameras |
 | Mode | Access | Single VLAN |
 | VLAN | 300 (CAMERA) | Isolated security network |
 | Authentication | MAB | Cameras lack 802.1X |
@@ -251,6 +277,7 @@ For IP security cameras.
 ```
 INTERFACE camera-port
   DESCRIPTION "CAM-[Building]-[Location]"
+  SPEED auto 2500 1000
   MODE access
   ACCESS-VLAN 300
   SPANNING-TREE portfast ENABLE
@@ -267,6 +294,7 @@ For sensors, displays, and smart devices.
 
 | Setting | Value | Rationale |
 |---------|-------|-----------|
+| Port speed | 2.5 Gbps (auto-negotiate) | IEEE 802.3bz-2016 |
 | Mode | Access | Single VLAN |
 | VLAN | 200 (IOT) | Isolated from corporate |
 | Authentication | MAB | Most IoT lacks 802.1X |
@@ -275,6 +303,7 @@ For sensors, displays, and smart devices.
 ```
 INTERFACE iot-port
   DESCRIPTION "IOT-[Building]-[Device-Type]"
+  SPEED auto 2500 1000
   MODE access
   ACCESS-VLAN 200
   SPANNING-TREE portfast ENABLE

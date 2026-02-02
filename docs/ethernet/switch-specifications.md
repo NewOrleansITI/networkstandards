@@ -18,6 +18,7 @@ This document defines the minimum specifications and configuration requirements 
 |----------|-------|-------------------|-------|
 | IEEE 802.3-2022 | Ethernet | December 2022 | Physical layer and MAC |
 | IEEE 802.3bt-2018 | PoE++ (4PPoE) | September 2018 | Power over Ethernet up to 90W |
+| IEEE 802.3bz-2016 | 2.5G/5GBASE-T | September 2016 | Multi-gig Ethernet over twisted pair |
 | IEEE 802.3at-2009 | PoE+ | September 2009 | Power over Ethernet up to 30W |
 | IEEE 802.1Q-2022 | VLANs and Bridging | December 2022 | VLAN tagging and bridging |
 | IEEE 802.1X-2020 | Port-Based NAC | February 2020 | Network access control |
@@ -66,7 +67,7 @@ Required for end-user connectivity in IDFs and workspaces.
 ```mermaid
 graph LR
     subgraph REQUIRED["✅ Required Features"]
-        A["1GbE access ports"]
+        A["2.5GbE+ access ports"]
         B["Multi-gig ports (2.5G/5G)"]
         C["10GbE SFP+ uplinks"]
         D["PoE++ IEEE 802.3bt"]
@@ -83,7 +84,7 @@ graph LR
 
 | Specification | Minimum Requirement | Standard Reference |
 |---------------|---------------------|-------------------|
-| Access port speed | 1 Gbps (IEEE 802.3ab) | IEEE 802.3-2022 |
+| Access port speed | **2.5 Gbps minimum (IEEE 802.3bz)** | IEEE 802.3bz-2016 |
 | Multi-gig ports | 2.5G/5G for AP connections | IEEE 802.3bz-2016 |
 | Uplink port speed | 10 Gbps SFP+ | IEEE 802.3-2022 |
 | PoE capability | **PoE++ 60W/port (IEEE 802.3bt Type 3)** | IEEE 802.3bt-2018 |
@@ -96,6 +97,39 @@ graph LR
 | Switching capacity | ≥200 Gbps (48-port) | Non-blocking |
 | MAC address table | ≥16,000 entries | — |
 | Jumbo frames | 9,216 bytes | — |
+
+### Multi-Gig Port Mandate (Effective 2026)
+
+> **Policy: All new switch access ports must support 2.5 Gbps minimum. Switches with 1 GbE-only access ports are prohibited for new deployments.**
+
+This mandate applies to all switch tiers (access, distribution, core) for access-facing ports. Auto-negotiation is required to maintain backward compatibility with existing 1 GbE devices during the transition period.
+
+#### Technology Drivers Requiring Multi-Gig
+
+| Technology | Bandwidth Requirement | Timeline |
+|------------|----------------------|----------|
+| WiFi 7 (802.11be) | 2.5-10 GbE backhaul | Now (2026 mandatory) |
+| USB4/Thunderbolt 4 | 2.5G+ network access | 2024+ laptops |
+| 4K Video Conferencing | Peaks >100 Mbps | Now |
+| VDI/DaaS | 50-200 Mbps per session | Now |
+| Cloud backup/sync | Sustained high throughput | Now |
+
+#### IEEE 802.3bz-2016 Benefits
+
+- Defines 2.5GBASE-T and 5GBASE-T operation over twisted pair
+- Works over existing Cat5e/Cat6/Cat6A infrastructure
+- Full backward compatibility with 1 GbE devices via auto-negotiation
+- Cat6A (already required) supports all multi-gig speeds to 100m
+
+#### Prohibited Equipment
+
+The following are **not approved** for new deployments:
+
+- Switches with 1 GbE-only access ports (no multi-gig capability)
+- Switches without IEEE 802.3bz support on access ports
+- Any switch that cannot auto-negotiate 2.5GBASE-T on access ports
+
+**Exception:** Distribution/core layer switches with 10G+ uplink ports are exempt from the 2.5 GbE access port requirement for inter-switch links only.
 
 #### WiFi 7 Access Point Power Requirements
 
@@ -157,6 +191,9 @@ Required for main distribution facilities and data centers.
 |---------|---------------|--------|------|
 | IEEE 802.3bt (PoE++) | 78% of new deployments | 650 Group Enterprise Survey | 2026 |
 | Multi-gig (2.5G/5G) ports | 62% of new access switches | Dell'Oro Group | 2026 |
+| Multi-gig planned within 2 years | 84% of enterprises | 650 Group | 2025 |
+| 1 GbE-only access switch purchases (declining) | 38% (down from 68% in 2023) | Dell'Oro Group | 2026 |
+| Projected 1 GbE-only phase-out | <10% of new purchases by 2030 | 650 Group | 2025 |
 | IEEE 802.1X port authentication | 86% of enterprise networks | EMA Network Management Report | 2025 |
 | SNMPv3 (vs v1/v2c) | 74% enterprise adoption | Ponemon Institute | 2025 |
 | 10GbE uplinks (access layer) | 92% of new installations | Dell'Oro Group | 2026 |
@@ -211,6 +248,42 @@ For facilities with WiFi 7 high-density deployments (320 MHz channels), specify 
 | Extended infrastructure lifecycle | Aligns with 7-year AP refresh cycle |
 
 **Note:** 802.3at (PoE+) switches are **no longer approved** for new deployments.
+
+### 10-Year Multi-Gig TCO Analysis
+
+Extended lifecycle analysis comparing 1 GbE vs Multi-Gig switch deployments demonstrates why 1 GbE-only switches are prohibited for new purchases.
+
+#### Assumptions
+- Deployment: 20 switches (48-port access layer)
+- Lifecycle: 10 years
+- Power cost: $0.10/kWh
+- 1 GbE switches require mid-cycle replacement (Year 6) when WiFi 7 backhaul demands exceed 1 Gbps
+- Multi-gig switches serve full 10-year lifecycle
+
+#### 10-Year TCO: 1 GbE vs Multi-Gig Path
+
+| Cost Category | 1 GbE Path | Multi-Gig Path | Difference |
+|---------------|------------|----------------|------------|
+| Initial equipment (20 switches) | $80,000 | $124,000 | +$44,000 |
+| Annual power (20 switches) | $3,600 | $4,800 | +$1,200 |
+| Annual maintenance | $8,000 | $12,400 | +$4,400 |
+| **Mid-cycle replacement (Year 6)** | **$80,000** | **$0** | **-$80,000** |
+| Replacement labor | $15,000 | $0 | -$15,000 |
+| Downtime cost | $10,000 | $0 | -$10,000 |
+| **10-Year TCO** | **$221,000** | **$196,200** | **-$24,800 (11%)** |
+
+```mermaid
+pie title 10-Year TCO - 1 GbE Path (Includes Replacement)
+    "Initial Equipment" : 36
+    "Replacement Equipment" : 36
+    "Power" : 16
+    "Maintenance" : 7
+    "Labor + Downtime" : 5
+```
+
+**Key Insight:** The 55% higher initial cost of multi-gig switches is offset by avoided mandatory replacement when 1 GbE becomes insufficient for WiFi 7 ecosystems. Organizations deploying 1 GbE-only switches in 2026 will face forced upgrades by 2030-2032 as WiFi 7 client density increases.
+
+**Policy Rationale:** This TCO analysis supports the prohibition on 1 GbE-only switches for new deployments. The short-term savings from 1 GbE equipment create long-term liability requiring unplanned capital expenditure.
 
 ## Configuration Requirements
 

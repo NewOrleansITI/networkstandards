@@ -133,7 +133,7 @@ flowchart TD
 | Coverage | ≥-65 dBm in office areas (all bands) | BICSI TDMM |
 | Capacity | AP count supports user density | Site survey |
 | Cabling | Cat6A to each AP location | TIA-568.2-D |
-| Switch ports | **Multi-gig (2.5G+) for each AP** | IEEE 802.3bz |
+| Switch ports | **All ports 2.5G+ minimum (1 GbE-only switches prohibited)** | IEEE 802.3bz |
 | PoE | **802.3bt budget ≥ total AP power (30-50W/AP)** | IEEE 802.3bt-2018 |
 | Channels | No co-channel interference (including 6 GHz) | IEEE 802.11be |
 | SSIDs | Per [SSID Standards](ssid-standards.md) | Internal |
@@ -172,7 +172,7 @@ flowchart TD
 | Requirement | Verification | Fail Action |
 |-------------|--------------|-------------|
 | Switch supports 802.3bt | Check switch model/specs | Replace switch or add injector |
-| Switch has multi-gig ports | Verify 2.5G/5G capability | Upgrade switch |
+| Switch has multi-gig ports | Verify 2.5G/5G capability on ALL ports | **Reject switch** — 1 GbE-only switches prohibited |
 | Cat6A cabling | Verify cable category | Re-cable if Cat5e/Cat6 |
 | PoE budget sufficient | Calculate total AP power draw | Add PoE budget or split across switches |
 
