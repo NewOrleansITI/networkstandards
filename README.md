@@ -16,6 +16,11 @@ This repository is a public, open-source initiative by the City of New Orleans D
 
 All standards are derived exclusively from public governing bodies (IEEE, ANSI, TIA, IETF, ISO, NIST) and prioritize **security > reliability > cost-effectiveness > features** with 15+ year infrastructure lifecycles in mind.
 
+**Current Key Policies:**
+- **WiFi 7 Mandatory** — All new AP deployments must use 802.11be (2026)
+- **4 SSID Maximum** — Hard limit per access point for performance
+- **OWE Required** — Guest networks must use Enhanced Open encryption
+
 ## Documentation
 
 ### Wired Ethernet
@@ -30,7 +35,7 @@ All standards are derived exclusively from public governing bodies (IEEE, ANSI, 
 
 | Document | Description | Status |
 |----------|-------------|--------|
-| [Access Point Specifications](docs/wifi/access-point-specs.md) | AP requirements, placement guidelines, WiFi 6/6E standards | Supported |
+| [Access Point Specifications](docs/wifi/access-point-specs.md) | AP requirements, placement guidelines, WiFi 7 (802.11be) standards | Supported |
 | [SSID Standards](docs/wifi/ssid-standards.md) | Network naming, WPA3 security, segmentation | Supported |
 | [Deployment Procedures](docs/wifi/deployment-procedures.md) | Site surveys, installation, validation procedures | Supported |
 
@@ -41,6 +46,7 @@ All standards are derived exclusively from public governing bodies (IEEE, ANSI, 
 | [802.1X Implementation](docs/security/802.1x-implementation.md) | IEEE 802.1X port-based network access control | Supported |
 | [WPA3-Enterprise Standards](docs/security/wpa3-enterprise.md) | WPA3-Enterprise wireless security requirements | Supported |
 | [Network Segmentation](docs/security/network-segmentation.md) | VLAN architecture, security zones, microsegmentation | Supported |
+| [OWE Enhanced Open](docs/security/owe-enhanced-open.md) | Opportunistic Wireless Encryption for guest networks | Supported |
 
 ### Layer 3 (Network)
 
@@ -114,6 +120,7 @@ networkstandards/
 │   ├── security/            # Security standards (802.1X, WPA3, segmentation)
 │   ├── layer3/              # Layer 3 standards (IP, routing)
 │   ├── services/            # Network services (DNS, DHCP, NTP)
+│   ├── plans/               # Implementation design documents
 │   └── index.md             # Documentation home
 ├── rfcs/                    # RFC proposals
 │   └── RFC-TEMPLATE.md      # RFC template
@@ -141,8 +148,11 @@ We welcome contributions from city staff, municipal IT professionals, subject ma
 ### Issue Templates
 
 - **Standard Proposal** — Propose a new standard or major update
+- **Standard Update** — Request updates to existing standards
 - **Clarification Request** — Request clarification on existing documentation
 - **Security Concern** — Report security-related issues
+- **Bug Report** — Report errors or issues in documentation
+- **New Documentation** — Request new documentation topics
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
@@ -152,6 +162,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 |----------|-------------|
 | [Documentation Site](https://neworleansiti.github.io/networkstandards/) | Web-friendly documentation |
 | [AI Guidelines](AI_ASSISTANT_GUIDELINES.md) | AI assistant interaction rules |
+| [Skills & MCP Guide](SKILLS_AND_MCP_RECOMMENDATIONS.md) | Team skills assessment and AI tooling recommendations |
 | [RFC Template](rfcs/RFC-TEMPLATE.md) | Template for standards proposals |
 
 ## Roadmap
