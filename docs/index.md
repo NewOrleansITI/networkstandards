@@ -24,6 +24,14 @@ This documentation provides standardized specifications and procedures for deplo
 | [SSID Standards](wifi/ssid-standards.md) | Network naming, security settings, and segmentation |
 | [Deployment Procedures](wifi/deployment-procedures.md) | Site survey, installation, and validation procedures |
 
+### Security
+
+| Document | Description |
+|----------|-------------|
+| [802.1X Implementation](security/802.1x-implementation.md) | IEEE 802.1X port-based network access control standards |
+| [WPA3-Enterprise Standards](security/wpa3-enterprise.md) | WPA3-Enterprise wireless security requirements |
+| [Network Segmentation](security/network-segmentation.md) | VLAN architecture, security zones, and microsegmentation |
+
 ## How to Use This Documentation
 
 - **City IT Staff:** Reference these standards for all new deployments and upgrades
