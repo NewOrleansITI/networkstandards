@@ -49,6 +49,14 @@ All standards are derived exclusively from public governing bodies (IEEE, ANSI, 
 | [IP Addressing Standards](docs/layer3/ip-addressing.md) | IP allocation, subnetting, DHCP, IPAM | Supported |
 | [Routing Standards](docs/layer3/routing-standards.md) | OSPF, BGP, FHRP, route management | Supported |
 
+### Network Services
+
+| Document | Description | Status |
+|----------|-------------|--------|
+| [DNS Standards](docs/services/dns-standards.md) | DNS architecture, DNSSEC, zone management | Supported |
+| [DHCP Standards](docs/services/dhcp-standards.md) | DHCP failover, scopes, IPAM integration | Supported |
+| [NTP Standards](docs/services/ntp-standards.md) | Time synchronization, NTS security | Supported |
+
 ## Standards Framework
 
 All documentation references standards from recognized public governing bodies only:
@@ -104,6 +112,8 @@ networkstandards/
 │   ├── ethernet/            # Wired network standards
 │   ├── wifi/                # Wireless network standards
 │   ├── security/            # Security standards (802.1X, WPA3, segmentation)
+│   ├── layer3/              # Layer 3 standards (IP, routing)
+│   ├── services/            # Network services (DNS, DHCP, NTP)
 │   └── index.md             # Documentation home
 ├── rfcs/                    # RFC proposals
 │   └── RFC-TEMPLATE.md      # RFC template
@@ -153,12 +163,13 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 - [x] Wireless Standards (AP Specs, SSID, Deployment)
 - [x] Security Standards (802.1X, WPA3-Enterprise, Segmentation)
 - [x] Layer 3 Standards (IP Addressing, Routing, FHRP)
+- [x] Network Services (DNS, DHCP, NTP)
 
 ### Planned
 
-- [ ] Network Services (DNS, DHCP, NTP)
 - [ ] QoS and Traffic Management
 - [ ] Certificate Management and PKI
+- [ ] Network Monitoring and Observability
 
 ## For Other Municipalities
 
