@@ -331,6 +331,10 @@ graph LR
 | 1 GbE access ports | Upgrade to 2.5/5/10 GbE |
 | Cat5e cabling | Verify Cat6 minimum for 2.5GbE; Cat6A for 5/10GbE |
 
+> **Cross-Reference: Multi-Gig Port Mandate**
+>
+> Effective 2026, **all** new switch access ports (not just AP ports) must support 2.5 GbE minimum. Switches with 1 GbE-only access ports are prohibited for new deployments. This policy ensures infrastructure readiness for WiFi 7 backhaul and emerging high-bandwidth devices. See [Switch Specifications — Multi-Gig Port Mandate](../ethernet/switch-specifications.md#multi-gig-port-mandate-effective-2026) for full details.
+
 ## Security Requirements
 
 ### Minimum Security Configuration
