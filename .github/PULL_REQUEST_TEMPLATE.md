@@ -1,36 +1,64 @@
+# Pull Request
+
 ## Description
+<!-- Describe what this PR changes and why -->
 
-<!-- Briefly describe the changes in this PR -->
-
-## Type of Change
-
-- [ ] Documentation update (correcting/updating existing content)
-- [ ] New documentation (adding new standards or procedures)
-- [ ] Bug fix (correcting errors or typos)
-- [ ] Formatting/style improvement
-
-## Related Issue
-
-<!-- Link to the issue this PR addresses, if applicable -->
+## Related Issue/RFC
+<!-- Link to the related issue or RFC -->
 
 Closes #
+RFC: <!-- RFC number if applicable -->
 
-## Changes Made
+## Type of Change
+<!-- Check all that apply -->
 
-<!-- List the specific changes -->
+- [ ] New standard documentation
+- [ ] Standard update/revision
+- [ ] Clarification/improvement
+- [ ] Typo/formatting fix
+- [ ] RFC submission
+- [ ] Process/governance update
+- [ ] Other: 
 
--
--
--
+## Compliance Checklist
 
-## Checklist
+### Vendor Neutrality
+- [ ] No vendor names (Cisco, Juniper, Aruba, etc.) appear in this PR
+- [ ] No specific product models are mentioned
+- [ ] No vendor-specific terminology is used
 
-- [ ] I have read the [Contributing Guide](../CONTRIBUTING.md)
-- [ ] My changes follow the documentation standards (Markdown formatting, headings, etc.)
-- [ ] I have updated the "Last Updated" date on modified documents
-- [ ] I have tested any links in my changes
-- [ ] My changes do not include sensitive information (passwords, internal IPs, etc.)
+### Standards References
+- [ ] All standards cite IEEE/ANSI/TIA/IETF/ISO/NIST
+- [ ] Ratification dates are included
+- [ ] Standard numbers are accurate
+
+### Documentation Quality
+- [ ] Industry adoption statistics are cited with sources
+- [ ] Cost-performance analysis is included (if applicable)
+- [ ] Security implications are addressed
+- [ ] Diagrams are included (Mermaid preferred)
+- [ ] Document version number is updated
+
+### Process
+- [ ] RFC completed (for standard changes)
+- [ ] 30-day review period observed (for standard changes)
+- [ ] All automated checks pass
+
+## Screenshots/Diagrams
+<!-- If applicable, add screenshots or diagram previews -->
+
+## Test Plan
+<!-- How can reviewers verify this change? -->
 
 ## Additional Notes
-
 <!-- Any other information reviewers should know -->
+
+---
+
+**Reviewer Notes:**
+- Standards changes require 30-day minimum review period
+- Verify compliance with CLAUDE.md rules
+- Check for vendor neutrality violations
+- Confirm all claims are cited
+
+*Thank you for contributing to the City of New Orleans Network Standards!*

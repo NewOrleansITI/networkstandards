@@ -1,0 +1,127 @@
+name: Auto Label Issues and PRs
+
+on:
+  issues:
+    types: [opened, edited]
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+  label-issues:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'issues'
+    permissions:
+      issues: write
+    steps:
+      - name: Label based on content
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const body = (issue.body || '').toLowerCase();
+            const title = (issue.title || '').toLowerCase();
+            const content = title + ' ' + body;
+            
+            const labels = [];
+            
+            // Standard proposal detection
+            if (content.includes('propose') || content.includes('proposal') || 
+                content.includes('new standard') || content.includes('recommend')) {
+              labels.push('standard-proposal');
+            }
+            
+            // Security concern detection
+            if (content.includes('security') || content.includes('vulnerability') ||
+                content.includes('cve') || content.includes('802.1x') ||
+                content.includes('wpa3') || content.includes('exploit')) {
+              labels.push('security-concern');
+            }
+            
+            // Clarification detection
+            if (content.includes('unclear') || content.includes('clarify') ||
+                content.includes('confus') || content.includes('explain')) {
+              labels.push('clarification-needed');
+            }
+            
+            // Typo detection
+            if (content.includes('typo') || content.includes('spelling') ||
+                content.includes('grammar') || content.includes('formatting')) {
+              labels.push('typo-fix');
+            }
+            
+            // RFC required detection
+            if (labels.includes('standard-proposal')) {
+              labels.push('rfc-required');
+            }
+            
+            // Good first issue detection
+            if (labels.includes('typo-fix') || 
+                (labels.includes('clarification-needed') && !labels.includes('standard-proposal'))) {
+              labels.push('good-first-issue');
+            }
+            
+            if (labels.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: labels
+              });
+            }
+
+  label-prs:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Label based on files changed
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number
+            });
+            
+            const labels = [];
+            
+            for (const file of files) {
+              // RFC submissions
+              if (file.filename.startsWith('rfcs/') && file.filename.endsWith('.md')) {
+                labels.push('rfc');
+              }
+              
+              // Ethernet standards
+              if (file.filename.includes('docs/ethernet/')) {
+                labels.push('ethernet');
+              }
+              
+              // WiFi standards
+              if (file.filename.includes('docs/wifi/')) {
+                labels.push('wifi');
+              }
+              
+              // Governance/process changes
+              if (file.filename.includes('CONTRIBUTING') || 
+                  file.filename.includes('CODE_OF_CONDUCT') ||
+                  file.filename.includes('PRD') ||
+                  file.filename.includes('CLAUDE.md')) {
+                labels.push('governance');
+              }
+            }
+            
+            // Remove duplicates
+            const uniqueLabels = [...new Set(labels)];
+            
+            if (uniqueLabels.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.pull_request.number,
+                labels: uniqueLabels
+              });
+            }
