@@ -319,11 +319,14 @@ graph LR
 | Requirement | Standard | Implementation |
 |-------------|----------|----------------|
 | Enterprise authentication | WPA3-Enterprise | IEEE 802.1X with RADIUS |
-| Encryption | AES-GCMP-256 | Per WPA3 specification |
-| Management frame protection | PMF required | IEEE 802.11w |
+| Guest network encryption | **OWE (Enhanced Open)** | Per-client encryption, no password |
+| Corporate/IoT encryption | AES-GCMP-256 / AES-CCMP-128 | Per WPA3 specification |
+| Management frame protection | PMF required | IEEE 802.11w (all SSIDs) |
 | Rogue AP detection | Required | Continuous scanning |
 | Wireless IDS/IPS | Recommended | Threat detection |
 | Client isolation | Per SSID policy | Guest and IoT networks |
+
+**OWE Requirement (Effective 2026):** All guest SSIDs must implement OWE (Opportunistic Wireless Encryption). Traditional open (unencrypted) guest networks are prohibited. See [OWE Enhanced Open Standards](../security/owe-enhanced-open.md).
 
 ### NIST Alignment
 
@@ -332,7 +335,7 @@ graph LR
 | AC-18: Wireless Access | WPA3-Enterprise, 802.1X |
 | AC-18(1): Authentication and Encryption | EAP-TLS with certificates |
 | IA-3: Device Identification | 802.1X device authentication |
-| SC-8: Transmission Confidentiality | WPA3 encryption |
+| SC-8: Transmission Confidentiality | WPA3 encryption (corporate/IoT), OWE (guest) |
 | SC-40: Wireless Link Protection | PMF (802.11w) required |
 
 ## Reliability and Lifecycle

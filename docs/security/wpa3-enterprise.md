@@ -35,25 +35,38 @@ This document establishes the City of New Orleans standards for WPA3-Enterprise 
 ```mermaid
 graph TB
     subgraph WPA3["WPA3 Security Modes"]
+        OWE["OWE<br/>(Enhanced Open)"]
         PERSONAL["WPA3-Personal<br/>(SAE)"]
         ENTERPRISE["WPA3-Enterprise<br/>(802.1X)"]
         ENTERPRISE_192["WPA3-Enterprise<br/>192-bit Mode"]
     end
 
-    PERSONAL --> P_USE["Home/Small office<br/>Pre-shared key"]
-    ENTERPRISE --> E_USE["Enterprise networks<br/>Certificate/credential auth"]
+    OWE --> OWE_USE["Guest networks<br/>No password required"]
+    PERSONAL --> P_USE["IoT devices<br/>Pre-shared key"]
+    ENTERPRISE --> E_USE["Corporate networks<br/>Certificate/credential auth"]
     ENTERPRISE_192 --> E192_USE["High-security environments<br/>Suite B cryptography"]
 
     subgraph SECURITY_LEVEL["Security Level"]
+        S0["Encrypted (no auth)"]
         S1["Good"]
         S2["Better"]
         S3["Best"]
     end
 
+    OWE -.-> S0
     PERSONAL -.-> S1
     ENTERPRISE -.-> S2
     ENTERPRISE_192 -.-> S3
 ```
+
+### City of New Orleans Security Mode Usage
+
+| SSID | Security Mode | Use Case | Standard Reference |
+|------|---------------|----------|-------------------|
+| NOLA-GUEST | **OWE (Enhanced Open)** | Visitor/public access | [OWE Standards](owe-enhanced-open.md) |
+| NOLA-IOT | WPA3-Personal (SAE) | IoT devices | This document |
+| NOLA-CORP | WPA3-Enterprise | Corporate devices | This document |
+| NOLA-SECURE | WPA3-Enterprise 192-bit | High-security systems | This document |
 
 ### WPA3-Enterprise vs. WPA3-Enterprise 192-bit
 

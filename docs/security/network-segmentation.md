@@ -216,9 +216,13 @@ graph TB
 |-----------|-------|
 | Trust level | Minimal |
 | Purpose | Visitor internet access |
+| Wireless security | **OWE (Enhanced Open)** — Mandatory 2026 |
+| Encryption | AES-CCMP-128 (per-client unique keys) |
 | Access granted | Internet only (filtered) |
 | Access denied | All internal networks |
 | Isolation | Full client isolation |
+
+**OWE Requirement:** Guest wireless networks must use OWE (Opportunistic Wireless Encryption) to protect visitors from passive eavesdropping. See [OWE Enhanced Open Standards](owe-enhanced-open.md) for implementation details.
 
 #### Management Zone (Maximum Trust)
 
@@ -529,13 +533,18 @@ graph TB
 
 | Requirement | Implementation | Rationale |
 |-------------|----------------|-----------|
+| Wireless security | **OWE (Enhanced Open)** | Protect against eavesdropping (2026 mandate) |
+| Encryption | AES-CCMP-128 | Per-client unique encryption keys |
+| PMF (802.11w) | Required | Management frame protection |
 | Network isolation | Separate VRF or firewall zone | Prevent internal access |
 | Client isolation | Layer 2 isolation enabled | Prevent client-to-client attacks |
 | Captive portal | Terms acceptance required | Legal liability |
 | Content filtering | Block malware, phishing | Security hygiene |
-| Bandwidth limits | Fair use policy | Prevent abuse |
-| Session timeout | 8-24 hours | Force re-acceptance |
+| Bandwidth limits | Fair use policy (10/5 Mbps) | Prevent abuse |
+| Session timeout | 8 hours | Force re-acceptance |
 | DNS filtering | Malicious domain blocking | Threat prevention |
+
+**Note:** OWE provides encryption without authentication. The captive portal provides terms acceptance at Layer 3, while OWE encryption operates at Layer 2. See [OWE Enhanced Open Standards](owe-enhanced-open.md).
 
 ## Implementation Standards
 

@@ -30,6 +30,7 @@ This documentation provides standardized specifications and procedures for deplo
 |----------|-------------|
 | [802.1X Implementation](security/802.1x-implementation.md) | IEEE 802.1X port-based network access control standards |
 | [WPA3-Enterprise Standards](security/wpa3-enterprise.md) | WPA3-Enterprise wireless security requirements |
+| [OWE Enhanced Open Standards](security/owe-enhanced-open.md) | OWE (Enhanced Open) for guest networks — Mandatory 2026 |
 | [Network Segmentation](security/network-segmentation.md) | VLAN architecture, security zones, and microsegmentation |
 
 ### Layer 3 (Network)

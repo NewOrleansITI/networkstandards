@@ -60,7 +60,7 @@ graph TB
 | SSID Name | Purpose | Security | Auth Method | VLAN | Broadcast |
 |-----------|---------|----------|-------------|------|-----------|
 | NOLA-CORP | City employee devices | WPA3-Enterprise | 802.1X EAP-TLS | 20 | Hidden |
-| NOLA-GUEST | Visitor/public access | Open + Portal | Captive portal | 100 | Visible |
+| NOLA-GUEST | Visitor/public access | OWE + Portal | Captive portal | 100 | Visible |
 | NOLA-IOT | IoT devices | WPA3-Personal | Pre-shared key | 200 | Hidden |
 | NOLA-SECURE | High-security systems | WPA3-Enterprise | 802.1X + certs | 50 | Hidden |
 
@@ -76,7 +76,7 @@ graph LR
 
     HIGH -->|"WPA3-Enterprise<br/>802.1X + Certificates"| TRUSTED[Trusted Network Access]
     MEDIUM -->|"WPA3-Personal<br/>Managed PSK"| RESTRICTED[Restricted Access]
-    LOW -->|"Captive Portal<br/>Terms acceptance"| INTERNET[Internet Only]
+    LOW -->|"OWE Encryption<br/>Captive Portal"| INTERNET[Internet Only]
 ```
 
 ---
@@ -139,17 +139,21 @@ sequenceDiagram
 
 #### Configuration
 
-| Setting | Value | Rationale |
-|---------|-------|-----------|
-| Security protocol | Open (OWE preferred) | Guest simplicity |
+| Setting | Value | Standard Reference |
+|---------|-------|-------------------|
+| Security protocol | **OWE (Enhanced Open)** | IEEE 802.11-2020, RFC 8110 |
+| Encryption | AES-CCMP-128 | Wi-Fi Alliance WPA3 |
+| PMF (802.11w) | Required | IEEE 802.11w-2009 |
 | Captive portal | Required | Terms acceptance |
-| Terms of use | Legal acceptance required | Liability |
+| Terms of use | Legal acceptance required | Liability protection |
 | Session timeout | 8 hours | Daily re-acceptance |
 | VLAN assignment | 100 (GUEST) | Isolated network |
-| Bands | 2.4 GHz and 5 GHz | Maximum compatibility |
+| Bands | 2.4 GHz, 5 GHz, **6 GHz** | Maximum compatibility + WiFi 7 |
 | Broadcast SSID | Visible | Guest discovery |
 | Client isolation | Enabled | Prevent client-to-client |
 | Bandwidth limit | 10 Mbps down / 5 Mbps up | Fair use |
+
+**OWE Requirement (Effective 2026):** OWE (Opportunistic Wireless Encryption) is mandatory for all guest networks. OWE provides per-client encryption without requiring passwords, protecting guests from passive eavesdropping while maintaining zero-friction access. See [OWE Enhanced Open Standards](../security/owe-enhanced-open.md) for complete implementation details.
 
 #### Network Restrictions
 
@@ -279,7 +283,7 @@ graph TD
 | NOLA-CORP | EAP-TLS | Device cert | Via cert | Yes |
 | NOLA-SECURE | EAP-TLS | User + Device | Via cert + PIN | Yes |
 | NOLA-IOT | PSK (SAE) | No | No | No |
-| NOLA-GUEST | Portal | No | No | Optional |
+| NOLA-GUEST | OWE + Portal | No | No | Optional |
 
 ### RADIUS Configuration
 
@@ -389,7 +393,7 @@ graph LR
 | AC-18(4): Restrict Configuration | Centralized wireless management |
 | AC-18(5): Antennas and Power | Site survey-based configuration |
 | IA-3: Device Identification | 802.1X device certificates |
-| SC-8: Transmission Confidentiality | WPA3 encryption on all SSIDs |
+| SC-8: Transmission Confidentiality | WPA3 encryption on corporate/IoT SSIDs, OWE on guest |
 | SC-40: Wireless Link Protection | PMF (802.11w) required |
 
 ## References
