@@ -1,0 +1,130 @@
+name: PR Compliance Check
+
+on:
+  pull_request:
+    types: [opened, synchronize, edited]
+    paths:
+      - 'docs/**'
+      - 'rfcs/**'
+      - '**.md'
+
+jobs:
+  vendor-check:
+    name: Check for Vendor Names
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check for vendor references
+        run: |
+          echo "Checking for vendor names in documentation..."
+          
+          # List of prohibited vendor names (case-insensitive)
+          VENDORS="cisco|juniper|aruba|meraki|hp enterprise|hpe|dell|dell'oro|fortinet|palo alto|checkpoint|ubiquiti|ruckus|extreme networks|alcatel|nokia|huawei|zte|netgear|tp-link|d-link|linksys|asus|mikrotik"
+          
+          # Check all markdown files for vendor names
+          FOUND=$(grep -riE "$VENDORS" docs/ rfcs/ --include="*.md" || true)
+          
+          if [ -n "$FOUND" ]; then
+            echo "::error::Vendor names detected in documentation!"
+            echo ""
+            echo "The following vendor references were found:"
+            echo "$FOUND"
+            echo ""
+            echo "Please replace vendor names with generic standards-based terminology."
+            echo "See CLAUDE.md Rule 1 for guidance."
+            exit 1
+          else
+            echo "✅ No vendor names detected"
+          fi
+
+  link-check:
+    name: Check Links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check markdown links
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: >
+            --verbose
+            --no-progress
+            --accept 200,204,301,302
+            --exclude-mail
+            --exclude "^https://github.com/NewOrleansITI/networkstandards/(issues|pull)"
+            './**/*.md'
+          fail: true
+
+  standards-reference-check:
+    name: Check Standards References
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v41
+        with:
+          files: |
+            docs/**/*.md
+            rfcs/**/*.md
+      
+      - name: Check for standards references in new content
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          echo "Checking for standards references..."
+          
+          # Pattern for standards body references
+          STANDARDS_PATTERN="IEEE|ANSI|TIA|IETF|RFC [0-9]|ISO|IEC|NIST|BICSI"
+          
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            if [ -f "$file" ]; then
+              # Skip template files
+              if [[ "$file" == *"TEMPLATE"* ]]; then
+                continue
+              fi
+              
+              # Check if file has standards references
+              if ! grep -qE "$STANDARDS_PATTERN" "$file"; then
+                echo "::warning file=$file::No standards body references found. Consider adding IEEE/ANSI/TIA citations."
+              else
+                echo "✅ Standards references found in $file"
+              fi
+            fi
+          done
+
+  mermaid-syntax-check:
+    name: Check Mermaid Diagrams
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install mermaid-cli
+        run: npm install -g @mermaid-js/mermaid-cli
+      
+      - name: Check Mermaid syntax
+        run: |
+          echo "Checking Mermaid diagram syntax..."
+          
+          # Extract and validate mermaid blocks
+          for file in $(find docs rfcs -name "*.md" 2>/dev/null); do
+            if [ -f "$file" ]; then
+              # Check if file contains mermaid blocks
+              if grep -q '```mermaid' "$file"; then
+                echo "Checking diagrams in $file..."
+                # Extract mermaid blocks and validate (simplified check)
+                grep -A 100 '```mermaid' "$file" | grep -B 100 '```' | head -n -1 | tail -n +2 > /tmp/mermaid_check.mmd || true
+                if [ -s /tmp/mermaid_check.mmd ]; then
+                  mmdc -i /tmp/mermaid_check.mmd -o /tmp/mermaid_check.svg 2>/dev/null || echo "::warning file=$file::Mermaid syntax may have issues"
+                fi
+              fi
+            fi
+          done
+          
+          echo "✅ Mermaid syntax check complete"
