@@ -20,6 +20,7 @@ This documentation provides standardized specifications and procedures for deplo
 
 | Document | Description |
 |----------|-------------|
+| [Design Standards](wifi/design-standards.md) | Coverage requirements, design submission, and validation |
 | [Access Point Specifications](wifi/access-point-specs.md) | Approved AP models and placement guidelines |
 | [SSID Standards](wifi/ssid-standards.md) | Network naming, security settings, and segmentation |
 | [Deployment Procedures](wifi/deployment-procedures.md) | Site survey, installation, and validation procedures |
