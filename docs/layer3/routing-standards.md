@@ -643,6 +643,46 @@ flowchart LR
 | BGP routes from peer | Show BGP routes from neighbor |
 | BFD status | Show BFD neighbors |
 
+## Procurement Pass/Fail Checklist
+
+Use this checklist to evaluate any router or Layer 3 switch before purchase. Every **Required** item must pass. If any Required item fails, the device is **not approved** for procurement.
+
+### Router Procurement Checklist
+
+| # | Requirement | Required | Pass | Fail |
+|---|-------------|----------|------|------|
+| 1 | OSPFv2 and OSPFv3 routing protocol support | **Yes** | ☐ | ☐ |
+| 2 | BGP-4 with max-prefix limiting | **Yes** | ☐ | ☐ |
+| 3 | BFD (Bidirectional Forwarding Detection) support | **Yes** | ☐ | ☐ |
+| 4 | VRRP or HSRP first-hop redundancy | **Yes** | ☐ | ☐ |
+| 5 | Route summarization / aggregation support | **Yes** | ☐ | ☐ |
+| 6 | OSPF authentication (MD5 or SHA-256) | **Yes** | ☐ | ☐ |
+| 7 | BGP session security (TCP-AO or MD5) | **Yes** | ☐ | ☐ |
+| 8 | BGP max-prefix limits per peer | **Yes** | ☐ | ☐ |
+| 9 | Bogon and Martian route filtering | **Yes** | ☐ | ☐ |
+
+### Results
+
+| Outcome | Action |
+|---------|--------|
+| All Required items pass | **Approved for procurement** |
+| Any Required item fails | **Not approved — do not purchase** |
+| Questions about a specific device | Contact Network Engineering (ITI Networking Team) |
+
+### How to Verify Requirements
+
+| Checklist Item | Where to Find |
+|----------------|---------------|
+| OSPFv2 + OSPFv3 | Router datasheet, routing protocol feature list |
+| BGP-4 max-prefix | BGP configuration guide, prefix limiting documentation |
+| BFD support | Protocol feature list, BFD configuration guide |
+| VRRP / HSRP | First-hop redundancy documentation, FHRP feature list |
+| Route summarization | Routing configuration guide, aggregation features |
+| OSPF authentication | Security configuration guide, OSPF auth documentation |
+| BGP TCP-AO / MD5 | BGP security documentation, session protection features |
+| Max-prefix per peer | BGP neighbor configuration, prefix limit settings |
+| Bogon filtering | Route filtering documentation, prefix list features |
+
 ## References
 
 1. IETF RFC 2328, "OSPF Version 2," IETF, April 1998.

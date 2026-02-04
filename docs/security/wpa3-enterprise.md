@@ -570,6 +570,44 @@ flowchart TD
 - [ ] Plan WPA2 deprecation date
 - [ ] Document exceptions and remediation plans
 
+## Procurement Pass/Fail Checklist
+
+Use this checklist to evaluate any wireless infrastructure component before purchase for WPA3-Enterprise compliance. Every **Required** item must pass. If any Required item fails, the component is **not approved** for procurement.
+
+### WPA3 Infrastructure Procurement Checklist
+
+| # | Requirement | Required | Pass | Fail |
+|---|-------------|----------|------|------|
+| 1 | WPA3-Enterprise certified (Wi-Fi Alliance) | **Yes** | ☐ | ☐ |
+| 2 | 192-bit security mode (CNSA suite) support | **Conditional** | ☐ | ☐ |
+| 3 | Protected Management Frames (PMF / 802.11w) mandatory mode | **Yes** | ☐ | ☐ |
+| 4 | TLS 1.3 (RFC 8446) for all EAP-TLS sessions | **Yes** | ☐ | ☐ |
+| 5 | Transition Disable indication support | **Yes** | ☐ | ☐ |
+| 6 | 802.11r (Fast BSS Transition) support | **Yes** | ☐ | ☐ |
+| 7 | Configurable session timeout and reauthentication interval | **Yes** | ☐ | ☐ |
+| 8 | ECDSA P-384 certificate support | **Conditional** | ☐ | ☐ |
+
+### Results
+
+| Outcome | Action |
+|---------|--------|
+| All Required items pass | **Approved for procurement** |
+| Any Required item fails | **Not approved — do not purchase** |
+| Questions about a specific device | Contact Network Engineering (ITI Networking Team) |
+
+### How to Verify Requirements
+
+| Checklist Item | Where to Find |
+|----------------|---------------|
+| WPA3-Enterprise certification | Wi-Fi Alliance product finder, vendor spec sheet |
+| 192-bit security mode | Vendor documentation, "WPA3-Enterprise 192-bit" in spec sheet |
+| PMF mandatory mode | Configuration guide, WPA3 certification includes PMF |
+| TLS 1.3 | RADIUS server documentation, supplicant OS requirements |
+| Transition Disable | Firmware release notes, Wi-Fi Alliance certification |
+| 802.11r support | Vendor spec sheet, configuration guide |
+| Session timeout / reauth | Management platform documentation |
+| ECDSA P-384 certificates | PKI documentation, certificate enrollment guide |
+
 ## References
 
 1. IEEE 802.11-2020, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.

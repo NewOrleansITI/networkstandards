@@ -733,6 +733,44 @@ flowchart TD
     Q5 -->|No| INSPECT["Enable packet capture<br/>on firewall"]
 ```
 
+## Procurement Pass/Fail Checklist
+
+Use this checklist to evaluate any network infrastructure component before purchase for segmentation compliance. Every **Required** item must pass. If any Required item fails, the component is **not approved** for procurement.
+
+### Segmentation Infrastructure Procurement Checklist
+
+| # | Requirement | Required | Pass | Fail |
+|---|-------------|----------|------|------|
+| 1 | IEEE 802.1Q VLAN support (4094 VLANs minimum) | **Yes** | ☐ | ☐ |
+| 2 | Inter-VLAN ACL / access control list support | **Yes** | ☐ | ☐ |
+| 3 | VLAN trunk pruning support | **Yes** | ☐ | ☐ |
+| 4 | Zone-based firewall with default-deny policy | **Yes** | ☐ | ☐ |
+| 5 | VRF (Virtual Routing and Forwarding) support | **Conditional** | ☐ | ☐ |
+| 6 | Dynamic VLAN assignment via 802.1X RADIUS attributes | **Yes** | ☐ | ☐ |
+| 7 | Microsegmentation / host-level policy enforcement | **Conditional** | ☐ | ☐ |
+| 8 | Private VLAN (PVLAN) support | **Yes** | ☐ | ☐ |
+
+### Results
+
+| Outcome | Action |
+|---------|--------|
+| All Required items pass | **Approved for procurement** |
+| Any Required item fails | **Not approved — do not purchase** |
+| Questions about a specific device | Contact Network Engineering (ITI Networking Team) |
+
+### How to Verify Requirements
+
+| Checklist Item | Where to Find |
+|----------------|---------------|
+| 802.1Q VLAN support | Switch datasheet, configuration guide |
+| Inter-VLAN ACLs | Feature list, CLI/management reference |
+| Trunk pruning | Configuration guide, VLAN management section |
+| Zone-based firewall | Firewall datasheet, security feature list |
+| VRF support | Router/L3 switch datasheet, routing feature list |
+| Dynamic VLAN via 802.1X | 802.1X configuration guide, RADIUS integration docs |
+| Microsegmentation | Software-defined networking features, policy engine docs |
+| Private VLANs | Switch datasheet, L2 feature list |
+
 ## References
 
 1. IEEE 802.1Q-2022, "Bridges and Bridged Networks," IEEE, December 2022.

@@ -433,6 +433,48 @@ timeline
 
 **MLO is critical for municipal operations** including 911 dispatch, public safety communications, and council chamber proceedings where connectivity interruptions are unacceptable.
 
+## Procurement Pass/Fail Checklist
+
+Use this checklist to evaluate wireless access points before purchase. Every **Required** item must pass. If any Required item fails, the AP is **not approved** for procurement.
+
+### Wireless Access Point Procurement Checklist
+
+| # | Requirement | Required | Pass | Fail |
+|---|-------------|----------|------|------|
+| 1 | WiFi 7 (IEEE 802.11be) certified / Wi-Fi CERTIFIED 7 | **Yes** | ☐ | ☐ |
+| 2 | Tri-band radio (2.4 GHz + 5 GHz + 6 GHz) | **Yes** | ☐ | ☐ |
+| 3 | 4x4:4 MIMO minimum spatial streams | **Yes** | ☐ | ☐ |
+| 4 | Multi-Link Operation (MLO) support | **Yes** | ☐ | ☐ |
+| 5 | WPA3-Enterprise support | **Yes** | ☐ | ☐ |
+| 6 | 2.5 GbE uplink port minimum | **Yes** | ☐ | ☐ |
+| 7 | IEEE 802.3bt Type 3 PoE (60W) support | **Yes** | ☐ | ☐ |
+| 8 | Protected Management Frames (PMF / 802.11w) mandatory mode | **Yes** | ☐ | ☐ |
+| 9 | OWE (Enhanced Open) support for guest SSID | **Yes** | ☐ | ☐ |
+| 10 | IP67 enclosure rating (outdoor models only) | **Conditional** | ☐ | ☐ |
+
+### Results
+
+| Outcome | Action |
+|---------|--------|
+| All Required items pass | **Approved for procurement** |
+| Any Required item fails | **Not approved — do not purchase** |
+| Questions about a specific AP | Contact Network Engineering (ITI Networking Team) |
+
+### How to Verify Requirements
+
+| Checklist Item | Where to Find |
+|----------------|---------------|
+| WiFi 7 / Wi-Fi CERTIFIED 7 | Wi-Fi Alliance product finder (wi-fi.org), AP datasheet |
+| Tri-band radio | AP datasheet, radio specifications |
+| 4x4 MIMO | AP datasheet, spatial stream specifications |
+| MLO support | AP datasheet, WiFi 7 feature list |
+| WPA3-Enterprise | AP security specifications, Wi-Fi Alliance certification |
+| 2.5 GbE uplink | AP datasheet, Ethernet port specifications |
+| 802.3bt Type 3 | AP datasheet, power specifications |
+| PMF mandatory mode | AP security specifications, 802.11w support documentation |
+| OWE support | AP security specifications, Enhanced Open feature listing |
+| IP67 rating | AP datasheet, environmental specifications (outdoor models) |
+
 ## References
 
 1. IEEE 802.11be-2024, "IEEE Standard for Information Technology—Telecommunications and Information Exchange between Systems—Local and Metropolitan Area Networks—Specific Requirements—Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications—Amendment 8: Enhancements for Extremely High Throughput (EHT)," IEEE, January 2024.

@@ -523,6 +523,42 @@ Healthcare systems require:
 - Consistent time across all systems
 - Protection of time synchronization integrity
 
+## Procurement Pass/Fail Checklist
+
+Use this checklist to evaluate any NTP server or time synchronization service before purchase. Every **Required** item must pass. If any Required item fails, the server/service is **not approved** for procurement.
+
+### NTP Server/Service Procurement Checklist
+
+| # | Requirement | Required | Pass | Fail |
+|---|-------------|----------|------|------|
+| 1 | NTPv4 (RFC 5905) protocol support | **Yes** | ☐ | ☐ |
+| 2 | NTS (Network Time Security, RFC 8915) authentication | **Yes** | ☐ | ☐ |
+| 3 | Stratum 2 accuracy within 10ms of UTC | **Yes** | ☐ | ☐ |
+| 4 | Minimum 4 upstream Stratum 1 source connections | **Yes** | ☐ | ☐ |
+| 5 | Geographic separation of NTP server instances | **Yes** | ☐ | ☐ |
+| 6 | Peer relationship support between NTP servers | **Yes** | ☐ | ☐ |
+| 7 | Leap second handling (leap smearing or step) | **Yes** | ☐ | ☐ |
+
+### Results
+
+| Outcome | Action |
+|---------|--------|
+| All Required items pass | **Approved for procurement** |
+| Any Required item fails | **Not approved — do not purchase** |
+| Questions about a specific device | Contact Network Engineering (ITI Networking Team) |
+
+### How to Verify Requirements
+
+| Checklist Item | Where to Find |
+|----------------|---------------|
+| NTPv4 support | Product documentation, protocol version specification |
+| NTS authentication | NTS feature documentation, RFC 8915 compliance |
+| Stratum 2 accuracy | Timing accuracy specifications, monitoring capabilities |
+| 4 upstream Stratum 1 | Configuration guide, upstream source management |
+| Geographic separation | Deployment architecture, hosting locations |
+| Peer relationships | NTP peering configuration, clustering documentation |
+| Leap second handling | Time management documentation, leap second policy |
+
 ## References
 
 1. Internet Engineering Task Force, "Network Time Protocol Version 4: Protocol and Algorithms Specification," RFC 5905, June 2010. https://www.rfc-editor.org/rfc/rfc5905

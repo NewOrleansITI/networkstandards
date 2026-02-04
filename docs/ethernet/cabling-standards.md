@@ -399,6 +399,44 @@ timeline
 | OM3 | Legacy | ❌ Not approved | ✅ Maintain | 2030 |
 | OS2 | Supported | ✅ Required for inter-building | ✅ Maintain | — |
 
+## Procurement Pass/Fail Checklist
+
+Use this checklist to evaluate cabling materials and components before purchase. Every **Required** item must pass. If any Required item fails, the material is **not approved** for procurement.
+
+### Cabling Materials Procurement Checklist
+
+| # | Requirement | Required | Pass | Fail |
+|---|-------------|----------|------|------|
+| 1 | Cable rated Category 6A per TIA-568.2-D (500 MHz) | **Yes** | ☐ | ☐ |
+| 2 | Outdoor cable has outdoor-rated jacket (CMX, CMXT, or direct burial) | **Conditional** | ☐ | ☐ |
+| 3 | Outdoor cable temperature rating -40°C to +75°C minimum | **Conditional** | ☐ | ☐ |
+| 4 | Surge protection at both ends for outdoor runs (≤50V clamping, ≥10 kA) | **Conditional** | ☐ | ☐ |
+| 5 | Conduit type compliant with NEC articles (RMC/IMC/Schedule 80 PVC per application) | **Conditional** | ☐ | ☐ |
+| 6 | Wall penetration uses modular mechanical seal (watertight to 15 psi) | **Conditional** | ☐ | ☐ |
+| 7 | Backbone fiber is OS2 single-mode (inter-building) or OM4 multi-mode (intra-building) | **Yes** | ☐ | ☐ |
+| 8 | Field tester is Level IV per TIA-1152-A | **Yes** | ☐ | ☐ |
+
+### Results
+
+| Outcome | Action |
+|---------|--------|
+| All Required items pass | **Approved for procurement** |
+| Any Required item fails | **Not approved — do not purchase** |
+| Questions about a specific product | Contact Network Engineering (ITI Networking Team) |
+
+### How to Verify Requirements
+
+| Checklist Item | Where to Find |
+|----------------|---------------|
+| Cat6A rating (500 MHz) | Manufacturer spec sheet, TIA verification listing |
+| Outdoor jacket rating | Cable jacket print, manufacturer datasheet |
+| Temperature rating | Manufacturer spec sheet |
+| Surge protection specs | Surge protector datasheet, IEEE 802.3bt compatibility listing |
+| Conduit NEC compliance | Product labeling, UL listing, NEC article reference |
+| Mechanical seal rating | Manufacturer spec sheet, pressure test certification |
+| Fiber type (OS2/OM4) | Fiber spec sheet, ITU-T G.652.D / ISO/IEC 11801 compliance |
+| Level IV field tester | Tester certification label, TIA-1152-A compliance documentation |
+
 ## References
 
 1. TIA-568.2-D, "Balanced Twisted-Pair Telecommunications Cabling and Components Standard," Telecommunications Industry Association, August 2018.

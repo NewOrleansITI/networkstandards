@@ -589,6 +589,46 @@ graph LR
 | SC-8: Transmission Confidentiality | WPA3 encryption on corporate/IoT SSIDs, OWE on guest |
 | SC-40: Wireless Link Protection | PMF (802.11w) required |
 
+## Infrastructure Readiness Pass/Fail Checklist
+
+Use this checklist to verify wireless platform readiness before SSID deployment. Every **Required** item must pass. If any Required item fails, the platform is **not ready for SSID deployment**.
+
+### Wireless Platform Readiness Checklist
+
+| # | Requirement | Required | Pass | Fail |
+|---|-------------|----------|------|------|
+| 1 | Maximum 4 SSIDs per access point enforced | **Yes** | ☐ | ☐ |
+| 2 | WPA3-Enterprise with EAP-TLS support | **Yes** | ☐ | ☐ |
+| 3 | OWE (Enhanced Open) for guest SSID | **Yes** | ☐ | ☐ |
+| 4 | WPA3-Personal with scheduled PSK rotation | **Yes** | ☐ | ☐ |
+| 5 | PMF (802.11w) mandatory on all SSIDs | **Yes** | ☐ | ☐ |
+| 6 | 802.11r (Fast BSS Transition) support | **Yes** | ☐ | ☐ |
+| 7 | Dynamic VLAN assignment via RADIUS attributes | **Yes** | ☐ | ☐ |
+| 8 | Per-SSID rate limiting / bandwidth control | **Yes** | ☐ | ☐ |
+| 9 | 6 GHz band support with 320 MHz channel width | **Yes** | ☐ | ☐ |
+
+### Results
+
+| Outcome | Action |
+|---------|--------|
+| All Required items pass | **Approved for SSID deployment** |
+| Any Required item fails | **Not approved — resolve before proceeding** |
+| Questions about a specific requirement | Contact Network Engineering (ITI Networking Team) |
+
+### How to Verify Requirements
+
+| Checklist Item | Where to Find |
+|----------------|---------------|
+| 4 SSID maximum | Platform SSID configuration, AP group settings |
+| WPA3-Enterprise + EAP-TLS | Security profile configuration, RADIUS integration |
+| OWE guest SSID | SSID security settings, Enhanced Open configuration |
+| WPA3-Personal + PSK rotation | PSK management features, rotation scheduling |
+| PMF mandatory | Security profile settings, 802.11w configuration |
+| 802.11r support | Fast roaming configuration, BSS transition settings |
+| Dynamic VLAN via RADIUS | RADIUS attribute mapping, VLAN assignment policy |
+| Per-SSID rate limiting | QoS / bandwidth policy, per-SSID traffic shaping |
+| 6 GHz / 320 MHz | Radio configuration, channel width options |
+
 ## References
 
 1. IEEE 802.11i-2004, "Amendment 6: Medium Access Control (MAC) Security Enhancements," IEEE, July 2004.
