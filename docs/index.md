@@ -15,6 +15,7 @@ This documentation provides standardized specifications and procedures for deplo
 | [Cabling Standards](ethernet/cabling-standards.md) | Cable types, installation requirements, and testing procedures |
 | [Switch Specifications](ethernet/switch-specifications.md) | Approved switch models and configuration baselines |
 | [Port Configurations](ethernet/port-configurations.md) | VLAN assignments and port naming conventions |
+| [Backup Power Standards](ethernet/backup-power-standards.md) | UPS, generator, circuit sizing, and power redundancy requirements |
 
 ### Wireless (WiFi)
 

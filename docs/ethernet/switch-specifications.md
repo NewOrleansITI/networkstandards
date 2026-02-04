@@ -1,8 +1,8 @@
 ---
 title: Network Switch Specifications
-version: 3.0.0
+version: 3.1.0
 status: Supported
-last_updated: 2026-02-02
+last_updated: 2026-02-04
 ieee_reference: IEEE 802.3, 802.3bt, 802.1Q, 802.1X, 802.1AX
 ---
 
@@ -143,6 +143,10 @@ WiFi 7 (802.11be) access points require significantly more power than previous g
 | Outdoor WiFi 7 | 50-75W | 802.3bt Type 4 | 900W |
 
 **Warning:** Switches with only 802.3at (PoE+) are **not approved** for new deployments. WiFi 7 APs on PoE+ switches will experience disabled radios or boot failures.
+
+> **Cross-Reference: Backup Power**
+>
+> PoE budgets from the table above determine UPS sizing. Use the conservative 60W-per-AP planning figure and 80% port utilization to calculate UPS VA requirements. See [Backup Power Standards — Power Budget Calculations](backup-power-standards.md#power-budget-calculations) for formulas and reference configurations.
 
 #### Multi-Gigabit Port Requirements
 
@@ -393,6 +397,9 @@ See [Port Configurations](port-configurations.md) for standard VLAN assignments.
 | Max annual downtime | 8.76 hours | 52.6 minutes | 5.26 minutes |
 | Redundancy | Optional stacking | Dual PSU required | Dual everything |
 | Failover time | N/A | <1 second | <50ms |
+| UPS backup | Online double-conversion required (all tiers) | Online double-conversion required | Online double-conversion required |
+
+**Backup Power Requirement:** All switch installations require online double-conversion UPS with runtime per facility tier (Critical: 30 min, Community: 15 min). See [Backup Power Standards](backup-power-standards.md) for UPS sizing and generator requirements.
 
 ## Lifecycle Management
 
@@ -453,6 +460,8 @@ Use this checklist to evaluate network switches before purchase. Every **Require
 | All Required items pass | **Approved for procurement** |
 | Any Required item fails | **Not approved — do not purchase** |
 | Questions about a specific switch | Contact Network Engineering (ITI Networking Team) |
+
+**Note:** Coordinate switch procurement with UPS sizing per [Backup Power Standards](backup-power-standards.md). The switch PoE budget and chassis power consumption determine the required UPS VA rating.
 
 ### How to Verify Requirements
 

@@ -1,8 +1,8 @@
 ---
 title: Network Segmentation Standards
-version: 1.0.0
+version: 1.1.0
 status: Supported
-last_updated: 2026-02-02
+last_updated: 2026-02-04
 ieee_reference: IEEE 802.1Q-2022
 ---
 
@@ -233,6 +233,8 @@ graph TB
 | Access granted | Administrators only |
 | Access denied | All non-admin traffic |
 | Access method | Jump host or PAM required |
+
+**UPS Management Interfaces:** All UPS SNMP management cards and network-connected power management devices must be placed on the Management VLAN (VLAN 999). UPS monitoring traffic must not traverse user or guest networks. See [Backup Power Standards](../ethernet/backup-power-standards.md) for UPS SNMP monitoring requirements.
 
 ## Inter-Zone Traffic Policies
 

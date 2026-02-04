@@ -1,8 +1,8 @@
 ---
 title: Wireless Network Design Standards
-version: 1.0.0
+version: 1.1.0
 status: Supported
-last_updated: 2026-02-02
+last_updated: 2026-02-04
 ieee_reference: IEEE 802.11be-2024, 802.11-2020
 bicsi_reference: BICSI TDMM 14th Edition
 tia_reference: TIA-569-E, ANSI/TIA-1179
@@ -259,6 +259,7 @@ All wireless designs must include the following deliverables for ITI review:
 | Floor plans | Electronic building plans per floor | CAD (preferred) or PDF |
 | Heat maps | Predictive coverage showing -67 dBm secondary threshold | PDF/PNG per floor, per band |
 | AP locations | Proposed access point placement with coordinates | PDF or spreadsheet |
+| Power budget | UPS sizing per IDF using 60W/AP conservative planning figure | Spreadsheet |
 
 ### Heat Map Requirements
 
@@ -670,6 +671,7 @@ This design standard integrates with existing City of New Orleans network docume
 | [OWE Enhanced Open Standards](../security/owe-enhanced-open.md) | Guest network encryption requirements |
 | [Switch Specifications](../ethernet/switch-specifications.md) | Multi-gig port and PoE requirements for AP uplinks |
 | [Cabling Standards](../ethernet/cabling-standards.md) | Cat6A cabling requirements to AP locations |
+| [Backup Power Standards](../ethernet/backup-power-standards.md) | UPS sizing based on AP count and switch PoE budgets |
 
 ### Design Standard Compliance Checklist
 
@@ -682,6 +684,7 @@ This design standard integrates with existing City of New Orleans network docume
 | AP locations documented | Coordinates provided | Phase 2 |
 | Design review complete | ITI approval received | Phase 3 |
 | Validation survey passed | As-built meets design | Phase 5 |
+| Backup power verified | UPS sized per AP count and facility tier | [Backup Power Standards](../ethernet/backup-power-standards.md) |
 | Exceptions documented (if any) | IT management approved | Phase 5 |
 
 ## Document History

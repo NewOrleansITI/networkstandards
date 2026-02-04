@@ -1,8 +1,8 @@
 ---
 title: Structured Cabling Standards
-version: 3.0.0
+version: 3.1.0
 status: Supported
-last_updated: 2026-02-02
+last_updated: 2026-02-04
 tia_reference: TIA-568.2-D, TIA-569-E, TIA-606-C, TIA-607-D
 iso_reference: ISO/IEC 11801-1:2017
 ieee_reference: IEEE 802.3bz-2016
@@ -300,6 +300,10 @@ Outdoor cable runs require surge protection at **both ends**:
 **Surge Protector Minimums:** ≤50V clamping, ≥10 kA capacity, ≤1ns response, 10 Gbps data rate.
 
 **Grounding:** Per NEC Article 250 and TIA-607-D. Public safety facilities (police, fire, 911) require NFPA 780 lightning protection system integration.
+
+> **Cross-Reference: Backup Power Grounding**
+>
+> UPS and generator installations must bond to the Telecommunications Grounding Busbar (TGB) per TIA-607-D. Generator grounding follows NEC 250.30 for separately derived systems. See [Backup Power Standards — Surge Protection and Grounding Integration](backup-power-standards.md#surge-protection-and-grounding-integration) for UPS bonding requirements and SPD coordination.
 
 ### Outdoor Cable Requirements
 
