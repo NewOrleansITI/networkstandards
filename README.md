@@ -21,6 +21,12 @@ All standards are derived exclusively from public governing bodies (IEEE, ANSI, 
 - **Multi-Gig Mandatory** — All new switch ports must be 2.5 GbE minimum; 1 GbE-only switches prohibited
 - **4 SSID Maximum** — Hard limit per access point for performance
 - **OWE Required** — Guest networks must use Enhanced Open encryption
+- **EAP-TLS Required** — Only permitted 802.1X method (2026 policy)
+- **TLS 1.3 Minimum** — All EAP-TLS sessions must use TLS 1.3; TLS 1.2 and earlier prohibited
+- **WPA3 Hard Requirement** — All wireless clients must support WPA3; no exceptions
+- **WiFi 7 Client Procurement** — All newly purchased City wireless devices must support 802.11be
+- **Backup Power Required** — Online double-conversion UPS mandatory for all network equipment
+- **Outdoor Cabling** — Conduit required for permanent installations; IP67 weatherproof jacks for temporary/events only
 
 ## Documentation
 
@@ -28,17 +34,20 @@ All standards are derived exclusively from public governing bodies (IEEE, ANSI, 
 
 | Document | Description | Status |
 |----------|-------------|--------|
-| [Cabling Standards](docs/ethernet/cabling-standards.md) | Structured cabling categories, testing, TIA-568 compliance | Supported |
-| [Switch Specifications](docs/ethernet/switch-specifications.md) | Layer 2/3 switch requirements, stacking, PoE standards | Supported |
+| [Cabling Standards](docs/ethernet/cabling-standards.md) | Structured cabling categories, testing, outdoor pathways, TIA-568 compliance | Supported |
+| [Switch Specifications](docs/ethernet/switch-specifications.md) | Layer 2/3 switch requirements, multi-gig mandate, PoE standards | Supported |
 | [Port Configurations](docs/ethernet/port-configurations.md) | VLAN assignments, port security, naming conventions | Supported |
+| [Backup Power Standards](docs/ethernet/backup-power-standards.md) | UPS sizing, generator requirements, circuit calculations, power redundancy | Supported |
 
 ### Wireless (WiFi)
 
 | Document | Description | Status |
 |----------|-------------|--------|
+| [Design Standards](docs/wifi/design-standards.md) | Coverage requirements, -67 dBm secondary coverage, design submission and validation | Supported |
 | [Access Point Specifications](docs/wifi/access-point-specs.md) | AP requirements, placement guidelines, WiFi 7 (802.11be) standards | Supported |
 | [SSID Standards](docs/wifi/ssid-standards.md) | Network naming, WPA3 security, segmentation | Supported |
 | [Deployment Procedures](docs/wifi/deployment-procedures.md) | Site surveys, installation, validation procedures | Supported |
+| [Wireless Client Requirements](docs/wifi/wireless-client-requirements.md) | Client device compatibility, WPA3/WiFi 7 mandates, procurement checklist | Supported |
 
 ### Security
 
@@ -70,12 +79,13 @@ All documentation references standards from recognized public governing bodies o
 
 | Organization | Scope | Key Standards |
 |--------------|-------|---------------|
-| **IEEE** | Ethernet, WiFi, bridging | 802.3, 802.11, 802.1Q, 802.1X |
+| **IEEE** | Ethernet, WiFi, bridging, power | 802.3, 802.11, 802.1Q, 802.1X, 446, 1100 |
 | **ANSI** | US national standards | Endorses TIA/EIA standards |
-| **TIA** | Telecommunications infrastructure | TIA-568, TIA-569, TIA-606 |
-| **IETF** | Internet protocols | RFCs for IP, DNS, DHCP, EAP |
+| **TIA** | Telecommunications infrastructure | TIA-568, TIA-569, TIA-606, TIA-607 |
+| **IETF** | Internet protocols | RFCs for IP, DNS, DHCP, EAP, TLS |
 | **ISO** | International standards | ISO/IEC 11801 (generic cabling) |
 | **NIST** | Security frameworks | SP 800 series, Zero Trust |
+| **NEC/NFPA** | Electrical code, fire protection | NEC Articles 700/701/702/708/250, NFPA 110/111/780 |
 | **BICSI** | Cabling best practices | TDMM, installer certifications |
 
 **Explicitly excluded:** Vendor whitepapers, proprietary specifications, paid analyst reports (Gartner, IDC, Forrester).
@@ -90,6 +100,7 @@ Every standards document in this repository includes:
 - **Cost-Performance Analysis** — TCO framework for municipal budgets
 - **Security Rationale** — NIST SP 800-53 control alignment
 - **Visual Diagrams** — Mermaid diagrams for architecture visualization
+- **Procurement Pass/Fail Checklist** — Binary pass/fail criteria for equipment and service evaluation
 
 ### Document Lifecycle
 
@@ -123,6 +134,8 @@ networkstandards/
 │   ├── services/            # Network services (DNS, DHCP, NTP)
 │   ├── plans/               # Implementation design documents
 │   └── index.md             # Documentation home
+├── scripts/                 # Automation and monitoring
+│   └── standards-monitor.sh # Daily standards currency and compliance checks
 ├── rfcs/                    # RFC proposals
 │   └── RFC-TEMPLATE.md      # RFC template
 ├── .github/                 # GitHub configuration
@@ -168,12 +181,15 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ### Completed
 
-- [x] Layer 1 Standards (Cabling, Fiber, Testing)
-- [x] Switching Standards (Specifications, Port Configurations)
-- [x] Wireless Standards (AP Specs, SSID, Deployment)
-- [x] Security Standards (802.1X, WPA3-Enterprise, Segmentation)
+- [x] Layer 1 Standards (Cabling, Fiber, Testing, Outdoor Pathways)
+- [x] Switching Standards (Specifications, Port Configurations, Multi-Gig Mandate)
+- [x] Wireless Standards (AP Specs, SSID, Design Standards, Deployment, Client Requirements)
+- [x] Security Standards (802.1X, WPA3-Enterprise, OWE Enhanced Open, Segmentation)
 - [x] Layer 3 Standards (IP Addressing, Routing, FHRP)
 - [x] Network Services (DNS, DHCP, NTP)
+- [x] Backup Power Standards (UPS, Generators, Circuit Sizing)
+- [x] Procurement Pass/Fail Checklists (all standards documents)
+- [x] Standards Monitoring Automation
 
 ### Planned
 
