@@ -497,6 +497,42 @@ stateDiagram-v2
 - [ ] Monitor for IP conflicts
 - [ ] Track IPv6 readiness
 
+## Procurement Pass/Fail Checklist
+
+Use this checklist to evaluate any IPAM (IP Address Management) platform before purchase. Every **Required** item must pass. If any Required item fails, the platform is **not approved** for procurement.
+
+### IPAM Platform Procurement Checklist
+
+| # | Requirement | Required | Pass | Fail |
+|---|-------------|----------|------|------|
+| 1 | IPv4 and IPv6 dual-stack management | **Yes** | ☐ | ☐ |
+| 2 | CIDR and VLSM subnet management | **Yes** | ☐ | ☐ |
+| 3 | DHCP server integration (scope/pool sync) | **Yes** | ☐ | ☐ |
+| 4 | DNS integration (forward and reverse zones) | **Yes** | ☐ | ☐ |
+| 5 | IP address conflict detection | **Yes** | ☐ | ☐ |
+| 6 | Full audit trail with user attribution | **Yes** | ☐ | ☐ |
+| 7 | REST API for automation and integration | **Yes** | ☐ | ☐ |
+
+### Results
+
+| Outcome | Action |
+|---------|--------|
+| All Required items pass | **Approved for procurement** |
+| Any Required item fails | **Not approved — do not purchase** |
+| Questions about a specific device | Contact Network Engineering (ITI Networking Team) |
+
+### How to Verify Requirements
+
+| Checklist Item | Where to Find |
+|----------------|---------------|
+| IPv4 + IPv6 dual-stack | Product datasheet, protocol support documentation |
+| CIDR / VLSM | Subnet management features, addressing documentation |
+| DHCP integration | Integration guide, DHCP server compatibility list |
+| DNS integration | Integration guide, DNS zone management features |
+| Conflict detection | IP scanning features, conflict resolution documentation |
+| Audit trail | Logging and reporting features, compliance documentation |
+| REST API | API documentation, developer guide |
+
 ## References
 
 1. IETF RFC 791, "Internet Protocol," IETF, September 1981.

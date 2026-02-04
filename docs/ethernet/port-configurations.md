@@ -468,6 +468,42 @@ Implementing proper VLAN segmentation provides measurable security and operation
 | 802.1X integration | 4 hours (with RADIUS) | Yes |
 | Documentation | 1 hour | Yes |
 
+## Infrastructure Readiness Pass/Fail Checklist
+
+Use this checklist to verify switch port configuration readiness before deployment. Every **Required** item must pass. If any Required item fails, the switch is **not ready for deployment**.
+
+### Port Configuration Readiness Checklist
+
+| # | Requirement | Required | Pass | Fail |
+|---|-------------|----------|------|------|
+| 1 | Access ports configured for 2.5 Gbps minimum | **Yes** | ☐ | ☐ |
+| 2 | 802.1X port-based authentication enabled | **Yes** | ☐ | ☐ |
+| 3 | 802.1Q VLAN trunking configured on uplinks | **Yes** | ☐ | ☐ |
+| 4 | PortFast and BPDU Guard enabled on access ports | **Yes** | ☐ | ☐ |
+| 5 | QoS (802.1p / DSCP) marking configured | **Yes** | ☐ | ☐ |
+| 6 | 802.3bt Type 3 PoE enabled on AP-designated ports | **Yes** | ☐ | ☐ |
+| 7 | Unused ports shut down and assigned to VLAN 999 | **Yes** | ☐ | ☐ |
+
+### Results
+
+| Outcome | Action |
+|---------|--------|
+| All Required items pass | **Approved for deployment** |
+| Any Required item fails | **Not approved — resolve before proceeding** |
+| Questions about a specific requirement | Contact Network Engineering (ITI Networking Team) |
+
+### How to Verify Requirements
+
+| Checklist Item | Where to Find |
+|----------------|---------------|
+| 2.5 Gbps access ports | Switch port speed configuration, interface status |
+| 802.1X authentication | dot1x configuration, RADIUS server connectivity |
+| 802.1Q trunking | Trunk port configuration, allowed VLAN list |
+| PortFast + BPDU Guard | Spanning-tree configuration, port settings |
+| QoS marking | QoS policy configuration, DSCP/CoS trust settings |
+| 802.3bt Type 3 PoE | PoE interface status, power allocation |
+| Unused ports VLAN 999 | Interface configuration, VLAN assignment audit |
+
 ## References
 
 1. IEEE 802.1Q-2022, "IEEE Standard for Local and Metropolitan Area Networks—Bridges and Bridged Networks," IEEE, December 2022.

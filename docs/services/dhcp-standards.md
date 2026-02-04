@@ -510,6 +510,44 @@ gantt
     Decommission legacy         :c3, after c2, 14d
 ```
 
+## Procurement Pass/Fail Checklist
+
+Use this checklist to evaluate any DHCP server or IPAM platform before purchase. Every **Required** item must pass. If any Required item fails, the platform is **not approved** for procurement.
+
+### DHCP/IPAM Platform Procurement Checklist
+
+| # | Requirement | Required | Pass | Fail |
+|---|-------------|----------|------|------|
+| 1 | DHCPv4 and DHCPv6 dual-stack support | **Yes** | ☐ | ☐ |
+| 2 | DHCP failover with lease replication | **Yes** | ☐ | ☐ |
+| 3 | Option 82 (Relay Agent Information) logging | **Yes** | ☐ | ☐ |
+| 4 | IPAM integration (unified IP address management) | **Yes** | ☐ | ☐ |
+| 5 | Pool utilization alerting (configurable thresholds) | **Yes** | ☐ | ☐ |
+| 6 | DHCP snooping integration support | **Yes** | ☐ | ☐ |
+| 7 | Minimum 500 DORA transactions per second | **Yes** | ☐ | ☐ |
+| 8 | IP conflict detection and audit logging | **Yes** | ☐ | ☐ |
+
+### Results
+
+| Outcome | Action |
+|---------|--------|
+| All Required items pass | **Approved for procurement** |
+| Any Required item fails | **Not approved — do not purchase** |
+| Questions about a specific device | Contact Network Engineering (ITI Networking Team) |
+
+### How to Verify Requirements
+
+| Checklist Item | Where to Find |
+|----------------|---------------|
+| DHCPv4 + DHCPv6 | Product datasheet, protocol support documentation |
+| Failover with lease replication | High availability documentation, failover configuration guide |
+| Option 82 logging | DHCP feature list, relay agent documentation |
+| IPAM integration | IPAM product documentation, integration APIs |
+| Pool utilization alerting | Monitoring/alerting feature list, threshold configuration |
+| DHCP snooping integration | Network integration documentation, switch compatibility |
+| 500 DORA/sec | Performance benchmarks, vendor sizing guide |
+| Conflict detection + audit | Audit logging documentation, conflict detection features |
+
 ## References
 
 1. Internet Engineering Task Force, "Dynamic Host Configuration Protocol," RFC 2131, March 1997. https://www.rfc-editor.org/rfc/rfc2131

@@ -370,6 +370,44 @@ flowchart TD
 | TXT Records | 3600 (1 hour) | SPF/DKIM updates |
 | SRV Records | 3600 (1 hour) | Service discovery |
 
+## Procurement Pass/Fail Checklist
+
+Use this checklist to evaluate any DNS server or service before purchase. Every **Required** item must pass. If any Required item fails, the server/service is **not approved** for procurement.
+
+### DNS Server/Service Procurement Checklist
+
+| # | Requirement | Required | Pass | Fail |
+|---|-------------|----------|------|------|
+| 1 | DNSSEC signing with NSEC3 support | **Yes** | ☐ | ☐ |
+| 2 | DNSSEC validation on recursive resolvers | **Yes** | ☐ | ☐ |
+| 3 | DNS over TLS (DoT) support (RFC 7858) | **Yes** | ☐ | ☐ |
+| 4 | TSIG with HMAC-SHA256 for zone transfers | **Yes** | ☐ | ☐ |
+| 5 | EDNS0 support with minimum 1232-byte UDP payload | **Yes** | ☐ | ☐ |
+| 6 | Query logging with 90-day retention capability | **Yes** | ☐ | ☐ |
+| 7 | Local query response time under 50ms | **Yes** | ☐ | ☐ |
+| 8 | Minimum 2 server instances with geographic separation | **Yes** | ☐ | ☐ |
+
+### Results
+
+| Outcome | Action |
+|---------|--------|
+| All Required items pass | **Approved for procurement** |
+| Any Required item fails | **Not approved — do not purchase** |
+| Questions about a specific device | Contact Network Engineering (ITI Networking Team) |
+
+### How to Verify Requirements
+
+| Checklist Item | Where to Find |
+|----------------|---------------|
+| DNSSEC with NSEC3 | Product documentation, DNSSEC feature list |
+| DNSSEC validation | Recursive resolver configuration guide |
+| DNS over TLS | Protocol support documentation, RFC 7858 compliance |
+| TSIG HMAC-SHA256 | Zone transfer security documentation |
+| EDNS0 1232-byte | DNS server configuration, EDNS0 settings |
+| Query logging 90-day | Logging configuration, storage/retention settings |
+| <50ms response time | Performance benchmarks, vendor sizing guide |
+| Geographic separation | Deployment architecture documentation, hosting options |
+
 ## References
 
 1. Internet Engineering Task Force, "Domain Names - Implementation and Specification," RFC 1035, November 1987. https://www.rfc-editor.org/rfc/rfc1035

@@ -427,6 +427,48 @@ timeline
 | SC-8: Transmission Confidentiality | SNMPv3, syslog over TLS |
 | SI-2: Flaw Remediation | Quarterly firmware review |
 
+## Procurement Pass/Fail Checklist
+
+Use this checklist to evaluate network switches before purchase. Every **Required** item must pass. If any Required item fails, the switch is **not approved** for procurement.
+
+### Network Switch Procurement Checklist
+
+| # | Requirement | Required | Pass | Fail |
+|---|-------------|----------|------|------|
+| 1 | Access ports support 2.5 Gbps minimum (IEEE 802.3bz) | **Yes** | ☐ | ☐ |
+| 2 | PoE compliant with IEEE 802.3bt Type 3 (60W per port) | **Yes** | ☐ | ☐ |
+| 3 | Total PoE budget ≥1440W (48-port switch) | **Yes** | ☐ | ☐ |
+| 4 | Uplink ports support 10 Gbps SFP+ minimum | **Yes** | ☐ | ☐ |
+| 5 | IEEE 802.1X-2020 port-based access control support | **Yes** | ☐ | ☐ |
+| 6 | SNMPv3 with authPriv (authentication and encryption) | **Yes** | ☐ | ☐ |
+| 7 | BPDU Guard on access ports | **Yes** | ☐ | ☐ |
+| 8 | Switching capacity ≥200 Gbps (48-port) | **Yes** | ☐ | ☐ |
+| 9 | Redundant power supplies (distribution/core tier) | **Conditional** | ☐ | ☐ |
+| 10 | Active vendor lifecycle status (not end-of-sale or end-of-life) | **Yes** | ☐ | ☐ |
+
+### Results
+
+| Outcome | Action |
+|---------|--------|
+| All Required items pass | **Approved for procurement** |
+| Any Required item fails | **Not approved — do not purchase** |
+| Questions about a specific switch | Contact Network Engineering (ITI Networking Team) |
+
+### How to Verify Requirements
+
+| Checklist Item | Where to Find |
+|----------------|---------------|
+| 2.5 Gbps access ports | Switch datasheet, IEEE 802.3bz compliance listing |
+| 802.3bt Type 3 PoE | Switch datasheet, PoE specifications section |
+| PoE budget | Switch datasheet, power supply specifications |
+| 10 Gbps SFP+ uplinks | Switch datasheet, port specifications |
+| 802.1X support | Switch feature list, software release notes |
+| SNMPv3 authPriv | Switch management specifications, CLI reference |
+| BPDU Guard | Switch feature list, spanning tree documentation |
+| Switching capacity | Switch datasheet, performance specifications |
+| Redundant PSU | Switch hardware specifications, ordering guide |
+| Lifecycle status | Vendor end-of-life/end-of-sale bulletins, product lifecycle page |
+
 ## References
 
 1. IEEE 802.3-2022, "IEEE Standard for Ethernet," IEEE, December 2022.

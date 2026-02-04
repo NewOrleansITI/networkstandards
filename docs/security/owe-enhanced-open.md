@@ -513,6 +513,40 @@ gantt
 | Transition period | March 1 - December 31, 2026 | Transition mode permitted for legacy support |
 | OWE-only mandate | January 1, 2027 | All guest networks must be OWE-only |
 
+## Procurement Pass/Fail Checklist
+
+Use this checklist to evaluate any wireless infrastructure component before purchase for OWE (Enhanced Open) guest network compliance. Every **Required** item must pass. If any Required item fails, the component is **not approved** for procurement.
+
+### OWE Guest Network Infrastructure Procurement Checklist
+
+| # | Requirement | Required | Pass | Fail |
+|---|-------------|----------|------|------|
+| 1 | OWE / Wi-Fi CERTIFIED Enhanced Open support | **Yes** | ☐ | ☐ |
+| 2 | Protected Management Frames (PMF / 802.11w) mandatory mode | **Yes** | ☐ | ☐ |
+| 3 | OWE SSID configuration in wireless management platform | **Yes** | ☐ | ☐ |
+| 4 | Captive portal with Layer 3 integration (post-encryption) | **Yes** | ☐ | ☐ |
+| 5 | Client isolation (Layer 2) enabled per SSID | **Yes** | ☐ | ☐ |
+| 6 | OWE Transition Mode support (open + OWE dual SSID) | **Conditional** | ☐ | ☐ |
+
+### Results
+
+| Outcome | Action |
+|---------|--------|
+| All Required items pass | **Approved for procurement** |
+| Any Required item fails | **Not approved — do not purchase** |
+| Questions about a specific device | Contact Network Engineering (ITI Networking Team) |
+
+### How to Verify Requirements
+
+| Checklist Item | Where to Find |
+|----------------|---------------|
+| OWE / Enhanced Open | Wi-Fi Alliance product finder, vendor spec sheet |
+| PMF mandatory mode | Configuration guide, OWE requires PMF by specification |
+| OWE SSID configuration | Management platform documentation, SSID setup guide |
+| Captive portal L3 integration | Vendor captive portal documentation |
+| Client isolation | Per-SSID configuration options, management platform |
+| OWE Transition Mode | Firmware release notes, vendor documentation |
+
 ## References
 
 1. IEEE 802.11-2020, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.

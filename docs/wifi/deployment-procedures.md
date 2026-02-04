@@ -468,6 +468,44 @@ flowchart TD
 | Centralized management | 94% | Gartner Wireless Report | 2024 |
 | Documentation package required | 85% | Municipal IT Survey | 2024 |
 
+## Infrastructure Readiness Pass/Fail Checklist
+
+Use this checklist to verify contractor qualifications before approving a WiFi deployment engagement. Every **Required** item must pass. If any Required item fails, the contractor is **not approved for deployment**.
+
+### Deployment Contractor Qualification Checklist
+
+| # | Requirement | Required | Pass | Fail |
+|---|-------------|----------|------|------|
+| 1 | Demonstrated WiFi 7 (802.11be) deployment experience | **Yes** | ☐ | ☐ |
+| 2 | Professional RF survey equipment available | **Yes** | ☐ | ☐ |
+| 3 | Capable of producing 6 GHz band heat maps | **Yes** | ☐ | ☐ |
+| 4 | Cat6A cabling installation and certification capability | **Yes** | ☐ | ☐ |
+| 5 | 802.3bt (Type 3) PoE verification tools and procedures | **Yes** | ☐ | ☐ |
+| 6 | Multi-gig (2.5 GbE+) link negotiation verification capability | **Yes** | ☐ | ☐ |
+| 7 | Complete documentation package delivery (as-builts, test results) | **Yes** | ☐ | ☐ |
+| 8 | Post-install validation survey methodology | **Yes** | ☐ | ☐ |
+
+### Results
+
+| Outcome | Action |
+|---------|--------|
+| All Required items pass | **Approved for deployment engagement** |
+| Any Required item fails | **Not approved — resolve before proceeding** |
+| Questions about a specific requirement | Contact Network Engineering (ITI Networking Team) |
+
+### How to Verify Requirements
+
+| Checklist Item | Where to Find |
+|----------------|---------------|
+| WiFi 7 experience | Past project references, case studies, certifications |
+| RF survey equipment | Equipment list, calibration records |
+| 6 GHz heat maps | Sample deliverables, software capabilities |
+| Cat6A certification | Installer certifications, test equipment (Level IV) |
+| 802.3bt PoE verification | Test procedures, PoE analyzer availability |
+| Multi-gig verification | Test procedures, link negotiation documentation |
+| Documentation package | Sample deliverables, documentation templates |
+| Post-install validation | Validation methodology, sample survey reports |
+
 ## References
 
 1. BICSI TDMM, 14th Edition, "Telecommunications Distribution Methods Manual," BICSI, 2018.

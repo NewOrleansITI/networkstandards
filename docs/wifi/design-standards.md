@@ -690,6 +690,42 @@ This design standard integrates with existing City of New Orleans network docume
 |---------|------|--------|---------|
 | 1.0.0 | 2026-02-02 | ITI Network Team | Initial release |
 
+## Infrastructure Readiness Pass/Fail Checklist
+
+Use this checklist to verify design service provider qualifications before approving a WiFi design engagement. Every **Required** item must pass. If any Required item fails, the provider is **not approved for design work**.
+
+### Design Service Provider Qualification Checklist
+
+| # | Requirement | Required | Pass | Fail |
+|---|-------------|----------|------|------|
+| 1 | Professional RF design tools with predictive modeling | **Yes** | ☐ | ☐ |
+| 2 | Capable of producing -67 dBm secondary coverage heat maps | **Yes** | ☐ | ☐ |
+| 3 | Capable of producing 25 dB SNR overlay maps | **Yes** | ☐ | ☐ |
+| 4 | Tri-band modeling including 6 GHz / 320 MHz channels | **Yes** | ☐ | ☐ |
+| 5 | High-density venue capacity planning experience | **Conditional** | ☐ | ☐ |
+| 6 | Post-install validation survey methodology | **Yes** | ☐ | ☐ |
+| 7 | Design deliverables per submission requirements (see Design Submission section) | **Yes** | ☐ | ☐ |
+
+### Results
+
+| Outcome | Action |
+|---------|--------|
+| All Required items pass | **Approved for design engagement** |
+| Any Required item fails | **Not approved — resolve before proceeding** |
+| Questions about a specific requirement | Contact Network Engineering (ITI Networking Team) |
+
+### How to Verify Requirements
+
+| Checklist Item | Where to Find |
+|----------------|---------------|
+| Professional RF tools | Software license documentation, tool capabilities |
+| -67 dBm heat maps | Sample deliverables, coverage design methodology |
+| 25 dB SNR overlays | Sample deliverables, interference analysis capability |
+| Tri-band / 320 MHz modeling | Software support for 6 GHz, channel width options |
+| High-density planning | Past project references, capacity modeling methodology |
+| Post-install validation | Validation methodology, sample survey reports |
+| Design deliverables | Sample submission package, checklist compliance |
+
 ## References
 
 1. IEEE 802.11-2020, "IEEE Standard for Information Technology—Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
