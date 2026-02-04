@@ -76,7 +76,7 @@ log "Standards monitor started"
     echo "Checking for prohibited TLS 1.2 references:"
     echo ""
 
-    TLS12_HITS=$(grep -rn 'TLS 1\.2' "${REPO_DIR}/docs/" 2>/dev/null | grep -v 'plans/' || true)
+    TLS12_HITS=$(grep -rn 'TLS 1\.2' "${REPO_DIR}/docs/" 2>/dev/null | grep -v 'plans/' | grep -vi 'prohibited\|earlier\|forbidden\|not permitted\|no longer' || true)
     if [ -n "$TLS12_HITS" ]; then
         echo "  [WARNING] TLS 1.2 references found (policy requires TLS 1.3 minimum):"
         echo ""
@@ -100,11 +100,11 @@ log "Standards monitor started"
         local search_terms="$3"
         local status
 
-        status=$(curl -s -o /dev/null -w '%{http_code}' --max-time 15 "$url" 2>/dev/null || echo "000")
+        status=$(curl -sL -o /dev/null -w '%{http_code}' --max-time 15 "$url" 2>/dev/null || echo "000")
 
         if [ "$status" = "200" ]; then
             local content
-            content=$(curl -s --max-time 30 "$url" 2>/dev/null || echo "")
+            content=$(curl -sL --max-time 30 "$url" 2>/dev/null || echo "")
             if [ -n "$content" ]; then
                 local matches=""
                 for term in $search_terms; do
