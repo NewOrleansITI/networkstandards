@@ -1,8 +1,8 @@
 ---
 title: Port Configurations and VLAN Standards
-version: 3.0.0
+version: 3.1.0
 status: Supported
-last_updated: 2026-02-02
+last_updated: 2026-02-04
 ieee_reference: IEEE 802.1Q-2022, 802.1X-2020, 802.3bt-2018
 ---
 
@@ -21,7 +21,7 @@ This document defines standard VLAN assignments, port configurations, and naming
 | IEEE 802.1p | Traffic Class Expediting | 1998 (now part of 802.1Q) | QoS prioritization |
 | IEEE 802.1AB-2016 | LLDP | March 2016 | Device discovery |
 | IEEE 802.1w-2001 | Rapid Spanning Tree | July 2001 | Loop prevention |
-| IETF RFC 5765 | RADIUS Extensions for VLAN Assignment | April 2010 | Dynamic VLAN |
+| IETF RFC 2868 | RADIUS Attributes for Tunnel Protocol Support | June 2000 | Dynamic VLAN |
 
 ## Network Segmentation Architecture
 
@@ -151,6 +151,8 @@ flowchart LR
 
 **Generic configuration:**
 
+> **VLAN note:** `ACCESS-VLAN 20` is a default. If 802.1X authentication succeeds, the RADIUS server may return a different VLAN via `Tunnel-Private-Group-ID`, which overrides this value. See [802.1X Implementation](../security/802.1x-implementation.md#radius-attributes-for-policy-enforcement).
+
 ```
 INTERFACE access-port
   DESCRIPTION "[Building]-[Room]-[Jack]"
@@ -178,6 +180,8 @@ For dedicated phone ports without PC passthrough.
 | Authentication | LLDP-MED or 802.1X | IEEE 802.1AB-2016 |
 | Port security | Max 1 MAC | Best practice |
 
+> **VLAN note:** `ACCESS-VLAN 30` is the LLDP-MED default for dedicated phone ports. On 802.1X-enabled ports, RADIUS may override this assignment via `Tunnel-Private-Group-ID`. See [802.1X Implementation](../security/802.1x-implementation.md#radius-attributes-for-policy-enforcement).
+
 ```
 INTERFACE phone-port
   DESCRIPTION "VOIP-[Building]-[Room]"
@@ -199,8 +203,10 @@ For network printers and multifunction devices.
 | Port speed | 2.5 Gbps (auto-negotiate) | IEEE 802.3bz-2016 |
 | Mode | Access | Single VLAN |
 | VLAN | 40 (PRINT) | Isolated from workstations |
-| Authentication | MAB (MAC Authentication Bypass) | Printers lack 802.1X |
+| Authentication | 802.1X with MAB fallback | Device lacks supplicant; 802.1X times out, then MAB |
 | Port security | Sticky MAC | Prevent unauthorized moves |
+
+> **VLAN note:** `ACCESS-VLAN 40` is a default. If MAB authentication succeeds, the RADIUS server may return a different VLAN via `Tunnel-Private-Group-ID`, which overrides this value. See [802.1X Implementation](../security/802.1x-implementation.md#radius-attributes-for-policy-enforcement).
 
 ```
 INTERFACE printer-port
@@ -271,8 +277,10 @@ For IP security cameras.
 | Port speed | 2.5 Gbps (5 Gbps recommended) | IEEE 802.3bz-2016, 4K cameras |
 | Mode | Access | Single VLAN |
 | VLAN | 300 (CAMERA) | Isolated security network |
-| Authentication | MAB | Cameras lack 802.1X |
+| Authentication | 802.1X with MAB fallback | Device lacks supplicant; 802.1X times out, then MAB |
 | PoE | Enabled, high priority | Ensure camera uptime |
+
+> **VLAN note:** `ACCESS-VLAN 300` is a default. If MAB authentication succeeds, the RADIUS server may return a different VLAN via `Tunnel-Private-Group-ID`, which overrides this value. See [802.1X Implementation](../security/802.1x-implementation.md#radius-attributes-for-policy-enforcement).
 
 ```
 INTERFACE camera-port
@@ -308,8 +316,10 @@ For sensors, displays, and smart devices.
 | Port speed | 2.5 Gbps (auto-negotiate) | IEEE 802.3bz-2016 |
 | Mode | Access | Single VLAN |
 | VLAN | 200 (IOT) | Isolated from corporate |
-| Authentication | MAB | Most IoT lacks 802.1X |
+| Authentication | 802.1X with MAB fallback | Device lacks supplicant; 802.1X times out, then MAB |
 | Traffic shaping | Rate limited | Prevent IoT abuse |
+
+> **VLAN note:** `ACCESS-VLAN 200` is a default. If MAB authentication succeeds, the RADIUS server may return a different VLAN via `Tunnel-Private-Group-ID`, which overrides this value. See [802.1X Implementation](../security/802.1x-implementation.md#radius-attributes-for-policy-enforcement).
 
 ```
 INTERFACE iot-port
@@ -422,19 +432,52 @@ pie title Bandwidth Priority Allocation
 
 ## Security Considerations
 
-### IEEE 802.1X Deployment
+### Authentication and VLAN Assignment Precedence
+
+The `ACCESS-VLAN` configured on a port template is a **default/fallback**, not the enforced VLAN assignment. When a device authenticates — whether via 802.1X (EAP-TLS) or MAB — the RADIUS server returns VLAN assignment attributes (`Tunnel-Private-Group-ID`, RFC 2868) that **override** the static port VLAN. This means the port template determines what device type is *expected* on that port, but RADIUS determines the *actual* VLAN based on the device's authenticated identity. A camera plugged into a "printer port" will still be placed on the camera VLAN if RADIUS identifies it correctly. See [802.1X Implementation — RADIUS Attributes](../security/802.1x-implementation.md#radius-attributes-for-policy-enforcement) for attribute details.
+
+### IEEE 802.1X / MAB Authentication Flow
 
 ```mermaid
 flowchart TD
-    DEVICE[Device Connects] --> CHECK{802.1X<br/>Capable?}
-    CHECK -->|Yes| DOT1X[802.1X Authentication]
-    CHECK -->|No| MAB[MAC Authentication Bypass]
-    DOT1X --> RADIUS[RADIUS Server]
-    MAB --> RADIUS
-    RADIUS --> RESULT{Authenticated?}
-    RESULT -->|Yes| ASSIGN[Assign VLAN]
-    RESULT -->|No| QUARANTINE[VLAN 999]
+    CONNECT[Device Connects to Port] --> DOT1X_ATTEMPT["802.1X: Switch sends<br/>EAP-Request/Identity"]
+    DOT1X_ATTEMPT --> SUPPLICANT{Supplicant<br/>responds?}
+
+    SUPPLICANT -->|Yes| EAP["EAP-TLS Exchange<br/>(certificate mutual auth)"]
+    EAP --> RADIUS_1{RADIUS<br/>reachable?}
+    RADIUS_1 -->|Yes| AUTH_RESULT{Auth<br/>result?}
+    RADIUS_1 -->|No| CRITICAL_1["Critical VLAN<br/>(limited access)"]
+
+    AUTH_RESULT -->|Accept| VLAN_ASSIGN_1["RADIUS returns VLAN<br/>via Tunnel-Private-Group-ID"]
+    VLAN_ASSIGN_1 --> OVERRIDE_1["Overrides port ACCESS-VLAN<br/>→ Port authorized"]
+    AUTH_RESULT -->|Reject| AUTHFAIL["Auth-fail VLAN 999"]
+
+    SUPPLICANT -->|"No (timeout)"| MAB_CHECK{MAB enabled<br/>on port?}
+    MAB_CHECK -->|Yes| MAC_LOOKUP["MAB: Switch sends MAC<br/>to RADIUS as Calling-Station-Id"]
+    MAB_CHECK -->|No| QUARANTINE_1["Quarantine VLAN 999"]
+
+    MAC_LOOKUP --> RADIUS_2{RADIUS<br/>reachable?}
+    RADIUS_2 -->|Yes| PROFILE{Profile<br/>match?}
+    RADIUS_2 -->|No| CRITICAL_2["Critical VLAN<br/>(limited access)"]
+
+    PROFILE -->|Yes| VLAN_ASSIGN_2["RADIUS returns VLAN<br/>via Tunnel-Private-Group-ID"]
+    VLAN_ASSIGN_2 --> OVERRIDE_2["Overrides port ACCESS-VLAN<br/>→ Port authorized"]
+    PROFILE -->|No| QUARANTINE_2["Quarantine VLAN 999"]
 ```
+
+### "What Happens When..." Scenarios
+
+These scenarios clarify the interaction between port templates and RADIUS-based VLAN assignment:
+
+| # | Scenario | Result |
+|---|----------|--------|
+| 1 | Camera plugged into printer port | 802.1X times out (no supplicant), MAB sends MAC to RADIUS, RADIUS identifies camera and assigns VLAN 300 (overrides port's VLAN 40) |
+| 2 | Printer plugged into camera port | 802.1X times out (no supplicant), MAB sends MAC to RADIUS, RADIUS identifies printer and assigns VLAN 40 (overrides port's VLAN 300) |
+| 3 | City laptop plugged into any port | 802.1X/EAP-TLS succeeds, RADIUS assigns VLAN 20 regardless of port template |
+| 4 | Unknown device on any port | Both 802.1X and MAB fail — device placed on Quarantine VLAN 999 |
+| 5 | Valid device, RADIUS unreachable | Critical VLAN (limited access), network team alerted |
+| 6 | Device with expired/revoked certificate | 802.1X rejected; MAB fallback attempted if enabled on the port |
+| 7 | Personal laptop (no cert, no MAB entry) | 802.1X fails (no valid certificate), MAB fails (MAC not registered) — Quarantine VLAN 999 |
 
 ### NIST SP 800-53 Control Mapping
 
@@ -509,7 +552,7 @@ Use this checklist to verify switch port configuration readiness before deployme
 1. IEEE 802.1Q-2022, "IEEE Standard for Local and Metropolitan Area Networks—Bridges and Bridged Networks," IEEE, December 2022.
 2. IEEE 802.1X-2020, "IEEE Standard for Local and Metropolitan Area Networks—Port-Based Network Access Control," IEEE, February 2020.
 3. IEEE 802.1AB-2016, "IEEE Standard for Local and Metropolitan Area Networks—Station and Media Access Control Connectivity Discovery," IEEE, March 2016.
-4. IETF RFC 5765, "Security Issues and Solutions in Peer-to-Peer Systems for Realtime Communications," IETF, April 2010.
+4. IETF RFC 2868, "RADIUS Attributes for Tunnel Protocol Support," IETF, June 2000.
 5. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
 6. BICSI TDMM, 14th Edition, "Telecommunications Distribution Methods Manual," BICSI, 2018.
 
