@@ -1,8 +1,8 @@
 ---
 title: Wireless Access Point Specifications
-version: 3.1.0
+version: 3.2.0
 status: Supported
-last_updated: 2026-02-02
+last_updated: 2026-02-04
 ieee_reference: IEEE 802.11be-2024, 802.11ax-2021, 802.3bt-2018
 ---
 
@@ -364,6 +364,10 @@ graph LR
 > **Cross-Reference: Multi-Gig Port Mandate**
 >
 > Effective 2026, **all** new switch access ports (not just AP ports) must support 2.5 GbE minimum. Switches with 1 GbE-only access ports are prohibited for new deployments. This policy ensures infrastructure readiness for WiFi 7 backhaul and emerging high-bandwidth devices. See [Switch Specifications — Multi-Gig Port Mandate](../ethernet/switch-specifications.md#multi-gig-port-mandate-effective-2026) for full details.
+
+> **Cross-Reference: Backup Power Planning**
+>
+> For UPS sizing, use **60W as the conservative per-AP planning figure** (covers the full WiFi 7 operational range of 30-75W). This value, combined with 80% port utilization and NEC 125% derating, determines UPS VA requirements. See [Backup Power Standards — Power Budget Calculations](../ethernet/backup-power-standards.md#power-budget-calculations) for formulas and reference configurations.
 
 ## Security Requirements
 

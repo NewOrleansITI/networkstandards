@@ -1,8 +1,8 @@
 ---
 title: WiFi 7 Deployment Procedures
-version: 3.1.0
+version: 3.2.0
 status: Supported
-last_updated: 2026-02-02
+last_updated: 2026-02-04
 reference: BICSI TDMM 14th Edition, TIA-569-E, IEEE 802.11be-2024
 ---
 
@@ -136,10 +136,11 @@ flowchart TD
 | Capacity | AP count supports user density | Site survey |
 | Cabling | Cat6A to each AP location | TIA-568.2-D |
 | Switch ports | **All ports 2.5G+ minimum (1 GbE-only switches prohibited)** | IEEE 802.3bz |
-| PoE | **802.3bt budget ≥ total AP power (30-50W/AP)** | IEEE 802.3bt-2018 |
+| PoE | **802.3bt budget ≥ total AP power (30-50W/AP; use 60W conservative planning figure for UPS sizing per [Backup Power Standards](../ethernet/backup-power-standards.md))** | IEEE 802.3bt-2018 |
 | Channels | No co-channel interference (including 6 GHz) | IEEE 802.11be |
 | SSIDs | Per [SSID Standards](ssid-standards.md) | Internal |
 | **SSID count** | **≤4 SSIDs per AP (hard limit)** | [SSID Count Limits](ssid-standards.md#ssid-count-limits) |
+| Backup power | UPS sized for AP count and facility tier | [Backup Power Standards](../ethernet/backup-power-standards.md) |
 | Security | WPA3, 802.1X configured | NIST SP 800-153 |
 
 ### Approval Process
@@ -165,6 +166,7 @@ flowchart TD
 | Network ports active | Port test | ☐ |
 | **Multi-gig negotiation** | Verify 2.5G/5G/10G link speed | ☐ |
 | **PoE 802.3bt verified** | Power delivery test (60W+ available) | ☐ |
+| UPS capacity verified | UPS VA rating meets calculated load per [Backup Power Standards](../ethernet/backup-power-standards.md) | ☐ |
 | Ceiling/wall access confirmed | Physical inspection | ☐ |
 | Installation window scheduled | Calendar confirmed | ☐ |
 | Facility contact available | Contact verified | ☐ |
@@ -177,6 +179,7 @@ flowchart TD
 | Switch has multi-gig ports | Verify 2.5G/5G capability on ALL ports | **Reject switch** — 1 GbE-only switches prohibited |
 | Cat6A cabling | Verify cable category | Re-cable if Cat5e/Cat6 |
 | PoE budget sufficient | Calculate total AP power draw | Add PoE budget or split across switches |
+| UPS backup power | Online double-conversion UPS sized per facility tier | Install or upgrade UPS per [Backup Power Standards](../ethernet/backup-power-standards.md) |
 
 ### Mounting Standards
 

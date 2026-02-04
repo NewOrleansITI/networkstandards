@@ -160,7 +160,7 @@ log "Standards monitor started"
     echo ""
 
     # Count references to key standards
-    for std in "802.11be" "802.11ax" "802.11w" "802.1X" "802.3bt" "WPA3" "TLS 1.3" "NIST SP 800-53" "NIST SP 800-153" "RFC 8446"; do
+    for std in "802.11be" "802.11ax" "802.11w" "802.1X" "802.3bt" "WPA3" "TLS 1.3" "NIST SP 800-53" "NIST SP 800-153" "RFC 8446" "NFPA 110" "NFPA 111" "IEEE 446" "IEEE 1100" "NEC 700" "Article 700" "PE-11"; do
         count=$(grep -r "$std" "${REPO_DIR}/docs/" 2>/dev/null | grep -v 'plans/' | wc -l)
         printf "  %-25s %3d references\n" "$std" "$count"
     done
