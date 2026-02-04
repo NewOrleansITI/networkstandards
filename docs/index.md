@@ -24,6 +24,7 @@ This documentation provides standardized specifications and procedures for deplo
 | [Access Point Specifications](wifi/access-point-specs.md) | Approved AP models and placement guidelines |
 | [SSID Standards](wifi/ssid-standards.md) | Network naming, security settings, and segmentation |
 | [Deployment Procedures](wifi/deployment-procedures.md) | Site survey, installation, and validation procedures |
+| [Wireless Client Requirements](wifi/wireless-client-requirements.md) | Client device compatibility, procurement checklist, and onboarding |
 
 ### Security
 
