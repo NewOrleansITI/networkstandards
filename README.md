@@ -134,8 +134,6 @@ networkstandards/
 │   ├── services/            # Network services (DNS, DHCP, NTP)
 │   ├── plans/               # Implementation design documents
 │   └── index.md             # Documentation home
-├── scripts/                 # Automation and monitoring
-│   └── standards-monitor.sh # Daily standards currency and compliance checks
 ├── rfcs/                    # RFC proposals
 │   └── RFC-TEMPLATE.md      # RFC template
 ├── .github/                 # GitHub configuration
@@ -189,7 +187,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 - [x] Network Services (DNS, DHCP, NTP)
 - [x] Backup Power Standards (UPS, Generators, Circuit Sizing)
 - [x] Procurement Pass/Fail Checklists (all standards documents)
-- [x] Standards Monitoring Automation
+- [x] Standards Monitoring Automation (local tooling)
 
 ### Planned
 
