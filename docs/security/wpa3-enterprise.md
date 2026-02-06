@@ -22,7 +22,7 @@ This document establishes the City of New Orleans standards for WPA3-Enterprise 
 | IEEE 802.11w-2009 | Protected Management Frames | September 2009 | Management frame protection |
 | IEEE 802.11r-2008 | Fast BSS Transition | July 2008 | Fast roaming |
 | Wi-Fi Alliance WPA3 v3.3 | WPA3 Specification | July 2024 | WPA3 certification requirements |
-| IETF RFC 5216 | EAP-TLS Authentication Protocol | March 2008 | Certificate-based EAP |
+| IETF RFC 9190 | EAP-TLS 1.3 Authentication Protocol | February 2022 | Certificate-based EAP with TLS 1.3 |
 | IETF RFC 8446 | TLS 1.3 | August 2018 | Transport security |
 | NIST SP 800-53 Rev. 5 | Security Controls | September 2020 | Federal security requirements |
 | NIST SP 800-153 | Guidelines for Securing WLANs | February 2012 | WLAN security guidance |
@@ -178,7 +178,7 @@ sequenceDiagram
 | Group cipher | AES-CCMP-128 or AES-GCMP-256 | IEEE 802.11-2020 |
 | Group management cipher | BIP-CMAC-128 or BIP-GMAC-256 | IEEE 802.11w |
 | Key derivation | HMAC-SHA-256 or HMAC-SHA-384 | Wi-Fi Alliance |
-| EAP method | EAP-TLS only (2026 policy) | RFC 5216; see [802.1X Implementation](802.1x-implementation.md) |
+| EAP method | EAP-TLS only (2026 policy) | RFC 9190; see [802.1X Implementation](802.1x-implementation.md) |
 | TLS version | TLS 1.3 minimum | RFC 8446 |
 | Server certificate | RSA 2048+ or ECDSA P-256+ | Wi-Fi Alliance |
 | Client certificate | RSA 2048+ or ECDSA P-256+ | Wi-Fi Alliance |
@@ -191,7 +191,7 @@ sequenceDiagram
 | Group cipher | AES-GCMP-256 only | IEEE 802.11-2020 |
 | Group management cipher | BIP-GMAC-256 only | IEEE 802.11w |
 | Key derivation | HMAC-SHA-384 only | Wi-Fi Alliance |
-| EAP method | EAP-TLS only | RFC 5216 |
+| EAP method | EAP-TLS only | RFC 9190 |
 | TLS ciphers | TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 | RFC 8446 |
 | Server certificate | ECDSA P-384 or RSA 3072+ | CNSA 2.0 |
 | Client certificate | ECDSA P-384 or RSA 3072+ | CNSA 2.0 |
@@ -588,7 +588,7 @@ Use this checklist to evaluate any wireless infrastructure component before purc
 4. IEEE 802.11r-2008, "Amendment 2: Fast Basic Service Set (BSS) Transition," IEEE, July 2008.
 5. Wi-Fi Alliance, "WPA3 Specification Version 3.3," Wi-Fi Alliance, July 2024.
 6. Wi-Fi Alliance, "WPA3 Security Considerations," Wi-Fi Alliance Technical Note, 2024.
-7. IETF RFC 5216, "The EAP-TLS Authentication Protocol," IETF, March 2008.
+7. IETF RFC 9190, "EAP-TLS 1.3: Using the Extensible Authentication Protocol with TLS 1.3," IETF, February 2022.
 8. IETF RFC 8446, "The Transport Layer Security (TLS) Protocol Version 1.3," IETF, August 2018.
 9. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
 10. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.

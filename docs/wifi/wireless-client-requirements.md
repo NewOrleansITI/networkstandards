@@ -42,7 +42,7 @@ Every wireless device on the City network must support WPA3 encryption. If a dev
 | IEEE 802.11v-2011 | Wireless Network Management | February 2011 | BSS transition management |
 | Wi-Fi Alliance WPA3 v3.3 | WPA3 Specification | July 2024 | Client security certification |
 | IETF RFC 8446 | TLS 1.3 | August 2018 | Minimum transport security |
-| IETF RFC 5216 | EAP-TLS Authentication Protocol | March 2008 | Certificate-based EAP |
+| IETF RFC 9190 | EAP-TLS 1.3 Authentication Protocol | February 2022 | Certificate-based EAP with TLS 1.3 |
 | NIST SP 800-53 Rev. 5 | Security Controls | September 2020 | Federal security requirements |
 | NIST SP 800-153 | Guidelines for Securing WLANs | February 2012 | WLAN security guidance |
 
@@ -382,7 +382,7 @@ flowchart TD
 8. Wi-Fi Alliance, "WPA3 Specification Version 3.3," Wi-Fi Alliance, July 2024.
 9. Wi-Fi Alliance, "Wi-Fi CERTIFIED 7," Wi-Fi Alliance, January 2024.
 10. IETF RFC 8446, "The Transport Layer Security (TLS) Protocol Version 1.3," IETF, August 2018.
-11. IETF RFC 5216, "The EAP-TLS Authentication Protocol," IETF, March 2008.
+11. IETF RFC 9190, "EAP-TLS 1.3: Using the Extensible Authentication Protocol with TLS 1.3," IETF, February 2022.
 12. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
 13. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 14. NSA, "Commercial National Security Algorithm Suite 2.0," NSA Cybersecurity, September 2022.
