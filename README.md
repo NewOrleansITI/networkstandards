@@ -24,7 +24,7 @@ All standards are derived exclusively from public governing bodies (IEEE, ANSI, 
 - **EAP-TLS Required** — Only permitted 802.1X method (2026 policy)
 - **TLS 1.3 Minimum** — All EAP-TLS sessions must use TLS 1.3 (RFC 8446); TLS 1.2 and earlier prohibited
 - **WPA3 Hard Requirement** — All wireless clients must support WPA3; no exceptions or waivers
-- **WiFi 7 Client Procurement** — All newly purchased City wireless devices must support 802.11be
+- **WiFi 7 Client Procurement** — All newly purchased wireless devices must support 802.11be
 - **Backup Power Required** — Online double-conversion UPS mandatory for all network equipment; Critical tier (police/fire/911/EOC) = 30 min + permanent generator; Community tier = 15 min + generator-ready receptacle
 - **60W AP Planning Figure** — Conservative per-AP power draw for UPS sizing (covers 30–75W WiFi 7 range), with 80% port utilization and NEC 125% derating
 - **Outdoor Cabling** — Conduit required for permanent installations; IP67 weatherproof jacks for temporary/events only
@@ -201,10 +201,10 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ## For Other Municipalities
 
-This repository is designed to be forked and adapted. If you're a municipal IT department:
+This repository is designed to be forked and adapted. All 18 standards documents use **generic municipal language** — no city-specific references, SSIDs, domains, or facility names to find and replace. If you're a municipal IT department:
 
 1. **Fork** this repository
-2. **Customize** standards for your environment
+2. **Customize** naming conventions (SSIDs, domains, facility codes) for your environment
 3. **Contribute back** improvements that benefit everyone
 4. **Share** your experience via issues or discussions
 
