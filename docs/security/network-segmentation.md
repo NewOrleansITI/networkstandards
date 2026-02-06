@@ -10,7 +10,7 @@ ieee_reference: IEEE 802.1Q-2022
 
 ## Overview
 
-This document establishes the City of New Orleans standards for network segmentation, defining how municipal networks are divided into security zones to contain threats, enforce access policies, and meet compliance requirements. Proper segmentation is foundational to defense-in-depth and zero trust architecture.
+This document establishes the standards for network segmentation, defining how municipal networks are divided into security zones to contain threats, enforce access policies, and meet compliance requirements. Proper segmentation is foundational to defense-in-depth and zero trust architecture.
 
 ## Standards References
 
@@ -116,7 +116,7 @@ graph LR
 |---------|------|---------|---------------|------|--------|
 | 1 | Native | Unused (disabled) | N/A | No | No |
 | 10 | Infrastructure | Switch-to-switch links | Management | No | No |
-| 20 | Corporate | City employee workstations | Corporate | Yes | Required |
+| 20 | Corporate | Employee workstations | Corporate | Yes | Required |
 | 30 | VoIP | IP phones and UC devices | Corporate | Yes | Required |
 | 40 | Servers | Application servers | Restricted | No | MAB |
 | 50 | Secure | High-security systems | Restricted | No | Required |

@@ -14,7 +14,7 @@ tia_reference: TIA-607-D
 
 ## Overview
 
-This document defines the backup power requirements for all network infrastructure deployed in City of New Orleans facilities. New Orleans faces elevated risk from hurricanes, tropical storms, and severe weather events that can cause extended utility power outages lasting hours to weeks. Reliable backup power for network infrastructure is essential to maintain emergency communications, public safety operations, and continuity of government services during these events.
+This document defines the backup power requirements for all network infrastructure deployed in municipal facilities. Municipalities in regions with elevated risk from hurricanes, tropical storms, and severe weather events can experience extended utility power outages lasting hours to weeks. Reliable backup power for network infrastructure is essential to maintain emergency communications, public safety operations, and continuity of government services during these events.
 
 All network equipment locations — from single-IDF closets to multi-rack MDFs — must have backup power systems sized to maintain operations through utility power interruptions. This standard defines two facility tiers with different runtime and generator requirements based on operational criticality, and provides calculation methods for UPS sizing, circuit design, and generator capacity planning.
 
@@ -37,7 +37,7 @@ All network equipment locations — from single-IDF closets to multi-rack MDFs �
 
 ## Facility Tier Definitions
 
-All City of New Orleans facilities with network infrastructure are classified into one of two tiers based on operational mission. The tier determines UPS runtime, generator requirements, and transfer switch type.
+All municipal facilities with network infrastructure are classified into one of two tiers based on operational mission. The tier determines UPS runtime, generator requirements, and transfer switch type.
 
 ### Power Path Architecture
 
@@ -409,7 +409,7 @@ Critical tier facilities (police, fire, 911, EOC) require NFPA 780 lightning pro
 |---------------|---------------------|--------------------|--------------:|---------|
 | 911 dispatch center | $50,000+ (public safety risk) | $200,000+ | $16,300 | Immediate |
 | Police station | $10,000-25,000 | $40,000-100,000 | $7,300 | <1 outage |
-| City Hall | $5,000-15,000 | $20,000-60,000 | $7,300 | <1 outage |
+| Main Campus | $5,000-15,000 | $20,000-60,000 | $7,300 | <1 outage |
 | Library/rec center | $500-2,000 | $2,000-8,000 | $3,900 | 1-2 outages |
 
 **Key insight:** Even at community facilities, a single extended outage (4+ hours) costs more in lost productivity and service disruption than the entire 7-year UPS investment. For Critical tier facilities, the public safety implications make backup power a non-negotiable requirement.

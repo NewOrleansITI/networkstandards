@@ -10,7 +10,7 @@ ietf_reference: RFC 2328 (OSPF), RFC 4271 (BGP)
 
 ## Overview
 
-This document establishes the City of New Orleans standards for routing protocols, route management, and Layer 3 network design. These standards ensure consistent, resilient, and secure routing across municipal infrastructure while maintaining operational simplicity.
+This document establishes the standards for routing protocols, route management, and Layer 3 network design. These standards ensure consistent, resilient, and secure routing across municipal infrastructure while maintaining operational simplicity.
 
 ## Standards References
 
@@ -201,7 +201,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph AS_NOLA["AS 65001 (City Network)"]
+    subgraph AS_MUNI["AS 65001 (Municipal Network)"]
         subgraph CORE_BGP["BGP Core"]
             RR["Route Reflector"]
             CORE_B1["Core Border 1"]

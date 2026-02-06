@@ -10,9 +10,9 @@ ietf_reference: RFC 1035, RFC 4034, RFC 6891, RFC 8484
 
 ## Overview
 
-This document establishes the Domain Name System (DNS) standards for the City of New Orleans municipal network infrastructure. DNS provides the foundational name resolution service that enables users and applications to locate network resources using human-readable domain names rather than numerical IP addresses.
+This document establishes the Domain Name System (DNS) standards for municipal network infrastructure. DNS provides the foundational name resolution service that enables users and applications to locate network resources using human-readable domain names rather than numerical IP addresses.
 
-The City maintains authoritative DNS servers for municipal domains and operates recursive resolvers for internal name resolution. All DNS infrastructure follows IETF standards with security extensions (DNSSEC) to protect against cache poisoning and spoofing attacks. These standards ensure reliable, secure, and performant name resolution across all city departments and facilities.
+Authoritative DNS servers are maintained for municipal domains, and recursive resolvers are operated for internal name resolution. All DNS infrastructure follows IETF standards with security extensions (DNSSEC) to protect against cache poisoning and spoofing attacks. These standards ensure reliable, secure, and performant name resolution across all departments and facilities.
 
 DNS architecture directly impacts network availability—a DNS outage effectively renders network services inaccessible even when underlying connectivity remains functional. The standards herein prioritize redundancy, security validation, and response time to maintain continuous service delivery for critical municipal operations.
 
@@ -38,8 +38,8 @@ DNS architecture directly impacts network availability—a DNS outage effectivel
 ```mermaid
 graph TB
     subgraph External["External DNS (Internet-Facing)"]
-        EXT1[("Primary Authoritative<br/>ns1.nola.gov")]
-        EXT2[("Secondary Authoritative<br/>ns2.nola.gov")]
+        EXT1[("Primary Authoritative<br/>ns1.example.gov")]
+        EXT2[("Secondary Authoritative<br/>ns2.example.gov")]
         ANYCAST[("Anycast Resolver<br/>Public Services")]
     end
 
@@ -81,14 +81,14 @@ graph TB
 ```mermaid
 graph LR
     subgraph Public["Public Zones"]
-        NOLA["nola.gov"]
-        CITY["cityofno.com"]
+        NOLA["example.gov"]
+        CITY["example.com"]
     end
 
     subgraph Internal["Internal Zones"]
-        CORP["corp.nola.gov"]
-        DEPT["dept.nola.gov"]
-        INFRA["infra.nola.gov"]
+        CORP["corp.example.gov"]
+        DEPT["dept.example.gov"]
+        INFRA["infra.example.gov"]
     end
 
     subgraph Reverse["Reverse Zones"]
@@ -136,8 +136,8 @@ graph LR
 graph TB
     ROOT["Root Zone (.)"]
     TLD[".gov TLD"]
-    SLD["nola.gov"]
-    INTERNAL["corp.nola.gov"]
+    SLD["example.gov"]
+    INTERNAL["corp.example.gov"]
 
     ROOT --> |"DS Record"| TLD
     TLD --> |"DS Record"| SLD
@@ -194,7 +194,7 @@ sequenceDiagram
     participant Auth as Authoritative Server
     participant Upstream as External DNS
 
-    Client->>Resolver: Query: mail.corp.nola.gov
+    Client->>Resolver: Query: mail.corp.example.gov
     Resolver->>Cache: Check Cache
 
     alt Cache Hit
@@ -333,10 +333,10 @@ flowchart TD
 
 | Zone Type | Naming Convention | Example |
 |-----------|-------------------|---------|
-| Public authoritative | [domain].gov | nola.gov |
-| Internal services | corp.[domain].gov | corp.nola.gov |
-| Department-specific | [dept].dept.[domain].gov | police.dept.nola.gov |
-| Infrastructure | infra.[domain].gov | infra.nola.gov |
+| Public authoritative | [domain].gov | example.gov |
+| Internal services | corp.[domain].gov | corp.example.gov |
+| Department-specific | [dept].dept.[domain].gov | police.dept.example.gov |
+| Infrastructure | infra.[domain].gov | infra.example.gov |
 | Reverse (IPv4) | [octet].in-addr.arpa | 10.in-addr.arpa |
 | Reverse (IPv6) | [nibble].ip6.arpa | 8.b.d.0.1.0.0.2.ip6.arpa |
 

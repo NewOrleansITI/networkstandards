@@ -10,7 +10,7 @@ ieee_reference: IEEE 802.1Q-2022, 802.1X-2020, 802.3bt-2018
 
 ## Overview
 
-This document defines standard VLAN assignments, port configurations, and naming conventions for network switch ports across City of New Orleans facilities. All configurations implement IEEE 802.1Q VLAN tagging and IEEE 802.1X port-based access control.
+This document defines standard VLAN assignments, port configurations, and naming conventions for network switch ports across municipal facilities. All configurations implement IEEE 802.1Q VLAN tagging and IEEE 802.1X port-based access control.
 
 ## Standards References
 
@@ -30,7 +30,7 @@ graph TB
     subgraph SEGMENTS["Network Segments"]
         subgraph TRUSTED["Trusted Zone"]
             MGMT["VLAN 10: Management<br/>Network infrastructure"]
-            CORP["VLAN 20: Corporate<br/>City workstations"]
+            CORP["VLAN 20: Corporate<br/>Employee workstations"]
             VOIP["VLAN 30: Voice<br/>IP phones"]
             SECURE["VLAN 50: Secure<br/>Restricted systems"]
         end
@@ -388,23 +388,23 @@ INTERFACE unused-port
 
 | Code | Device Type | Example |
 |------|-------------|---------|
-| WS | Workstation | WS-CH-205-04 |
-| VOIP | Voice phone | VOIP-CH-205 |
-| PRINT | Printer | PRINT-CH-205 |
+| WS | Workstation | WS-MC-205-04 |
+| VOIP | Voice phone | VOIP-MC-205 |
+| PRINT | Printer | PRINT-MC-205 |
 | AP | Access point | AP-LIB-MAIN-LOBBY |
-| CAM | Security camera | CAM-CH-NORTH-ENTRANCE |
+| CAM | Security camera | CAM-MC-NORTH-ENTRANCE |
 | IOT | IoT device | IOT-PARK-SENSOR-01 |
-| UPLINK | Uplink to distribution | UPLINK-CH-MDF-SW01 |
-| ISL | Inter-switch link | ISL-CH-IDF2-SW02 |
+| UPLINK | Uplink to distribution | UPLINK-MC-MDF-SW01 |
+| ISL | Inter-switch link | ISL-MC-IDF2-SW02 |
 | UNUSED | Unused port | UNUSED |
 
 ### Building Codes
 
 | Code | Facility |
 |------|----------|
-| CH | City Hall |
+| MC | Main Campus |
 | LIB | Library |
-| PD | Police Department |
+| PS | Public Safety |
 | FD | Fire Department |
 | REC | Recreation Center |
 
@@ -463,7 +463,7 @@ These scenarios clarify the interaction between port templates and RADIUS-based 
 |---|----------|--------|
 | 1 | Camera plugged into printer port | 802.1X times out (no supplicant), MAB sends MAC to RADIUS, RADIUS identifies camera and assigns VLAN 300 (overrides port's VLAN 40) |
 | 2 | Printer plugged into camera port | 802.1X times out (no supplicant), MAB sends MAC to RADIUS, RADIUS identifies printer and assigns VLAN 40 (overrides port's VLAN 300) |
-| 3 | City laptop plugged into any port | 802.1X/EAP-TLS succeeds, RADIUS assigns VLAN 20 regardless of port template |
+| 3 | Managed laptop plugged into any port | 802.1X/EAP-TLS succeeds, RADIUS assigns VLAN 20 regardless of port template |
 | 4 | Unknown device on any port | Both 802.1X and MAB fail — device placed on Quarantine VLAN 999 |
 | 5 | Valid device, RADIUS unreachable | Critical VLAN (limited access), network team alerted |
 | 6 | Device with expired/revoked certificate | 802.1X rejected; MAB fallback attempted if enabled on the port |

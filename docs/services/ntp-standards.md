@@ -10,9 +10,9 @@ ietf_reference: RFC 5905, RFC 8633, RFC 7384
 
 ## Overview
 
-This document establishes the Network Time Protocol (NTP) standards for the City of New Orleans municipal network infrastructure. Accurate time synchronization is a foundational service that supports security logging, authentication protocols, database transactions, and regulatory compliance across all municipal systems.
+This document establishes the Network Time Protocol (NTP) standards for municipal network infrastructure. Accurate time synchronization is a foundational service that supports security logging, authentication protocols, database transactions, and regulatory compliance across all municipal systems.
 
-The City operates a hierarchical NTP infrastructure with internal stratum 2 servers synchronized to trusted stratum 1 sources. All network devices, servers, and endpoints synchronize to internal NTP servers, ensuring consistent timestamps across the organization for forensic analysis, audit trails, and distributed system coordination.
+A hierarchical NTP infrastructure is operated with internal stratum 2 servers synchronized to trusted stratum 1 sources. All network devices, servers, and endpoints synchronize to internal NTP servers, ensuring consistent timestamps across the organization for forensic analysis, audit trails, and distributed system coordination.
 
 Time accuracy requirements vary by system function—financial transactions and legal records require millisecond precision, while general office systems tolerate greater variance. These standards define appropriate synchronization hierarchies and accuracy targets for each use case while implementing security controls against time-based attacks.
 
@@ -110,7 +110,7 @@ graph LR
     end
 
     subgraph S2["Stratum 2"]
-        INTERNAL["City NTP Servers"]
+        INTERNAL["Internal NTP Servers"]
     end
 
     subgraph S3["Stratum 3"]
@@ -180,7 +180,7 @@ graph LR
 | **SNTP** | < 100ms | None built-in | Simple embedded devices |
 | **W32Time** | < 2s (default) | Kerberos | Windows domain members |
 
-**City Standard**: NTPv4 for all infrastructure; W32Time acceptable for domain-joined workstations via PDC emulator synchronization chain.
+**Standard**: NTPv4 for all infrastructure; W32Time acceptable for domain-joined workstations via PDC emulator synchronization chain.
 
 ### NTP Operation
 
@@ -408,7 +408,7 @@ server tick.usno.navy.mil iburst
 server 0.us.pool.ntp.org iburst
 
 # Peer with secondary NTP server
-peer ntp2.corp.nola.gov
+peer ntp2.corp.example.gov
 
 # Security restrictions
 restrict default kod limited nomodify nopeer noquery
@@ -469,7 +469,7 @@ ntp logging
 | **Smear** | Distribute over 24 hours | Modern applications, databases |
 | **Ignore** | Let NTP correct naturally | Non-critical systems |
 
-**City Standard**: Leap second smearing for database and application servers; step correction acceptable for network infrastructure.
+**Standard**: Leap second smearing for database and application servers; step correction acceptable for network infrastructure.
 
 ```mermaid
 timeline

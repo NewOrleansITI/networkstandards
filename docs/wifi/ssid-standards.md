@@ -11,7 +11,7 @@ wpa_reference: WPA3-Enterprise (Wi-Fi Alliance)
 
 ## Overview
 
-This document defines the standard SSIDs, security configurations, and network segmentation requirements for City of New Orleans wireless networks. All configurations implement WPA3-Enterprise security and IEEE 802.1X authentication to ensure compliance with NIST guidelines.
+This document defines the standard SSIDs, security configurations, and network segmentation requirements for municipal wireless networks. All configurations implement WPA3-Enterprise security and IEEE 802.1X authentication to ensure compliance with NIST guidelines.
 
 ## Standards References
 
@@ -31,16 +31,16 @@ This document defines the standard SSIDs, security configurations, and network s
 graph TB
     subgraph WIRELESS["Wireless Network Architecture"]
         subgraph ENTERPRISE["Enterprise SSIDs (802.1X)"]
-            CORP["NOLA-CORP<br/>Corporate devices<br/>VLAN 20"]
-            SECURE["NOLA-SECURE<br/>Restricted systems<br/>VLAN 50"]
+            CORP["MUNI-CORP<br/>Corporate devices<br/>VLAN 20"]
+            SECURE["MUNI-SECURE<br/>Restricted systems<br/>VLAN 50"]
         end
 
         subgraph MANAGED["Managed SSIDs"]
-            IOT["NOLA-IOT<br/>IoT devices<br/>VLAN 200"]
+            IOT["MUNI-IOT<br/>IoT devices<br/>VLAN 200"]
         end
 
         subgraph PUBLIC["Public SSIDs"]
-            GUEST["NOLA-GUEST<br/>Visitor access<br/>VLAN 100"]
+            GUEST["MUNI-GUEST<br/>Visitor access<br/>VLAN 100"]
         end
     end
 
@@ -59,19 +59,19 @@ graph TB
 
 | SSID Name | Purpose | Security | Auth Method | VLAN | Broadcast |
 |-----------|---------|----------|-------------|------|-----------|
-| NOLA-CORP | City employee devices | WPA3-Enterprise | 802.1X EAP-TLS | 20 | Hidden |
-| NOLA-GUEST | Visitor/public access | OWE + Portal | Captive portal | 100 | Visible |
-| NOLA-IOT | IoT devices | WPA3-Personal | Pre-shared key | 200 | Hidden |
-| NOLA-SECURE | High-security systems | WPA3-Enterprise | 802.1X + certs | 50 | Hidden |
+| MUNI-CORP | Managed employee devices | WPA3-Enterprise | 802.1X EAP-TLS | 20 | Hidden |
+| MUNI-GUEST | Visitor/public access | OWE + Portal | Captive portal | 100 | Visible |
+| MUNI-IOT | IoT devices | WPA3-Personal | Pre-shared key | 200 | Hidden |
+| MUNI-SECURE | High-security systems | WPA3-Enterprise | 802.1X + certs | 50 | Hidden |
 
 ### Security Comparison
 
 ```mermaid
 graph LR
     subgraph SECURITY_LEVELS["Security Levels"]
-        HIGH["🔒 HIGH<br/>NOLA-SECURE<br/>NOLA-CORP"]
-        MEDIUM["🔓 MEDIUM<br/>NOLA-IOT"]
-        LOW["🌐 LOW<br/>NOLA-GUEST"]
+        HIGH["🔒 HIGH<br/>MUNI-SECURE<br/>MUNI-CORP"]
+        MEDIUM["🔓 MEDIUM<br/>MUNI-IOT"]
+        LOW["🌐 LOW<br/>MUNI-GUEST"]
     end
 
     HIGH -->|"WPA3-Enterprise<br/>802.1X + Certificates"| TRUSTED[Trusted Network Access]
@@ -83,9 +83,9 @@ graph LR
 
 ## SSID Detailed Specifications
 
-### NOLA-CORP (Corporate)
+### MUNI-CORP (Corporate)
 
-**Purpose:** Primary network for city-owned devices and authenticated employees.
+**Purpose:** Primary network for managed devices and authenticated employees.
 
 #### Configuration
 
@@ -133,7 +133,7 @@ sequenceDiagram
 
 ---
 
-### NOLA-GUEST (Guest)
+### MUNI-GUEST (Guest)
 
 **Purpose:** Internet access for visitors, contractors, and personal devices.
 
@@ -177,7 +177,7 @@ flowchart LR
 
 ---
 
-### NOLA-IOT (Internet of Things)
+### MUNI-IOT (Internet of Things)
 
 **Purpose:** Connected devices including sensors, displays, and smart building systems.
 
@@ -211,7 +211,7 @@ flowchart TD
 
 ---
 
-### NOLA-SECURE (Restricted)
+### MUNI-SECURE (Restricted)
 
 **Purpose:** High-security systems requiring enhanced authentication.
 
@@ -241,18 +241,18 @@ flowchart TD
 
 > **Hard Limit: Maximum 4 SSIDs per access point.**
 >
-> This is a mandatory configuration limit with no exceptions. All City of New Orleans wireless deployments must not exceed four (4) SSIDs per physical access point. This limit applies regardless of AP model, vendor, or deployment scenario.
+> This is a mandatory configuration limit with no exceptions. All municipal wireless deployments must not exceed four (4) SSIDs per physical access point. This limit applies regardless of AP model, vendor, or deployment scenario.
 
 ### Current SSID Inventory
 
-The City of New Orleans wireless network operates at **maximum SSID capacity**:
+The municipal wireless network operates at **maximum SSID capacity**:
 
 | SSID | Purpose | Status |
 |------|---------|--------|
-| NOLA-CORP | Corporate devices | Required |
-| NOLA-GUEST | Guest/visitor access | Required |
-| NOLA-IOT | IoT devices | Required |
-| NOLA-SECURE | High-security systems | Required |
+| MUNI-CORP | Corporate devices | Required |
+| MUNI-GUEST | Guest/visitor access | Required |
+| MUNI-IOT | IoT devices | Required |
+| MUNI-SECURE | High-security systems | Required |
 
 **No additional SSIDs may be configured.** Requests for new SSIDs must be addressed by consolidating existing use cases or leveraging VLAN/RADIUS-based policy differentiation within existing SSIDs.
 
@@ -455,10 +455,10 @@ graph TD
 
 | SSID | Method | Certificate | MFA | RADIUS Required |
 |------|--------|-------------|-----|-----------------|
-| NOLA-CORP | EAP-TLS | Device cert | Via cert | Yes |
-| NOLA-SECURE | EAP-TLS | User + Device | Via cert + PIN | Yes |
-| NOLA-IOT | PSK (SAE) | No | No | No |
-| NOLA-GUEST | OWE + Portal | No | No | Optional |
+| MUNI-CORP | EAP-TLS | Device cert | Via cert | Yes |
+| MUNI-SECURE | EAP-TLS | User + Device | Via cert + PIN | Yes |
+| MUNI-IOT | PSK (SAE) | No | No | No |
+| MUNI-GUEST | OWE + Portal | No | No | Optional |
 
 ### RADIUS Configuration
 
@@ -523,10 +523,10 @@ graph LR
 
 | SSID | Download | Upload | Rationale |
 |------|----------|--------|-----------|
-| NOLA-CORP | Unlimited | Unlimited | Business productivity |
-| NOLA-GUEST | 10 Mbps | 5 Mbps | Fair use, prevent abuse |
-| NOLA-IOT | 5 Mbps | 2 Mbps | IoT needs minimal bandwidth |
-| NOLA-SECURE | Unlimited | Unlimited | Security systems priority |
+| MUNI-CORP | Unlimited | Unlimited | Business productivity |
+| MUNI-GUEST | 10 Mbps | 5 Mbps | Fair use, prevent abuse |
+| MUNI-IOT | 5 Mbps | 2 Mbps | IoT needs minimal bandwidth |
+| MUNI-SECURE | Unlimited | Unlimited | Security systems priority |
 
 ## Cost-Performance Analysis
 
@@ -615,11 +615,11 @@ Use this checklist to verify wireless platform readiness before SSID deployment.
 
 ## Cross-References
 
-This SSID standard integrates with existing City of New Orleans network documentation:
+This SSID standard integrates with existing municipal network documentation:
 
 | Document | Relationship |
 |----------|--------------|
-| [OWE Enhanced Open Standards](../security/owe-enhanced-open.md) | Guest SSID (NOLA-GUEST) encryption requirements |
+| [OWE Enhanced Open Standards](../security/owe-enhanced-open.md) | Guest SSID (MUNI-GUEST) encryption requirements |
 | [WPA3-Enterprise Standards](../security/wpa3-enterprise.md) | Corporate and secure SSID security configuration |
 | [802.1X Implementation](../security/802.1x-implementation.md) | EAP-TLS authentication and RADIUS for 802.1X SSIDs |
 | [Network Segmentation](../security/network-segmentation.md) | VLAN assignments and zone policies per SSID |

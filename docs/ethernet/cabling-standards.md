@@ -12,7 +12,7 @@ ieee_reference: IEEE 802.3bz-2016
 
 ## Overview
 
-This document defines the structured cabling standards for all wired network infrastructure in City of New Orleans facilities. All recommendations are derived from TIA, ISO/IEC, and BICSI standards with proven industry adoption and favorable total cost of ownership for municipal deployments.
+This document defines the structured cabling standards for all wired network infrastructure in municipal facilities. All recommendations are derived from TIA, ISO/IEC, and BICSI standards with proven industry adoption and favorable total cost of ownership for municipal deployments.
 
 ## Standards References
 
@@ -199,8 +199,8 @@ flowchart LR
         A["[Building]-[Floor]-[Room]-[Jack]"]
     end
 
-    subgraph EXAMPLE["Example: CH-02-205-04"]
-        B["CH = City Hall"]
+    subgraph EXAMPLE["Example: MC-02-205-04"]
+        B["MC = Main Campus"]
         C["02 = Floor 2"]
         D["205 = Room 205"]
         E["04 = Jack 4"]

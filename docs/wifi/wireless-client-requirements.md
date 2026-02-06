@@ -11,13 +11,13 @@ wpa_reference: Wi-Fi Alliance WPA3 Specification v3.3
 
 ## Overview
 
-This document defines the mandatory requirements for any wireless client device connecting to City of New Orleans networks. It serves as the authoritative reference for device compatibility, procurement decisions, and client onboarding procedures. All wireless client devices must support WPA3. There are no exceptions, waivers, or alternative access paths for devices that do not meet this requirement.
+This document defines the mandatory requirements for any wireless client device connecting to municipal networks. It serves as the authoritative reference for device compatibility, procurement decisions, and client onboarding procedures. All wireless client devices must support WPA3. There are no exceptions, waivers, or alternative access paths for devices that do not meet this requirement.
 
 ## Executive Summary
 
 **For department heads and procurement staff:**
 
-Every wireless device on the City network must support WPA3 encryption. If a device does not support WPA3, it cannot connect — period. When purchasing new wireless devices (laptops, tablets, phones, printers, cameras, or any other wireless equipment), the device must also support WiFi 7 (802.11be). Use the [Procurement Pass/Fail Checklist](#procurement-passfail-checklist) at the end of this document to verify any device before purchase.
+Every wireless device on the network must support WPA3 encryption. If a device does not support WPA3, it cannot connect — period. When purchasing new wireless devices (laptops, tablets, phones, printers, cameras, or any other wireless equipment), the device must also support WiFi 7 (802.11be). Use the [Procurement Pass/Fail Checklist](#procurement-passfail-checklist) at the end of this document to verify any device before purchase.
 
 **Quick reference:**
 
@@ -25,9 +25,9 @@ Every wireless device on the City network must support WPA3 encryption. If a dev
 |------|-------------|
 | Existing devices | Must support WPA3 |
 | New purchases | Must support WPA3 **and** WiFi 7 |
-| Authentication (NOLA-CORP, NOLA-SECURE) | EAP-TLS with client certificate |
-| Authentication (NOLA-IOT) | WPA3-Personal (pre-shared key) |
-| Authentication (NOLA-GUEST) | OWE (automatic, no password) |
+| Authentication (MUNI-CORP, MUNI-SECURE) | EAP-TLS with client certificate |
+| Authentication (MUNI-IOT) | WPA3-Personal (pre-shared key) |
+| Authentication (MUNI-GUEST) | OWE (automatic, no password) |
 | Exceptions | **None** |
 
 ## Standards References
@@ -50,11 +50,11 @@ Every wireless device on the City network must support WPA3 encryption. If a dev
 
 ### Policy Statements
 
-> **Policy 1 — WPA3 Required (No Exceptions):** All wireless client devices connecting to any City of New Orleans SSID must support WPA3 (Personal, Enterprise, or OWE as applicable). Devices limited to WPA2 or earlier are prohibited from network access. There are no exceptions, waivers, or alternative access paths.
+> **Policy 1 — WPA3 Required (No Exceptions):** All wireless client devices connecting to any municipal SSID must support WPA3 (Personal, Enterprise, or OWE as applicable). Devices limited to WPA2 or earlier are prohibited from network access. There are no exceptions, waivers, or alternative access paths.
 
-> **Policy 2 — WiFi 7 Required for New Procurements:** All wireless client devices purchased by the City after the effective date of this policy must support IEEE 802.11be (WiFi 7). This includes laptops, tablets, phones, printers, cameras, and all other wirelessly-connected equipment. Existing City-owned devices that support WPA3 but predate WiFi 7 remain permitted until end-of-life replacement. Personal/BYOD devices are exempt from the WiFi 7 procurement requirement but must still meet the WPA3 requirement.
+> **Policy 2 — WiFi 7 Required for New Procurements:** All wireless client devices purchased after the effective date of this policy must support IEEE 802.11be (WiFi 7). This includes laptops, tablets, phones, printers, cameras, and all other wirelessly-connected equipment. Existing managed devices that support WPA3 but predate WiFi 7 remain permitted until end-of-life replacement. Personal/BYOD devices are exempt from the WiFi 7 procurement requirement but must still meet the WPA3 requirement.
 
-> **Policy 3 — EAP-TLS Certificate Authentication:** All devices connecting to NOLA-CORP or NOLA-SECURE must support EAP-TLS with X.509v3 client certificates. No other EAP method is permitted per the 2026 authentication policy.
+> **Policy 3 — EAP-TLS Certificate Authentication:** All devices connecting to MUNI-CORP or MUNI-SECURE must support EAP-TLS with X.509v3 client certificates. No other EAP method is permitted per the 2026 authentication policy.
 
 > **Policy 4 — TLS 1.3 Minimum:** All EAP-TLS sessions must use TLS 1.3 (RFC 8446) as the minimum transport protocol version. TLS 1.2 and earlier are prohibited.
 
@@ -64,7 +64,7 @@ Every wireless device on the City network must support WPA3 encryption. If a dev
 flowchart TD
     START[Device Requests<br/>Network Access] --> Q1{Supports<br/>WPA3?}
     Q1 -->|No| DENY1["❌ ACCESS DENIED<br/>Device not permitted<br/>on any SSID"]
-    Q1 -->|Yes| Q2{New City<br/>purchase?}
+    Q1 -->|Yes| Q2{New<br/>purchase?}
 
     Q2 -->|Yes| Q3{Supports<br/>WiFi 7?}
     Q2 -->|No / BYOD| Q4{Which SSID?}
@@ -72,9 +72,9 @@ flowchart TD
     Q3 -->|No| DENY2["❌ PROCUREMENT DENIED<br/>WiFi 7 required for<br/>new purchases"]
     Q3 -->|Yes| Q4
 
-    Q4 -->|NOLA-CORP<br/>NOLA-SECURE| Q5{Supports<br/>EAP-TLS?}
-    Q4 -->|NOLA-IOT| PERMIT_IOT["✅ PERMITTED<br/>WPA3-Personal"]
-    Q4 -->|NOLA-GUEST| PERMIT_GUEST["✅ PERMITTED<br/>OWE (automatic)"]
+    Q4 -->|MUNI-CORP<br/>MUNI-SECURE| Q5{Supports<br/>EAP-TLS?}
+    Q4 -->|MUNI-IOT| PERMIT_IOT["✅ PERMITTED<br/>WPA3-Personal"]
+    Q4 -->|MUNI-GUEST| PERMIT_GUEST["✅ PERMITTED<br/>OWE (automatic)"]
 
     Q5 -->|No| DENY3["❌ ACCESS DENIED<br/>EAP-TLS required"]
     Q5 -->|Yes| Q6{Supports<br/>TLS 1.3?}
@@ -106,18 +106,18 @@ flowchart TD
 **Procurement Eligibility Notes:**
 
 - **Yes** — Device meets both WPA3 and WiFi 7 requirements for new purchases.
-- **No** — Device supports WPA3 (permitted on network) but lacks WiFi 7 (cannot be newly purchased by the City).
+- **No** — Device supports WPA3 (permitted on network) but lacks WiFi 7 (cannot be newly purchased).
 - **Conditional** — The operating system supports WiFi 7, but hardware varies by device model. The specific device must be verified to contain a WiFi 7 radio before procurement approval.
 
 ### Android Fragmentation Advisory
 
-Android WPA3 support varies significantly by manufacturer and device model. While Android 10+ includes WPA3 framework support, actual functionality depends on the wireless chipset and driver implementation. Enterprise WPA3 support on Android is approximately 87% compared to 99% on iOS (Wi-Fi Alliance, 2024). All Android devices should be individually verified for WPA3 compliance before deployment on City networks.
+Android WPA3 support varies significantly by manufacturer and device model. While Android 10+ includes WPA3 framework support, actual functionality depends on the wireless chipset and driver implementation. Enterprise WPA3 support on Android is approximately 87% compared to 99% on iOS (Wi-Fi Alliance, 2024). All Android devices should be individually verified for WPA3 compliance before deployment on the network.
 
 ## Supported IoT and Embedded Device Categories
 
 All IoT devices must support WPA3. Devices that cannot demonstrate WPA3 support are not permitted on the wireless network. Consider wired Ethernet (PoE) as an alternative for devices that lack WPA3 capability.
 
-IoT devices connect to NOLA-IOT (WPA3-Personal) unless they support EAP-TLS, in which case they may connect to NOLA-CORP.
+IoT devices connect to MUNI-IOT (WPA3-Personal) unless they support EAP-TLS, in which case they may connect to MUNI-CORP.
 
 | Device Category | WPA3-Capable Chipset Families | WiFi Generation Available | Minimum Firmware Era | Notes |
 |-----------------|-------------------------------|---------------------------|----------------------|-------|
@@ -127,7 +127,7 @@ IoT devices connect to NOLA-IOT (WPA3-Personal) unless they support EAP-TLS, in 
 | VoIP Handsets (Wireless) | Handsets with Wi-Fi CERTIFIED WPA3 and 802.11r support | WiFi 6 / 6E / 7 | 2024+ | Fast roaming (802.11r) critical for call handoff; verify PMF support |
 | Digital Signage / Displays | Embedded SoCs with WPA3-Personal | WiFi 6 / 6E | 2024+ | Prefer wired connection where available |
 | Environmental Sensors | Low-power modules with WPA3-Personal | WiFi 6 (HaLow where applicable) | 2025+ | Smallest device category with WPA3 support; verify individually |
-| Medical / Health Devices | Chipsets with WPA3-Enterprise and FIPS validation | WiFi 6 / 6E | 2024+ | Must meet HIPAA requirements if handling PHI; require EAP-TLS on NOLA-CORP |
+| Medical / Health Devices | Chipsets with WPA3-Enterprise and FIPS validation | WiFi 6 / 6E | 2024+ | Must meet HIPAA requirements if handling PHI; require EAP-TLS on MUNI-CORP |
 
 ### IoT WPA3 Adoption Data
 
@@ -137,15 +137,15 @@ IoT devices connect to NOLA-IOT (WPA3-Personal) unless they support EAP-TLS, in 
 | IoT devices with WiFi 7 support | 5% | IDC Mobility Report | 2026 |
 | Projected IoT WiFi 7 support | 25% | IDC Mobility Report | 2028 (projected) |
 
-> **Guidance:** The low WPA3 adoption rate among IoT devices (23%) means most legacy IoT devices will not qualify for the City wireless network. For devices that cannot meet the WPA3 requirement, wired Ethernet with 802.1X or MAB authentication is the recommended alternative. See [802.1X Implementation](../security/802.1x-implementation.md) for wired device authentication standards.
+> **Guidance:** The low WPA3 adoption rate among IoT devices (23%) means most legacy IoT devices will not qualify for the wireless network. For devices that cannot meet the WPA3 requirement, wired Ethernet with 802.1X or MAB authentication is the recommended alternative. See [802.1X Implementation](../security/802.1x-implementation.md) for wired device authentication standards.
 
 ## Client Configuration Requirements
 
-This section consolidates all client-side settings required for successful network onboarding. IT staff should use this as a single reference when configuring any wireless device for the City network.
+This section consolidates all client-side settings required for successful network onboarding. IT staff should use this as a single reference when configuring any wireless device for the network.
 
 ### Authentication Requirements
 
-| Setting | NOLA-CORP | NOLA-SECURE | NOLA-IOT | NOLA-GUEST |
+| Setting | MUNI-CORP | MUNI-SECURE | MUNI-IOT | MUNI-GUEST |
 |---------|-----------|-------------|----------|------------|
 | Security mode | WPA3-Enterprise | WPA3-Enterprise 192-bit | WPA3-Personal (SAE) | OWE (Enhanced Open) |
 | Authentication | EAP-TLS | EAP-TLS | Pre-shared key | None (automatic) |
@@ -153,15 +153,15 @@ This section consolidates all client-side settings required for successful netwo
 | Server certificate validation | Full chain + CRL/OCSP | Full chain + CRL/OCSP | N/A | N/A |
 | TLS version | TLS 1.3 minimum (RFC 8446) | TLS 1.3 minimum (RFC 8446) | N/A | N/A |
 | Key length | RSA 2048+ or ECC P-256+ | ECDSA P-384 or RSA 3072+ (CNSA 2.0) | N/A | N/A |
-| Certificate enrollment | City PKI infrastructure | City PKI infrastructure | IT-managed rotation | N/A |
+| Certificate enrollment | PKI infrastructure | PKI infrastructure | IT-managed rotation | N/A |
 
 ### Security Settings (All SSIDs)
 
 | Setting | Required Value | Applicable SSIDs | Standard Reference |
 |---------|----------------|-------------------|-------------------|
 | Protected Management Frames (PMF) | **Mandatory** (not optional) | All | IEEE 802.11w-2009 |
-| Transition Disable | **Enabled** | NOLA-CORP, NOLA-SECURE, NOLA-IOT | Wi-Fi Alliance WPA3 |
-| TLS minimum version | **TLS 1.3** | NOLA-CORP, NOLA-SECURE | RFC 8446 |
+| Transition Disable | **Enabled** | MUNI-CORP, MUNI-SECURE, MUNI-IOT | Wi-Fi Alliance WPA3 |
+| TLS minimum version | **TLS 1.3** | MUNI-CORP, MUNI-SECURE | RFC 8446 |
 
 ### Roaming Settings
 
@@ -183,11 +183,11 @@ This section consolidates all client-side settings required for successful netwo
 
 ### Per-SSID Onboarding Checklist
 
-#### NOLA-CORP Onboarding
+#### MUNI-CORP Onboarding
 
 - [ ] Verify device supports WPA3-Enterprise
 - [ ] Verify device supports TLS 1.3
-- [ ] Enroll device certificate via City PKI (X.509v3, client auth EKU)
+- [ ] Enroll device certificate via PKI (X.509v3, client auth EKU)
 - [ ] Configure EAP-TLS as authentication method
 - [ ] Enable server certificate validation with full chain + CRL/OCSP
 - [ ] Set PMF to mandatory
@@ -195,20 +195,20 @@ This section consolidates all client-side settings required for successful netwo
 - [ ] Set band preference: 6 GHz > 5 GHz > 2.4 GHz
 - [ ] Test authentication and VLAN assignment (VLAN 20)
 
-#### NOLA-SECURE Onboarding
+#### MUNI-SECURE Onboarding
 
 - [ ] Verify device supports WPA3-Enterprise 192-bit mode
 - [ ] Verify device supports TLS 1.3
-- [ ] Enroll user **and** device certificates via City PKI (ECDSA P-384 or RSA 3072+)
+- [ ] Enroll user **and** device certificates via PKI (ECDSA P-384 or RSA 3072+)
 - [ ] Configure EAP-TLS as authentication method
 - [ ] Enable server certificate validation with full chain + CRL/OCSP
 - [ ] Set PMF to mandatory (BIP-GMAC-256)
 - [ ] Enable 802.11k/r/v roaming protocols
 - [ ] Set band preference: 6 GHz > 5 GHz
-- [ ] Verify MAC is on NOLA-SECURE allowlist
+- [ ] Verify MAC is on MUNI-SECURE allowlist
 - [ ] Test authentication and VLAN assignment (VLAN 50)
 
-#### NOLA-IOT Onboarding
+#### MUNI-IOT Onboarding
 
 - [ ] Verify device supports WPA3-Personal (SAE)
 - [ ] Configure pre-shared key (obtain from IT)
@@ -216,7 +216,7 @@ This section consolidates all client-side settings required for successful netwo
 - [ ] Verify device connects to VLAN 200
 - [ ] Confirm client isolation is active
 
-#### NOLA-GUEST (No Configuration Required)
+#### MUNI-GUEST (No Configuration Required)
 
 - OWE encryption is negotiated automatically by compatible devices
 - Users must accept captive portal terms of use
@@ -233,7 +233,7 @@ Use this checklist to evaluate any wireless device before purchase. Every **Requ
 | 1 | Device supports WPA3 (Personal or Enterprise) | **Yes** | ☐ | ☐ |
 | 2 | Device supports IEEE 802.11be (WiFi 7) | **Yes** | ☐ | ☐ |
 | 3 | Device supports Protected Management Frames (PMF / 802.11w) | **Yes** | ☐ | ☐ |
-| 4 | Device supports EAP-TLS authentication (if connecting to NOLA-CORP or NOLA-SECURE) | **Conditional** | ☐ | ☐ |
+| 4 | Device supports EAP-TLS authentication (if connecting to MUNI-CORP or MUNI-SECURE) | **Conditional** | ☐ | ☐ |
 | 5 | Device supports TLS 1.3 (RFC 8446) | **Yes** | ☐ | ☐ |
 | 6 | Device supports 802.11k/r/v roaming protocols | **Yes** | ☐ | ☐ |
 | 7 | Device operates on 5 GHz and/or 6 GHz bands | **Yes** | ☐ | ☐ |
@@ -271,8 +271,8 @@ Use this checklist to evaluate any wireless device before purchase. Every **Requ
 | AC-18 | Wireless Access | WPA3 required for all client devices |
 | AC-18(1) | Authentication and Encryption | EAP-TLS with TLS 1.3, AES-GCMP-256 |
 | IA-2 | Identification and Authentication | EAP-TLS client certificates |
-| IA-3 | Device Identification and Authentication | Device certificates (NOLA-CORP/SECURE), WPA3-Personal (NOLA-IOT) |
-| IA-5 | Authenticator Management | Certificate lifecycle via City PKI |
+| IA-3 | Device Identification and Authentication | Device certificates (MUNI-CORP/SECURE), WPA3-Personal (MUNI-IOT) |
+| IA-5 | Authenticator Management | Certificate lifecycle via PKI |
 | SC-8 | Transmission Confidentiality | WPA3 encryption on all SSIDs |
 | SC-12 | Cryptographic Key Management | TLS 1.3 key exchange, PMK derivation |
 | SC-13 | Cryptographic Protection | AES-GCMP-256, CNSA 2.0 (192-bit mode) |
@@ -293,12 +293,12 @@ Use this checklist to evaluate any wireless device before purchase. Every **Requ
 
 | Symptom | Likely Cause | Resolution |
 |---------|--------------|------------|
-| Device cannot see City SSIDs | Device lacks WPA3 support | Verify OS version meets minimum; update or replace device |
+| Device cannot see SSIDs | Device lacks WPA3 support | Verify OS version meets minimum; update or replace device |
 | WPA3 association fails | PMF not enabled on client | Enable PMF in wireless settings; update driver |
-| EAP-TLS authentication fails | Certificate expired or invalid | Re-enroll device certificate via City PKI |
+| EAP-TLS authentication fails | Certificate expired or invalid | Re-enroll device certificate via PKI |
 | TLS handshake fails | Client using TLS 1.2 or earlier | Update OS to version supporting TLS 1.3 |
 | Slow roaming between APs | 802.11r not enabled | Enable Fast BSS Transition in client wireless settings |
-| Cannot connect to NOLA-SECURE | Missing 192-bit mode support | Verify OS and hardware support WPA3-Enterprise 192-bit |
+| Cannot connect to MUNI-SECURE | Missing 192-bit mode support | Verify OS and hardware support WPA3-Enterprise 192-bit |
 | Android device intermittent failures | Chipset/driver WPA3 incompatibility | Verify device-specific WPA3 support; consider alternative device |
 | IoT device cannot connect | Device lacks WPA3-Personal (SAE) | Device is not permitted; use wired Ethernet alternative |
 
@@ -313,7 +313,7 @@ flowchart TD
     Q2 -->|No| FIX2["Select appropriate SSID<br/>per device type"]
     Q2 -->|Yes| Q3{Certificate<br/>enrolled?<br/>(CORP/SECURE)}
 
-    Q3 -->|No| FIX3["Enroll via City PKI"]
+    Q3 -->|No| FIX3["Enroll via PKI"]
     Q3 -->|N/A (IOT/GUEST)| Q5{PSK or OWE<br/>configured?}
     Q3 -->|Yes| Q4{TLS 1.3<br/>supported?}
 
@@ -358,7 +358,7 @@ flowchart TD
 |----------|-----------|
 | [WPA3-Enterprise Standards](../security/wpa3-enterprise.md) | WPA3 cipher suites, 192-bit mode, transition mode |
 | [802.1X Implementation](../security/802.1x-implementation.md) | EAP-TLS certificate requirements, RADIUS configuration |
-| [OWE Enhanced Open Standards](../security/owe-enhanced-open.md) | OWE for NOLA-GUEST, client compatibility |
+| [OWE Enhanced Open Standards](../security/owe-enhanced-open.md) | OWE for MUNI-GUEST, client compatibility |
 | [Access Point Specifications](access-point-specs.md) | WiFi 7 AP requirements, band configuration |
 | [SSID Standards](ssid-standards.md) | SSID definitions, security modes, VLAN assignments |
 | [Design Standards](design-standards.md) | Coverage thresholds, high-density design |

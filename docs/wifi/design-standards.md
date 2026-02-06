@@ -13,7 +13,7 @@ nist_reference: NIST SP 800-153
 
 ## Overview
 
-This document defines the mandatory requirements for designing wireless networks in City of New Orleans facilities. All WiFi deployments—new construction, renovation, or expansion—must follow this design standard to ensure consistent, reliable coverage across municipal buildings.
+This document defines the mandatory requirements for designing wireless networks in municipal facilities. All WiFi deployments—new construction, renovation, or expansion—must follow this design standard to ensure consistent, reliable coverage across municipal buildings.
 
 **Core Requirement:** All wireless designs must provide **-67 dBm secondary coverage** with **25 dB minimum SNR** throughout occupied spaces. Secondary coverage means every location is served by at least two access points meeting these thresholds, ensuring continuity if any single AP fails.
 
@@ -642,7 +642,7 @@ The WiFi Design Standard increases upfront investment by approximately $17,600 p
 
 ## Cross-References
 
-This design standard integrates with existing City of New Orleans network documentation:
+This design standard integrates with existing municipal network documentation:
 
 | Document | Relationship |
 |----------|--------------|
