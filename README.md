@@ -133,7 +133,6 @@ networkstandards/
 │   ├── security/            # Security standards (802.1X, WPA3, segmentation)
 │   ├── layer3/              # Layer 3 standards (IP, routing)
 │   ├── services/            # Network services (DNS, DHCP, NTP)
-│   ├── plans/               # Implementation design documents
 │   ├── _config.yml          # GitHub Pages configuration
 │   └── index.md             # Documentation home
 ├── rfcs/                    # RFC proposals
