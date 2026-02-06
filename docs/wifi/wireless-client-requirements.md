@@ -374,7 +374,7 @@ flowchart TD
 
 1. IEEE 802.11be-2024, "Enhancements for Extremely High Throughput (EHT)," IEEE, January 2024.
 2. IEEE 802.11ax-2021, "Enhancements for High-Efficiency WLAN," IEEE, February 2021.
-3. IEEE 802.11-2020, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
+3. IEEE 802.11-2024, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
 4. IEEE 802.11w-2009, "Protected Management Frames," IEEE, September 2009.
 5. IEEE 802.11r-2008, "Fast Basic Service Set (BSS) Transition," IEEE, July 2008.
 6. IEEE 802.11k-2008, "Radio Resource Measurement of Wireless LANs," IEEE, June 2008.

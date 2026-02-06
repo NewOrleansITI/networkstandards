@@ -557,7 +557,7 @@ Use this checklist to evaluate any NTP server or time synchronization service be
 
 7. NIST, "NIST Internet Time Servers." https://www.nist.gov/pml/time-and-frequency-division/time-distribution/internet-time-service-its
 
-8. Criminal Justice Information Services, "CJIS Security Policy," Version 5.9.2, 2024. https://www.fbi.gov/services/cjis/cjis-security-policy-resource-center
+8. Criminal Justice Information Services, "CJIS Security Policy," Version 5.9.5, 2024. https://www.fbi.gov/services/cjis/cjis-security-policy-resource-center
 
 9. ITU-T, "Timing characteristics of primary reference time clocks," G.8272, November 2018.
 

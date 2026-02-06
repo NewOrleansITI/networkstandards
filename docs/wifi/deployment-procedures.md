@@ -20,8 +20,8 @@ This document defines the standard procedures for deploying WiFi 7 (IEEE 802.11b
 |----------|-------|------|-------|
 | BICSI TDMM 15th Ed. | Telecommunications Distribution Methods Manual | 2024 | Deployment best practices |
 | TIA-569-E | Telecommunications Pathways and Spaces | June 2019 | Physical installation |
-| TIA-606-C | Administration Standard | February 2017 | Labeling and documentation |
-| IEEE 802.11-2020 | Wireless LAN Standard | December 2020 | Technical requirements |
+| TIA-606-D | Administration Standard | February 2017 | Labeling and documentation |
+| IEEE 802.11-2024 | Wireless LAN Standard | December 2020 | Technical requirements |
 | NIST SP 800-153 | Guidelines for Securing WLANs | February 2012 | Security validation |
 
 ## Deployment Workflow
@@ -134,7 +134,7 @@ flowchart TD
 |-------|----------|-------------------|
 | Coverage | ≥-67 dBm secondary coverage (all bands) | [Design Standards](design-standards.md) |
 | Capacity | AP count supports user density | Site survey |
-| Cabling | Cat6A to each AP location | TIA-568.2-D |
+| Cabling | Cat6A to each AP location | TIA-568.2-E |
 | Switch ports | **All ports 2.5G+ minimum (1 GbE-only switches prohibited)** | IEEE 802.3bz |
 | PoE | **802.3bt budget ≥ total AP power (30-50W/AP; use 60W conservative planning figure for UPS sizing per [Backup Power Standards](../ethernet/backup-power-standards.md))** | IEEE 802.3bt-2018 |
 | Channels | No co-channel interference (including 6 GHz) | IEEE 802.11be |
@@ -211,9 +211,9 @@ graph TD
 |-------------|----------|-------|
 | Cable category | **Cat6A required** | Supports multi-gig (2.5G/5G/10G) for WiFi 7 backhaul |
 | Plenum rating | CMP if above drop ceiling | Per local fire code |
-| Cable length | ≤100 meters total | TIA-568.2-D |
+| Cable length | ≤100 meters total | TIA-568.2-E |
 | Service loop | 3-5 feet at AP location | For future maintenance |
-| Labeling | Both ends per TIA-606-C | AP-[Building]-[Location] |
+| Labeling | Both ends per TIA-606-D | AP-[Building]-[Location] |
 | Cable management | Velcro ties, J-hooks | No zip ties on Cat6A |
 
 **Note:** Cat6 cabling limits multi-gig speeds to 55m maximum. All new AP drops must use Cat6A to support full WiFi 7 backhaul requirements.
@@ -513,8 +513,8 @@ Use this checklist to verify contractor qualifications before approving a WiFi d
 
 1. BICSI TDMM, 15th Edition, "Telecommunications Distribution Methods Manual," BICSI, 2024.
 2. TIA-569-E, "Telecommunications Pathways and Spaces," TIA, June 2019.
-3. TIA-606-C, "Administration Standard for Telecommunications Infrastructure," TIA, February 2017.
-4. IEEE 802.11-2020, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
+3. TIA-606-D, "Administration Standard for Telecommunications Infrastructure," TIA, February 2017.
+4. IEEE 802.11-2024, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
 5. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 
 ## Cross-References

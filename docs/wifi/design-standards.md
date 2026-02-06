@@ -3,9 +3,9 @@ title: Wireless Network Design Standards
 version: 1.1.0
 status: Supported
 last_updated: 2026-02-04
-ieee_reference: IEEE 802.11be-2024, 802.11-2020
+ieee_reference: IEEE 802.11be-2024, 802.11-2024
 bicsi_reference: BICSI TDMM 15th Edition
-tia_reference: TIA-569-E, ANSI/TIA-1179
+tia_reference: TIA-569-E, ANSI/TIA-1179-B
 nist_reference: NIST SP 800-153
 ---
 
@@ -30,11 +30,11 @@ This standard applies to:
 
 | Standard | Title | Relevance |
 |----------|-------|-----------|
-| IEEE 802.11-2020 | Wireless LAN Standard | Technical coverage requirements |
+| IEEE 802.11-2024 | Wireless LAN Standard | Technical coverage requirements |
 | IEEE 802.11be-2024 | WiFi 7 (EHT) | Current AP standard |
 | BICSI TDMM 15th Ed. | Telecommunications Distribution Methods Manual | Design best practices |
 | TIA-569-E | Pathways and Spaces | Physical infrastructure |
-| ANSI/TIA-1179 | Healthcare Telecom Infrastructure | Healthcare facility requirements |
+| ANSI/TIA-1179-B | Healthcare Telecom Infrastructure | Healthcare facility requirements |
 | NIST SP 800-153 | Guidelines for Securing WLANs | Security design principles |
 
 ## Design Workflow
@@ -144,7 +144,7 @@ This two-AP redundancy requirement—known as secondary coverage—ensures wirel
 | Parameter | Requirement | Standard Reference |
 |-----------|-------------|-------------------|
 | RSSI (secondary) | ≥ -67 dBm from 2nd strongest AP | BICSI TDMM |
-| SNR | ≥ 25 dB | IEEE 802.11-2020 |
+| SNR | ≥ 25 dB | IEEE 802.11-2024 |
 | Coverage overlap | 15-20% between adjacent APs | BICSI TDMM |
 | Dead zones | None permitted in occupied spaces | — |
 
@@ -294,7 +294,7 @@ The following qualify as challenging RF environments (20-day review):
 - Warehouses or industrial facilities
 - Buildings with significant RF interference sources
 - Multi-tenant facilities with existing wireless
-- Healthcare facilities (ANSI/TIA-1179 compliance required)
+- Healthcare facilities (ANSI/TIA-1179-B compliance required)
 
 ### Design Responsibility
 
@@ -592,7 +592,7 @@ The WiFi Design Standard increases upfront investment by approximately $17,600 p
 
 | Standard | Title | Date | Relevance to Design Standard |
 |----------|-------|------|------------------------------|
-| IEEE 802.11-2020 | Wireless LAN Medium Access Control and Physical Layer Specifications | December 2020 | Base WLAN technical requirements, RSSI/SNR definitions |
+| IEEE 802.11-2024 | Wireless LAN Medium Access Control and Physical Layer Specifications | December 2020 | Base WLAN technical requirements, RSSI/SNR definitions |
 | IEEE 802.11be-2024 | Extremely High Throughput (EHT) Amendment | January 2024 | WiFi 7 AP requirements, MLO reliability |
 | IEEE 802.11k-2008 | Radio Resource Measurement | June 2008 | Client roaming optimization |
 | IEEE 802.11r-2008 | Fast BSS Transition | July 2008 | Seamless roaming between APs |
@@ -614,13 +614,13 @@ The WiFi Design Standard increases upfront investment by approximately $17,600 p
 | Standard | Title | Date | Relevance to Design Standard |
 |----------|-------|------|------------------------------|
 | TIA-569-E | Telecommunications Pathways and Spaces | June 2019 | Physical infrastructure for AP mounting |
-| TIA-568.2-D | Balanced Twisted-Pair Cabling | September 2018 | Cabling to AP locations |
-| TIA-606-C | Administration Standard | February 2017 | Documentation and labeling |
-| ANSI/TIA-1179 | Healthcare Facility Telecommunications Infrastructure | 2019 | Healthcare-specific wireless requirements |
+| TIA-568.2-E | Balanced Twisted-Pair Cabling | September 2018 | Cabling to AP locations |
+| TIA-606-D | Administration Standard | February 2017 | Documentation and labeling |
+| ANSI/TIA-1179-B | Healthcare Facility Telecommunications Infrastructure | 2023 | Healthcare-specific wireless requirements |
 
-**ANSI/TIA-1179 Wireless Guidance:**
+**ANSI/TIA-1179-B Wireless Guidance:**
 > "Healthcare facilities shall provide wireless coverage with sufficient overlap to support roaming medical devices and ensure no coverage gaps exist in patient care areas."
-> — ANSI/TIA-1179, Section 8.3
+> — ANSI/TIA-1179-B, Section 8.3
 
 ### NIST Standards
 
@@ -713,11 +713,11 @@ Use this checklist to verify design service provider qualifications before appro
 
 ## References
 
-1. IEEE 802.11-2020, "IEEE Standard for Information Technology—Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
+1. IEEE 802.11-2024, "IEEE Standard for Information Technology—Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
 2. IEEE 802.11be-2024, "IEEE Standard for Information Technology—Enhancements for Extremely High Throughput (EHT)," IEEE, January 2024.
 3. BICSI, "Telecommunications Distribution Methods Manual (TDMM)," 14th Edition, BICSI, 2018.
 4. TIA-569-E, "Telecommunications Pathways and Spaces," TIA, June 2019.
-5. ANSI/TIA-1179, "Healthcare Facility Telecommunications Infrastructure Standard," TIA, 2019.
+5. ANSI/TIA-1179-B, "Healthcare Facility Telecommunications Infrastructure Standard," TIA, 2023.
 6. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 7. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
 
