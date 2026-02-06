@@ -4,7 +4,7 @@ version: 1.1.0
 status: Supported
 last_updated: 2026-02-04
 ieee_reference: IEEE 802.11be-2024, 802.11-2020
-bicsi_reference: BICSI TDMM 14th Edition
+bicsi_reference: BICSI TDMM 15th Edition
 tia_reference: TIA-569-E, ANSI/TIA-1179
 nist_reference: NIST SP 800-153
 ---
@@ -32,7 +32,7 @@ This standard applies to:
 |----------|-------|-----------|
 | IEEE 802.11-2020 | Wireless LAN Standard | Technical coverage requirements |
 | IEEE 802.11be-2024 | WiFi 7 (EHT) | Current AP standard |
-| BICSI TDMM 14th Ed. | Telecommunications Distribution Methods Manual | Design best practices |
+| BICSI TDMM 15th Ed. | Telecommunications Distribution Methods Manual | Design best practices |
 | TIA-569-E | Pathways and Spaces | Physical infrastructure |
 | ANSI/TIA-1179 | Healthcare Telecom Infrastructure | Healthcare facility requirements |
 | NIST SP 800-153 | Guidelines for Securing WLANs | Security design principles |
@@ -602,12 +602,12 @@ The WiFi Design Standard increases upfront investment by approximately $17,600 p
 
 | Standard | Title | Date | Relevance to Design Standard |
 |----------|-------|------|------------------------------|
-| BICSI TDMM 14th Edition | Telecommunications Distribution Methods Manual | 2018 | Wireless design methodology, coverage thresholds, secondary coverage definition |
+| BICSI TDMM 15th Edition | Telecommunications Distribution Methods Manual | 2024 | Wireless design methodology, coverage thresholds, secondary coverage definition |
 | BICSI WLAN Design Reference Manual | Wireless LAN Design | 2019 | RF design best practices, site survey procedures |
 
 **BICSI TDMM Coverage Guidance:**
 > "Secondary coverage ensures that if the primary access point fails or is overloaded, a secondary access point provides adequate signal strength for client connectivity. A minimum of -67 dBm from a secondary AP is recommended for enterprise deployments."
-> — BICSI TDMM 14th Edition, Chapter 7
+> — BICSI TDMM 15th Edition
 
 ### TIA Standards
 
