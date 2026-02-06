@@ -5,7 +5,7 @@ status: Supported
 last_updated: 2026-02-04
 nec_reference: NEC Articles 700, 701, 702, 708
 nfpa_reference: NFPA 110-2022, NFPA 111-2022
-ieee_reference: IEEE 446-2000, IEEE 1100-2005
+ieee_reference: IEEE 446-1995, IEEE 1100-2005, IEEE C62.41.2-2025
 nist_reference: NIST SP 800-53 Rev. 5 (PE-11)
 tia_reference: TIA-607-D
 ---
@@ -28,8 +28,8 @@ All network equipment locations — from single-IDF closets to multi-rack MDFs �
 | NEC Article 708 | Critical Operations Power Systems (COPS) | 2023 | Mission-critical facility power |
 | NFPA 110 | Standard for Emergency and Standby Power Systems | 2022 | Generator installation and testing |
 | NFPA 111 | Stored Electrical Energy Emergency and Standby Power Systems | 2022 | UPS and battery systems |
-| IEEE 446 | Recommended Practice for Emergency and Standby Power Systems (Orange Book) | 2000 | Power system design |
-| IEEE 1100 | Recommended Practice for Powering and Grounding Electronic Equipment (Emerald Book) | 2005 | Sensitive load protection |
+| IEEE 446 | Recommended Practice for Emergency and Standby Power Systems (Orange Book) | 1995 (Inactive-Reserved) | Power system design |
+| IEEE 1100 | Recommended Practice for Powering and Grounding Electronic Equipment (Emerald Book) | 2005 (Inactive-Reserved) | Sensitive load protection |
 | NIST SP 800-53 Rev. 5 | Security and Privacy Controls — PE-11 Emergency Power | 2020 | Federal security requirement |
 | TIA-607-D | Generic Telecommunications Bonding and Grounding | 2019 | Grounding infrastructure |
 | NEC Article 250 | Grounding and Bonding | 2023 | Electrical grounding |
@@ -291,7 +291,7 @@ graph LR
 |-------------|---------------|-------------------|
 | SPD location | Type 2 SPD at network equipment panel | NEC 285, IEEE 1100 |
 | Clamping voltage | ≤600V (120V circuits) / ≤1000V (208V circuits) | UL 1449 |
-| Surge rating | ≥50 kA per mode | IEEE C62.41.2 |
+| Surge rating | ≥50 kA per mode | IEEE C62.41.2-2025 |
 | Indicator | Visual status indicator (protection active/failed) | UL 1449 |
 | Monitoring | Dry contact or SNMP alarm for SPD failure | — |
 
@@ -479,12 +479,12 @@ Use this checklist to evaluate UPS, generator, and transfer switch equipment bef
 2. NFPA 110, "Standard for Emergency and Standby Power Systems," National Fire Protection Association, 2022.
 3. NFPA 111, "Stored Electrical Energy Emergency and Standby Power Systems," National Fire Protection Association, 2022.
 4. NFPA 780, "Standard for the Installation of Lightning Protection Systems," National Fire Protection Association, 2023.
-5. IEEE 446-2000, "IEEE Recommended Practice for Emergency and Standby Power Systems for Industrial and Commercial Applications (Orange Book)," IEEE, 2000.
-6. IEEE 1100-2005, "IEEE Recommended Practice for Powering and Grounding Electronic Equipment (Emerald Book)," IEEE, 2005.
+5. IEEE 446-1995, "IEEE Recommended Practice for Emergency and Standby Power Systems for Industrial and Commercial Applications (Orange Book)," IEEE, 1995 (reaffirmed 2000; Inactive-Reserved 2021 — no successor published; remains widely referenced in power engineering).
+6. IEEE 1100-2005, "IEEE Recommended Practice for Powering and Grounding Electronic Equipment (Emerald Book)," IEEE, 2005 (Inactive-Reserved 2021 — no successor published; remains widely referenced in power engineering).
 7. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
 8. TIA-607-D, "Generic Telecommunications Bonding and Grounding (Earthing) for Customer Premises," TIA, August 2019.
 9. UL 1449, "Standard for Surge Protective Devices," Underwriters Laboratories, 2014.
-10. IEEE C62.41.2, "IEEE Recommended Practice on Characterization of Surges in Low-Voltage AC Power Circuits," IEEE, 2002.
+10. IEEE C62.41.2-2025, "IEEE Recommended Practice on Characterization of Surges in Low-Voltage AC Power Circuits," IEEE, 2025.
 
 ---
 
