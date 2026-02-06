@@ -141,7 +141,7 @@ sequenceDiagram
 
 | Setting | Value | Standard Reference |
 |---------|-------|-------------------|
-| Security protocol | **OWE (Enhanced Open)** | IEEE 802.11-2020, RFC 8110 |
+| Security protocol | **OWE (Enhanced Open)** | IEEE 802.11-2024, RFC 8110 |
 | Encryption | AES-CCMP-128 | Wi-Fi Alliance WPA3 |
 | PMF (802.11w) | Required | IEEE 802.11w-2009 |
 | Captive portal | Required | Terms acceptance |
@@ -403,9 +403,9 @@ flowchart TD
 
 | Standard | Relevance |
 |----------|-----------|
-| IEEE 802.11-2020 §9.3.3.3 | Beacon frame format and timing |
-| IEEE 802.11-2020 §11.1.3.1 | Beacon interval (default 100 TU) |
-| IEEE 802.11-2020 §17.3.8.2 | OFDM mandatory data rates |
+| IEEE 802.11-2024 §9.3.3.3 | Beacon frame format and timing |
+| IEEE 802.11-2024 §11.1.3.1 | Beacon interval (default 100 TU) |
+| IEEE 802.11-2024 §17.3.8.2 | OFDM mandatory data rates |
 | IEEE 802.11b-1999 §18.1 | Legacy 1 Mbps, 2 Mbps rates (2.4 GHz) |
 
 ---

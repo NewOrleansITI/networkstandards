@@ -3,7 +3,7 @@ title: Structured Cabling Standards
 version: 3.1.0
 status: Supported
 last_updated: 2026-02-04
-tia_reference: TIA-568.2-D, TIA-569-E, TIA-606-C, TIA-607-D
+tia_reference: TIA-568.2-E, TIA-569-E, TIA-606-D, TIA-607-D
 iso_reference: ISO/IEC 11801-1:2017
 ieee_reference: IEEE 802.3bz-2016
 ---
@@ -18,14 +18,14 @@ This document defines the structured cabling standards for all wired network inf
 
 | Standard | Title | Ratification Date | Scope |
 |----------|-------|-------------------|-------|
-| TIA-568.2-D | Balanced Twisted-Pair Telecommunications Cabling and Components | August 2018 | Copper cabling specifications |
-| TIA-568.3-D | Optical Fiber Cabling and Components | June 2016 | Fiber optic specifications |
+| TIA-568.2-E | Balanced Twisted-Pair Telecommunications Cabling and Components | August 2018 | Copper cabling specifications |
+| TIA-568.3-E | Optical Fiber Cabling and Components | June 2016 | Fiber optic specifications |
 | TIA-569-E | Telecommunications Pathways and Spaces | June 2019 | Pathway design and capacity |
-| TIA-606-C | Administration Standard for Telecommunications Infrastructure | February 2017 | Labeling and documentation |
+| TIA-606-D | Administration Standard for Telecommunications Infrastructure | February 2017 | Labeling and documentation |
 | ISO/IEC 11801-1 | Generic Cabling - Part 1: General Requirements | November 2017 | International cabling standard |
 | ANSI/NECA/BICSI 568 | Installing Commercial Building Telecommunications Cabling | 2016 | Installation best practices |
 | TIA-607-D | Generic Telecommunications Bonding and Grounding | August 2019 | Grounding infrastructure |
-| NFPA 780 | Standard for Installation of Lightning Protection Systems | 2023 | Lightning protection (public safety) |
+| NFPA 780 | Standard for Installation of Lightning Protection Systems | 2026 | Lightning protection (public safety) |
 | IEC 60529 | Degrees of Protection Provided by Enclosures (IP Code) | 2013 | Outdoor enclosure ratings |
 
 ## Approved Cable Types
@@ -35,7 +35,7 @@ This document defines the structured cabling standards for all wired network inf
 ```mermaid
 graph LR
     subgraph RECOMMENDED["✅ RECOMMENDED"]
-        CAT6A["Category 6A<br/>TIA-568.2-D<br/>10GBASE-T capable"]
+        CAT6A["Category 6A<br/>TIA-568.2-E<br/>10GBASE-T capable"]
     end
 
     subgraph LEGACY["⚠️ LEGACY ONLY"]
@@ -54,8 +54,8 @@ graph LR
 
 | Category | Standard | Max Frequency | Max Distance | Multi-Gig/10GBASE-T Support | Status |
 |----------|----------|---------------|--------------|----------------------------|--------|
-| Cat6A | TIA-568.2-D | 500 MHz | 100 meters | 2.5G/5G/10G full (100m) | **Required** |
-| Cat6 | TIA-568.2-D | 250 MHz | 100 meters | 2.5G/5G limited (55m), 10G (55m) | Legacy |
+| Cat6A | TIA-568.2-E | 500 MHz | 100 meters | 2.5G/5G/10G full (100m) | **Required** |
+| Cat6 | TIA-568.2-E | 250 MHz | 100 meters | 2.5G/5G limited (55m), 10G (55m) | Legacy |
 | Cat5e | — | 100 MHz | 100 meters | No multi-gig support | Prohibited |
 
 ### WiFi 7 Backhaul Requirements
@@ -174,8 +174,8 @@ flowchart TD
 
 | Requirement | Standard | Specification |
 |-------------|----------|---------------|
-| Bend radius (Cat6A) | TIA-568.2-D | ≥4× cable outside diameter |
-| Bend radius (fiber) | TIA-568.3-D | ≥10× cable outside diameter under no load |
+| Bend radius (Cat6A) | TIA-568.2-E | ≥4× cable outside diameter |
+| Bend radius (fiber) | TIA-568.3-E | ≥10× cable outside diameter under no load |
 | Separation from power | TIA-569-E | ≥305 mm (12 in) from unshielded power |
 | Fill ratio (conduit) | TIA-569-E | ≤40% for 3+ cables |
 | Fill ratio (cable tray) | TIA-569-E | ≤50% usable depth |
@@ -184,14 +184,14 @@ flowchart TD
 
 | Component | Standard | Requirement |
 |-----------|----------|-------------|
-| Jack wiring | TIA-568.2-D | T568B pattern (all city facilities) |
-| Patch panels | TIA-568.2-D | 110-style IDC or tool-less keystone |
-| Fiber connectors | TIA-568.3-D | LC duplex (preferred) or MPO for high-density |
+| Jack wiring | TIA-568.2-E | T568B pattern (all city facilities) |
+| Patch panels | TIA-568.2-E | 110-style IDC or tool-less keystone |
+| Fiber connectors | TIA-568.3-E | LC duplex (preferred) or MPO for high-density |
 | Cable certification | TIA-1152-A | Permanent link or channel testing |
 
 ### Labeling Requirements
 
-Per TIA-606-C Administration Standard:
+Per TIA-606-D Administration Standard:
 
 ```mermaid
 flowchart LR
@@ -226,13 +226,13 @@ Per TIA-1152-A Field Testing Standard:
 |----------------|-------------------|---------------|
 | Wire map | Required | All pairs correct, no opens/shorts |
 | Length | Required | ≤100 m permanent link |
-| Insertion loss | Required | Per TIA-568.2-D limits |
-| NEXT | Required | Per TIA-568.2-D limits |
-| PS-NEXT | Required | Per TIA-568.2-D limits |
-| ACR-F (ELFEXT) | Required | Per TIA-568.2-D limits |
-| Return loss | Required | Per TIA-568.2-D limits |
-| TCL | Required for Cat6A | Per TIA-568.2-D limits |
-| ELTCTL | Required for Cat6A | Per TIA-568.2-D limits |
+| Insertion loss | Required | Per TIA-568.2-E limits |
+| NEXT | Required | Per TIA-568.2-E limits |
+| PS-NEXT | Required | Per TIA-568.2-E limits |
+| ACR-F (ELFEXT) | Required | Per TIA-568.2-E limits |
+| Return loss | Required | Per TIA-568.2-E limits |
+| TCL | Required for Cat6A | Per TIA-568.2-E limits |
+| ELTCTL | Required for Cat6A | Per TIA-568.2-E limits |
 
 ### Certification Requirements
 
@@ -379,7 +379,7 @@ All permanent outdoor installations require:
 ```mermaid
 timeline
     title Cabling Standards Lifecycle
-    2018 : TIA-568.2-D ratified : Cat6A becomes standard
+    2018 : TIA-568.2-E ratified : Cat6A becomes standard
     2020 : Cat5e prohibited for new installations
     2024 : Cat6A reaches 78% adoption
     2026 : Current standard (this document)
@@ -404,7 +404,7 @@ Use this checklist to evaluate cabling materials and components before purchase.
 
 | # | Requirement | Required | Pass | Fail |
 |---|-------------|----------|------|------|
-| 1 | Cable rated Category 6A per TIA-568.2-D (500 MHz) | **Yes** | ☐ | ☐ |
+| 1 | Cable rated Category 6A per TIA-568.2-E (500 MHz) | **Yes** | ☐ | ☐ |
 | 2 | Outdoor cable has outdoor-rated jacket (CMX, CMXT, or direct burial) | **Conditional** | ☐ | ☐ |
 | 3 | Outdoor cable temperature rating -40°C to +75°C minimum | **Conditional** | ☐ | ☐ |
 | 4 | Surge protection at both ends for outdoor runs (≤50V clamping, ≥10 kA) | **Conditional** | ☐ | ☐ |
@@ -436,18 +436,18 @@ Use this checklist to evaluate cabling materials and components before purchase.
 
 ## References
 
-1. TIA-568.2-D, "Balanced Twisted-Pair Telecommunications Cabling and Components Standard," Telecommunications Industry Association, August 2018.
-2. TIA-568.3-D, "Optical Fiber Cabling and Components Standard," Telecommunications Industry Association, June 2016.
+1. TIA-568.2-E, "Balanced Twisted-Pair Telecommunications Cabling and Components Standard," Telecommunications Industry Association, August 2018.
+2. TIA-568.3-E, "Optical Fiber Cabling and Components Standard," Telecommunications Industry Association, June 2016.
 3. TIA-569-E, "Telecommunications Pathways and Spaces," Telecommunications Industry Association, June 2019.
-4. TIA-606-C, "Administration Standard for Telecommunications Infrastructure," Telecommunications Industry Association, February 2017.
+4. TIA-606-D, "Administration Standard for Telecommunications Infrastructure," Telecommunications Industry Association, February 2017.
 5. TIA-607-D, "Generic Telecommunications Bonding and Grounding (Earthing) for Customer Premises," Telecommunications Industry Association, August 2019.
 6. TIA-1152-A, "Requirements for Field Test Instruments and Measurements for Balanced Twisted-Pair Cabling," Telecommunications Industry Association, 2016.
 7. ISO/IEC 11801-1:2017, "Information technology — Generic cabling for customer premises — Part 1: General requirements," International Organization for Standardization, November 2017.
 8. BICSI TDMM, 15th Edition, "Telecommunications Distribution Methods Manual," BICSI, 2024.
 9. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," National Institute of Standards and Technology, September 2020.
-10. NFPA 780, "Standard for the Installation of Lightning Protection Systems," National Fire Protection Association, 2023.
+10. NFPA 780, "Standard for the Installation of Lightning Protection Systems," National Fire Protection Association, 2026.
 11. IEC 60529, "Degrees of Protection Provided by Enclosures (IP Code)," International Electrotechnical Commission, 2013.
-12. NFPA 70 (NEC), "National Electrical Code," National Fire Protection Association, 2023.
+12. NFPA 70 (NEC), "National Electrical Code," National Fire Protection Association, 2026.
 
 ## Cross-References
 

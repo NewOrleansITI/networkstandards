@@ -3,7 +3,7 @@ title: WPA3-Enterprise Wireless Security Standards
 version: 1.0.0
 status: Supported
 last_updated: 2026-02-02
-ieee_reference: IEEE 802.11-2020, 802.11i
+ieee_reference: IEEE 802.11-2024, 802.11i
 wpa_reference: Wi-Fi Alliance WPA3 Specification v3.3
 ---
 
@@ -17,7 +17,7 @@ This document establishes the standards for WPA3-Enterprise wireless security. W
 
 | Standard | Title | Ratification Date | Scope |
 |----------|-------|-------------------|-------|
-| IEEE 802.11-2020 | Wireless LAN Medium Access Control | December 2020 | Consolidated wireless standard |
+| IEEE 802.11-2024 | Wireless LAN Medium Access Control | December 2020 | Consolidated wireless standard |
 | IEEE 802.11i-2004 | Security Enhancements | July 2004 | RSN framework (WPA2 basis) |
 | IEEE 802.11w-2009 | Protected Management Frames | September 2009 | Management frame protection |
 | IEEE 802.11r-2008 | Fast BSS Transition | July 2008 | Fast roaming |
@@ -174,8 +174,8 @@ sequenceDiagram
 
 | Component | Requirement | Standard Reference |
 |-----------|-------------|-------------------|
-| Pairwise cipher | AES-CCMP-128 or AES-GCMP-256 | IEEE 802.11-2020 |
-| Group cipher | AES-CCMP-128 or AES-GCMP-256 | IEEE 802.11-2020 |
+| Pairwise cipher | AES-CCMP-128 or AES-GCMP-256 | IEEE 802.11-2024 |
+| Group cipher | AES-CCMP-128 or AES-GCMP-256 | IEEE 802.11-2024 |
 | Group management cipher | BIP-CMAC-128 or BIP-GMAC-256 | IEEE 802.11w |
 | Key derivation | HMAC-SHA-256 or HMAC-SHA-384 | Wi-Fi Alliance |
 | EAP method | EAP-TLS only (2026 policy) | RFC 9190; see [802.1X Implementation](802.1x-implementation.md) |
@@ -187,8 +187,8 @@ sequenceDiagram
 
 | Component | Requirement | Standard Reference |
 |-----------|-------------|-------------------|
-| Pairwise cipher | AES-GCMP-256 only | IEEE 802.11-2020 |
-| Group cipher | AES-GCMP-256 only | IEEE 802.11-2020 |
+| Pairwise cipher | AES-GCMP-256 only | IEEE 802.11-2024 |
+| Group cipher | AES-GCMP-256 only | IEEE 802.11-2024 |
 | Group management cipher | BIP-GMAC-256 only | IEEE 802.11w |
 | Key derivation | HMAC-SHA-384 only | Wi-Fi Alliance |
 | EAP method | EAP-TLS only | RFC 9190 |
@@ -298,7 +298,7 @@ sequenceDiagram
 | Security mode | WPA3-Enterprise | Wi-Fi Alliance WPA3 |
 | PMF | Required | IEEE 802.11w |
 | Fast BSS transition | Enabled (802.11r) | IEEE 802.11r |
-| OKC (Opportunistic Key Caching) | Enabled | IEEE 802.11-2020 |
+| OKC (Opportunistic Key Caching) | Enabled | IEEE 802.11-2024 |
 | GTK rekey interval | 86400 seconds (24 hours) | Security best practice |
 | PTK rekey | On session timeout | Security best practice |
 | Management frame protection | BIP-GMAC-256 | IEEE 802.11w |
@@ -582,7 +582,7 @@ Use this checklist to evaluate any wireless infrastructure component before purc
 
 ## References
 
-1. IEEE 802.11-2020, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
+1. IEEE 802.11-2024, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
 2. IEEE 802.11i-2004, "Amendment 6: Medium Access Control (MAC) Security Enhancements," IEEE, July 2004.
 3. IEEE 802.11w-2009, "Amendment 4: Protected Management Frames," IEEE, September 2009.
 4. IEEE 802.11r-2008, "Amendment 2: Fast Basic Service Set (BSS) Transition," IEEE, July 2008.

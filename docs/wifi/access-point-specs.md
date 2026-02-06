@@ -20,7 +20,7 @@ This document defines the minimum specifications and placement guidelines for wi
 |----------|-------|-------------------|----------------|
 | IEEE 802.11be-2024 | Extremely High Throughput WLAN | January 2024 | WiFi 7 |
 | IEEE 802.11ax-2021 | High Efficiency WLAN | February 2021 | WiFi 6/6E |
-| IEEE 802.11-2020 | Wireless LAN MAC and PHY | December 2020 | Base standard |
+| IEEE 802.11-2024 | Wireless LAN MAC and PHY | December 2020 | Base standard |
 | IEEE 802.11w-2009 | Protected Management Frames | September 2009 | PMF |
 | IEEE 802.3bt-2018 | PoE++ (4PPoE) | September 2018 | Up to 90W |
 | IEEE 802.3at-2009 | PoE+ | September 2009 | Up to 30W |
@@ -475,7 +475,7 @@ Use this checklist to evaluate wireless access points before purchase. Every **R
 
 1. IEEE 802.11be-2024, "IEEE Standard for Information Technology—Telecommunications and Information Exchange between Systems—Local and Metropolitan Area Networks—Specific Requirements—Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications—Amendment 8: Enhancements for Extremely High Throughput (EHT)," IEEE, January 2024.
 2. IEEE 802.11ax-2021, "IEEE Standard for Information Technology—Telecommunications and Information Exchange between Systems—Local and Metropolitan Area Networks—Specific Requirements—Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications—Amendment 1: Enhancements for High-Efficiency WLAN," IEEE, February 2021.
-3. IEEE 802.11-2020, "IEEE Standard for Information Technology—Telecommunications and Information Exchange between Systems—Local and Metropolitan Area Networks—Specific Requirements—Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
+3. IEEE 802.11-2024, "IEEE Standard for Information Technology—Telecommunications and Information Exchange between Systems—Local and Metropolitan Area Networks—Specific Requirements—Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
 4. IEEE 802.3bt-2018, "IEEE Standard for Ethernet Amendment 2: Physical Layer and Management Parameters for Power over Ethernet over 4 Pairs," IEEE, September 2018.
 5. Wi-Fi Alliance, "WPA3 Specification Version 3.0," Wi-Fi Alliance, December 2020.
 6. Wi-Fi Alliance, "Wi-Fi CERTIFIED 7," Wi-Fi Alliance, January 2024. https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7

@@ -25,7 +25,7 @@ This document establishes the standards for network segmentation, defining how m
 | NIST SP 800-125B | Secure Virtual Network Configuration | March 2016 | Virtual network security |
 | NIST SP 800-207 | Zero Trust Architecture | August 2020 | Zero trust principles |
 | CISA Zero Trust Maturity Model | ZT Guidance | April 2023 | Federal zero trust |
-| PCI DSS v4.0 | Payment Card Industry Standards | March 2022 | Cardholder data isolation |
+| PCI DSS v4.0.1 | Payment Card Industry Standards | June 2024 | Cardholder data isolation |
 
 ## Segmentation Architecture
 
@@ -781,8 +781,8 @@ Use this checklist to evaluate any network infrastructure component before purch
 6. NIST SP 800-207, "Zero Trust Architecture," NIST, August 2020.
 7. NIST SP 800-183, "Networks of 'Things'," NIST, July 2016.
 8. CISA, "Zero Trust Maturity Model Version 2.0," CISA, April 2023.
-9. PCI Security Standards Council, "PCI DSS v4.0," PCI SSC, March 2022.
-10. CIS Controls v8, "CIS Critical Security Controls," Center for Internet Security, May 2021.
+9. PCI Security Standards Council, "PCI DSS v4.0.1," PCI SSC, June 2024.
+10. CIS Controls v8.1, "CIS Critical Security Controls," Center for Internet Security, June 2024.
 
 ## Cross-References
 

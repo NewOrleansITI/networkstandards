@@ -308,7 +308,7 @@ flowchart TD
 | SNMP version | SNMPv3 with authPriv | Authenticated and encrypted |
 | Unused ports | Disabled, VLAN 999 | Prevent unauthorized access |
 | Console access | Password + timeout | Physical security |
-| Password complexity | ≥12 chars, complexity required | NIST SP 800-63B |
+| Password complexity | ≥12 chars, complexity required | NIST SP 800-63B-4 |
 | Session timeout | ≤10 minutes idle | Prevent session hijacking |
 | Login banner | Legal warning text | Compliance requirement |
 

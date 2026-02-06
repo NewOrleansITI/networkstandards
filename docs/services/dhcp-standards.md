@@ -551,7 +551,7 @@ Use this checklist to evaluate any DHCP server or IPAM platform before purchase.
 
 9. National Institute of Standards and Technology, "Security and Privacy Controls for Information Systems and Organizations," NIST SP 800-53 Rev. 5, September 2020. https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final
 
-10. National Institute of Standards and Technology, "Guide to Enterprise Patch Management Technologies," NIST SP 800-40 Rev. 3, July 2013.
+10. National Institute of Standards and Technology, "Guide to Enterprise Patch Management Technologies," NIST SP 800-40 Rev. 4, April 2022.
 
 ## Cross-References
 

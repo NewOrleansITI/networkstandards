@@ -3,7 +3,7 @@ title: OWE Enhanced Open Wireless Security Standards
 version: 1.0.0
 status: Supported
 last_updated: 2026-02-02
-ieee_reference: IEEE 802.11-2020
+ieee_reference: IEEE 802.11-2024
 wpa_reference: Wi-Fi Alliance WPA3 Specification v3.3
 effective_date: 2026-02-02
 ---
@@ -20,7 +20,7 @@ This document establishes the standards for Opportunistic Wireless Encryption (O
 
 | Standard | Title | Ratification Date | Scope |
 |----------|-------|-------------------|-------|
-| IEEE 802.11-2020 | Wireless LAN MAC and PHY | December 2020 | OWE specification (Section 12.12) |
+| IEEE 802.11-2024 | Wireless LAN MAC and PHY | December 2020 | OWE specification (Section 12.12) |
 | Wi-Fi Alliance WPA3 v3.3 | WPA3 Specification | July 2024 | Enhanced Open certification |
 | IETF RFC 8110 | OWE | March 2017 | Opportunistic Wireless Encryption |
 | IETF RFC 7748 | Elliptic Curves | January 2016 | Curve25519/Curve448 for DH |
@@ -169,9 +169,9 @@ graph TB
 | Component | Requirement | Standard Reference |
 |-----------|-------------|-------------------|
 | Key exchange | ECDH (Elliptic Curve Diffie-Hellman) | IETF RFC 8110 |
-| DH group | Group 19 (P-256) or Group 20 (P-384) | IEEE 802.11-2020 |
-| Pairwise cipher | AES-CCMP-128 or AES-GCMP-256 | IEEE 802.11-2020 |
-| Group cipher | AES-CCMP-128 or AES-GCMP-256 | IEEE 802.11-2020 |
+| DH group | Group 19 (P-256) or Group 20 (P-384) | IEEE 802.11-2024 |
+| Pairwise cipher | AES-CCMP-128 or AES-GCMP-256 | IEEE 802.11-2024 |
+| Group cipher | AES-CCMP-128 or AES-GCMP-256 | IEEE 802.11-2024 |
 | PMF (802.11w) | **Required** | IEEE 802.11w-2009 |
 | Key derivation | SHA-256 (P-256) or SHA-384 (P-384) | IETF RFC 8110 |
 
@@ -549,7 +549,7 @@ Use this checklist to evaluate any wireless infrastructure component before purc
 
 ## References
 
-1. IEEE 802.11-2020, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
+1. IEEE 802.11-2024, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
 2. IETF RFC 8110, "Opportunistic Wireless Encryption," IETF, March 2017.
 3. IETF RFC 7748, "Elliptic Curves for Security," IETF, January 2016.
 4. Wi-Fi Alliance, "WPA3 Specification Version 3.3," Wi-Fi Alliance, July 2024.
