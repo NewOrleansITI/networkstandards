@@ -11,7 +11,7 @@ wpa_reference: Wi-Fi Alliance WPA3 Specification v3.3
 
 ## Overview
 
-This document establishes the City of New Orleans standards for WPA3-Enterprise wireless security. WPA3-Enterprise provides the highest level of wireless authentication and encryption for municipal networks, implementing 802.1X authentication with enhanced cryptographic protections.
+This document establishes the standards for WPA3-Enterprise wireless security. WPA3-Enterprise provides the highest level of wireless authentication and encryption for municipal networks, implementing 802.1X authentication with enhanced cryptographic protections.
 
 ## Standards References
 
@@ -59,14 +59,14 @@ graph TB
     ENTERPRISE_192 -.-> S3
 ```
 
-### City of New Orleans Security Mode Usage
+### Municipal Security Mode Usage
 
 | SSID | Security Mode | Use Case | Standard Reference |
 |------|---------------|----------|-------------------|
-| NOLA-GUEST | **OWE (Enhanced Open)** | Visitor/public access | [OWE Standards](owe-enhanced-open.md) |
-| NOLA-IOT | WPA3-Personal (SAE) | IoT devices | This document |
-| NOLA-CORP | WPA3-Enterprise | Corporate devices | This document |
-| NOLA-SECURE | WPA3-Enterprise 192-bit | High-security systems | This document |
+| MUNI-GUEST | **OWE (Enhanced Open)** | Visitor/public access | [OWE Standards](owe-enhanced-open.md) |
+| MUNI-IOT | WPA3-Personal (SAE) | IoT devices | This document |
+| MUNI-CORP | WPA3-Enterprise | Corporate devices | This document |
+| MUNI-SECURE | WPA3-Enterprise 192-bit | High-security systems | This document |
 
 ### WPA3-Enterprise vs. WPA3-Enterprise 192-bit
 
@@ -322,7 +322,7 @@ flowchart TD
     START[Begin WPA3 Migration] --> INVENTORY[Device Inventory]
 
     INVENTORY --> CAT1{Client Category}
-    CAT1 --> MANAGED["Managed Devices<br/>(City-owned)"]
+    CAT1 --> MANAGED["Managed Devices<br/>(Organization-owned)"]
     CAT1 --> BYOD["BYOD/Personal"]
     CAT1 --> IOT["IoT Devices"]
 

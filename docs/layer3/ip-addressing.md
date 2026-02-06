@@ -10,7 +10,7 @@ ietf_reference: RFC 4632, RFC 1918, RFC 8200
 
 ## Overview
 
-This document establishes the City of New Orleans standards for IP address allocation, subnetting, and address management across municipal network infrastructure. Proper IP addressing is foundational to network scalability, security segmentation, and operational efficiency.
+This document establishes the standards for IP address allocation, subnetting, and address management across municipal network infrastructure. Proper IP addressing is foundational to network scalability, security segmentation, and operational efficiency.
 
 ## Standards References
 

@@ -12,7 +12,7 @@ effective_date: 2026-02-02
 
 ## Overview
 
-This document establishes the City of New Orleans standards for Opportunistic Wireless Encryption (OWE), also known as Wi-Fi CERTIFIED Enhanced Open™. OWE provides encryption on open networks without requiring passwords or authentication, protecting guest users from passive eavesdropping while maintaining zero-friction access.
+This document establishes the standards for Opportunistic Wireless Encryption (OWE), also known as Wi-Fi CERTIFIED Enhanced Open™. OWE provides encryption on open networks without requiring passwords or authentication, protecting guest users from passive eavesdropping while maintaining zero-friction access.
 
 **Effective 2026:** OWE is **mandatory** for all guest wireless networks. Traditional open (unencrypted) guest SSIDs are prohibited for new deployments.
 
@@ -69,7 +69,7 @@ graph TD
 | **Zero User Impact** | Identical user experience to open networks—no passwords or configuration |
 | **Industry Alignment** | Wi-Fi Alliance has certified Enhanced Open since 2018; now industry baseline |
 | **Regulatory Direction** | NIST SP 800-153 recommends encryption for all wireless communications |
-| **Liability Reduction** | Encrypted guest traffic reduces City liability for guest data exposure |
+| **Liability Reduction** | Encrypted guest traffic reduces organizational liability for guest data exposure |
 | **Zero Deployment Cost** | OWE requires no additional infrastructure—configuration change only |
 
 ### Industry Adoption Data
@@ -217,7 +217,7 @@ graph LR
 
 ## Configuration Standards
 
-### NOLA-GUEST SSID Configuration
+### MUNI-GUEST SSID Configuration
 
 | Setting | Value | Rationale |
 |---------|-------|-----------|
@@ -254,7 +254,7 @@ For environments requiring legacy device support during migration:
 
 | Setting | Value | Notes |
 |---------|-------|-------|
-| Primary SSID | NOLA-GUEST | OWE enabled, visible |
+| Primary SSID | MUNI-GUEST | OWE enabled, visible |
 | Transition SSID | (auto-generated) | Open, hidden (for legacy) |
 | Transition behavior | Automatic steering | OWE clients use OWE; legacy use open |
 | Transition end date | December 31, 2026 | Maximum 12-month transition |
@@ -327,7 +327,7 @@ sequenceDiagram
 | Active attacks | ⚠️ Limited | PMF protects management frames |
 | AP impersonation | ❌ No protection | No AP authentication mechanism |
 
-**Important:** OWE provides encryption, not authentication. Users should still use HTTPS for sensitive communications, and the City should implement wireless IDS/IPS for rogue AP detection.
+**Important:** OWE provides encryption, not authentication. Users should still use HTTPS for sensitive communications, and organizations should implement wireless IDS/IPS for rogue AP detection.
 
 ### PMF (Protected Management Frames) Requirement
 
@@ -360,7 +360,7 @@ graph TD
 
 ### Deployment
 
-- [ ] Configure NOLA-GUEST SSID with OWE security
+- [ ] Configure MUNI-GUEST SSID with OWE security
 - [ ] Enable PMF (802.11w) - required for OWE
 - [ ] Verify captive portal redirect functions with OWE
 - [ ] Test with OWE-capable devices (iOS, Android, Windows, macOS)
@@ -561,7 +561,7 @@ Use this checklist to evaluate any wireless infrastructure component before purc
 
 | Document | Relationship |
 |----------|--------------|
-| [SSID Standards](../wifi/ssid-standards.md) | Guest SSID (NOLA-GUEST) encryption requirements |
+| [SSID Standards](../wifi/ssid-standards.md) | Guest SSID (MUNI-GUEST) encryption requirements |
 | [WPA3-Enterprise Standards](wpa3-enterprise.md) | Enterprise SSID security (non-guest networks) |
 | [Network Segmentation](network-segmentation.md) | Guest VLAN isolation and zone policies |
 | [Deployment Procedures](../wifi/deployment-procedures.md) | OWE validation during deployment |

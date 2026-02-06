@@ -10,7 +10,7 @@ ieee_reference: IEEE 802.3, 802.3bt, 802.1Q, 802.1X, 802.1AX
 
 ## Overview
 
-This document defines the minimum specifications and configuration requirements for network switches deployed in City of New Orleans facilities. All requirements are based on IEEE and IETF standards to ensure vendor neutrality and long-term interoperability.
+This document defines the minimum specifications and configuration requirements for network switches deployed in municipal facilities. All requirements are based on IEEE and IETF standards to ensure vendor neutrality and long-term interoperability.
 
 ## Standards References
 

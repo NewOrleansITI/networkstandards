@@ -10,7 +10,7 @@ reference: BICSI TDMM 15th Edition, TIA-569-E, IEEE 802.11be-2024
 
 ## Overview
 
-This document defines the standard procedures for deploying WiFi 7 (IEEE 802.11be) wireless networks in City of New Orleans facilities. All deployments follow BICSI best practices and require documented site surveys, design approvals, and validation testing before handoff.
+This document defines the standard procedures for deploying WiFi 7 (IEEE 802.11be) wireless networks in municipal facilities. All deployments follow BICSI best practices and require documented site surveys, design approvals, and validation testing before handoff.
 
 **WiFi 7 Mandatory:** All new wireless deployments must use WiFi 7 (802.11be) access points per [Access Point Specifications](access-point-specs.md).
 
@@ -318,7 +318,7 @@ flowchart TD
 | Test | Requirement | Method | Pass Criteria |
 |------|-------------|--------|---------------|
 | **SSID count** | **≤4 SSIDs per AP** | Management platform audit | No AP exceeds 4 SSIDs |
-| SSID names | Match approved standards | Management platform | Only NOLA-CORP, NOLA-GUEST, NOLA-IOT, NOLA-SECURE |
+| SSID names | Match approved standards | Management platform | Only MUNI-CORP, MUNI-GUEST, MUNI-IOT, MUNI-SECURE |
 | SSID-to-VLAN mapping | Correct VLAN per SSID | Configuration review | Per [SSID Standards](ssid-standards.md) |
 
 **SSID Count Audit Procedure:**
@@ -388,16 +388,16 @@ flowchart LR
 
 | Field | Example | Required |
 |-------|---------|----------|
-| AP Name | AP-CH-LOBBY-01 | ✅ |
+| AP Name | AP-MC-LOBBY-01 | ✅ |
 | Serial Number | ABC123456789 | ✅ |
 | MAC Address | AA:BB:CC:DD:EE:FF | ✅ |
 | Model | [Model identifier] | ✅ |
-| Location (Building) | City Hall | ✅ |
+| Location (Building) | Main Campus | ✅ |
 | Location (Floor) | 1 | ✅ |
 | Location (Area) | Main Lobby | ✅ |
 | Coordinates | X: 125, Y: 340 | ✅ |
 | Mount Type | T-bar ceiling | ✅ |
-| Switch/Port | CH-IDF1-SW1/Gi1/0/24 | ✅ |
+| Switch/Port | MC-IDF1-SW1/Gi1/0/24 | ✅ |
 | Installation Date | 2026-02-15 | ✅ |
 | Installer | [Name] | ✅ |
 

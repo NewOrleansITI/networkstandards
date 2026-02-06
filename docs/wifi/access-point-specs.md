@@ -10,7 +10,7 @@ ieee_reference: IEEE 802.11be-2024, 802.11ax-2021, 802.3bt-2018
 
 ## Overview
 
-This document defines the minimum specifications and placement guidelines for wireless access points deployed in City of New Orleans facilities. All requirements are based on IEEE 802.11 standards to ensure vendor neutrality, interoperability, and long-term supportability.
+This document defines the minimum specifications and placement guidelines for wireless access points deployed in municipal facilities. All requirements are based on IEEE 802.11 standards to ensure vendor neutrality, interoperability, and long-term supportability.
 
 **Current Standard: WiFi 7 (IEEE 802.11be)** — Mandatory for all new deployments effective 2026.
 

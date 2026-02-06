@@ -10,9 +10,9 @@ ietf_reference: RFC 2131, RFC 3315, RFC 8415, RFC 6221
 
 ## Overview
 
-This document establishes the Dynamic Host Configuration Protocol (DHCP) standards for the City of New Orleans municipal network infrastructure. DHCP automates IP address assignment and network configuration distribution, reducing administrative overhead and configuration errors while enabling centralized management of network parameters.
+This document establishes the Dynamic Host Configuration Protocol (DHCP) standards for municipal network infrastructure. DHCP automates IP address assignment and network configuration distribution, reducing administrative overhead and configuration errors while enabling centralized management of network parameters.
 
-The City operates DHCP services for IPv4 (DHCPv4) and IPv6 (DHCPv6) address allocation across all municipal facilities. These services integrate with IP Address Management (IPAM) systems to maintain accurate inventory of address utilization and provide audit trails for security and compliance requirements.
+DHCP services for IPv4 (DHCPv4) and IPv6 (DHCPv6) are operated across all municipal facilities. These services integrate with IP Address Management (IPAM) systems to maintain accurate inventory of address utilization and provide audit trails for security and compliance requirements.
 
 Properly architected DHCP infrastructure is essential for network reliability—misconfigured or failed DHCP services prevent devices from obtaining network connectivity. These standards ensure high availability through redundant server deployments, scope planning aligned with network segmentation policies, and security controls to prevent unauthorized DHCP servers and address exhaustion attacks.
 
@@ -139,7 +139,7 @@ stateDiagram-v2
 | 1 | Subnet Mask | Yes | Yes | Yes | Yes |
 | 3 | Default Gateway | Yes | Yes | Yes | Yes |
 | 6 | DNS Servers | Internal | Public | Internal | Internal |
-| 15 | Domain Name | corp.nola.gov | guest.nola.gov | iot.nola.gov | corp.nola.gov |
+| 15 | Domain Name | corp.example.gov | guest.example.gov | iot.example.gov | corp.example.gov |
 | 42 | NTP Servers | Yes | Yes | Yes | Yes |
 | 44 | NetBIOS Name Server | Yes | No | No | Yes |
 | 51 | Lease Time | 8h | 4h | 24h | 168h |
