@@ -639,6 +639,20 @@ Use this checklist to verify wireless platform readiness before SSID deployment.
 6. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 7. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
 
+## Cross-References
+
+This SSID standard integrates with existing City of New Orleans network documentation:
+
+| Document | Relationship |
+|----------|--------------|
+| [OWE Enhanced Open Standards](../security/owe-enhanced-open.md) | Guest SSID (NOLA-GUEST) encryption requirements |
+| [WPA3-Enterprise Standards](../security/wpa3-enterprise.md) | Corporate and secure SSID security configuration |
+| [802.1X Implementation](../security/802.1x-implementation.md) | EAP-TLS authentication and RADIUS for 802.1X SSIDs |
+| [Network Segmentation](../security/network-segmentation.md) | VLAN assignments and zone policies per SSID |
+| [Design Standards](design-standards.md) | AP placement and wireless design workflow |
+| [Deployment Procedures](deployment-procedures.md) | SSID validation during deployment |
+| [Access Point Specifications](access-point-specs.md) | AP hardware capabilities supporting SSID features |
+
 ---
 
 *For questions about these standards, open an issue or contact the ITI Networking Team.*

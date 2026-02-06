@@ -150,13 +150,7 @@ WiFi 7 (802.11be) access points require significantly more power than previous g
 
 #### Multi-Gigabit Port Requirements
 
-WiFi 7 with 320 MHz channels can exceed 1 Gbps throughput. Switches must provide multi-gig uplinks for AP ports:
-
-| WiFi 7 Configuration | Minimum Backhaul | Recommended Backhaul |
-|---------------------|------------------|---------------------|
-| Standard (160 MHz) | 2.5 GbE | 5 GbE |
-| High-Density (320 MHz) | 5 GbE | 10 GbE |
-| 8x8 MIMO | 5 GbE | 10 GbE |
+WiFi 7 with 320 MHz channels can exceed 1 Gbps throughput. Switches must provide multi-gig uplinks for AP ports. See [Cabling Standards — WiFi 7 Backhaul Requirements](cabling-standards.md#wifi-7-backhaul-requirements) for per-configuration backhaul and cable specifications.
 
 ### Distribution Layer Switches
 

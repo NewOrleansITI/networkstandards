@@ -178,7 +178,7 @@ sequenceDiagram
 | Group cipher | AES-CCMP-128 or AES-GCMP-256 | IEEE 802.11-2020 |
 | Group management cipher | BIP-CMAC-128 or BIP-GMAC-256 | IEEE 802.11w |
 | Key derivation | HMAC-SHA-256 or HMAC-SHA-384 | Wi-Fi Alliance |
-| EAP method | EAP-TLS, EAP-TTLS, PEAP | RFC 5216, RFC 5281 |
+| EAP method | EAP-TLS only (2026 policy) | RFC 5216; see [802.1X Implementation](802.1x-implementation.md) |
 | TLS version | TLS 1.3 minimum | RFC 8446 |
 | Server certificate | RSA 2048+ or ECDSA P-256+ | Wi-Fi Alliance |
 | Client certificate | RSA 2048+ or ECDSA P-256+ | Wi-Fi Alliance |
@@ -331,15 +331,13 @@ sequenceDiagram
 
 ### RADIUS Integration
 
+See [802.1X Implementation — RADIUS Architecture](802.1x-implementation.md#radius-architecture) for complete RADIUS server configuration, failover, and attribute standards.
+
+**WPA3-specific parameter:**
+
 | Parameter | Requirement | Notes |
 |-----------|-------------|-------|
-| RADIUS server | Redundant pair | High availability |
-| Shared secret | 32+ characters | Per-AP or per-group |
-| EAP termination | RADIUS server | Not AP |
-| Certificate validation | Full chain + CRL/OCSP | Revocation checking |
-| Dynamic VLAN | Tunnel-Private-Group-ID | Per-user/device policy |
-| Session timeout | 28800 seconds (8 hours) | Periodic reauth |
-| Accounting | Enabled | Audit trail |
+| Session timeout | 28800 seconds (8 hours) | Periodic reauthentication for WPA3-Enterprise sessions |
 
 ## Migration from WPA2-Enterprise
 
