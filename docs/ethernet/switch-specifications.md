@@ -227,13 +227,6 @@ Required for main distribution facilities and data centers.
 | **7-Year TCO (20 switches)** | **$145,600** | **$186,800** | **+$41,200** |
 | **Per-port 7-year cost** | **$152** | **$195** | **+$43** |
 
-```mermaid
-pie title 7-Year TCO Breakdown - Multi-Gig PoE++ Access Switch
-    "Equipment" : 66
-    "Power" : 20
-    "Maintenance" : 14
-```
-
 **Recommendation:** Deploy 802.3bt (PoE++) switches as the **mandatory standard** for all new installations. This is required to support WiFi 7 access points.
 
 For facilities with WiFi 7 high-density deployments (320 MHz channels), specify multi-gig capable switches to provide adequate backhaul. The additional cost is justified by:
@@ -269,15 +262,6 @@ Extended lifecycle analysis comparing 1 GbE vs Multi-Gig switch deployments demo
 | Replacement labor | $15,000 | $0 | -$15,000 |
 | Downtime cost | $10,000 | $0 | -$10,000 |
 | **10-Year TCO** | **$221,000** | **$196,200** | **-$24,800 (11%)** |
-
-```mermaid
-pie title 10-Year TCO - 1 GbE Path (Includes Replacement)
-    "Initial Equipment" : 36
-    "Replacement Equipment" : 36
-    "Power" : 16
-    "Maintenance" : 7
-    "Labor + Downtime" : 5
-```
 
 **Key Insight:** The 55% higher initial cost of multi-gig switches is offset by avoided mandatory replacement when 1 GbE becomes insufficient for WiFi 7 ecosystems. Organizations deploying 1 GbE-only switches in 2026 will face forced upgrades by 2030-2032 as WiFi 7 client density increases.
 
@@ -482,6 +466,16 @@ Use this checklist to evaluate network switches before purchase. Every **Require
 6. IETF RFC 3411, "An Architecture for Describing SNMP Management Frameworks," IETF, December 2002.
 7. IETF RFC 5905, "Network Time Protocol Version 4," IETF, June 2010.
 8. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+
+## Cross-References
+
+| Document | Relationship |
+|----------|--------------|
+| [Cabling Standards](cabling-standards.md) | WiFi 7 backhaul cabling requirements for multi-gig uplinks |
+| [Port Configurations](port-configurations.md) | VLAN assignments and port security on switch interfaces |
+| [Backup Power Standards](backup-power-standards.md) | UPS sizing based on switch PoE budget and chassis power |
+| [Access Point Specifications](../wifi/access-point-specs.md) | AP PoE power requirements and uplink speeds |
+| [802.1X Implementation](../security/802.1x-implementation.md) | Port-based NAC enforcement on switch ports |
 
 ---
 

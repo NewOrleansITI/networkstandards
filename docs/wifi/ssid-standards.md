@@ -347,25 +347,7 @@ xychart-beta
 
 All major enterprise wireless vendors independently recommend limiting SSIDs to 4 or fewer per AP:
 
-#### Cisco Systems
-> "Cisco recommends configuring no more than three to four SSIDs per AP... Each SSID requires additional beacons, probe responses, and management overhead that directly reduces available airtime for client data."
->
-> — *Cisco Wireless LAN Design Guide, 2024*
-
-#### Aruba (HPE)
-> "Best practice is to limit SSIDs to four or fewer per radio. Beyond this, beacon overhead and probe response traffic significantly impact RF efficiency and client capacity."
->
-> — *Aruba Validated Reference Design, High-Density WLAN*
-
-#### Juniper Mist
-> "We recommend no more than 4 SSIDs per AP. Each additional SSID adds approximately 2-5% management overhead depending on band and client density."
->
-> — *Mist AI-Driven Wireless Best Practices*
-
-#### Meraki (Cisco)
-> "Creating more than 4 SSIDs will reduce the overall throughput for each network due to the additional overhead from beacon frames."
->
-> — *Meraki Documentation: Wireless SSIDs*
+All major enterprise wireless vendors (Cisco, Aruba/HPE, Juniper Mist, Meraki, Extreme) independently recommend limiting SSIDs to 4 or fewer per AP, citing beacon overhead and probe response amplification as primary performance concerns.
 
 #### Vendor Consensus Summary
 
@@ -480,15 +462,7 @@ graph TD
 
 ### RADIUS Configuration
 
-| Setting | Primary | Secondary |
-|---------|---------|-----------|
-| Server type | Network Policy Server or equivalent | Same |
-| Authentication port | UDP 1812 | UDP 1812 |
-| Accounting port | UDP 1813 | UDP 1813 |
-| Shared secret | 32+ characters | Different from primary |
-| EAP types | EAP-TLS only | EAP-TLS only |
-| Certificate validation | Required | Required |
-| VLAN assignment | Dynamic via RADIUS attribute | Same |
+> For authoritative RADIUS server specifications, redundancy requirements, and failover configuration, see [802.1X Implementation — RADIUS Architecture](../security/802.1x-implementation.md#radius-architecture).
 
 ## RF and Channel Settings
 

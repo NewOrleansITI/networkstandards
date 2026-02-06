@@ -196,32 +196,6 @@ sequenceDiagram
 | Server certificate | ECDSA P-384 or RSA 3072+ | CNSA 2.0 |
 | Client certificate | ECDSA P-384 or RSA 3072+ | CNSA 2.0 |
 
-### Cipher Suite Comparison
-
-```mermaid
-graph LR
-    subgraph WPA2["WPA2-Enterprise"]
-        W2_ENC["AES-CCMP-128"]
-        W2_PMF["PMF Optional"]
-        W2_KEY["SHA-256"]
-    end
-
-    subgraph WPA3_STD["WPA3-Enterprise"]
-        W3_ENC["AES-CCMP/GCMP"]
-        W3_PMF["PMF Required"]
-        W3_KEY["SHA-256/384"]
-    end
-
-    subgraph WPA3_192["WPA3-Enterprise 192-bit"]
-        W3H_ENC["AES-GCMP-256"]
-        W3H_PMF["BIP-GMAC-256"]
-        W3H_KEY["SHA-384"]
-    end
-
-    WPA2 -->|"Upgrade"| WPA3_STD
-    WPA3_STD -->|"Strengthen"| WPA3_192
-```
-
 ## Protected Management Frames (PMF/802.11w)
 
 ### PMF Overview
@@ -619,6 +593,17 @@ Use this checklist to evaluate any wireless infrastructure component before purc
 9. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
 10. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 11. NSA, "Commercial National Security Algorithm Suite 2.0," NSA Cybersecurity, September 2022.
+
+## Cross-References
+
+| Document | Relationship |
+|----------|--------------|
+| [802.1X Implementation](802.1x-implementation.md) | RADIUS architecture and EAP-TLS authentication |
+| [OWE Enhanced Open Standards](owe-enhanced-open.md) | Guest network encryption (non-enterprise SSIDs) |
+| [SSID Standards](../wifi/ssid-standards.md) | Per-SSID security profile assignments |
+| [Access Point Specifications](../wifi/access-point-specs.md) | AP WPA3-Enterprise hardware requirements |
+| [Wireless Client Requirements](../wifi/wireless-client-requirements.md) | Client WPA3 supplicant and cipher suite requirements |
+| [Network Segmentation](network-segmentation.md) | VLAN-based security zones enforced via WPA3 |
 
 ---
 
