@@ -225,14 +225,6 @@ sequenceDiagram
 | EDNS0 compliance | 99%+ | APNIC | 2025 |
 | Municipal DNS redundancy (2+ servers) | 94% | MS-ISAC | 2024 |
 
-```mermaid
-xychart-beta
-    title "Government DNSSEC Adoption Trend"
-    x-axis [2019, 2020, 2021, 2022, 2023, 2024, 2025]
-    y-axis "Percentage of .gov Domains" 0 --> 100
-    line [45, 58, 67, 75, 82, 88, 92]
-```
-
 ## Cost-Performance Analysis
 
 ### 15-Year Total Cost of Ownership
@@ -248,16 +240,6 @@ xychart-beta
 | **15-Year Total** | $1,020,000 | $765,000 | $712,500 |
 
 **Recommended Model**: Hybrid—internal authoritative servers with managed recursive resolution for external queries provides optimal control over municipal data while leveraging provider scale for external resolution.
-
-```mermaid
-pie title 15-Year DNS TCO (Hybrid Model)
-    "Operations" : 450000
-    "Infrastructure" : 90000
-    "DR/Redundancy" : 60000
-    "Security" : 45000
-    "Training" : 45000
-    "Software" : 22500
-```
 
 ### Performance Benchmarks
 
@@ -429,6 +411,15 @@ Use this checklist to evaluate any DNS server or service before purchase. Every 
 9. National Institute of Standards and Technology, "Secure Domain Name System (DNS) Deployment Guide," NIST SP 800-81-2, September 2013. https://csrc.nist.gov/publications/detail/sp/800-81/2/final
 
 10. National Institute of Standards and Technology, "Security and Privacy Controls for Information Systems and Organizations," NIST SP 800-53 Rev. 5, September 2020. https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final
+
+## Cross-References
+
+| Document | Relationship |
+|----------|--------------|
+| [DHCP Standards](dhcp-standards.md) | DHCP option 6 delivering DNS server addresses |
+| [IP Addressing Standards](../layer3/ip-addressing.md) | Forward/reverse zone alignment with IP allocation |
+| [NTP Standards](ntp-standards.md) | Accurate timestamps for DNSSEC signature validation |
+| [Network Segmentation](../security/network-segmentation.md) | DNS server placement within security zones |
 
 ---
 

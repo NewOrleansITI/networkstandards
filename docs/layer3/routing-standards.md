@@ -112,26 +112,6 @@ flowchart LR
 | CPU/Memory | Moderate | Higher | Minimal |
 | Standards | RFC 2328/5340 | RFC 4271 | N/A |
 
-### Protocol Selection Flowchart
-
-```mermaid
-flowchart TD
-    START[Routing Requirement] --> Q1{Internal or<br/>External?}
-
-    Q1 -->|Internal| Q2{Network size?}
-    Q1 -->|External| Q3{Internet or<br/>Partner?}
-
-    Q2 -->|"<50 routers"| OSPF_SINGLE["OSPF<br/>Single area"]
-    Q2 -->|"50-500 routers"| OSPF_MULTI["OSPF<br/>Multi-area"]
-    Q2 -->|">500 routers"| CONSIDER_BGP["Consider iBGP<br/>or Segment Routing"]
-
-    Q3 -->|Internet| EBGP["eBGP<br/>(Required)"]
-    Q3 -->|Partner| Q4{Policy<br/>needed?}
-
-    Q4 -->|Yes| EBGP_PART["eBGP<br/>with filtering"]
-    Q4 -->|No| STATIC["Static routes<br/>(if simple)"]
-```
-
 ## OSPF Standards
 
 ### OSPF Area Design
@@ -456,15 +436,6 @@ graph TB
     S1 --> A1
 ```
 
-### Summarization Guidelines
-
-| Layer | Summarization | Example |
-|-------|---------------|---------|
-| Access | None (specific routes) | 10.16.10.0/24 |
-| Distribution | Per-site summary | 10.16.0.0/16 |
-| Core | Regional summary | 10.16.0.0/12 |
-| BGP (external) | Maximum aggregation | Assigned prefix only |
-
 ### Summary Route Best Practices
 
 | Practice | Rationale |
@@ -695,6 +666,14 @@ Use this checklist to evaluate any router or Layer 3 switch before purchase. Eve
 8. IETF RFC 5765, "Security Considerations for BGP," IETF, February 2010.
 9. IETF RFC 6811, "BGP Prefix Origin Validation," IETF, January 2013.
 10. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+
+## Cross-References
+
+| Document | Relationship |
+|----------|--------------|
+| [IP Addressing Standards](ip-addressing.md) | IP address hierarchy driving route summarization |
+| [Network Segmentation](../security/network-segmentation.md) | Inter-VLAN routing and zone-based firewall policies |
+| [Switch Specifications](../ethernet/switch-specifications.md) | Layer 3 switch routing capabilities |
 
 ---
 

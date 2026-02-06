@@ -517,6 +517,18 @@ Use this checklist to verify contractor qualifications before approving a WiFi d
 4. IEEE 802.11-2020, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
 5. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 
+## Cross-References
+
+| Document | Relationship |
+|----------|--------------|
+| [Design Standards](design-standards.md) | Design submission requirements and review workflow |
+| [Access Point Specifications](access-point-specs.md) | WiFi 7 AP hardware requirements |
+| [SSID Standards](ssid-standards.md) | SSID validation during deployment |
+| [Cabling Standards](../ethernet/cabling-standards.md) | Cat6A certification and outdoor cabling |
+| [Switch Specifications](../ethernet/switch-specifications.md) | Multi-gig switch port verification |
+| [Backup Power Standards](../ethernet/backup-power-standards.md) | UPS capacity verification during installation |
+| [OWE Enhanced Open Standards](../security/owe-enhanced-open.md) | Guest SSID encryption validation |
+
 ---
 
 *For questions about these procedures, open an issue or contact the ITI Networking Team.*

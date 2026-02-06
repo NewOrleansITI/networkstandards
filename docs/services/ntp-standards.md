@@ -333,16 +333,6 @@ flowchart TD
 | GPS-backed stratum 1 | 34% | Enterprise networks | 2024 |
 | Windows domain time sync | 99% | Microsoft | 2024 |
 
-```mermaid
-xychart-beta
-    title "NTP Security Feature Adoption"
-    x-axis [2020, 2021, 2022, 2023, 2024, 2025]
-    y-axis "Percentage Deployed" 0 --> 100
-    line "NTPv4" [85, 88, 90, 92, 93, 94]
-    line "Authenticated NTP" [21, 28, 35, 42, 48, 52]
-    line "NTS" [2, 5, 10, 16, 22, 28]
-```
-
 ## Cost-Performance Analysis
 
 ### 15-Year Total Cost of Ownership
@@ -357,14 +347,6 @@ xychart-beta
 | **15-Year Total** | $105,000 | $187,500 | $315,000 |
 
 **Recommendation**: Software-based NTP (ntpd/chrony) on dedicated VMs provides best cost-performance for municipal requirements. GPS-backed stratum 1 recommended only for facilities requiring sub-millisecond accuracy or network-independent time (911 centers, financial systems).
-
-```mermaid
-pie title 15-Year NTP TCO (Software-Based)
-    "Operations" : 75000
-    "Training" : 15000
-    "Hardware" : 10000
-    "Installation" : 5000
-```
 
 ### Accuracy vs Cost Trade-off
 
@@ -580,6 +562,15 @@ Use this checklist to evaluate any NTP server or time synchronization service be
 9. ITU-T, "Timing characteristics of primary reference time clocks," G.8272, November 2018.
 
 10. IEEE, "IEEE Standard for a Precision Clock Synchronization Protocol for Networked Measurement and Control Systems," IEEE 1588-2019, 2019.
+
+## Cross-References
+
+| Document | Relationship |
+|----------|--------------|
+| [DNS Standards](dns-standards.md) | Accurate timestamps for DNSSEC signature validation |
+| [802.1X Implementation](../security/802.1x-implementation.md) | Time-accurate logging for authentication events |
+| [Network Segmentation](../security/network-segmentation.md) | NTP server placement within management zone |
+| [Switch Specifications](../ethernet/switch-specifications.md) | NTP client configuration on managed switches |
 
 ---
 

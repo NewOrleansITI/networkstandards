@@ -220,14 +220,6 @@ All outdoor AP installations must comply with the [Outdoor Installation Requirem
 | **Cost per client capacity** | **$6.51** | **$6.56** | **$5.98** |
 | **Useful life remaining (2033)** | 0 years | 1-2 years | 3-4 years |
 
-```mermaid
-pie title 7-Year TCO Breakdown - WiFi 7 Deployment (50 APs)
-    "Equipment" : 47
-    "Power (7 years)" : 10
-    "Maintenance" : 33
-    "Backhaul Upgrades" : 10
-```
-
 ### Total Cost of Ownership Justification
 
 | Factor | WiFi 6E (2026 Purchase) | WiFi 7 (2026 Purchase) |
@@ -489,6 +481,17 @@ Use this checklist to evaluate wireless access points before purchase. Every **R
 6. Wi-Fi Alliance, "Wi-Fi CERTIFIED 7," Wi-Fi Alliance, January 2024. https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7
 7. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 8. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+
+## Cross-References
+
+| Document | Relationship |
+|----------|--------------|
+| [Design Standards](design-standards.md) | AP placement and coverage design workflow |
+| [Deployment Procedures](deployment-procedures.md) | AP installation and post-deployment validation |
+| [SSID Standards](ssid-standards.md) | 4-SSID limit and SSID-to-VLAN mappings |
+| [Cabling Standards](../ethernet/cabling-standards.md) | Outdoor AP cabling and weatherproofing |
+| [Switch Specifications](../ethernet/switch-specifications.md) | Multi-gig uplink and PoE power sourcing |
+| [Backup Power Standards](../ethernet/backup-power-standards.md) | 60W per-AP power planning figure for UPS sizing |
 
 ---
 

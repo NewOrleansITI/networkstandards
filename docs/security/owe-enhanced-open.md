@@ -557,6 +557,16 @@ Use this checklist to evaluate any wireless infrastructure component before purc
 6. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
 7. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 
+## Cross-References
+
+| Document | Relationship |
+|----------|--------------|
+| [SSID Standards](../wifi/ssid-standards.md) | Guest SSID (NOLA-GUEST) encryption requirements |
+| [WPA3-Enterprise Standards](wpa3-enterprise.md) | Enterprise SSID security (non-guest networks) |
+| [Network Segmentation](network-segmentation.md) | Guest VLAN isolation and zone policies |
+| [Deployment Procedures](../wifi/deployment-procedures.md) | OWE validation during deployment |
+| [Access Point Specifications](../wifi/access-point-specs.md) | AP OWE hardware support requirements |
+
 ---
 
 *For questions about these standards, open an issue or contact the ITI Networking Team.*

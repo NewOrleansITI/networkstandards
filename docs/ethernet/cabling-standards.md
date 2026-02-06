@@ -116,13 +116,6 @@ Cat6A cabling infrastructure is **required** to support the [Multi-Gig Port Mand
 | Mid-cycle replacement (Year 10) | $125 | $0 | -$125 |
 | **15-Year TCO per run** | **$250** | **$150** | **-$100 (-40%)** |
 
-```mermaid
-pie title 15-Year TCO Breakdown - Cat6A (per run)
-    "Cable materials" : 48
-    "Termination hardware" : 12
-    "Installation labor" : 90
-```
-
 **Recommendation:** Cat6A provides 40% lower 15-year TCO due to extended lifecycle and elimination of mid-cycle replacement. The multi-gig (2.5G/5G/10G) capability is **required** for the mandatory 2.5 GbE minimum switch port standard (see [Multi-Gig Port Mandate](switch-specifications.md#multi-gig-port-mandate-effective-2026)) and WiFi 7 access point backhaul, ensuring compatibility with evolving standards through 2040+.
 
 ### Backbone Cabling (Between Telecommunications Rooms)
@@ -455,6 +448,16 @@ Use this checklist to evaluate cabling materials and components before purchase.
 10. NFPA 780, "Standard for the Installation of Lightning Protection Systems," National Fire Protection Association, 2023.
 11. IEC 60529, "Degrees of Protection Provided by Enclosures (IP Code)," International Electrotechnical Commission, 2013.
 12. NFPA 70 (NEC), "National Electrical Code," National Fire Protection Association, 2023.
+
+## Cross-References
+
+| Document | Relationship |
+|----------|--------------|
+| [Switch Specifications](switch-specifications.md) | Multi-gig port mandate drives cabling category requirements |
+| [Backup Power Standards](backup-power-standards.md) | Surge protection and grounding integration |
+| [Access Point Specifications](../wifi/access-point-specs.md) | Outdoor AP cabling and weatherproofing requirements |
+| [Deployment Procedures](../wifi/deployment-procedures.md) | Cat6A certification during installation |
+| [Port Configurations](port-configurations.md) | Physical layer supporting VLAN port assignments |
 
 ---
 

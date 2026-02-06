@@ -547,6 +547,16 @@ Use this checklist to evaluate any IPAM (IP Address Management) platform before 
 8. IETF RFC 2131, "Dynamic Host Configuration Protocol," IETF, March 1997.
 9. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
 
+## Cross-References
+
+| Document | Relationship |
+|----------|--------------|
+| [DHCP Standards](../services/dhcp-standards.md) | DHCP server architecture and scope configuration |
+| [DNS Standards](../services/dns-standards.md) | Forward/reverse DNS zone alignment with IP allocation |
+| [Routing Standards](routing-standards.md) | Route summarization based on IP addressing hierarchy |
+| [Network Segmentation](../security/network-segmentation.md) | Subnet allocation per VLAN and security zone |
+| [Port Configurations](../ethernet/port-configurations.md) | VLAN-to-subnet mappings on switch ports |
+
 ---
 
 *For questions about these standards, open an issue or contact the ITI Networking Team.*

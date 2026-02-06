@@ -420,16 +420,6 @@ INTERFACE unused-port
 | Normal | Data | 20, 40, 50 | 0 | 0 |
 | Low | Guest/IoT | 100, 200 | 0 | 1 |
 
-### Bandwidth Allocation
-
-```mermaid
-pie title Bandwidth Priority Allocation
-    "Voice (Strict Priority)" : 20
-    "Video (Priority Queue)" : 15
-    "Business Data (Weighted)" : 50
-    "Guest/IoT (Best Effort)" : 15
-```
-
 ## Security Considerations
 
 ### Authentication and VLAN Assignment Precedence
@@ -555,6 +545,16 @@ Use this checklist to verify switch port configuration readiness before deployme
 4. IETF RFC 2868, "RADIUS Attributes for Tunnel Protocol Support," IETF, June 2000.
 5. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
 6. BICSI TDMM, 14th Edition, "Telecommunications Distribution Methods Manual," BICSI, 2018.
+
+## Cross-References
+
+| Document | Relationship |
+|----------|--------------|
+| [802.1X Implementation](../security/802.1x-implementation.md) | RADIUS attributes for dynamic VLAN assignment |
+| [Network Segmentation](../security/network-segmentation.md) | VLAN architecture and security zone definitions |
+| [Switch Specifications](switch-specifications.md) | Multi-gig port mandate and PoE configuration |
+| [Cabling Standards](cabling-standards.md) | Physical layer requirements for outdoor port installations |
+| [SSID Standards](../wifi/ssid-standards.md) | Wireless VLAN mappings per SSID |
 
 ---
 

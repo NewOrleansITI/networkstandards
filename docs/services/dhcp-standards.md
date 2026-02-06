@@ -401,15 +401,6 @@ sequenceDiagram
 | Option 82 logging | 71% | SANS | 2024 |
 | Municipal DHCP redundancy | 91% | MS-ISAC | 2024 |
 
-```mermaid
-xychart-beta
-    title "Enterprise DHCP Security Feature Adoption"
-    x-axis [2020, 2021, 2022, 2023, 2024, 2025]
-    y-axis "Percentage Deployed" 0 --> 100
-    line "DHCP Snooping" [52, 58, 65, 72, 78, 82]
-    line "IP Source Guard" [38, 44, 51, 58, 64, 69]
-    line "Option 82 Logging" [41, 48, 54, 61, 67, 71]
-```
 
 ## Cost-Performance Analysis
 
@@ -425,14 +416,6 @@ xychart-beta
 | **15-Year Total** | $675,000 | $680,000 | $950,000 |
 
 **Recommendation**: Enterprise IPAM provides superior automation, audit capability, and integration despite higher initial cost. Operational savings and compliance benefits justify investment for municipal scale.
-
-```mermaid
-pie title 15-Year DHCP/IPAM TCO (Enterprise)
-    "Operations" : 225000
-    "Licensing" : 450000
-    "Infrastructure" : 200000
-    "Training" : 75000
-```
 
 ### Capacity Planning
 
@@ -569,6 +552,16 @@ Use this checklist to evaluate any DHCP server or IPAM platform before purchase.
 9. National Institute of Standards and Technology, "Security and Privacy Controls for Information Systems and Organizations," NIST SP 800-53 Rev. 5, September 2020. https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final
 
 10. National Institute of Standards and Technology, "Guide to Enterprise Patch Management Technologies," NIST SP 800-40 Rev. 3, July 2013.
+
+## Cross-References
+
+| Document | Relationship |
+|----------|--------------|
+| [IP Addressing Standards](../layer3/ip-addressing.md) | Subnet and scope allocation from IPAM |
+| [DNS Standards](dns-standards.md) | DHCP option 6 delivering DNS server addresses |
+| [Network Segmentation](../security/network-segmentation.md) | Per-VLAN DHCP scope definitions |
+| [Port Configurations](../ethernet/port-configurations.md) | DHCP snooping and relay per VLAN |
+| [802.1X Implementation](../security/802.1x-implementation.md) | RADIUS-assigned VLAN triggering DHCP scope selection |
 
 ---
 

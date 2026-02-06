@@ -784,6 +784,17 @@ Use this checklist to evaluate any network infrastructure component before purch
 9. PCI Security Standards Council, "PCI DSS v4.0," PCI SSC, March 2022.
 10. CIS Controls v8, "CIS Critical Security Controls," Center for Internet Security, May 2021.
 
+## Cross-References
+
+| Document | Relationship |
+|----------|--------------|
+| [Port Configurations](../ethernet/port-configurations.md) | VLAN assignments and port security implementation |
+| [802.1X Implementation](802.1x-implementation.md) | RADIUS-driven dynamic VLAN assignment |
+| [OWE Enhanced Open Standards](owe-enhanced-open.md) | Guest network encryption and isolation |
+| [SSID Standards](../wifi/ssid-standards.md) | Wireless VLAN-to-SSID zone mappings |
+| [Backup Power Standards](../ethernet/backup-power-standards.md) | UPS management interface on Management VLAN |
+| [IP Addressing Standards](../layer3/ip-addressing.md) | Subnet allocation per security zone |
+
 ---
 
 *For questions about these standards, open an issue or contact the ITI Networking Team.*

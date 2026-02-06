@@ -170,16 +170,7 @@ graph TD
     end
 ```
 
-### Why -67 dBm Secondary?
-
-| RSSI Level | Typical Use Case | Reliability |
-|------------|------------------|-------------|
-| -65 dBm | High-performance (VoIP, video) | Excellent |
-| **-67 dBm** | **Enterprise standard** | **Very Good** |
-| -70 dBm | Basic data connectivity | Acceptable |
-| -75 dBm | Marginal coverage | Poor |
-
-The -67 dBm threshold balances reliable connectivity with practical AP density. Combined with secondary coverage, this ensures enterprise-grade reliability across all municipal facilities.
+The -67 dBm threshold is the enterprise standard that balances reliable connectivity with practical AP density, ensuring "very good" reliability while avoiding the excessive AP counts required for -65 dBm coverage.
 
 ### Wall Attenuation
 
@@ -570,14 +561,6 @@ flowchart LR
 | **Total** | **$35,000** | **$5,600** | **$90,200** |
 
 ### 7-Year TCO Summary
-
-```mermaid
-xychart-beta
-    title "7-Year Total Cost of Ownership (50,000 sq ft Building)"
-    x-axis ["With Design Standard", "Without Design Standard"]
-    y-axis "Cost ($)" 0 --> 100000
-    bar [62400, 90200]
-```
 
 | Approach | 7-Year TCO | Cost per Sq Ft |
 |----------|------------|----------------|
