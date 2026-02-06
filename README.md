@@ -22,10 +22,11 @@ All standards are derived exclusively from public governing bodies (IEEE, ANSI, 
 - **4 SSID Maximum** — Hard limit per access point for performance
 - **OWE Required** — Guest networks must use Enhanced Open encryption
 - **EAP-TLS Required** — Only permitted 802.1X method (2026 policy)
-- **TLS 1.3 Minimum** — All EAP-TLS sessions must use TLS 1.3; TLS 1.2 and earlier prohibited
-- **WPA3 Hard Requirement** — All wireless clients must support WPA3; no exceptions
+- **TLS 1.3 Minimum** — All EAP-TLS sessions must use TLS 1.3 (RFC 8446); TLS 1.2 and earlier prohibited
+- **WPA3 Hard Requirement** — All wireless clients must support WPA3; no exceptions or waivers
 - **WiFi 7 Client Procurement** — All newly purchased City wireless devices must support 802.11be
-- **Backup Power Required** — Online double-conversion UPS mandatory for all network equipment
+- **Backup Power Required** — Online double-conversion UPS mandatory for all network equipment; Critical tier (police/fire/911/EOC) = 30 min + permanent generator; Community tier = 15 min + generator-ready receptacle
+- **60W AP Planning Figure** — Conservative per-AP power draw for UPS sizing (covers 30–75W WiFi 7 range), with 80% port utilization and NEC 125% derating
 - **Outdoor Cabling** — Conduit required for permanent installations; IP67 weatherproof jacks for temporary/events only
 
 ## Documentation
@@ -133,6 +134,7 @@ networkstandards/
 │   ├── layer3/              # Layer 3 standards (IP, routing)
 │   ├── services/            # Network services (DNS, DHCP, NTP)
 │   ├── plans/               # Implementation design documents
+│   ├── _config.yml          # GitHub Pages configuration
 │   └── index.md             # Documentation home
 ├── rfcs/                    # RFC proposals
 │   └── RFC-TEMPLATE.md      # RFC template
@@ -140,8 +142,11 @@ networkstandards/
 │   ├── ISSUE_TEMPLATE/      # Issue templates
 │   ├── workflows/           # GitHub Actions
 │   └── PULL_REQUEST_TEMPLATE.md
+├── _config.yml              # Site configuration
+├── CLAUDE.md                # Claude Code project guidelines
 ├── CONTRIBUTING.md          # Contribution guidelines
 ├── CODE_OF_CONDUCT.md       # Community standards
+├── LICENSE                  # CC BY 4.0 license
 └── README.md                # This file
 ```
 
