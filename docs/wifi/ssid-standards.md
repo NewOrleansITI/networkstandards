@@ -21,7 +21,7 @@ This document defines the standard SSIDs, security configurations, and network s
 | IEEE 802.11w-2009 | Protected Management Frames | September 2009 | PMF/MFP |
 | IEEE 802.1X-2020 | Port-Based Network Access Control | February 2020 | Authentication |
 | Wi-Fi Alliance WPA3 | WPA3 Specification v3.0 | December 2020 | WPA3-Enterprise |
-| IETF RFC 5216 | EAP-TLS | March 2008 | Certificate authentication |
+| IETF RFC 9190 | EAP-TLS 1.3 | February 2022 | Certificate authentication with TLS 1.3 |
 | IETF RFC 7542 | Network Access Identifier | May 2015 | User identity format |
 | NIST SP 800-153 | Guidelines for Securing WLANs | February 2012 | WLAN security |
 
@@ -93,7 +93,7 @@ graph LR
 |---------|-------|-------------------|
 | Security protocol | WPA3-Enterprise | Wi-Fi Alliance WPA3 |
 | Encryption | AES-GCMP-256 | IEEE 802.11i |
-| Authentication | 802.1X EAP-TLS | RFC 5216 |
+| Authentication | 802.1X EAP-TLS | RFC 9190 |
 | PMF (802.11w) | Required | IEEE 802.11w-2009 |
 | RADIUS server | Primary + Secondary | RFC 2865 |
 | VLAN assignment | 20 (CORP) | IEEE 802.1Q |
@@ -609,7 +609,7 @@ Use this checklist to verify wireless platform readiness before SSID deployment.
 2. IEEE 802.11w-2009, "Amendment 4: Protected Management Frames," IEEE, September 2009.
 3. IEEE 802.1X-2020, "Port-Based Network Access Control," IEEE, February 2020.
 4. Wi-Fi Alliance, "WPA3 Specification Version 3.0," Wi-Fi Alliance, December 2020.
-5. IETF RFC 5216, "The EAP-TLS Authentication Protocol," IETF, March 2008.
+5. IETF RFC 9190, "EAP-TLS 1.3: Using the Extensible Authentication Protocol with TLS 1.3," IETF, February 2022.
 6. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 7. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
 

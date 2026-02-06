@@ -627,7 +627,6 @@ The WiFi Design Standard increases upfront investment by approximately $17,600 p
 | Standard | Title | Date | Relevance to Design Standard |
 |----------|-------|------|------------------------------|
 | NIST SP 800-153 | Guidelines for Securing Wireless Local Area Networks | February 2012 | Security design principles |
-| NIST SP 800-97 | Establishing Wireless Robust Security Networks | February 2007 | 802.11i/WPA2 implementation |
 | NIST SP 800-53 Rev. 5 | Security and Privacy Controls | September 2020 | AC-18 Wireless Access controls |
 
 ### Industry Best Practice Citations
