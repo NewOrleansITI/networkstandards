@@ -3,7 +3,7 @@ title: WiFi 7 Deployment Procedures
 version: 3.2.0
 status: Supported
 last_updated: 2026-02-04
-reference: BICSI TDMM 14th Edition, TIA-569-E, IEEE 802.11be-2024
+reference: BICSI TDMM 15th Edition, TIA-569-E, IEEE 802.11be-2024
 ---
 
 # WiFi 7 Deployment Procedures
@@ -18,7 +18,7 @@ This document defines the standard procedures for deploying WiFi 7 (IEEE 802.11b
 
 | Standard | Title | Date | Scope |
 |----------|-------|------|-------|
-| BICSI TDMM 14th Ed. | Telecommunications Distribution Methods Manual | 2018 | Deployment best practices |
+| BICSI TDMM 15th Ed. | Telecommunications Distribution Methods Manual | 2024 | Deployment best practices |
 | TIA-569-E | Telecommunications Pathways and Spaces | June 2019 | Physical installation |
 | TIA-606-C | Administration Standard | February 2017 | Labeling and documentation |
 | IEEE 802.11-2020 | Wireless LAN Standard | December 2020 | Technical requirements |
@@ -511,7 +511,7 @@ Use this checklist to verify contractor qualifications before approving a WiFi d
 
 ## References
 
-1. BICSI TDMM, 14th Edition, "Telecommunications Distribution Methods Manual," BICSI, 2018.
+1. BICSI TDMM, 15th Edition, "Telecommunications Distribution Methods Manual," BICSI, 2024.
 2. TIA-569-E, "Telecommunications Pathways and Spaces," TIA, June 2019.
 3. TIA-606-C, "Administration Standard for Telecommunications Infrastructure," TIA, February 2017.
 4. IEEE 802.11-2020, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
