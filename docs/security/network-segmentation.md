@@ -535,9 +535,7 @@ graph TB
 
 | Requirement | Implementation | Rationale |
 |-------------|----------------|-----------|
-| Wireless security | **OWE (Enhanced Open)** | Protect against eavesdropping (2026 mandate) |
-| Encryption | AES-CCMP-128 | Per-client unique encryption keys |
-| PMF (802.11w) | Required | Management frame protection |
+| Wireless security | **OWE (Enhanced Open)** — see [OWE Enhanced Open Standards](owe-enhanced-open.md) | Protect against eavesdropping (2026 mandate) |
 | Network isolation | Separate VRF or firewall zone | Prevent internal access |
 | Client isolation | Layer 2 isolation enabled | Prevent client-to-client attacks |
 | Captive portal | Terms acceptance required | Legal liability |
@@ -546,7 +544,7 @@ graph TB
 | Session timeout | 8 hours | Force re-acceptance |
 | DNS filtering | Malicious domain blocking | Threat prevention |
 
-**Note:** OWE provides encryption without authentication. The captive portal provides terms acceptance at Layer 3, while OWE encryption operates at Layer 2. See [OWE Enhanced Open Standards](owe-enhanced-open.md).
+**Note:** OWE encryption, PMF, and per-client key details are defined in [OWE Enhanced Open Standards](owe-enhanced-open.md). The captive portal provides terms acceptance at Layer 3, while OWE encryption operates at Layer 2.
 
 ## Implementation Standards
 

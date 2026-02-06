@@ -307,6 +307,8 @@ graph TB
 | Default gateway | HSRP/VRRP VIP | High availability |
 | Domain name | Appropriate domain | Per network zone |
 
+For complete DHCP server architecture, failover configuration, and detailed scope standards, see [DHCP Standards](../services/dhcp-standards.md).
+
 ### DHCP Architecture
 
 ```mermaid
