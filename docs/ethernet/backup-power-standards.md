@@ -467,12 +467,6 @@ Use this checklist to evaluate UPS, generator, and transfer switch equipment bef
 | [Deployment Procedures](../wifi/deployment-procedures.md) | UPS capacity verification in pre-installation checklist |
 | [Network Segmentation](../security/network-segmentation.md) | UPS SNMP management interfaces on Management VLAN (VLAN 999) |
 
-## Document History
-
-| Version | Date | Changes |
-|---------|------|---------|
-| 1.0.0 | 2026-02-04 | Initial release — facility tiers, power budget calculations, UPS/generator requirements, procurement checklist |
-
 ## References
 
 1. NFPA 70 (NEC), "National Electrical Code," National Fire Protection Association, 2026.

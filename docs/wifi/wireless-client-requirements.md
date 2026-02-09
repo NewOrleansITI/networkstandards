@@ -364,12 +364,6 @@ flowchart TD
 | [Design Standards](design-standards.md) | Coverage thresholds, high-density design |
 | [Deployment Procedures](deployment-procedures.md) | Site survey validation with representative client devices |
 
-## Document History
-
-| Version | Date | Changes |
-|---------|------|---------|
-| 1.0.0 | 2026-02-04 | Initial release — WPA3 mandatory, WiFi 7 procurement requirement, client compatibility tables, IoT categories, procurement checklist |
-
 ## References
 
 1. IEEE 802.11be-2024, "Enhancements for Extremely High Throughput (EHT)," IEEE, January 2024.

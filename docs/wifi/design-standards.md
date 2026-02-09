@@ -669,12 +669,6 @@ This design standard integrates with existing municipal network documentation:
 | Backup power verified | UPS sized per AP count and facility tier | [Backup Power Standards](../ethernet/backup-power-standards.md) |
 | Exceptions documented (if any) | IT management approved | Phase 5 |
 
-## Document History
-
-| Version | Date | Author | Changes |
-|---------|------|--------|---------|
-| 1.0.0 | 2026-02-02 | ITI Network Team | Initial release |
-
 ## Infrastructure Readiness Pass/Fail Checklist
 
 Use this checklist to verify design service provider qualifications before approving a WiFi design engagement. Every **Required** item must pass. If any Required item fails, the provider is **not approved for design work**.
@@ -715,7 +709,7 @@ Use this checklist to verify design service provider qualifications before appro
 
 1. IEEE 802.11-2024, "IEEE Standard for Information Technology—Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
 2. IEEE 802.11be-2024, "IEEE Standard for Information Technology—Enhancements for Extremely High Throughput (EHT)," IEEE, January 2024.
-3. BICSI, "Telecommunications Distribution Methods Manual (TDMM)," 14th Edition, BICSI, 2018.
+3. BICSI, "Telecommunications Distribution Methods Manual (TDMM)," 15th Edition, BICSI, 2024.
 4. TIA-569-E, "Telecommunications Pathways and Spaces," TIA, June 2019.
 5. ANSI/TIA-1179-B, "Healthcare Facility Telecommunications Infrastructure Standard," TIA, 2023.
 6. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
