@@ -124,6 +124,7 @@ graph LR
 | 110 | Kiosk | Public access terminals | Guest | Yes | MAB |
 | 200 | Building | HVAC, lighting, access control | IoT | Yes | MAB |
 | 210 | Cameras | Surveillance systems | IoT | Yes | MAB |
+| 900 | Quarantine | Auth-fail / unknown devices | Isolation | No | N/A |
 | 998 | Security | SIEM, IDS/IPS, scanners | Management | No | Required |
 | 999 | Management | Network device management | Management | No | Required |
 
