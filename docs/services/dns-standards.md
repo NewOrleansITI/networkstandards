@@ -29,7 +29,7 @@ DNS architecture directly impacts network availability—a DNS outage effectivel
 | RFC 7858 | Specification for DNS over TLS | May 2016 | Encrypted DNS transport |
 | RFC 8484 | DNS Queries over HTTPS (DoH) | October 2018 | HTTPS-based DNS resolution |
 | RFC 8945 | Secret Key Transaction Authentication for DNS (TSIG) | November 2020 | Zone transfer authentication |
-| NIST SP 800-81-2 | Secure Domain Name System Deployment Guide | September 2013 | Federal DNS security guidance |
+| NIST SP 800-81-2 | Secure Domain Name System Deployment Guide | September 2013 | Federal DNS security guidance (Rev. 3 draft April 2025 — update when final) |
 
 ## DNS Architecture
 

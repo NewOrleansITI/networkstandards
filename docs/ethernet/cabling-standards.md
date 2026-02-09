@@ -22,8 +22,8 @@ This document defines the structured cabling standards for all wired network inf
 | TIA-568.3-E | Optical Fiber Cabling and Components | June 2016 | Fiber optic specifications |
 | TIA-569-E | Telecommunications Pathways and Spaces | June 2019 | Pathway design and capacity |
 | TIA-606-D | Administration Standard for Telecommunications Infrastructure | February 2017 | Labeling and documentation |
-| ISO/IEC 11801-1 | Generic Cabling - Part 1: General Requirements | November 2017 | International cabling standard |
-| ANSI/NECA/BICSI 568 | Installing Commercial Building Telecommunications Cabling | 2016 | Installation best practices |
+| ISO/IEC 11801-1:2017/Amd 1:2025 | Generic Cabling - Part 1: General Requirements | 2025 | International cabling standard |
+| ANSI/BICSI N1-2019 | Installing Telecommunications and ICT Cabling Infrastructure | 2019 | Installation best practices |
 | TIA-607-D | Generic Telecommunications Bonding and Grounding | August 2019 | Grounding infrastructure |
 | NFPA 780 | Standard for Installation of Lightning Protection Systems | 2026 | Lightning protection (public safety) |
 | IEC 60529 | Degrees of Protection Provided by Enclosures (IP Code) | 2013 | Outdoor enclosure ratings |
@@ -245,8 +245,6 @@ Per TIA-1152-A Field Testing Standard:
 
 This section defines requirements for low-voltage cabling pathways serving outdoor-mounted devices including wireless access points, IP cameras, access control devices, intercoms, emergency call stations, and public address speakers.
 
-See [Outdoor Cabling Design](../plans/2026-02-02-outdoor-cabling-design.md) for complete specifications including inspection checklists and installation details.
-
 ### Installation Classifications
 
 | Classification | Definition | Pathway Requirement |
@@ -442,7 +440,7 @@ Use this checklist to evaluate cabling materials and components before purchase.
 4. TIA-606-D, "Administration Standard for Telecommunications Infrastructure," Telecommunications Industry Association, February 2017.
 5. TIA-607-D, "Generic Telecommunications Bonding and Grounding (Earthing) for Customer Premises," Telecommunications Industry Association, August 2019.
 6. TIA-1152-A, "Requirements for Field Test Instruments and Measurements for Balanced Twisted-Pair Cabling," Telecommunications Industry Association, 2016.
-7. ISO/IEC 11801-1:2017, "Information technology — Generic cabling for customer premises — Part 1: General requirements," International Organization for Standardization, November 2017.
+7. ISO/IEC 11801-1:2017/Amd 1:2025, "Information technology — Generic cabling for customer premises — Part 1: General requirements," International Organization for Standardization, 2025.
 8. BICSI TDMM, 15th Edition, "Telecommunications Distribution Methods Manual," BICSI, 2024.
 9. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," National Institute of Standards and Technology, September 2020.
 10. NFPA 780, "Standard for the Installation of Lightning Protection Systems," National Fire Protection Association, 2026.

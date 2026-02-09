@@ -23,7 +23,7 @@ This document establishes the standards for routing protocols, route management,
 | IETF RFC 5765 | Security for BGP | February 2010 | BGP security |
 | IETF RFC 7454 | BGP Operations and Security | February 2015 | BGP best practices |
 | IETF RFC 2281 | HSRP | March 1998 | First-hop redundancy |
-| IETF RFC 5798 | VRRP Version 3 | March 2010 | First-hop redundancy |
+| IETF RFC 9568 | VRRP Version 3 | April 2024 | First-hop redundancy |
 | IETF RFC 7868 | EIGRP | May 2016 | Interior routing (informational) |
 | IETF RFC 8402 | Segment Routing | July 2018 | Modern routing architecture |
 | NIST SP 800-53 Rev. 5 | Security Controls | September 2020 | Routing security |
@@ -312,7 +312,7 @@ flowchart TD
 
 | Protocol | Standard | Virtual MAC | Preemption | Load Sharing |
 |----------|----------|-------------|------------|--------------|
-| VRRP | RFC 5798 | 00-00-5e-00-01-XX | Configurable | Multiple groups |
+| VRRP | RFC 9568 | 00-00-5e-00-01-XX | Configurable | Multiple groups |
 | HSRP | RFC 2281 | 00-00-0c-07-ac-XX | Configurable | Multiple groups |
 | GLBP | Proprietary | Multiple | Yes | Native |
 
@@ -661,7 +661,7 @@ Use this checklist to evaluate any router or Layer 3 switch before purchase. Eve
 3. IETF RFC 4271, "A Border Gateway Protocol 4 (BGP-4)," IETF, January 2006.
 4. IETF RFC 4456, "BGP Route Reflection," IETF, April 2006.
 5. IETF RFC 7454, "BGP Operations and Security," IETF, February 2015.
-6. IETF RFC 5798, "Virtual Router Redundancy Protocol (VRRP) Version 3," IETF, March 2010.
+6. IETF RFC 9568, "Virtual Router Redundancy Protocol (VRRP) Version 3," IETF, April 2024.
 7. IETF RFC 5880, "Bidirectional Forwarding Detection (BFD)," IETF, June 2010.
 8. IETF RFC 5765, "Security Considerations for BGP," IETF, February 2010.
 9. IETF RFC 6811, "BGP Prefix Origin Validation," IETF, January 2013.
