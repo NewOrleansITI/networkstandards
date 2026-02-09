@@ -157,7 +157,7 @@ All outdoor AP installations must comply with the [Outdoor Installation Requirem
 | Wall penetration | Modular mechanical seal (Link-Seal or equivalent) |
 | Surge protection | **Required at both ends** (device and switch/panel) |
 | Cable jacket | Outdoor-rated (CMX/CMXT/direct burial) even inside conduit |
-| Grounding | Per NEC 250 and TIA-607-D; NFPA 780 for public safety facilities |
+| Grounding | Per NEC 250 and TIA-607-E; NFPA 780 for public safety facilities |
 | Security hardware | Torx or hex-socket screws on accessible enclosures |
 | Contractor | Licensed low-voltage contractor required |
 
