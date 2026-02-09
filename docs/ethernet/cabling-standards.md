@@ -3,7 +3,7 @@ title: Structured Cabling Standards
 version: 3.1.0
 status: Supported
 last_updated: 2026-02-04
-tia_reference: TIA-568.2-E, TIA-569-E, TIA-606-D, TIA-607-D
+tia_reference: TIA-568.2-E, TIA-569-E, TIA-606-D, TIA-607-E
 iso_reference: ISO/IEC 11801-1:2017
 ieee_reference: IEEE 802.3bz-2016
 ---
@@ -24,7 +24,7 @@ This document defines the structured cabling standards for all wired network inf
 | TIA-606-D | Administration Standard for Telecommunications Infrastructure | February 2017 | Labeling and documentation |
 | ISO/IEC 11801-1:2017/Amd 1:2025 | Generic Cabling - Part 1: General Requirements | 2025 | International cabling standard |
 | ANSI/BICSI N1-2019 | Installing Telecommunications and ICT Cabling Infrastructure | 2019 | Installation best practices |
-| TIA-607-D | Generic Telecommunications Bonding and Grounding | August 2019 | Grounding infrastructure |
+| TIA-607-E | Generic Telecommunications Bonding and Grounding | May 2024 | Grounding infrastructure |
 | NFPA 780 | Standard for Installation of Lightning Protection Systems | 2026 | Lightning protection (public safety) |
 | IEC 60529 | Degrees of Protection Provided by Enclosures (IP Code) | 2013 | Outdoor enclosure ratings |
 
@@ -290,11 +290,11 @@ Outdoor cable runs require surge protection at **both ends**:
 
 **Surge Protector Minimums:** ≤50V clamping, ≥10 kA capacity, ≤1ns response, 10 Gbps data rate.
 
-**Grounding:** Per NEC Article 250 and TIA-607-D. Public safety facilities (police, fire, 911) require NFPA 780 lightning protection system integration.
+**Grounding:** Per NEC Article 250 and TIA-607-E. Public safety facilities (police, fire, 911) require NFPA 780 lightning protection system integration.
 
 > **Cross-Reference: Backup Power Grounding**
 >
-> UPS and generator installations must bond to the Telecommunications Grounding Busbar (TGB) per TIA-607-D. Generator grounding follows NEC 250.30 for separately derived systems. See [Backup Power Standards — Surge Protection and Grounding Integration](backup-power-standards.md#surge-protection-and-grounding-integration) for UPS bonding requirements and SPD coordination.
+> UPS and generator installations must bond to the Telecommunications Grounding Busbar (TGB) per TIA-607-E. Generator grounding follows NEC 250.30 for separately derived systems. See [Backup Power Standards — Surge Protection and Grounding Integration](backup-power-standards.md#surge-protection-and-grounding-integration) for UPS bonding requirements and SPD coordination.
 
 ### Outdoor Cable Requirements
 
@@ -342,7 +342,7 @@ All permanent outdoor installations require:
 | NEC Articles 725, 800, 820 | Low-voltage circuit classifications |
 | NEC Articles 342, 344, 352, 358 | Conduit types and installation |
 | NEC Article 250 | Grounding and bonding |
-| TIA-607-D | Telecommunications bonding and grounding |
+| TIA-607-E | Telecommunications bonding and grounding |
 | NFPA 780 | Lightning protection (public safety facilities) |
 | IEC 60529 | IP enclosure ratings |
 
@@ -438,7 +438,7 @@ Use this checklist to evaluate cabling materials and components before purchase.
 2. TIA-568.3-E, "Optical Fiber Cabling and Components Standard," Telecommunications Industry Association, June 2016.
 3. TIA-569-E, "Telecommunications Pathways and Spaces," Telecommunications Industry Association, June 2019.
 4. TIA-606-D, "Administration Standard for Telecommunications Infrastructure," Telecommunications Industry Association, February 2017.
-5. TIA-607-D, "Generic Telecommunications Bonding and Grounding (Earthing) for Customer Premises," Telecommunications Industry Association, August 2019.
+5. TIA-607-E, "Generic Telecommunications Bonding and Grounding (Earthing) for Customer Premises," Telecommunications Industry Association, May 2024.
 6. TIA-1152-A, "Requirements for Field Test Instruments and Measurements for Balanced Twisted-Pair Cabling," Telecommunications Industry Association, 2016.
 7. ISO/IEC 11801-1:2017/Amd 1:2025, "Information technology — Generic cabling for customer premises — Part 1: General requirements," International Organization for Standardization, 2025.
 8. BICSI TDMM, 15th Edition, "Telecommunications Distribution Methods Manual," BICSI, 2024.

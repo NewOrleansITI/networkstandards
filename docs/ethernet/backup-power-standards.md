@@ -7,7 +7,7 @@ nec_reference: NEC Articles 700, 701, 702, 708
 nfpa_reference: NFPA 110-2025, NFPA 111-2025
 ieee_reference: IEEE 446-1995, IEEE 1100-2005, IEEE C62.41.2-2025
 nist_reference: NIST SP 800-53 Rev. 5 (PE-11)
-tia_reference: TIA-607-D
+tia_reference: TIA-607-E
 ---
 
 # Backup Power Standards for Network Infrastructure
@@ -31,7 +31,7 @@ All network equipment locations — from single-IDF closets to multi-rack MDFs �
 | IEEE 446 | Recommended Practice for Emergency and Standby Power Systems (Orange Book) | 1995 (Inactive-Reserved) | Power system design |
 | IEEE 1100 | Recommended Practice for Powering and Grounding Electronic Equipment (Emerald Book) | 2005 (Inactive-Reserved) | Sensitive load protection |
 | NIST SP 800-53 Rev. 5 | Security and Privacy Controls — PE-11 Emergency Power | 2020 | Federal security requirement |
-| TIA-607-D | Generic Telecommunications Bonding and Grounding | 2019 | Grounding infrastructure |
+| TIA-607-E | Generic Telecommunications Bonding and Grounding | 2024 | Grounding infrastructure |
 | NEC Article 250 | Grounding and Bonding | 2026 | Electrical grounding |
 | NFPA 780 | Standard for Installation of Lightning Protection Systems | 2026 | Lightning protection |
 
@@ -299,8 +299,8 @@ graph LR
 
 | Requirement | Specification | Standard Reference |
 |-------------|---------------|-------------------|
-| UPS bonding | UPS chassis bonded to Telecommunications Grounding Busbar (TGB) | TIA-607-D |
-| TGB connection | #6 AWG minimum copper conductor to TGB | TIA-607-D |
+| UPS bonding | UPS chassis bonded to Telecommunications Grounding Busbar (TGB) | TIA-607-E |
+| TGB connection | #6 AWG minimum copper conductor to TGB | TIA-607-E |
 | TGB to building ground | Per building grounding electrode system | NEC 250 |
 | Generator grounding | Generator frame bonded per NEC 250.30 (separately derived system) | NEC 250.30 |
 | SPD grounding | Short, direct connection to TGB or equipment ground | NEC 285 |
@@ -315,7 +315,7 @@ Critical tier facilities (police, fire, 911, EOC) require NFPA 780 lightning pro
 |-------------|---------------|
 | Lightning protection system | Per NFPA 780 risk assessment |
 | SPD coordination | Type 1 at service entrance + Type 2 at network panel |
-| Bonding | Lightning protection system bonded to TGB per TIA-607-D |
+| Bonding | Lightning protection system bonded to TGB per TIA-607-E |
 | Outdoor cable protection | Surge protection at both ends per [Cabling Standards](cabling-standards.md#surge-protection-and-grounding) |
 
 ## Testing and Maintenance Schedule
@@ -462,7 +462,7 @@ Use this checklist to evaluate UPS, generator, and transfer switch equipment bef
 |----------|--------------|
 | [Switch Specifications](switch-specifications.md) | PoE budget drives UPS sizing; switch chassis power consumption |
 | [Access Point Specifications](../wifi/access-point-specs.md) | AP power draw (30-75W) determines PoE load for UPS calculations |
-| [Structured Cabling Standards](cabling-standards.md) | Grounding infrastructure (TGB, TIA-607-D) for UPS/generator bonding |
+| [Structured Cabling Standards](cabling-standards.md) | Grounding infrastructure (TGB, TIA-607-E) for UPS/generator bonding |
 | [WiFi Design Standards](../wifi/design-standards.md) | Power budget as design deliverable |
 | [Deployment Procedures](../wifi/deployment-procedures.md) | UPS capacity verification in pre-installation checklist |
 | [Network Segmentation](../security/network-segmentation.md) | UPS SNMP management interfaces on Management VLAN (VLAN 999) |
@@ -476,7 +476,7 @@ Use this checklist to evaluate UPS, generator, and transfer switch equipment bef
 5. IEEE 446-1995, "IEEE Recommended Practice for Emergency and Standby Power Systems for Industrial and Commercial Applications (Orange Book)," IEEE, 1995 (reaffirmed 2000; Inactive-Reserved 2021 — no successor published; remains widely referenced in power engineering).
 6. IEEE 1100-2005, "IEEE Recommended Practice for Powering and Grounding Electronic Equipment (Emerald Book)," IEEE, 2005 (Inactive-Reserved 2021 — no successor published; remains widely referenced in power engineering).
 7. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
-8. TIA-607-D, "Generic Telecommunications Bonding and Grounding (Earthing) for Customer Premises," TIA, August 2019.
+8. TIA-607-E, "Generic Telecommunications Bonding and Grounding (Earthing) for Customer Premises," TIA, May 2024.
 9. UL 1449, "Standard for Surge Protective Devices," 5th Edition, Underwriters Laboratories, 2021.
 10. IEEE C62.41.2-2025, "IEEE Recommended Practice on Characterization of Surges in Low-Voltage AC Power Circuits," IEEE, 2025.
 
