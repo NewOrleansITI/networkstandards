@@ -29,15 +29,15 @@ This document defines standard VLAN assignments, port configurations, and naming
 graph TB
     subgraph SEGMENTS["Network Segments"]
         subgraph TRUSTED["Trusted Zone"]
-            MGMT["VLAN 10: Management<br/>Network infrastructure"]
+            INFRA["VLAN 10: Infrastructure<br/>Network infrastructure"]
             CORP["VLAN 20: Corporate<br/>Employee workstations"]
             VOIP["VLAN 30: Voice<br/>IP phones"]
             SECURE["VLAN 50: Secure<br/>Restricted systems"]
         end
 
         subgraph RESTRICTED["Restricted Zone"]
-            PRINT["VLAN 40: Printers<br/>Shared devices"]
-            CAMERA["VLAN 300: Cameras<br/>Security systems"]
+            SERVERS["VLAN 40: Servers<br/>Shared devices"]
+            CAMERA["VLAN 210: Cameras<br/>Security systems"]
         end
 
         subgraph UNTRUSTED["Untrusted Zone"]
@@ -46,7 +46,7 @@ graph TB
         end
 
         subgraph ISOLATION["Isolation Zone"]
-            QUARANTINE["VLAN 999: Quarantine<br/>Unknown devices"]
+            QUARANTINE["VLAN 900: Quarantine<br/>Unknown devices"]
         end
     end
 
@@ -58,20 +58,20 @@ graph TB
 
 ## VLAN Assignments
 
-### Standard VLAN Table
+The authoritative VLAN allocation is defined in [Network Segmentation — VLAN Allocation Table](../security/network-segmentation.md#vlan-allocation-table). The VLANs most relevant to port configurations are:
 
-| VLAN ID | Name | Purpose | Security Zone | 802.1X Required |
-|---------|------|---------|---------------|-----------------|
-| 1 | default | **Unused - Disabled** | — | — |
-| 10 | MGMT | Network device management | Trusted | Yes (admin only) |
-| 20 | CORP | Corporate workstations | Trusted | Yes |
-| 30 | VOIP | Voice over IP phones | Trusted | LLDP-MED |
-| 40 | PRINT | Printers and MFPs | Restricted | MAB |
-| 50 | SECURE | High-security systems | Trusted | Yes + certificates |
-| 100 | GUEST | Guest/visitor WiFi breakout | Untrusted | Captive portal |
-| 200 | IOT | IoT devices and sensors | Untrusted | MAB |
-| 300 | CAMERA | Security cameras | Restricted | MAB |
-| 999 | QUARANTINE | Unknown/unauthorized devices | Isolation | N/A |
+| VLAN ID | Name | Port Usage | Authentication |
+|---------|------|-----------|----------------|
+| 10 | Infrastructure | AP trunk native, switch uplinks | Admin only |
+| 20 | Corporate | Workstation access ports | 802.1X required |
+| 30 | VoIP | IP phone ports (LLDP-MED) | LLDP-MED |
+| 40 | Servers | Server and shared-device ports | MAB |
+| 50 | Secure | High-security system ports | 802.1X + certificates |
+| 100 | Guest | Guest WiFi breakout | Captive portal |
+| 200 | Building | IoT device ports | MAB |
+| 210 | Cameras | Security camera ports | MAB |
+| 900 | Quarantine | Auth-fail / unknown devices | N/A |
+| 999 | Management | Network device management | Admin only |
 
 ### VLAN Security Matrix
 
@@ -80,13 +80,13 @@ flowchart LR
     subgraph ACCESS["Inter-VLAN Access Rules"]
         CORP20["VLAN 20<br/>Corporate"]
         VOIP30["VLAN 30<br/>Voice"]
-        PRINT40["VLAN 40<br/>Printers"]
+        SERVERS40["VLAN 40<br/>Servers"]
         GUEST100["VLAN 100<br/>Guest"]
         IOT200["VLAN 200<br/>IoT"]
     end
 
     CORP20 <-->|"✅ Full"| VOIP30
-    CORP20 -->|"✅ Print only"| PRINT40
+    CORP20 -->|"✅ Filtered"| SERVERS40
     CORP20 -.->|"❌ Blocked"| GUEST100
     CORP20 -.->|"❌ Blocked"| IOT200
     GUEST100 -->|"✅ Internet"| INET[Internet]
@@ -202,7 +202,7 @@ For network printers and multifunction devices.
 |---------|-------|-----------|
 | Port speed | 2.5 Gbps (auto-negotiate) | IEEE 802.3bz-2016 |
 | Mode | Access | Single VLAN |
-| VLAN | 40 (PRINT) | Isolated from workstations |
+| VLAN | 40 (Servers) | Isolated from workstations |
 | Authentication | 802.1X with MAB fallback | Device lacks supplicant; 802.1X times out, then MAB |
 | Port security | Sticky MAC | Prevent unauthorized moves |
 
@@ -210,7 +210,7 @@ For network printers and multifunction devices.
 
 ```
 INTERFACE printer-port
-  DESCRIPTION "PRINT-[Building]-[Room]"
+  DESCRIPTION "PRT-[Building]-[Room]"
   SPEED auto 2500 1000
   MODE access
   ACCESS-VLAN 40
@@ -233,14 +233,14 @@ For WiFi 7 wireless access points requiring multiple VLANs and high-power PoE.
 ```mermaid
 flowchart LR
     AP[WiFi 7 Access Point] --> PORT[Multi-Gig Trunk Port]
-    PORT --> CONFIG["Port Speed: 2.5G/5G/10G<br/>PoE: 802.3bt (60W+)<br/>Native: VLAN 10 (MGMT)<br/>Tagged: 20, 30, 100, 200"]
+    PORT --> CONFIG["Port Speed: 2.5G/5G/10G<br/>PoE: 802.3bt (60W+)<br/>Native: VLAN 10 (Infrastructure)<br/>Tagged: 20, 30, 100, 200"]
 ```
 
 | Setting | Value | Rationale |
 |---------|-------|-----------|
 | Port speed | 2.5 GbE minimum (5/10 GbE preferred) | WiFi 7 throughput exceeds 1 Gbps |
 | Mode | Trunk | Multiple SSIDs need multiple VLANs |
-| Native VLAN | 10 (MGMT) | AP management traffic |
+| Native VLAN | 10 (Infrastructure) | AP management traffic |
 | Allowed VLANs | 10, 20, 30, 100, 200 | Corp, Voice, Guest, IoT |
 | PortFast | Trunk mode | Fast AP boot |
 | PoE class | 802.3bt Type 3/4 | WiFi 7 requires 30-50W typical |
@@ -276,18 +276,18 @@ For IP security cameras.
 |---------|-------|-----------|
 | Port speed | 2.5 Gbps (5 Gbps recommended) | IEEE 802.3bz-2016, 4K cameras |
 | Mode | Access | Single VLAN |
-| VLAN | 300 (CAMERA) | Isolated security network |
+| VLAN | 210 (Cameras) | Isolated security network |
 | Authentication | 802.1X with MAB fallback | Device lacks supplicant; 802.1X times out, then MAB |
 | PoE | Enabled, high priority | Ensure camera uptime |
 
-> **VLAN note:** `ACCESS-VLAN 300` is a default. If MAB authentication succeeds, the RADIUS server may return a different VLAN via `Tunnel-Private-Group-ID`, which overrides this value. See [802.1X Implementation](../security/802.1x-implementation.md#radius-attributes-for-policy-enforcement).
+> **VLAN note:** `ACCESS-VLAN 210` is a default. If MAB authentication succeeds, the RADIUS server may return a different VLAN via `Tunnel-Private-Group-ID`, which overrides this value. See [802.1X Implementation](../security/802.1x-implementation.md#radius-attributes-for-policy-enforcement).
 
 ```
 INTERFACE camera-port
   DESCRIPTION "CAM-[Building]-[Location]"
   SPEED auto 2500 1000
   MODE access
-  ACCESS-VLAN 300
+  ACCESS-VLAN 210
   SPANNING-TREE portfast ENABLE
   SPANNING-TREE bpduguard ENABLE
   PORT-SECURITY maximum 1
@@ -363,7 +363,7 @@ INTERFACE uplink-port
 
 ```mermaid
 flowchart LR
-    UNUSED[Unused Port] --> CONFIG["Shutdown<br/>VLAN 999<br/>No services"]
+    UNUSED[Unused Port] --> CONFIG["Shutdown<br/>VLAN 900<br/>No services"]
     CONFIG --> EFFECT["No network access<br/>Audit logged<br/>Physically labeled"]
 ```
 
@@ -371,7 +371,7 @@ flowchart LR
 INTERFACE unused-port
   DESCRIPTION "UNUSED"
   MODE access
-  ACCESS-VLAN 999
+  ACCESS-VLAN 900
   SHUTDOWN
   SPANNING-TREE bpduguard ENABLE
 ```
@@ -390,7 +390,7 @@ INTERFACE unused-port
 |------|-------------|---------|
 | WS | Workstation | WS-MC-205-04 |
 | VOIP | Voice phone | VOIP-MC-205 |
-| PRINT | Printer | PRINT-MC-205 |
+| PRT | Printer | PRT-MC-205 |
 | AP | Access point | AP-LIB-MAIN-LOBBY |
 | CAM | Security camera | CAM-MC-NORTH-ENTRANCE |
 | IOT | IoT device | IOT-PARK-SENSOR-01 |
@@ -440,11 +440,11 @@ flowchart TD
 
     AUTH_RESULT -->|Accept| VLAN_ASSIGN_1["RADIUS returns VLAN<br/>via Tunnel-Private-Group-ID"]
     VLAN_ASSIGN_1 --> OVERRIDE_1["Overrides port ACCESS-VLAN<br/>→ Port authorized"]
-    AUTH_RESULT -->|Reject| AUTHFAIL["Auth-fail VLAN 999"]
+    AUTH_RESULT -->|Reject| AUTHFAIL["Auth-fail VLAN 900"]
 
     SUPPLICANT -->|"No (timeout)"| MAB_CHECK{MAB enabled<br/>on port?}
     MAB_CHECK -->|Yes| MAC_LOOKUP["MAB: Switch sends MAC<br/>to RADIUS as Calling-Station-Id"]
-    MAB_CHECK -->|No| QUARANTINE_1["Quarantine VLAN 999"]
+    MAB_CHECK -->|No| QUARANTINE_1["Quarantine VLAN 900"]
 
     MAC_LOOKUP --> RADIUS_2{RADIUS<br/>reachable?}
     RADIUS_2 -->|Yes| PROFILE{Profile<br/>match?}
@@ -452,7 +452,7 @@ flowchart TD
 
     PROFILE -->|Yes| VLAN_ASSIGN_2["RADIUS returns VLAN<br/>via Tunnel-Private-Group-ID"]
     VLAN_ASSIGN_2 --> OVERRIDE_2["Overrides port ACCESS-VLAN<br/>→ Port authorized"]
-    PROFILE -->|No| QUARANTINE_2["Quarantine VLAN 999"]
+    PROFILE -->|No| QUARANTINE_2["Quarantine VLAN 900"]
 ```
 
 ### "What Happens When..." Scenarios
@@ -461,13 +461,13 @@ These scenarios clarify the interaction between port templates and RADIUS-based 
 
 | # | Scenario | Result |
 |---|----------|--------|
-| 1 | Camera plugged into printer port | 802.1X times out (no supplicant), MAB sends MAC to RADIUS, RADIUS identifies camera and assigns VLAN 300 (overrides port's VLAN 40) |
-| 2 | Printer plugged into camera port | 802.1X times out (no supplicant), MAB sends MAC to RADIUS, RADIUS identifies printer and assigns VLAN 40 (overrides port's VLAN 300) |
+| 1 | Camera plugged into printer port | 802.1X times out (no supplicant), MAB sends MAC to RADIUS, RADIUS identifies camera and assigns VLAN 210 (overrides port's VLAN 40) |
+| 2 | Printer plugged into camera port | 802.1X times out (no supplicant), MAB sends MAC to RADIUS, RADIUS identifies printer and assigns VLAN 40 (overrides port's VLAN 210) |
 | 3 | Managed laptop plugged into any port | 802.1X/EAP-TLS succeeds, RADIUS assigns VLAN 20 regardless of port template |
-| 4 | Unknown device on any port | Both 802.1X and MAB fail — device placed on Quarantine VLAN 999 |
+| 4 | Unknown device on any port | Both 802.1X and MAB fail — device placed on Quarantine VLAN 900 |
 | 5 | Valid device, RADIUS unreachable | Critical VLAN (limited access), network team alerted |
 | 6 | Device with expired/revoked certificate | 802.1X rejected; MAB fallback attempted if enabled on the port |
-| 7 | Personal laptop (no cert, no MAB entry) | 802.1X fails (no valid certificate), MAB fails (MAC not registered) — Quarantine VLAN 999 |
+| 7 | Personal laptop (no cert, no MAB entry) | 802.1X fails (no valid certificate), MAB fails (MAC not registered) — Quarantine VLAN 900 |
 
 ### NIST SP 800-53 Control Mapping
 
@@ -515,7 +515,7 @@ Use this checklist to verify switch port configuration readiness before deployme
 | 4 | PortFast and BPDU Guard enabled on access ports | **Yes** | ☐ | ☐ |
 | 5 | QoS (802.1p / DSCP) marking configured | **Yes** | ☐ | ☐ |
 | 6 | 802.3bt Type 3 PoE enabled on AP-designated ports | **Yes** | ☐ | ☐ |
-| 7 | Unused ports shut down and assigned to VLAN 999 | **Yes** | ☐ | ☐ |
+| 7 | Unused ports shut down and assigned to VLAN 900 | **Yes** | ☐ | ☐ |
 
 ### Results
 
@@ -535,7 +535,7 @@ Use this checklist to verify switch port configuration readiness before deployme
 | PortFast + BPDU Guard | Spanning-tree configuration, port settings |
 | QoS marking | QoS policy configuration, DSCP/CoS trust settings |
 | 802.3bt Type 3 PoE | PoE interface status, power allocation |
-| Unused ports VLAN 999 | Interface configuration, VLAN assignment audit |
+| Unused ports VLAN 900 | Interface configuration, VLAN assignment audit |
 
 ## References
 
@@ -551,7 +551,7 @@ Use this checklist to verify switch port configuration readiness before deployme
 | Document | Relationship |
 |----------|--------------|
 | [802.1X Implementation](../security/802.1x-implementation.md) | RADIUS attributes for dynamic VLAN assignment |
-| [Network Segmentation](../security/network-segmentation.md) | VLAN architecture and security zone definitions |
+| [Network Segmentation](../security/network-segmentation.md) | **Authoritative VLAN allocation table**, security zone definitions |
 | [Switch Specifications](switch-specifications.md) | Multi-gig port mandate and PoE configuration |
 | [Cabling Standards](cabling-standards.md) | Physical layer requirements for outdoor port installations |
 | [SSID Standards](../wifi/ssid-standards.md) | Wireless VLAN mappings per SSID |

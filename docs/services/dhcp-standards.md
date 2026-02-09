@@ -470,9 +470,9 @@ sequenceDiagram
 
 | Format | Example | Description |
 |--------|---------|-------------|
-| `[Site]-[VLAN]-[Type]` | `CBD-V100-Corp` | Central Business District, VLAN 100, Corporate |
-| `[Site]-[VLAN]-[Type]` | `ALGR-V200-Guest` | Algiers, VLAN 200, Guest |
-| `[Site]-[VLAN]-[Type]` | `LGD-V300-IoT` | Lower Garden District, VLAN 300, IoT |
+| `[Site]-[VLAN]-[Type]` | `CBD-V20-Corp` | Central Business District, VLAN 20, Corporate |
+| `[Site]-[VLAN]-[Type]` | `ALGR-V100-Guest` | Algiers, VLAN 100, Guest |
+| `[Site]-[VLAN]-[Type]` | `LGD-V200-IoT` | Lower Garden District, VLAN 200, IoT |
 
 ### Migration Considerations
 

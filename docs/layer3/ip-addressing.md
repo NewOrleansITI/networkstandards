@@ -293,63 +293,20 @@ graph TB
 | .10-.250 | DHCP pool | 10.16.10.10-250 |
 | .251-.254 | Static assignments | 10.16.10.251-254 |
 
-## DHCP Standards
+## DHCP Integration
 
-### DHCP Scope Configuration
+DHCP pools are assigned from the `.10-.250` host range within each subnet (see Standard Host Assignments above). Each VLAN receives a dedicated scope with lease times, options, and failover configured per [DHCP Standards](../services/dhcp-standards.md).
 
-| Parameter | Standard Value | Notes |
-|-----------|---------------|-------|
-| Lease time (wired) | 8 hours (28800 seconds) | Balance between efficiency and tracking |
-| Lease time (wireless) | 4 hours (14400 seconds) | Mobile devices roam |
-| Lease time (guest) | 4 hours (14400 seconds) | Temporary access |
-| Lease time (IoT) | 24 hours (86400 seconds) | Stable devices |
-| DNS servers | Site-local, then central | Redundancy |
-| Default gateway | HSRP/VRRP VIP | High availability |
-| Domain name | Appropriate domain | Per network zone |
+Key IP addressing constraints for DHCP scopes:
 
-For complete DHCP server architecture, failover configuration, and detailed scope standards, see [DHCP Standards](../services/dhcp-standards.md).
+| Constraint | Value | Rationale |
+|------------|-------|-----------|
+| Pool start | .10 | Reserves .1-.9 for gateways and network services |
+| Pool end | .250 | Reserves .251-.254 for static assignments |
+| Default gateway option | HSRP/VRRP VIP (.1) | High availability |
+| DNS servers option | Site-local, then central | Redundancy |
 
-### DHCP Architecture
-
-```mermaid
-graph TB
-    subgraph DHCP_INFRA["DHCP Infrastructure"]
-        PRIMARY["Primary DHCP<br/>(Datacenter)"]
-        SECONDARY["Secondary DHCP<br/>(DR Site)"]
-    end
-
-    subgraph SITES["Site Distribution"]
-        RELAY_A["DHCP Relay<br/>Site A"]
-        RELAY_B["DHCP Relay<br/>Site B"]
-        RELAY_C["DHCP Relay<br/>Site C"]
-    end
-
-    subgraph CLIENTS["Client Networks"]
-        VLAN_20["VLAN 20<br/>Corporate"]
-        VLAN_100["VLAN 100<br/>Guest"]
-        VLAN_200["VLAN 200<br/>IoT"]
-    end
-
-    VLAN_20 & VLAN_100 & VLAN_200 --> RELAY_A
-    RELAY_A --> PRIMARY
-    RELAY_A -.-> SECONDARY
-    RELAY_B & RELAY_C --> PRIMARY
-    RELAY_B & RELAY_C -.-> SECONDARY
-
-    PRIMARY <-->|"Failover"| SECONDARY
-```
-
-### DHCP Option Standards
-
-| Option | Number | Purpose | Standard Value |
-|--------|--------|---------|----------------|
-| Subnet Mask | 1 | Network mask | Per subnet |
-| Router | 3 | Default gateway | HSRP/VRRP VIP |
-| DNS Servers | 6 | Name resolution | Primary, Secondary |
-| Domain Name | 15 | DNS suffix | Per zone |
-| NTP Servers | 42 | Time sync | Internal NTP servers |
-| TFTP Server | 66 | Boot server | For IP phones, APs |
-| Bootfile | 67 | Boot image | Device-specific |
+For DHCP server architecture, failover configuration, scope standards, lease times, and required options, see [DHCP Standards](../services/dhcp-standards.md).
 
 ## IP Address Management (IPAM)
 

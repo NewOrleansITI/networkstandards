@@ -139,21 +139,16 @@ sequenceDiagram
 
 #### Configuration
 
-| Setting | Value | Standard Reference |
-|---------|-------|-------------------|
-| Security protocol | **OWE (Enhanced Open)** | IEEE 802.11-2024, RFC 8110 |
-| Encryption | AES-CCMP-128 | Wi-Fi Alliance WPA3 |
-| PMF (802.11w) | Required | IEEE 802.11w-2009 |
-| Captive portal | Required | Terms acceptance |
-| Terms of use | Legal acceptance required | Liability protection |
-| Session timeout | 8 hours | Daily re-acceptance |
-| VLAN assignment | 100 (GUEST) | Isolated network |
-| Bands | 2.4 GHz, 5 GHz, **6 GHz** | Maximum compatibility + WiFi 7 |
-| Broadcast SSID | Visible | Guest discovery |
-| Client isolation | Enabled | Prevent client-to-client |
-| Bandwidth limit | 10 Mbps down / 5 Mbps up | Fair use |
+| Setting | Value |
+|---------|-------|
+| Security | **OWE (Enhanced Open)** — AES-CCMP-128, PMF required |
+| Access | Captive portal with terms acceptance, 8-hour session timeout |
+| Network | VLAN 100 (GUEST), client isolation enabled, 10/5 Mbps bandwidth limit |
+| Bands | 2.4 GHz, 5 GHz, **6 GHz** (WiFi 7 clients) |
 
-**OWE Requirement (Effective 2026):** OWE (Opportunistic Wireless Encryption) is mandatory for all guest networks. OWE provides per-client encryption without requiring passwords, protecting guests from passive eavesdropping while maintaining zero-friction access. See [OWE Enhanced Open Standards](../security/owe-enhanced-open.md) for complete implementation details.
+For the complete MUNI-GUEST SSID configuration specification, see [OWE Enhanced Open Standards](../security/owe-enhanced-open.md#muni-guest-ssid-configuration).
+
+**OWE Requirement (Effective 2026):** OWE is mandatory for all guest networks — per-client encryption without passwords, protecting guests from passive eavesdropping while maintaining zero-friction access.
 
 #### Network Restrictions
 
