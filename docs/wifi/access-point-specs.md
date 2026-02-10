@@ -24,7 +24,7 @@ This document defines the minimum specifications and placement guidelines for wi
 | IEEE 802.11w-2009 | Protected Management Frames | September 2009 | PMF |
 | IEEE 802.3bt-2018 | PoE++ (4PPoE) | September 2018 | Up to 90W |
 | IEEE 802.3at-2009 | PoE+ | September 2009 | Up to 30W |
-| Wi-Fi Alliance WPA3 | WPA3 Specification | June 2018 | WPA3-Enterprise |
+| Wi-Fi Alliance WPA3 v3.3 | WPA3 Specification | July 2024 | WPA3-Enterprise |
 
 ## WiFi Generation Overview
 
@@ -477,7 +477,7 @@ Use this checklist to evaluate wireless access points before purchase. Every **R
 2. IEEE 802.11ax-2021, "IEEE Standard for Information Technology—Telecommunications and Information Exchange between Systems—Local and Metropolitan Area Networks—Specific Requirements—Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications—Amendment 1: Enhancements for High-Efficiency WLAN," IEEE, February 2021.
 3. IEEE 802.11-2024, "IEEE Standard for Information Technology—Telecommunications and Information Exchange between Systems—Local and Metropolitan Area Networks—Specific Requirements—Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
 4. IEEE 802.3bt-2018, "IEEE Standard for Ethernet Amendment 2: Physical Layer and Management Parameters for Power over Ethernet over 4 Pairs," IEEE, September 2018.
-5. Wi-Fi Alliance, "WPA3 Specification Version 3.0," Wi-Fi Alliance, December 2020.
+5. Wi-Fi Alliance, "WPA3 Specification Version 3.3," Wi-Fi Alliance, July 2024.
 6. Wi-Fi Alliance, "Wi-Fi CERTIFIED 7," Wi-Fi Alliance, January 2024. https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-7
 7. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 8. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
