@@ -16,6 +16,7 @@ This documentation provides standardized specifications and procedures for deplo
 | [Switch Specifications](ethernet/switch-specifications.md) | Approved switch models and configuration baselines |
 | [Port Configurations](ethernet/port-configurations.md) | VLAN assignments and port naming conventions |
 | [Backup Power Standards](ethernet/backup-power-standards.md) | UPS, generator, circuit sizing, and power redundancy requirements |
+| [Equipment Mounting Standards](ethernet/equipment-mounting-standards.md) | Racks, enclosures, backboards, cable management, and environmental requirements |
 
 ### Wireless (WiFi)
 
@@ -35,6 +36,7 @@ This documentation provides standardized specifications and procedures for deplo
 | [WPA3-Enterprise Standards](security/wpa3-enterprise.md) | WPA3-Enterprise wireless security requirements |
 | [OWE Enhanced Open Standards](security/owe-enhanced-open.md) | OWE (Enhanced Open) for guest networks — Mandatory 2026 |
 | [Network Segmentation](security/network-segmentation.md) | VLAN architecture, security zones, and microsegmentation |
+| [Physical Security Standards](security/physical-security-standards.md) | NIST PE-2 through PE-6, port blanking, physical access controls |
 
 ### Layer 3 (Network)
 

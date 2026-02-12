@@ -466,6 +466,8 @@ Use this checklist to evaluate UPS, generator, and transfer switch equipment bef
 | [WiFi Design Standards](../wifi/design-standards.md) | Power budget as design deliverable |
 | [Deployment Procedures](../wifi/deployment-procedures.md) | UPS capacity verification in pre-installation checklist |
 | [Network Segmentation](../security/network-segmentation.md) | UPS SNMP management interfaces on Management VLAN (VLAN 999) |
+| [Equipment Mounting Standards](equipment-mounting-standards.md) | Rack specifications, environmental requirements, 60W AP figure for thermal sizing |
+| [Physical Security Standards](../security/physical-security-standards.md) | 2-tier facility model for physical security controls; UPS for access control systems |
 
 ## References
 
