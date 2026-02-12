@@ -456,6 +456,8 @@ Use this checklist to evaluate cabling materials and components before purchase.
 | [Access Point Specifications](../wifi/access-point-specs.md) | Outdoor AP cabling and weatherproofing requirements |
 | [Deployment Procedures](../wifi/deployment-procedures.md) | Cat6A certification during installation |
 | [Port Configurations](port-configurations.md) | Physical layer supporting VLAN port assignments |
+| [Equipment Mounting Standards](equipment-mounting-standards.md) | Rack grounding (RBB/EBJ), cable management, pathway fill ratios |
+| [Physical Security Standards](../security/physical-security-standards.md) | Junction box security fasteners, cable pathway protection |
 
 ---
 

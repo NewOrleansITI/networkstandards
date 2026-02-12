@@ -528,6 +528,8 @@ Use this checklist to verify contractor qualifications before approving a WiFi d
 | [Switch Specifications](../ethernet/switch-specifications.md) | Multi-gig switch port verification |
 | [Backup Power Standards](../ethernet/backup-power-standards.md) | UPS capacity verification during installation |
 | [OWE Enhanced Open Standards](../security/owe-enhanced-open.md) | Guest SSID encryption validation |
+| [Equipment Mounting Standards](../ethernet/equipment-mounting-standards.md) | Outdoor enclosure specifications, wall and pole mounting |
+| [Physical Security Standards](../security/physical-security-standards.md) | Outdoor installation tamper-resistant fasteners and security |
 
 ---
 
