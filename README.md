@@ -39,6 +39,7 @@ All standards are derived exclusively from public governing bodies (IEEE, ANSI, 
 | [Switch Specifications](docs/ethernet/switch-specifications.md) | Layer 2/3 switch requirements, multi-gig mandate, PoE standards | Supported |
 | [Port Configurations](docs/ethernet/port-configurations.md) | VLAN assignments, port security, naming conventions | Supported |
 | [Backup Power Standards](docs/ethernet/backup-power-standards.md) | UPS sizing, generator requirements, circuit calculations, power redundancy | Supported |
+| [Equipment Mounting Standards](docs/ethernet/equipment-mounting-standards.md) | Racks, enclosures, backboards, cable management, environmental requirements | Supported |
 
 ### Wireless (WiFi)
 
@@ -58,6 +59,7 @@ All standards are derived exclusively from public governing bodies (IEEE, ANSI, 
 | [WPA3-Enterprise Standards](docs/security/wpa3-enterprise.md) | WPA3-Enterprise wireless security requirements | Supported |
 | [Network Segmentation](docs/security/network-segmentation.md) | VLAN architecture, security zones, microsegmentation | Supported |
 | [OWE Enhanced Open](docs/security/owe-enhanced-open.md) | Opportunistic Wireless Encryption for guest networks | Supported |
+| [Physical Security Standards](docs/security/physical-security-standards.md) | NIST PE-2 through PE-6, port blanking, access controls, 2-tier model | Supported |
 
 ### Layer 3 (Network)
 
@@ -190,6 +192,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 - [x] Layer 3 Standards (IP Addressing, Routing, FHRP)
 - [x] Network Services (DNS, DHCP, NTP)
 - [x] Backup Power Standards (UPS, Generators, Circuit Sizing)
+- [x] Equipment Mounting Standards (Racks, Enclosures, Backboards, Cable Management)
+- [x] Physical Security Standards (NIST PE Controls, Port Blanking, Access Controls)
 - [x] Procurement Pass/Fail Checklists (all standards documents)
 - [x] Standards Monitoring Automation (local tooling)
 
@@ -201,7 +205,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ## For Other Municipalities
 
-This repository is designed to be forked and adapted. All 18 standards documents use **generic municipal language** — no city-specific references, SSIDs, domains, or facility names to find and replace. If you're a municipal IT department:
+This repository is designed to be forked and adapted. All 20 standards documents use **generic municipal language** — no city-specific references, SSIDs, domains, or facility names to find and replace. If you're a municipal IT department:
 
 1. **Fork** this repository
 2. **Customize** naming conventions (SSIDs, domains, facility codes) for your environment
