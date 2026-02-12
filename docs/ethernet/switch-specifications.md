@@ -476,6 +476,7 @@ Use this checklist to evaluate network switches before purchase. Every **Require
 | [Backup Power Standards](backup-power-standards.md) | UPS sizing based on switch PoE budget and chassis power |
 | [Access Point Specifications](../wifi/access-point-specs.md) | AP PoE power requirements and uplink speeds |
 | [802.1X Implementation](../security/802.1x-implementation.md) | Port-based NAC enforcement on switch ports |
+| [Equipment Mounting Standards](equipment-mounting-standards.md) | Rack specifications, cable management, thermal considerations |
 
 ---
 

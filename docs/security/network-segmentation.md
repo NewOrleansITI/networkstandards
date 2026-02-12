@@ -795,6 +795,8 @@ Use this checklist to evaluate any network infrastructure component before purch
 | [SSID Standards](../wifi/ssid-standards.md) | Wireless VLAN-to-SSID zone mappings |
 | [Backup Power Standards](../ethernet/backup-power-standards.md) | UPS management interface on Management VLAN |
 | [IP Addressing Standards](../layer3/ip-addressing.md) | Subnet allocation per security zone |
+| [Physical Security Standards](physical-security-standards.md) | Physical access controls for telecom spaces, port blanking |
+| [Equipment Mounting Standards](../ethernet/equipment-mounting-standards.md) | Rack locking, environmental monitoring on Management VLAN |
 
 ---
 

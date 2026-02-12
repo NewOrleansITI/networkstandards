@@ -555,6 +555,7 @@ Use this checklist to verify switch port configuration readiness before deployme
 | [Switch Specifications](switch-specifications.md) | Multi-gig port mandate and PoE configuration |
 | [Cabling Standards](cabling-standards.md) | Physical layer requirements for outdoor port installations |
 | [SSID Standards](../wifi/ssid-standards.md) | Wireless VLAN mappings per SSID |
+| [Physical Security Standards](../security/physical-security-standards.md) | Physical port blockers on unused switch and patch panel ports |
 
 ---
 
