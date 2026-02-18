@@ -2,7 +2,7 @@
 title: SSID and Wireless Security Standards
 version: 3.1.0
 status: Supported
-last_updated: 2026-02-02
+last_updated: 2026-02-18
 ieee_reference: IEEE 802.11be-2024, 802.11i, 802.11w, 802.1X-2020
 wpa_reference: WPA3-Enterprise (Wi-Fi Alliance)
 ---
@@ -20,7 +20,7 @@ This document defines the standard SSIDs, security configurations, and network s
 | IEEE 802.11i-2004 | Security Enhancements | July 2004 | WPA2 security framework |
 | IEEE 802.11w-2009 | Protected Management Frames | September 2009 | PMF/MFP |
 | IEEE 802.1X-2020 | Port-Based Network Access Control | February 2020 | Authentication |
-| Wi-Fi Alliance WPA3 v3.3 | WPA3 Specification | July 2024 | WPA3-Enterprise |
+| Wi-Fi Alliance WPA3 v3.5 | WPA3 Specification | February 2025 | WPA3-Enterprise |
 | IETF RFC 9190 | EAP-TLS 1.3 | February 2022 | Certificate authentication with TLS 1.3 |
 | IETF RFC 7542 | Network Access Identifier | May 2015 | User identity format |
 | NIST SP 800-153 | Guidelines for Securing WLANs | February 2012 | WLAN security |
@@ -603,10 +603,10 @@ Use this checklist to verify wireless platform readiness before SSID deployment.
 1. IEEE 802.11i-2004, "Amendment 6: Medium Access Control (MAC) Security Enhancements," IEEE, July 2004.
 2. IEEE 802.11w-2009, "Amendment 4: Protected Management Frames," IEEE, September 2009.
 3. IEEE 802.1X-2020, "Port-Based Network Access Control," IEEE, February 2020.
-4. Wi-Fi Alliance, "WPA3 Specification Version 3.3," Wi-Fi Alliance, July 2024.
+4. Wi-Fi Alliance, "WPA3 Specification Version 3.5," Wi-Fi Alliance, February 2025.
 5. IETF RFC 9190, "EAP-TLS 1.3: Using the Extensible Authentication Protocol with TLS 1.3," IETF, February 2022.
 6. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
-7. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+7. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
 
 ## Cross-References
 

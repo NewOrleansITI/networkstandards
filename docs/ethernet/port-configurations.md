@@ -2,7 +2,7 @@
 title: Port Configurations and VLAN Standards
 version: 3.1.0
 status: Supported
-last_updated: 2026-02-04
+last_updated: 2026-02-18
 ieee_reference: IEEE 802.1Q-2022, 802.1X-2020, 802.3bt-2018
 ---
 
@@ -20,7 +20,7 @@ This document defines standard VLAN assignments, port configurations, and naming
 | IEEE 802.1X-2020 | Port-Based Network Access Control | February 2020 | Authentication |
 | IEEE 802.1p | Traffic Class Expediting | 1998 (now part of 802.1Q) | QoS prioritization |
 | IEEE 802.1AB-2016 | LLDP | March 2016 | Device discovery |
-| IEEE 802.1w-2001 | Rapid Spanning Tree | July 2001 | Loop prevention |
+| IEEE 802.1w-2001 | Rapid Spanning Tree | July 2001 (incorporated into 802.1Q-2022) | Loop prevention |
 | IETF RFC 2868 | RADIUS Attributes for Tunnel Protocol Support | June 2000 | Dynamic VLAN |
 
 ## Network Segmentation Architecture
@@ -543,7 +543,7 @@ Use this checklist to verify switch port configuration readiness before deployme
 2. IEEE 802.1X-2020, "IEEE Standard for Local and Metropolitan Area Networks—Port-Based Network Access Control," IEEE, February 2020.
 3. IEEE 802.1AB-2016, "IEEE Standard for Local and Metropolitan Area Networks—Station and Media Access Control Connectivity Discovery," IEEE, March 2016.
 4. IETF RFC 2868, "RADIUS Attributes for Tunnel Protocol Support," IETF, June 2000.
-5. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+5. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
 6. BICSI TDMM, 15th Edition, "Telecommunications Distribution Methods Manual," BICSI, 2024.
 
 ## Cross-References

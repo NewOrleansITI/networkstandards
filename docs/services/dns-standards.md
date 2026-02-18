@@ -2,7 +2,7 @@
 title: DNS Standards and Architecture
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-02
+last_updated: 2026-02-18
 ietf_reference: RFC 1035, RFC 4034, RFC 6891, RFC 8484
 ---
 
@@ -410,7 +410,7 @@ Use this checklist to evaluate any DNS server or service before purchase. Every 
 
 9. National Institute of Standards and Technology, "Secure Domain Name System (DNS) Deployment Guide," NIST SP 800-81-2, September 2013. https://csrc.nist.gov/publications/detail/sp/800-81/2/final
 
-10. National Institute of Standards and Technology, "Security and Privacy Controls for Information Systems and Organizations," NIST SP 800-53 Rev. 5, September 2020. https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final
+10. National Institute of Standards and Technology, "Security and Privacy Controls for Information Systems and Organizations," NIST SP 800-53 Rev. 5, August 2025. https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final
 
 ## Cross-References
 

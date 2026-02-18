@@ -2,7 +2,7 @@
 title: Network Switch Specifications
 version: 3.1.0
 status: Supported
-last_updated: 2026-02-04
+last_updated: 2026-02-18
 ieee_reference: IEEE 802.3, 802.3bt, 802.1Q, 802.1X, 802.1AX
 ---
 
@@ -23,8 +23,8 @@ This document defines the minimum specifications and configuration requirements 
 | IEEE 802.1Q-2022 | VLANs and Bridging | December 2022 | VLAN tagging and bridging |
 | IEEE 802.1X-2020 | Port-Based NAC | February 2020 | Network access control |
 | IEEE 802.1AX-2020 | Link Aggregation | May 2020 | LACP bonding |
-| IEEE 802.1D-2004 | Spanning Tree | June 2004 | Loop prevention (STP) |
-| IEEE 802.1w-2001 | Rapid Spanning Tree | July 2001 | RSTP fast convergence |
+| IEEE 802.1D-2004 | Spanning Tree | June 2004 (withdrawn; content now in 802.1Q-2022) | Loop prevention (STP) |
+| IEEE 802.1w-2001 | Rapid Spanning Tree | July 2001 (incorporated into 802.1Q-2022) | RSTP fast convergence |
 | IETF RFC 3411 | SNMPv3 Architecture | December 2002 | Secure management |
 | IETF RFC 5905 | NTPv4 | June 2010 | Time synchronization |
 
@@ -465,7 +465,7 @@ Use this checklist to evaluate network switches before purchase. Every **Require
 5. IEEE 802.1AX-2020, "IEEE Standard for Local and Metropolitan Area Networks—Link Aggregation," IEEE, May 2020.
 6. IETF RFC 3411, "An Architecture for Describing SNMP Management Frameworks," IETF, December 2002.
 7. IETF RFC 5905, "Network Time Protocol Version 4," IETF, June 2010.
-8. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+8. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
 
 ## Cross-References
 

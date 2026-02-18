@@ -2,7 +2,7 @@
 title: Network Segmentation Standards
 version: 1.1.0
 status: Supported
-last_updated: 2026-02-04
+last_updated: 2026-02-18
 ieee_reference: IEEE 802.1Q-2022
 ---
 
@@ -21,7 +21,7 @@ This document establishes the standards for network segmentation, defining how m
 | IEEE 802.1Qbv-2015 | Enhancements for Scheduled Traffic | March 2016 | Time-sensitive networking |
 | IETF RFC 4364 | BGP/MPLS IP VPNs | February 2006 | VRF-based segmentation |
 | IETF RFC 7432 | EVPN | February 2015 | Ethernet VPN |
-| NIST SP 800-53 Rev. 5 | Security Controls | September 2020 | Federal security requirements |
+| NIST SP 800-53 Rev. 5 | Security Controls | August 2025 | Federal security requirements |
 | NIST SP 800-125B | Secure Virtual Network Configuration | March 2016 | Virtual network security |
 | NIST SP 800-207 | Zero Trust Architecture | August 2020 | Zero trust principles |
 | CISA Zero Trust Maturity Model | ZT Guidance | April 2023 | Federal zero trust |
@@ -777,7 +777,7 @@ Use this checklist to evaluate any network infrastructure component before purch
 1. IEEE 802.1Q-2022, "Bridges and Bridged Networks," IEEE, December 2022.
 2. IEEE 802.1X-2020, "Port-Based Network Access Control," IEEE, February 2020.
 3. IETF RFC 4364, "BGP/MPLS IP Virtual Private Networks (VPNs)," IETF, February 2006.
-4. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+4. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
 5. NIST SP 800-125B, "Secure Virtual Network Configuration for Virtual Machine (VM) Protection," NIST, March 2016.
 6. NIST SP 800-207, "Zero Trust Architecture," NIST, August 2020.
 7. NIST SP 800-183, "Networks of 'Things'," NIST, July 2016.
