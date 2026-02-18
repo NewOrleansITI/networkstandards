@@ -2,10 +2,10 @@
 title: Equipment Mounting and Infrastructure Standards
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-12
+last_updated: 2026-02-18
 eia_reference: EIA/ECA-310-E
 tia_reference: TIA-569-E, TIA-568.2-E, TIA-607-E, TIA-942-C
-nema_reference: NEMA 250-2020, NEMA VE 1-2017, NEMA VE 2-2018
+nema_reference: NEMA EN 10250-2024, NEMA VE 1-2017, NEMA VE 2-2018
 iec_reference: IEC 60297-3-110, IEC 60529
 nec_reference: NEC 2026 Articles 645, 725, 800
 nfpa_reference: NFPA 75-2024
@@ -37,8 +37,8 @@ All equipment mounting decisions must follow the priority order: security > reli
 | ASHRAE TC 9.9 | Thermal Guidelines for Data Processing Environments | 2024 | Temperature and humidity ranges |
 | NFPA 75 | Fire Protection of Information Technology Equipment | 2024 | Fire protection for IT areas |
 | NEC (NFPA 70) | National Electrical Code — Article 645 | 2026 | IT equipment room wiring |
-| NEMA 250 | Enclosures for Electrical Equipment (1,000V Maximum) | 2020 | Enclosure type ratings |
-| IEC 60529 | Degrees of Protection Provided by Enclosures (IP Code) | 2020 | Ingress protection ratings |
+| NEMA EN 10250 | Enclosures for Electrical Equipment (1,000V Maximum) | 2024 | Enclosure type ratings |
+| IEC 60529 | Degrees of Protection Provided by Enclosures (IP Code) | Ed. 2.2 (2013) | Ingress protection ratings |
 | NEMA VE 1 | Metal Cable Tray Systems | 6th Ed. (2017) | Cable tray load and span classes |
 | NEMA VE 2 | Cable Tray Installation Guidelines | 4th Ed. (2018) | Cable tray installation methods |
 | ASCE/SEI 7-22 | Minimum Design Loads and Associated Criteria | 2022 | Seismic and structural loading |
@@ -108,9 +108,9 @@ Outdoor installations include street-level cabinets for fiber distribution, pole
 
 | Requirement | Specification | Standard |
 |-------------|---------------|----------|
-| Enclosure rating (exposed) | NEMA 4X / IP66 minimum | NEMA 250, IEC 60529 |
-| Enclosure rating (sheltered) | NEMA 3R / IP54 minimum | NEMA 250, IEC 60529 |
-| Corrosion resistance | Stainless steel or powder-coated aluminum for coastal environments | NEMA 250 |
+| Enclosure rating (exposed) | NEMA 4X / IP66 minimum | NEMA EN 10250, IEC 60529 |
+| Enclosure rating (sheltered) | NEMA 3R / IP54 minimum | NEMA EN 10250, IEC 60529 |
+| Corrosion resistance | Stainless steel or powder-coated aluminum for coastal environments | NEMA EN 10250 |
 | Thermal management | Vented, fan-cooled, or thermostatically controlled AC unit | ASHRAE TC 9.9 |
 | Mounting height (pole) | Equipment enclosure bottom edge minimum 10 ft above grade | — |
 | Physical security | Tamper-resistant fasteners, padlock or electronic lock | NIST PE-3 |
@@ -535,13 +535,13 @@ Use this checklist to evaluate racks, enclosures, cable management, and mounting
 9. ASHRAE TC 9.9, "Thermal Guidelines for Data Processing Environments," ASHRAE Datacom Encyclopedia, 2024.
 10. NFPA 75, "Standard for the Fire Protection of Information Technology Equipment," 2024 Edition.
 11. NFPA 70, "National Electrical Code (NEC)," 2026 Edition.
-12. ANSI/NEMA 250-2020, "Enclosures for Electrical Equipment (1,000 Volts Maximum)," NEMA, 2020.
-13. IEC 60529, "Degrees of Protection Provided by Enclosures (IP Code)," Edition 2.2, 2020.
+12. ANSI/NEMA EN 10250-2024, "Enclosures for Electrical Equipment (1,000 Volts Maximum)," NEMA, 2024.
+13. IEC 60529, "Degrees of Protection Provided by Enclosures (IP Code)," Edition 2.2, International Electrotechnical Commission, 2013.
 14. NEMA VE 1-2017, "Metal Cable Tray Systems," 6th Edition, NEMA, 2017.
 15. NEMA VE 2-2018, "Cable Tray Installation Guidelines," 4th Edition, NEMA, 2018.
 16. ASCE/SEI 7-22, "Minimum Design Loads and Associated Criteria for Buildings and Other Structures," ASCE, 2022.
 17. ASTM E84 / UL 723, "Standard Test Method for Surface Burning Characteristics of Building Materials," ASTM International, current edition.
-18. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+18. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
 
 ## Cross-References
 

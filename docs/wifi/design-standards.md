@@ -2,7 +2,7 @@
 title: Wireless Network Design Standards
 version: 1.1.0
 status: Supported
-last_updated: 2026-02-04
+last_updated: 2026-02-18
 ieee_reference: IEEE 802.11be-2024, 802.11-2024
 bicsi_reference: BICSI TDMM 15th Edition
 tia_reference: TIA-569-E, ANSI/TIA-1179-B
@@ -627,7 +627,7 @@ The WiFi Design Standard increases upfront investment by approximately $17,600 p
 | Standard | Title | Date | Relevance to Design Standard |
 |----------|-------|------|------------------------------|
 | NIST SP 800-153 | Guidelines for Securing Wireless Local Area Networks | February 2012 | Security design principles |
-| NIST SP 800-53 Rev. 5 | Security and Privacy Controls | September 2020 | AC-18 Wireless Access controls |
+| NIST SP 800-53 Rev. 5 | Security and Privacy Controls | August 2025 | AC-18 Wireless Access controls |
 
 ### Industry Best Practice Citations
 
@@ -713,7 +713,7 @@ Use this checklist to verify design service provider qualifications before appro
 4. TIA-569-E, "Telecommunications Pathways and Spaces," TIA, June 2019.
 5. ANSI/TIA-1179-B, "Healthcare Facility Telecommunications Infrastructure Standard," TIA, 2023.
 6. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
-7. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+7. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
 
 ---
 

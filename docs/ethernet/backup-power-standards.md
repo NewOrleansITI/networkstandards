@@ -2,7 +2,7 @@
 title: Backup Power Standards for Network Infrastructure
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-04
+last_updated: 2026-02-18
 nec_reference: NEC Articles 700, 701, 702, 708
 nfpa_reference: NFPA 110-2025, NFPA 111-2025
 ieee_reference: IEEE 446-1995, IEEE 1100-2005, IEEE C62.41.2-2025
@@ -477,7 +477,7 @@ Use this checklist to evaluate UPS, generator, and transfer switch equipment bef
 4. NFPA 780, "Standard for the Installation of Lightning Protection Systems," National Fire Protection Association, 2026.
 5. IEEE 446-1995, "IEEE Recommended Practice for Emergency and Standby Power Systems for Industrial and Commercial Applications (Orange Book)," IEEE, 1995 (reaffirmed 2000; Inactive-Reserved 2021 — no successor published; remains widely referenced in power engineering).
 6. IEEE 1100-2005, "IEEE Recommended Practice for Powering and Grounding Electronic Equipment (Emerald Book)," IEEE, 2005 (Inactive-Reserved 2021 — no successor published; remains widely referenced in power engineering).
-7. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+7. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
 8. TIA-607-E, "Generic Telecommunications Bonding and Grounding (Earthing) for Customer Premises," TIA, May 2024.
 9. UL 1449, "Standard for Surge Protective Devices," 5th Edition, Underwriters Laboratories, 2021.
 10. IEEE C62.41.2-2025, "IEEE Recommended Practice on Characterization of Surges in Low-Voltage AC Power Circuits," IEEE, 2025.

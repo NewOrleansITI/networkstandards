@@ -2,9 +2,9 @@
 title: OWE Enhanced Open Wireless Security Standards
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-02
+last_updated: 2026-02-18
 ieee_reference: IEEE 802.11-2024
-wpa_reference: Wi-Fi Alliance WPA3 Specification v3.3
+wpa_reference: Wi-Fi Alliance WPA3 Specification v3.5
 effective_date: 2026-02-02
 ---
 
@@ -21,10 +21,10 @@ This document establishes the standards for Opportunistic Wireless Encryption (O
 | Standard | Title | Ratification Date | Scope |
 |----------|-------|-------------------|-------|
 | IEEE 802.11-2024 | Wireless LAN MAC and PHY | December 2020 | OWE specification (Section 12.12) |
-| Wi-Fi Alliance WPA3 v3.3 | WPA3 Specification | July 2024 | Enhanced Open certification |
+| Wi-Fi Alliance WPA3 v3.5 | WPA3 Specification | February 2025 | Enhanced Open certification |
 | IETF RFC 8110 | OWE | March 2017 | Opportunistic Wireless Encryption |
 | IETF RFC 7748 | Elliptic Curves | January 2016 | Curve25519/Curve448 for DH |
-| NIST SP 800-53 Rev. 5 | Security Controls | September 2020 | Federal security requirements |
+| NIST SP 800-53 Rev. 5 | Security Controls | August 2025 | Federal security requirements |
 | NIST SP 800-153 | Guidelines for Securing WLANs | February 2012 | WLAN security guidance |
 
 ## Standard Rationale and Justification
@@ -552,9 +552,9 @@ Use this checklist to evaluate any wireless infrastructure component before purc
 1. IEEE 802.11-2024, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
 2. IETF RFC 8110, "Opportunistic Wireless Encryption," IETF, March 2017.
 3. IETF RFC 7748, "Elliptic Curves for Security," IETF, January 2016.
-4. Wi-Fi Alliance, "WPA3 Specification Version 3.3," Wi-Fi Alliance, July 2024.
+4. Wi-Fi Alliance, "WPA3 Specification Version 3.5," Wi-Fi Alliance, February 2025.
 5. Wi-Fi Alliance, "Wi-Fi CERTIFIED Enhanced Open," Wi-Fi Alliance, 2018. https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-enhanced-open
-6. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+6. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
 7. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 
 ## Cross-References

@@ -2,7 +2,7 @@
 title: Structured Cabling Standards
 version: 3.1.0
 status: Supported
-last_updated: 2026-02-04
+last_updated: 2026-02-18
 tia_reference: TIA-568.2-E, TIA-569-E, TIA-606-D, TIA-607-E
 iso_reference: ISO/IEC 11801-1:2017
 ieee_reference: IEEE 802.3bz-2016
@@ -442,7 +442,7 @@ Use this checklist to evaluate cabling materials and components before purchase.
 6. TIA-1152-A, "Requirements for Field Test Instruments and Measurements for Balanced Twisted-Pair Cabling," Telecommunications Industry Association, 2016.
 7. ISO/IEC 11801-1:2017/Amd 1:2025, "Information technology — Generic cabling for customer premises — Part 1: General requirements," International Organization for Standardization, 2025.
 8. BICSI TDMM, 15th Edition, "Telecommunications Distribution Methods Manual," BICSI, 2024.
-9. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," National Institute of Standards and Technology, September 2020.
+9. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," National Institute of Standards and Technology, August 2025.
 10. NFPA 780, "Standard for the Installation of Lightning Protection Systems," National Fire Protection Association, 2026.
 11. IEC 60529, "Degrees of Protection Provided by Enclosures (IP Code)," International Electrotechnical Commission, 2013.
 12. NFPA 70 (NEC), "National Electrical Code," National Fire Protection Association, 2026.

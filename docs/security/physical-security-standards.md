@@ -2,7 +2,7 @@
 title: Physical Security Standards for Telecommunications Infrastructure
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-12
+last_updated: 2026-02-18
 nist_reference: NIST SP 800-53 Rev. 5 (PE-2, PE-3, PE-4, PE-5, PE-6, PE-9)
 tia_reference: TIA-569-E
 bicsi_reference: BICSI TDMM 15th Edition
@@ -430,7 +430,7 @@ Use this checklist to evaluate physical security equipment before purchase. Ever
 
 ## References
 
-1. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020 (Update 1, December 2021).
+1. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025 (Release 5.2.0).
 2. NIST SP 800-171 Rev. 3, "Protecting Controlled Unclassified Information in Nonfederal Systems and Organizations," NIST, May 2024.
 3. ANSI/TIA-569-E, "Telecommunications Pathways and Spaces," TIA, May 2019.
 4. BICSI, "Telecommunications Distribution Methods Manual (TDMM)," 15th Edition, January 2024.

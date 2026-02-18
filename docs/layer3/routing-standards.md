@@ -2,7 +2,7 @@
 title: Routing Protocol Standards
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-02
+last_updated: 2026-02-18
 ietf_reference: RFC 2328 (OSPF), RFC 4271 (BGP)
 ---
 
@@ -26,7 +26,7 @@ This document establishes the standards for routing protocols, route management,
 | IETF RFC 9568 | VRRP Version 3 | April 2024 | First-hop redundancy |
 | IETF RFC 7868 | EIGRP | May 2016 | Interior routing (informational) |
 | IETF RFC 8402 | Segment Routing | July 2018 | Modern routing architecture |
-| NIST SP 800-53 Rev. 5 | Security Controls | September 2020 | Routing security |
+| NIST SP 800-53 Rev. 5 | Security Controls | August 2025 | Routing security |
 
 ## Routing Architecture
 
@@ -275,7 +275,7 @@ flowchart TD
 | RPKI validation | Origin validation | RFC 6811 |
 | Max-prefix limits | Per-peer configured | Operational |
 | AS-path filtering | Reject invalid paths | RFC 7454 |
-| Bogon filtering | Block RFC 5735 ranges | RFC 7454 |
+| Bogon filtering | Block RFC 6890 ranges | RFC 6890 |
 | GTSM (TTL security) | TTL=255 for eBGP | RFC 5082 |
 
 ### BGP Prefix Filtering
@@ -665,7 +665,8 @@ Use this checklist to evaluate any router or Layer 3 switch before purchase. Eve
 7. IETF RFC 5880, "Bidirectional Forwarding Detection (BFD)," IETF, June 2010.
 8. IETF RFC 5765, "Security Considerations for BGP," IETF, February 2010.
 9. IETF RFC 6811, "BGP Prefix Origin Validation," IETF, January 2013.
-10. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+10. IETF RFC 6890, "Special-Purpose IP Address Registries," IETF, April 2013.
+11. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
 
 ## Cross-References
 

@@ -2,9 +2,9 @@
 title: Wireless Client Requirements
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-04
+last_updated: 2026-02-18
 ieee_reference: IEEE 802.11be-2024, 802.11ax-2021, 802.11w-2009, 802.11k, 802.11r, 802.11v
-wpa_reference: Wi-Fi Alliance WPA3 Specification v3.3
+wpa_reference: Wi-Fi Alliance WPA3 Specification v3.5
 ---
 
 # Wireless Client Requirements
@@ -40,10 +40,10 @@ Every wireless device on the network must support WPA3 encryption. If a device d
 | IEEE 802.11k-2008 | Radio Resource Measurement | June 2008 | Neighbor reports |
 | IEEE 802.11r-2008 | Fast BSS Transition | July 2008 | Fast roaming |
 | IEEE 802.11v-2011 | Wireless Network Management | February 2011 | BSS transition management |
-| Wi-Fi Alliance WPA3 v3.3 | WPA3 Specification | July 2024 | Client security certification |
+| Wi-Fi Alliance WPA3 v3.5 | WPA3 Specification | February 2025 | Client security certification |
 | IETF RFC 8446 | TLS 1.3 | August 2018 | Minimum transport security |
 | IETF RFC 9190 | EAP-TLS 1.3 Authentication Protocol | February 2022 | Certificate-based EAP with TLS 1.3 |
-| NIST SP 800-53 Rev. 5 | Security Controls | September 2020 | Federal security requirements |
+| NIST SP 800-53 Rev. 5 | Security Controls | August 2025 | Federal security requirements |
 | NIST SP 800-153 | Guidelines for Securing WLANs | February 2012 | WLAN security guidance |
 
 ## Mandatory Requirements
@@ -373,11 +373,11 @@ flowchart TD
 5. IEEE 802.11r-2008, "Fast Basic Service Set (BSS) Transition," IEEE, July 2008.
 6. IEEE 802.11k-2008, "Radio Resource Measurement of Wireless LANs," IEEE, June 2008.
 7. IEEE 802.11v-2011, "Wireless Network Management," IEEE, February 2011.
-8. Wi-Fi Alliance, "WPA3 Specification Version 3.3," Wi-Fi Alliance, July 2024.
+8. Wi-Fi Alliance, "WPA3 Specification Version 3.5," Wi-Fi Alliance, February 2025.
 9. Wi-Fi Alliance, "Wi-Fi CERTIFIED 7," Wi-Fi Alliance, January 2024.
 10. IETF RFC 8446, "The Transport Layer Security (TLS) Protocol Version 1.3," IETF, August 2018.
 11. IETF RFC 9190, "EAP-TLS 1.3: Using the Extensible Authentication Protocol with TLS 1.3," IETF, February 2022.
-12. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+12. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
 13. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 14. NSA, "Commercial National Security Algorithm Suite 2.0," NSA Cybersecurity, September 2022.
 

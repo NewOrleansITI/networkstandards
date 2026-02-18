@@ -2,9 +2,9 @@
 title: WPA3-Enterprise Wireless Security Standards
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-02
+last_updated: 2026-02-18
 ieee_reference: IEEE 802.11-2024, 802.11i
-wpa_reference: Wi-Fi Alliance WPA3 Specification v3.3
+wpa_reference: Wi-Fi Alliance WPA3 Specification v3.5
 ---
 
 # WPA3-Enterprise Wireless Security Standards
@@ -21,10 +21,10 @@ This document establishes the standards for WPA3-Enterprise wireless security. W
 | IEEE 802.11i-2004 | Security Enhancements | July 2004 | RSN framework (WPA2 basis) |
 | IEEE 802.11w-2009 | Protected Management Frames | September 2009 | Management frame protection |
 | IEEE 802.11r-2008 | Fast BSS Transition | July 2008 | Fast roaming |
-| Wi-Fi Alliance WPA3 v3.3 | WPA3 Specification | July 2024 | WPA3 certification requirements |
+| Wi-Fi Alliance WPA3 v3.5 | WPA3 Specification | February 2025 | WPA3 certification requirements |
 | IETF RFC 9190 | EAP-TLS 1.3 Authentication Protocol | February 2022 | Certificate-based EAP with TLS 1.3 |
 | IETF RFC 8446 | TLS 1.3 | August 2018 | Transport security |
-| NIST SP 800-53 Rev. 5 | Security Controls | September 2020 | Federal security requirements |
+| NIST SP 800-53 Rev. 5 | Security Controls | August 2025 | Federal security requirements |
 | NIST SP 800-153 | Guidelines for Securing WLANs | February 2012 | WLAN security guidance |
 | CNSA 2.0 | Commercial NSA Suite | September 2022 | High-security cryptography |
 
@@ -586,11 +586,11 @@ Use this checklist to evaluate any wireless infrastructure component before purc
 2. IEEE 802.11i-2004, "Amendment 6: Medium Access Control (MAC) Security Enhancements," IEEE, July 2004.
 3. IEEE 802.11w-2009, "Amendment 4: Protected Management Frames," IEEE, September 2009.
 4. IEEE 802.11r-2008, "Amendment 2: Fast Basic Service Set (BSS) Transition," IEEE, July 2008.
-5. Wi-Fi Alliance, "WPA3 Specification Version 3.3," Wi-Fi Alliance, July 2024.
+5. Wi-Fi Alliance, "WPA3 Specification Version 3.5," Wi-Fi Alliance, February 2025.
 6. Wi-Fi Alliance, "WPA3 Security Considerations," Wi-Fi Alliance Technical Note, 2024.
 7. IETF RFC 9190, "EAP-TLS 1.3: Using the Extensible Authentication Protocol with TLS 1.3," IETF, February 2022.
 8. IETF RFC 8446, "The Transport Layer Security (TLS) Protocol Version 1.3," IETF, August 2018.
-9. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+9. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
 10. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 11. NSA, "Commercial National Security Algorithm Suite 2.0," NSA Cybersecurity, September 2022.
 

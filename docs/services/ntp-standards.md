@@ -2,7 +2,7 @@
 title: NTP Standards and Time Synchronization
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-02
+last_updated: 2026-02-18
 ietf_reference: RFC 5905, RFC 8633, RFC 7384
 ---
 
@@ -27,7 +27,7 @@ Time accuracy requirements vary by system function—financial transactions and 
 | RFC 7822 | Network Time Protocol Version 4 (NTPv4) Extension Fields | March 2016 | NTPv4 extensions |
 | RFC 5906 | Network Time Protocol Version 4: Autokey Specification | June 2010 | NTP authentication (deprecated) |
 | ITU-T G.8272 | Timing Characteristics of Primary Reference Time Clocks | November 2018 | PRTC specifications |
-| NIST SP 800-53 | Security and Privacy Controls | September 2020 | AU-8 Time Stamps control |
+| NIST SP 800-53 | Security and Privacy Controls | August 2025 | AU-8 Time Stamps control |
 | CJIS Security Policy | Criminal Justice Information Services | 2024 | Law enforcement time requirements |
 
 ## NTP Architecture
@@ -553,7 +553,7 @@ Use this checklist to evaluate any NTP server or time synchronization service be
 
 5. Internet Engineering Task Force, "Network Time Protocol Version 4 (NTPv4) Extension Fields," RFC 7822, March 2016. https://www.rfc-editor.org/rfc/rfc7822
 
-6. National Institute of Standards and Technology, "Security and Privacy Controls for Information Systems and Organizations," NIST SP 800-53 Rev. 5, September 2020. https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final
+6. National Institute of Standards and Technology, "Security and Privacy Controls for Information Systems and Organizations," NIST SP 800-53 Rev. 5, August 2025. https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final
 
 7. NIST, "NIST Internet Time Servers." https://www.nist.gov/pml/time-and-frequency-division/time-distribution/internet-time-service-its
 
