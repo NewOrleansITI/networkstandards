@@ -135,16 +135,9 @@ networkstandards/
 │   ├── security/            # Security standards (802.1X, WPA3, segmentation)
 │   ├── layer3/              # Layer 3 standards (IP, routing)
 │   ├── services/            # Network services (DNS, DHCP, NTP)
-│   ├── _config.yml          # GitHub Pages configuration
 │   └── index.md             # Documentation home
 ├── rfcs/                    # RFC proposals
 │   └── RFC-TEMPLATE.md      # RFC template
-├── .github/                 # GitHub configuration
-│   ├── ISSUE_TEMPLATE/      # Issue templates
-│   ├── workflows/           # GitHub Actions
-│   └── PULL_REQUEST_TEMPLATE.md
-├── _config.yml              # Site configuration
-├── CLAUDE.md                # Claude Code project guidelines
 ├── CONTRIBUTING.md          # Contribution guidelines
 ├── CODE_OF_CONDUCT.md       # Community standards
 ├── LICENSE                  # CC BY 4.0 license
