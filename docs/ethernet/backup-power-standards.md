@@ -439,7 +439,7 @@ Use this checklist to evaluate UPS, generator, and transfer switch equipment bef
 |---------|--------|
 | All Required items pass | **Approved for procurement** |
 | Any Required item fails | **Not approved — do not purchase** |
-| Questions about a specific product | Contact Network Engineering (ITI Networking Team) |
+| Questions about a specific product | Contact Network Engineering |
 
 ### How to Verify Requirements
 
@@ -484,4 +484,4 @@ Use this checklist to evaluate UPS, generator, and transfer switch equipment bef
 
 ---
 
-*For questions about these standards, open an issue or contact the ITI Networking Team.*
+*For questions about these standards, open an issue or contact the Network Engineering team.*

@@ -582,7 +582,7 @@ Use this checklist to verify wireless platform readiness before SSID deployment.
 |---------|--------|
 | All Required items pass | **Approved for SSID deployment** |
 | Any Required item fails | **Not approved — resolve before proceeding** |
-| Questions about a specific requirement | Contact Network Engineering (ITI Networking Team) |
+| Questions about a specific requirement | Contact Network Engineering |
 
 ### How to Verify Requirements
 
@@ -624,4 +624,4 @@ This SSID standard integrates with existing municipal network documentation:
 
 ---
 
-*For questions about these standards, open an issue or contact the ITI Networking Team.*
+*For questions about these standards, open an issue or contact the Network Engineering team.*

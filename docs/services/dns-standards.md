@@ -2,7 +2,7 @@
 title: DNS Standards and Architecture
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-18
+last_updated: 2026-02-24
 ietf_reference: RFC 1035, RFC 4034, RFC 6891, RFC 8484
 ---
 
@@ -29,7 +29,7 @@ DNS architecture directly impacts network availability—a DNS outage effectivel
 | RFC 7858 | Specification for DNS over TLS | May 2016 | Encrypted DNS transport |
 | RFC 8484 | DNS Queries over HTTPS (DoH) | October 2018 | HTTPS-based DNS resolution |
 | RFC 8945 | Secret Key Transaction Authentication for DNS (TSIG) | November 2020 | Zone transfer authentication |
-| NIST SP 800-81-2 | Secure Domain Name System Deployment Guide | September 2013 | Federal DNS security guidance (Rev. 3 draft April 2025 — update when final) |
+| NIST SP 800-81-2 | Secure Domain Name System Deployment Guide | September 2013 | Federal DNS security guidance (Rev. 3 IPD April 2025, comments closed May 2025 — update when final) |
 
 ## DNS Architecture
 
@@ -126,7 +126,7 @@ graph LR
 | **Rate Limiting** | 100 QPS per source IP | Mitigate DNS amplification |
 | **Response Policy Zones** | Supported | Enable threat intelligence integration |
 | **Query Logging** | Enabled with 90-day retention | Security incident investigation |
-| **Upstream Transport** | DNS over TLS (RFC 7858) | Encrypt external queries |
+| **Upstream Transport** | DNS over TLS (RFC 7858), TLS 1.3 minimum | Encrypt external queries |
 
 ## DNSSEC Implementation
 
@@ -362,7 +362,7 @@ Use this checklist to evaluate any DNS server or service before purchase. Every 
 |---|-------------|----------|------|------|
 | 1 | DNSSEC signing with NSEC3 support | **Yes** | ☐ | ☐ |
 | 2 | DNSSEC validation on recursive resolvers | **Yes** | ☐ | ☐ |
-| 3 | DNS over TLS (DoT) support (RFC 7858) | **Yes** | ☐ | ☐ |
+| 3 | DNS over TLS (DoT) support (RFC 7858), TLS 1.3 minimum | **Yes** | ☐ | ☐ |
 | 4 | TSIG with HMAC-SHA256 for zone transfers | **Yes** | ☐ | ☐ |
 | 5 | EDNS0 support with minimum 1232-byte UDP payload | **Yes** | ☐ | ☐ |
 | 6 | Query logging with 90-day retention capability | **Yes** | ☐ | ☐ |
@@ -375,7 +375,7 @@ Use this checklist to evaluate any DNS server or service before purchase. Every 
 |---------|--------|
 | All Required items pass | **Approved for procurement** |
 | Any Required item fails | **Not approved — do not purchase** |
-| Questions about a specific device | Contact Network Engineering (ITI Networking Team) |
+| Questions about a specific device | Contact Network Engineering |
 
 ### How to Verify Requirements
 
@@ -423,4 +423,4 @@ Use this checklist to evaluate any DNS server or service before purchase. Every 
 
 ---
 
-*For questions regarding DNS standards, contact the ITI Networking Team.*
+*For questions regarding DNS standards, contact the Network Engineering team.*

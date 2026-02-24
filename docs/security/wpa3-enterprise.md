@@ -565,7 +565,7 @@ Use this checklist to evaluate any wireless infrastructure component before purc
 |---------|--------|
 | All Required items pass | **Approved for procurement** |
 | Any Required item fails | **Not approved — do not purchase** |
-| Questions about a specific device | Contact Network Engineering (ITI Networking Team) |
+| Questions about a specific device | Contact Network Engineering |
 
 ### How to Verify Requirements
 
@@ -607,4 +607,4 @@ Use this checklist to evaluate any wireless infrastructure component before purc
 
 ---
 
-*For questions about these standards, open an issue or contact the ITI Networking Team.*
+*For questions about these standards, open an issue or contact the Network Engineering team.*
