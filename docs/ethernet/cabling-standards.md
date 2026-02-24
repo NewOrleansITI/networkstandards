@@ -2,7 +2,7 @@
 title: Structured Cabling Standards
 version: 3.1.0
 status: Supported
-last_updated: 2026-02-18
+last_updated: 2026-02-24
 tia_reference: TIA-568.2-E, TIA-569-E, TIA-606-D, TIA-607-E
 iso_reference: ISO/IEC 11801-1:2017
 ieee_reference: IEEE 802.3bz-2016
@@ -18,11 +18,11 @@ This document defines the structured cabling standards for all wired network inf
 
 | Standard | Title | Ratification Date | Scope |
 |----------|-------|-------------------|-------|
-| TIA-568.2-E | Balanced Twisted-Pair Telecommunications Cabling and Components | August 2018 | Copper cabling specifications |
+| TIA-568.2-E | Balanced Twisted-Pair Telecommunications Cabling and Components | October 2024 | Copper cabling specifications |
 | TIA-568.3-E | Optical Fiber Cabling and Components | June 2016 | Fiber optic specifications |
 | TIA-569-E | Telecommunications Pathways and Spaces | June 2019 | Pathway design and capacity |
 | TIA-606-D | Administration Standard for Telecommunications Infrastructure | February 2017 | Labeling and documentation |
-| ISO/IEC 11801-1:2017/Amd 1:2025 | Generic Cabling - Part 1: General Requirements | 2025 | International cabling standard |
+| ISO/IEC 11801-1:2017/Amd 1:2025/Cor 1:2025 | Generic Cabling - Part 1: General Requirements | 2025 | International cabling standard |
 | ANSI/BICSI N1-2019 | Installing Telecommunications and ICT Cabling Infrastructure | 2019 | Installation best practices |
 | TIA-607-E | Generic Telecommunications Bonding and Grounding | May 2024 | Grounding infrastructure |
 | NFPA 780 | Standard for Installation of Lightning Protection Systems | 2026 | Lightning protection (public safety) |
@@ -377,7 +377,7 @@ All permanent outdoor installations require:
 ```mermaid
 timeline
     title Cabling Standards Lifecycle
-    2018 : TIA-568.2-E ratified : Cat6A becomes standard
+    2024 : TIA-568.2-E revised : Cat6A standard updated
     2020 : Cat5e prohibited for new installations
     2024 : Cat6A reaches 78% adoption
     2026 : Current standard (this document)
@@ -417,7 +417,7 @@ Use this checklist to evaluate cabling materials and components before purchase.
 |---------|--------|
 | All Required items pass | **Approved for procurement** |
 | Any Required item fails | **Not approved — do not purchase** |
-| Questions about a specific product | Contact Network Engineering (ITI Networking Team) |
+| Questions about a specific product | Contact Network Engineering |
 
 ### How to Verify Requirements
 
@@ -434,13 +434,13 @@ Use this checklist to evaluate cabling materials and components before purchase.
 
 ## References
 
-1. TIA-568.2-E, "Balanced Twisted-Pair Telecommunications Cabling and Components Standard," Telecommunications Industry Association, August 2018.
+1. TIA-568.2-E, "Balanced Twisted-Pair Telecommunications Cabling and Components Standard," Telecommunications Industry Association, October 2024.
 2. TIA-568.3-E, "Optical Fiber Cabling and Components Standard," Telecommunications Industry Association, June 2016.
 3. TIA-569-E, "Telecommunications Pathways and Spaces," Telecommunications Industry Association, June 2019.
 4. TIA-606-D, "Administration Standard for Telecommunications Infrastructure," Telecommunications Industry Association, February 2017.
 5. TIA-607-E, "Generic Telecommunications Bonding and Grounding (Earthing) for Customer Premises," Telecommunications Industry Association, May 2024.
 6. TIA-1152-A, "Requirements for Field Test Instruments and Measurements for Balanced Twisted-Pair Cabling," Telecommunications Industry Association, 2016.
-7. ISO/IEC 11801-1:2017/Amd 1:2025, "Information technology — Generic cabling for customer premises — Part 1: General requirements," International Organization for Standardization, 2025.
+7. ISO/IEC 11801-1:2017/Amd 1:2025/Cor 1:2025, "Information technology — Generic cabling for customer premises — Part 1: General requirements," International Organization for Standardization, 2025.
 8. BICSI TDMM, 15th Edition, "Telecommunications Distribution Methods Manual," BICSI, 2024.
 9. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," National Institute of Standards and Technology, August 2025.
 10. NFPA 780, "Standard for the Installation of Lightning Protection Systems," National Fire Protection Association, 2026.
@@ -461,4 +461,4 @@ Use this checklist to evaluate cabling materials and components before purchase.
 
 ---
 
-*For questions about these standards, open an issue or contact the ITI Networking Team.*
+*For questions about these standards, open an issue or contact the Network Engineering team.*

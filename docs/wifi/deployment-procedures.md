@@ -2,7 +2,7 @@
 title: WiFi 7 Deployment Procedures
 version: 3.2.0
 status: Supported
-last_updated: 2026-02-04
+last_updated: 2026-02-24
 reference: BICSI TDMM 15th Edition, TIA-569-E, IEEE 802.11be-2024
 ---
 
@@ -494,7 +494,7 @@ Use this checklist to verify contractor qualifications before approving a WiFi d
 |---------|--------|
 | All Required items pass | **Approved for deployment engagement** |
 | Any Required item fails | **Not approved — resolve before proceeding** |
-| Questions about a specific requirement | Contact Network Engineering (ITI Networking Team) |
+| Questions about a specific requirement | Contact Network Engineering |
 
 ### How to Verify Requirements
 
@@ -533,4 +533,4 @@ Use this checklist to verify contractor qualifications before approving a WiFi d
 
 ---
 
-*For questions about these procedures, open an issue or contact the ITI Networking Team.*
+*For questions about these procedures, open an issue or contact the Network Engineering team.*

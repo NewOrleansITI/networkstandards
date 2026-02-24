@@ -523,7 +523,7 @@ Use this checklist to verify switch port configuration readiness before deployme
 |---------|--------|
 | All Required items pass | **Approved for deployment** |
 | Any Required item fails | **Not approved — resolve before proceeding** |
-| Questions about a specific requirement | Contact Network Engineering (ITI Networking Team) |
+| Questions about a specific requirement | Contact Network Engineering |
 
 ### How to Verify Requirements
 
@@ -559,4 +559,4 @@ Use this checklist to verify switch port configuration readiness before deployme
 
 ---
 
-*For questions about these standards, open an issue or contact the ITI Networking Team.*
+*For questions about these standards, open an issue or contact the Network Engineering team.*

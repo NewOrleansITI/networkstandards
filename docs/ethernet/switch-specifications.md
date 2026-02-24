@@ -437,7 +437,7 @@ Use this checklist to evaluate network switches before purchase. Every **Require
 |---------|--------|
 | All Required items pass | **Approved for procurement** |
 | Any Required item fails | **Not approved — do not purchase** |
-| Questions about a specific switch | Contact Network Engineering (ITI Networking Team) |
+| Questions about a specific switch | Contact Network Engineering |
 
 **Note:** Coordinate switch procurement with UPS sizing per [Backup Power Standards](backup-power-standards.md). The switch PoE budget and chassis power consumption determine the required UPS VA rating.
 
@@ -480,4 +480,4 @@ Use this checklist to evaluate network switches before purchase. Every **Require
 
 ---
 
-*For questions about these standards, open an issue or contact the ITI Networking Team.*
+*For questions about these standards, open an issue or contact the Network Engineering team.*

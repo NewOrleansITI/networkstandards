@@ -527,7 +527,7 @@ Use this checklist to evaluate any NTP server or time synchronization service be
 |---------|--------|
 | All Required items pass | **Approved for procurement** |
 | Any Required item fails | **Not approved — do not purchase** |
-| Questions about a specific device | Contact Network Engineering (ITI Networking Team) |
+| Questions about a specific device | Contact Network Engineering |
 
 ### How to Verify Requirements
 
@@ -574,4 +574,4 @@ Use this checklist to evaluate any NTP server or time synchronization service be
 
 ---
 
-*For questions regarding NTP standards, contact the ITI Networking Team.*
+*For questions regarding NTP standards, contact the Network Engineering team.*
