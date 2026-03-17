@@ -156,15 +156,6 @@ We welcome contributions from city staff, municipal IT professionals, subject ma
 | **Submit an RFC** | Propose new standards or significant changes |
 | **Submit a PR** | Fix typos, improve diagrams, enhance documentation |
 
-### Issue Templates
-
-- **Standard Proposal** — Propose a new standard or major update
-- **Standard Update** — Request updates to existing standards
-- **Clarification Request** — Request clarification on existing documentation
-- **Security Concern** — Report security-related issues
-- **Bug Report** — Report errors or issues in documentation
-- **New Documentation** — Request new documentation topics
-
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ## Quick Links
