@@ -2,7 +2,7 @@
 title: Wireless Access Point Specifications
 version: 3.2.0
 status: Supported
-last_updated: 2026-02-18
+last_updated: 2026-04-01
 ieee_reference: IEEE 802.11be-2024, 802.11ax-2021, 802.3bt-2018
 ---
 
@@ -51,7 +51,7 @@ timeline
 | **320 MHz Channels** | Maximum spectrum utilization in 6 GHz band (3 non-overlapping channels) |
 | **Preamble Puncturing** | Transmit around interference rather than abandoning channel—improves reliability |
 | **Deterministic Latency** | Sub-5ms latency targets for real-time applications (VoIP, video, public safety) |
-| **4096-QAM** | 20% throughput efficiency improvement over WiFi 6/6E |
+| **4096-QAM (Quadrature Amplitude Modulation)** | 20% throughput efficiency improvement over WiFi 6/6E |
 
 ## Configuration Limits
 
@@ -103,8 +103,8 @@ graph LR
 | Spatial streams | 4x4:4 MIMO | 8x8:8 MIMO | IEEE 802.11be-2024 |
 | Maximum channel width | 160 MHz (5 GHz) / 320 MHz (6 GHz) | 320 MHz | IEEE 802.11be-2024 |
 | Multi-Link Operation | Required | Required | IEEE 802.11be-2024 |
-| OFDMA | Required | Required | IEEE 802.11be-2024 |
-| MU-MIMO | DL + UL required | DL + UL | IEEE 802.11be-2024 |
+| OFDMA (Orthogonal Frequency-Division Multiple Access) | Required | Required | IEEE 802.11be-2024 |
+| MU-MIMO (Multi-User Multiple-Input Multiple-Output) | DL + UL required | DL + UL | IEEE 802.11be-2024 |
 | 4096-QAM | Required | Required | IEEE 802.11be-2024 |
 | Preamble Puncturing | Required | Required | IEEE 802.11be-2024 |
 | BSS Coloring | Required | Required | IEEE 802.11be-2024 |
@@ -301,7 +301,7 @@ flowchart TD
 
 | Deliverable | Required | Description |
 |-------------|----------|-------------|
-| Coverage heat maps | ✅ | 2.4 GHz and 5 GHz (6 GHz if WiFi 6E) |
+| Coverage heat maps | ✅ | 2.4 GHz, 5 GHz, and 6 GHz (required for WiFi 7) |
 | AP placement map | ✅ | Coordinates and mounting details |
 | Channel plan | ✅ | Non-overlapping channel assignments |
 | Interference report | ✅ | Existing WiFi and non-WiFi interference |

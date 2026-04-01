@@ -75,11 +75,13 @@ graph TB
 | **Target use** | General enterprise | High-security/government |
 | **Encryption** | AES-CCMP-128 or AES-GCMP-256 | AES-GCMP-256 only |
 | **Key derivation** | HMAC-SHA-256 or HMAC-SHA-384 | HMAC-SHA-384 only |
-| **EAP method** | Any supported (EAP-TLS recommended) | EAP-TLS only |
+| **EAP method** | Any supported (EAP-TLS recommended)¹ | EAP-TLS only |
 | **Certificate requirements** | RSA 2048+ or ECC P-256+ | ECC P-384 or RSA 3072+ |
 | **TLS version** | TLS 1.3 | TLS 1.3 with Suite B ciphers |
 | **PMF (802.11w)** | Required | Required (BIP-GMAC-256) |
 | **CNSA compliance** | Partial | Full |
+
+> ¹ **Municipal policy restriction:** Although WPA3-Enterprise standard mode permits any EAP method per the Wi-Fi Alliance specification, municipal policy requires **EAP-TLS only** for all 802.1X authentication. See [802.1X Implementation](802.1x-implementation.md) for the authoritative EAP method policy.
 
 ## WPA3-Enterprise Architecture
 

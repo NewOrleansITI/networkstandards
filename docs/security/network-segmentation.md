@@ -2,7 +2,7 @@
 title: Network Segmentation Standards
 version: 1.1.0
 status: Supported
-last_updated: 2026-02-18
+last_updated: 2026-04-01
 ieee_reference: IEEE 802.1Q-2022
 ---
 
@@ -463,7 +463,7 @@ graph TB
             NVR["NVR/Storage"]
         end
 
-        subgraph SENSORS["Sensors (VLAN 220)"]
+        subgraph SENSORS["Sensors (VLAN 200)"]
             ENV["Environmental Sensors"]
             METERS["Utility Meters"]
         end
@@ -512,7 +512,7 @@ graph TB
     subgraph GUEST_NETWORK["Guest Network Segmentation"]
         GUEST_WIFI["Guest WiFi<br/>VLAN 100"]
         KIOSK_NET["Kiosks<br/>VLAN 110"]
-        CONF_NET["Conference Rooms<br/>VLAN 120"]
+        CONF_NET["Conference Rooms<br/>VLAN 100"]
     end
 
     subgraph GUEST_CONTROLS["Guest Security Controls"]

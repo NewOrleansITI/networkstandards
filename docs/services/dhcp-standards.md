@@ -2,7 +2,7 @@
 title: DHCP Standards and Address Management
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-18
+last_updated: 2026-04-01
 ietf_reference: RFC 2131, RFC 3315, RFC 8415, RFC 6221
 ---
 
@@ -54,9 +54,9 @@ graph TB
     end
 
     subgraph Access["Access Layer VLANs"]
-        VLAN10[VLAN 10<br/>Corporate]
-        VLAN20[VLAN 20<br/>Guest]
-        VLAN30[VLAN 30<br/>IoT]
+        VLAN20[VLAN 20<br/>Corporate]
+        VLAN100[VLAN 100<br/>Guest]
+        VLAN200[VLAN 200<br/>IoT]
     end
 
     DHCP1 <--> |"Failover<br/>Partnership"| DHCP2
@@ -72,9 +72,9 @@ graph TB
     RELAY3 --> |"Helper Address"| DHCP1
     RELAY3 --> |"Helper Address"| DHCP2
 
-    VLAN10 --> RELAY1
-    VLAN20 --> RELAY2
-    VLAN30 --> RELAY3
+    VLAN20 --> RELAY1
+    VLAN100 --> RELAY2
+    VLAN200 --> RELAY3
 ```
 
 ### Failover Configuration
@@ -121,7 +121,7 @@ stateDiagram-v2
 
 ### Scope Configuration Standards
 
-| Parameter | Corporate (VLAN 10) | Guest (VLAN 20) | IoT (VLAN 30) |
+| Parameter | Corporate (VLAN 20) | Guest (VLAN 100) | IoT (VLAN 200) |
 |-----------|---------------------|-----------------|---------------|
 | **Lease Duration** | 8 hours | 4 hours | 24 hours |
 | **Renewal (T1)** | 4 hours (50%) | 2 hours (50%) | 12 hours (50%) |

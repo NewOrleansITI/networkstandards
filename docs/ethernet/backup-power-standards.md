@@ -2,7 +2,7 @@
 title: Backup Power Standards for Network Infrastructure
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-18
+last_updated: 2026-04-01
 nec_reference: NEC Articles 700, 701, 702, 708
 nfpa_reference: NFPA 110-2025, NFPA 111-2025
 ieee_reference: IEEE 446-1995, IEEE 1100-2005, IEEE C62.41.2-2025
@@ -30,7 +30,7 @@ All network equipment locations — from single-IDF closets to multi-rack MDFs �
 | NFPA 111 | Stored Electrical Energy Emergency and Standby Power Systems | 2025 | UPS and battery systems |
 | IEEE 446 | Recommended Practice for Emergency and Standby Power Systems (Orange Book) | 1995 (Inactive-Reserved) | Power system design |
 | IEEE 1100 | Recommended Practice for Powering and Grounding Electronic Equipment (Emerald Book) | 2005 (Inactive-Reserved) | Sensitive load protection |
-| NIST SP 800-53 Rev. 5 | Security and Privacy Controls — PE-11 Emergency Power | 2020 | Federal security requirement |
+| NIST SP 800-53 Rev. 5 | Security and Privacy Controls — PE-11 Emergency Power | August 2025 (Release 5.2.0) | Federal security requirement |
 | TIA-607-E | Generic Telecommunications Bonding and Grounding | 2024 | Grounding infrastructure |
 | NEC Article 250 | Grounding and Bonding | 2026 | Electrical grounding |
 | NFPA 780 | Standard for Installation of Lightning Protection Systems | 2026 | Lightning protection |

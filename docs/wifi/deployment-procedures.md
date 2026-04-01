@@ -2,7 +2,7 @@
 title: WiFi 7 Deployment Procedures
 version: 3.2.0
 status: Supported
-last_updated: 2026-02-24
+last_updated: 2026-04-01
 reference: BICSI TDMM 15th Edition, TIA-569-E, IEEE 802.11be-2024
 ---
 
@@ -64,7 +64,7 @@ flowchart LR
 | Floor plans | Current CAD or PDF drawings | Facility manager |
 | User density | Expected concurrent users per area | Project manager |
 | Coverage areas | Rooms requiring WiFi | Project manager |
-| Existing drops | Available Ethernet locations | ITI Network Team |
+| Existing drops | Available Ethernet locations | Network Engineering Team |
 | Ceiling access | Type and accessibility | Facility manager |
 | Site contact | Person to escort surveyor | Facility manager |
 
@@ -102,7 +102,7 @@ flowchart LR
 | Interference report (all bands) | ✅ | PDF |
 | Bill of materials | ✅ | Spreadsheet |
 | Mounting details per AP | ✅ | Photo + notes |
-| Power requirements (802.3bt) | ✅ | PoE budget calc (30-50W/AP) |
+| Power requirements (802.3bt) | ✅ | PoE budget calc (60W/AP planning figure) |
 | Multi-gig port requirements | ✅ | Switch port mapping |
 
 ---
@@ -148,9 +148,9 @@ flowchart TD
 | Step | Action | Responsible | Timeline |
 |------|--------|-------------|----------|
 | 1 | Submit design package | Contractor/Vendor | — |
-| 2 | Technical review | ITI Network Team | 15 days (standard) / 20 days (complex) |
+| 2 | Technical review | Network Engineering Team | 15 days (standard) / 20 days (complex) |
 | 3 | Address feedback | Contractor/Vendor | As needed |
-| 4 | Written approval | ITI Network Team | 2 business days |
+| 4 | Written approval | Network Engineering Team | 2 business days |
 | 5 | Schedule installation | Project manager | Coordinate with facility |
 
 ---

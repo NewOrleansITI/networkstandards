@@ -2,7 +2,7 @@
 title: Equipment Mounting and Infrastructure Standards
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-18
+last_updated: 2026-04-01
 eia_reference: EIA/ECA-310-E
 tia_reference: TIA-569-E, TIA-568.2-E, TIA-607-E, TIA-942-C
 nema_reference: NEMA EN 10250-2024, NEMA VE 1-2017, NEMA VE 2-2018
@@ -354,7 +354,7 @@ graph TD
 
 | Requirement | Specification | Standard |
 |-------------|---------------|----------|
-| Fire detection | Smoke detection (early warning / VESDA recommended for large rooms) | NFPA 75 |
+| Fire detection | Smoke detection (early warning / VESDA [Very Early Smoke Detection Apparatus] recommended for large rooms) | NFPA 75 |
 | Fire suppression | Clean agent (FM-200, Novec 1230) or pre-action sprinkler | NFPA 75 |
 | Fire-rated separation | 1-hour fire-rated walls, floor, and ceiling from adjacent spaces | NFPA 75 |
 | HVAC shutdown | Automatic HVAC shutdown on fire detection | NFPA 75, NEC 645 |
