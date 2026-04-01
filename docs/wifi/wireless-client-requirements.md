@@ -2,7 +2,7 @@
 title: Wireless Client Requirements
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-18
+last_updated: 2026-04-01
 ieee_reference: IEEE 802.11be-2024, 802.11ax-2021, 802.11w-2009, 802.11k, 802.11r, 802.11v
 wpa_reference: Wi-Fi Alliance WPA3 Specification v3.5
 ---
@@ -149,7 +149,7 @@ This section consolidates all client-side settings required for successful netwo
 |---------|-----------|-------------|----------|------------|
 | Security mode | WPA3-Enterprise | WPA3-Enterprise 192-bit | WPA3-Personal (SAE) | OWE (Enhanced Open) |
 | Authentication | EAP-TLS | EAP-TLS | Pre-shared key | None (automatic) |
-| Client certificate | X.509v3 with client auth EKU | X.509v3 with client auth EKU (ECDSA P-384 or RSA 3072+) | N/A | N/A |
+| Client certificate | X.509v3 with client auth EKU (Extended Key Usage) | X.509v3 with client auth EKU (ECDSA P-384 or RSA 3072+) | N/A | N/A |
 | Server certificate validation | Full chain + CRL/OCSP | Full chain + CRL/OCSP | N/A | N/A |
 | TLS version | TLS 1.3 minimum (RFC 8446) | TLS 1.3 minimum (RFC 8446) | N/A | N/A |
 | Key length | RSA 2048+ or ECC P-256+ | ECDSA P-384 or RSA 3072+ (CNSA 2.0) | N/A | N/A |

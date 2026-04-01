@@ -2,7 +2,7 @@
 title: Port Configurations and VLAN Standards
 version: 3.1.0
 status: Supported
-last_updated: 2026-02-18
+last_updated: 2026-04-01
 ieee_reference: IEEE 802.1Q-2022, 802.1X-2020, 802.3bt-2018
 ---
 
@@ -233,7 +233,7 @@ For WiFi 7 wireless access points requiring multiple VLANs and high-power PoE.
 ```mermaid
 flowchart LR
     AP[WiFi 7 Access Point] --> PORT[Multi-Gig Trunk Port]
-    PORT --> CONFIG["Port Speed: 2.5G/5G/10G<br/>PoE: 802.3bt (60W+)<br/>Native: VLAN 10 (Infrastructure)<br/>Tagged: 20, 30, 100, 200"]
+    PORT --> CONFIG["Port Speed: 2.5G/5G/10G<br/>PoE: 802.3bt (60W+)<br/>Native: VLAN 10 (Infrastructure)<br/>Tagged: 20, 30, 50, 100, 200"]
 ```
 
 | Setting | Value | Rationale |
@@ -241,9 +241,9 @@ flowchart LR
 | Port speed | 2.5 GbE minimum (5/10 GbE preferred) | WiFi 7 throughput exceeds 1 Gbps |
 | Mode | Trunk | Multiple SSIDs need multiple VLANs |
 | Native VLAN | 10 (Infrastructure) | AP management traffic |
-| Allowed VLANs | 10, 20, 30, 100, 200 | Corp, Voice, Guest, IoT |
+| Allowed VLANs | 10, 20, 30, 50, 100, 200 | Corp, Voice, Secure, Guest, IoT |
 | PortFast | Trunk mode | Fast AP boot |
-| PoE class | 802.3bt Type 3/4 | WiFi 7 requires 30-50W typical |
+| PoE class | 802.3bt Type 3/4 | WiFi 7 requires 30-75W (use 60W planning figure) |
 | PoE priority | Critical | Ensure AP power during budget constraints |
 
 ```
@@ -252,7 +252,7 @@ INTERFACE ap-port
   SPEED auto 2500 5000 10000
   MODE trunk
   TRUNK native-vlan 10
-  TRUNK allowed-vlan 10,20,30,100,200
+  TRUNK allowed-vlan 10,20,30,50,100,200
   SPANNING-TREE portfast trunk ENABLE
   SPANNING-TREE bpduguard ENABLE
   POE priority critical

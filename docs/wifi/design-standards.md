@@ -2,7 +2,7 @@
 title: Wireless Network Design Standards
 version: 1.1.0
 status: Supported
-last_updated: 2026-02-18
+last_updated: 2026-04-01
 ieee_reference: IEEE 802.11be-2024, 802.11-2024
 bicsi_reference: BICSI TDMM 15th Edition
 tia_reference: TIA-569-E, ANSI/TIA-1179-B
@@ -24,7 +24,7 @@ This standard applies to:
 - New construction projects
 - Major renovations affecting wireless infrastructure
 - WiFi expansion or refresh projects
-- Both contractor-designed and ITI-designed deployments
+- Both contractor-designed and in-house-designed deployments
 
 ## Standards References
 
@@ -74,11 +74,11 @@ flowchart TD
 | Phase | Owner | Deliverable | Timeline |
 |-------|-------|-------------|----------|
 | 1. Floor Plan Submission | Facility/Project Manager | Electronic floor plans per floor | Before design |
-| 2. Predictive Design | Designer (contractor or ITI) | Heat maps, AP locations | Per project schedule |
-| 3. Design Submission & Review | Designer → ITI | Design package | 15-20 business days |
-| 4. Installation | Contractor/ITI | Installed APs | Per project schedule |
-| 5. Validation Survey | Designer/ITI | Post-install measurements | After installation |
-| 6. Acceptance | ITI | Sign-off or exception | After validation |
+| 2. Predictive Design | Designer (contractor or Network Engineering) | Heat maps, AP locations | Per project schedule |
+| 3. Design Submission & Review | Designer → Network Engineering | Design package | 15-20 business days |
+| 4. Installation | Contractor/Network Engineering | Installed APs | Per project schedule |
+| 5. Validation Survey | Designer/Network Engineering | Post-install measurements | After installation |
+| 6. Acceptance | Network Engineering | Sign-off or exception | After validation |
 
 ---
 
@@ -243,7 +243,7 @@ flowchart LR
 
 ### Required Deliverables
 
-All wireless designs must include the following deliverables for ITI review:
+All wireless designs must include the following deliverables for Network Engineering review:
 
 | Deliverable | Description | Format |
 |-------------|-------------|--------|
@@ -272,7 +272,7 @@ flowchart LR
         C[AP Locations]
     end
 
-    SUBMISSION --> REVIEW[ITI Review]
+    SUBMISSION --> REVIEW[Network Engineering Review]
     REVIEW --> DECISION{Approved?}
     DECISION -->|Yes| INSTALL[Proceed to Installation]
     DECISION -->|No| REVISE[Revise and Resubmit]
@@ -298,10 +298,10 @@ The following qualify as challenging RF environments (20-day review):
 
 ### Design Responsibility
 
-| Project Type | Designer | ITI Role |
-|--------------|----------|----------|
+| Project Type | Designer | Network Engineering Role |
+|--------------|----------|--------------------------|
 | Capital projects | External contractor/vendor | Review and approve |
-| Small projects | ITI Network Team | Design and implement |
+| Small projects | Network Engineering Team | Design and implement |
 | Refresh/expansion | Either, per project scope | Review if external |
 
 ---
@@ -379,7 +379,7 @@ If any area fails to meet -67 dBm secondary coverage or 25 dB SNR, the following
 ```mermaid
 flowchart TD
     A[Validation Survey Fails] --> B[Document Failed Areas]
-    B --> C[ITI Network Team Evaluates]
+    B --> C[Network Engineering Team Evaluates]
     C --> D{Area Classification}
     D -->|Operationally Critical| E[Remediation Required]
     D -->|Low-Priority Space| F[Exception Possible]
@@ -407,10 +407,10 @@ For operationally necessary areas that fail validation:
 | 1 | Document specific failed areas with measurements | Designer/Surveyor |
 | 2 | Propose remediation (additional or relocated APs) | Designer |
 | 3 | Submit change order request | Project Manager |
-| 4 | Approve change order | ITI + Procurement |
-| 5 | Implement remediation | Contractor/ITI |
-| 6 | Re-validate affected areas | Designer/ITI |
-| 7 | Confirm pass | ITI |
+| 4 | Approve change order | Network Engineering + Procurement |
+| 5 | Implement remediation | Contractor/Network Engineering |
+| 6 | Re-validate affected areas | Designer/Network Engineering |
+| 7 | Confirm pass | Network Engineering |
 
 ### Exception Path
 
@@ -422,7 +422,7 @@ For low-priority spaces where coverage gaps are acceptable:
 | 2 | Submit formal exception request | Project Manager |
 | 3 | Provide written business justification | Facility Manager |
 | 4 | Review and approve/deny | **IT Management** |
-| 5 | Document approved exception | ITI |
+| 5 | Document approved exception | Network Engineering |
 
 ### Exception Request Requirements
 
@@ -492,7 +492,7 @@ flowchart LR
 |--------------|----------------------|-------|
 | Floor plan acquisition | $0-500 | Often available from facilities |
 | Predictive design | $1,500-3,000 | Professional RF design |
-| ITI design review | Internal labor | 15-20 days review cycle |
+| Network Engineering design review | Internal labor | 15-20 days review cycle |
 | Validation survey | $1,000-2,500 | Post-installation verification |
 | **Total design cost** | **$2,500-6,000** | One-time per project |
 
@@ -664,7 +664,7 @@ This design standard integrates with existing municipal network documentation:
 | 25 dB SNR minimum | Heat maps demonstrate | Phase 2 |
 | High-density capacity (if applicable) | 30 users/AP, 5 Mbps/user | Phase 2 |
 | AP locations documented | Coordinates provided | Phase 2 |
-| Design review complete | ITI approval received | Phase 3 |
+| Design review complete | Network Engineering approval received | Phase 3 |
 | Validation survey passed | As-built meets design | Phase 5 |
 | Backup power verified | UPS sized per AP count and facility tier | [Backup Power Standards](../ethernet/backup-power-standards.md) |
 | Exceptions documented (if any) | IT management approved | Phase 5 |
