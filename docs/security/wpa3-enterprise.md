@@ -2,7 +2,7 @@
 title: WPA3-Enterprise Wireless Security Standards
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-18
+last_updated: 2026-04-01
 ieee_reference: IEEE 802.11-2024, 802.11i
 wpa_reference: Wi-Fi Alliance WPA3 Specification v3.5
 ---
@@ -195,6 +195,8 @@ sequenceDiagram
 | TLS ciphers | TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 | RFC 8446 |
 | Server certificate | ECDSA P-384 or RSA 3072+ | CNSA 2.0 |
 | Client certificate | ECDSA P-384 or RSA 3072+ | CNSA 2.0 |
+
+> **CNSA 2.0 Timeline (NSA, September 2022):** Networking equipment must *support and prefer* CNSA 2.0 algorithms by 2026 and use them *exclusively* by 2030. For WPA3-Enterprise 192-bit deployments, CNSA 2.0 algorithm support is required for all new procurements effective 2026. Existing deployments must plan migration to exclusive CNSA 2.0 use by 2030.
 
 ## Protected Management Frames (PMF/802.11w)
 
@@ -551,13 +553,13 @@ Use this checklist to evaluate any wireless infrastructure component before purc
 | # | Requirement | Required | Pass | Fail |
 |---|-------------|----------|------|------|
 | 1 | WPA3-Enterprise certified (Wi-Fi Alliance) | **Yes** | ☐ | ☐ |
-| 2 | 192-bit security mode (CNSA suite) support | **Conditional** | ☐ | ☐ |
+| 2 | 192-bit security mode with CNSA 2.0 algorithm support (ECDSA P-384+, AES-256); vendor must confirm CNSA 2.0 exclusive-use capability by 2030 | **Yes** | ☐ | ☐ |
 | 3 | Protected Management Frames (PMF / 802.11w) mandatory mode | **Yes** | ☐ | ☐ |
 | 4 | TLS 1.3 (RFC 8446) for all EAP-TLS sessions | **Yes** | ☐ | ☐ |
 | 5 | Transition Disable indication support | **Yes** | ☐ | ☐ |
 | 6 | 802.11r (Fast BSS Transition) support | **Yes** | ☐ | ☐ |
 | 7 | Configurable session timeout and reauthentication interval | **Yes** | ☐ | ☐ |
-| 8 | ECDSA P-384 certificate support | **Conditional** | ☐ | ☐ |
+| 8 | ECDSA P-384 certificate support (required per CNSA 2.0 2026 timeline) | **Yes** | ☐ | ☐ |
 
 ### Results
 
@@ -578,7 +580,7 @@ Use this checklist to evaluate any wireless infrastructure component before purc
 | Transition Disable | Firmware release notes, Wi-Fi Alliance certification |
 | 802.11r support | Vendor spec sheet, configuration guide |
 | Session timeout / reauth | Management platform documentation |
-| ECDSA P-384 certificates | PKI documentation, certificate enrollment guide |
+| ECDSA P-384 certificates (CNSA 2.0) | PKI documentation, certificate enrollment guide, vendor CNSA 2.0 compliance statement |
 
 ## References
 

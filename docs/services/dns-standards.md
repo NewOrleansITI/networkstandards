@@ -2,7 +2,7 @@
 title: DNS Standards and Architecture
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-24
+last_updated: 2026-04-01
 ietf_reference: RFC 1035, RFC 4034, RFC 6891, RFC 8484
 ---
 
@@ -29,7 +29,7 @@ DNS architecture directly impacts network availability—a DNS outage effectivel
 | RFC 7858 | Specification for DNS over TLS | May 2016 | Encrypted DNS transport |
 | RFC 8484 | DNS Queries over HTTPS (DoH) | October 2018 | HTTPS-based DNS resolution |
 | RFC 8945 | Secret Key Transaction Authentication for DNS (TSIG) | November 2020 | Zone transfer authentication |
-| NIST SP 800-81-2 | Secure Domain Name System Deployment Guide | September 2013 | Federal DNS security guidance (Rev. 3 IPD April 2025, comments closed May 2025 — update when final) |
+| NIST SP 800-81-3 | Secure Domain Name System Deployment Guide | March 2026 | Federal DNS security guidance (covers DNSSEC, encrypted DNS, Protective DNS, Zero Trust) |
 
 ## DNS Architecture
 
@@ -408,7 +408,7 @@ Use this checklist to evaluate any DNS server or service before purchase. Every 
 
 8. Internet Engineering Task Force, "Secret Key Transaction Authentication for DNS (TSIG)," RFC 8945, November 2020. https://www.rfc-editor.org/rfc/rfc8945
 
-9. National Institute of Standards and Technology, "Secure Domain Name System (DNS) Deployment Guide," NIST SP 800-81-2, September 2013. https://csrc.nist.gov/publications/detail/sp/800-81/2/final
+9. National Institute of Standards and Technology, "Secure Domain Name System (DNS) Deployment Guide," NIST SP 800-81-3, March 2026. https://csrc.nist.gov/pubs/sp/800/81/r3/final
 
 10. National Institute of Standards and Technology, "Security and Privacy Controls for Information Systems and Organizations," NIST SP 800-53 Rev. 5, August 2025. https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final
 
