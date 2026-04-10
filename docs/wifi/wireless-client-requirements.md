@@ -11,20 +11,20 @@ wpa_reference: Wi-Fi Alliance WPA3 Specification v3.5
 
 ## Overview
 
-This document defines the mandatory requirements for any wireless client device connecting to municipal networks. It serves as the authoritative reference for device compatibility, procurement decisions, and client onboarding procedures. All wireless client devices must support WPA3. There are no exceptions, waivers, or alternative access paths for devices that do not meet this requirement.
+This document defines the mandatory requirements for any wireless client device connecting to municipal networks. It serves as the authoritative reference for device compatibility, procurement decisions, and client onboarding procedures. Devices connecting to private municipal SSIDs must support WPA3. Devices connecting to MUNI-GUEST must support OWE (Enhanced Open). There are no exceptions, waivers, or fallback SSIDs for devices that do not support the required security mode for their intended network.
 
 ## Executive Summary
 
 **For department heads and procurement staff:**
 
-Every wireless device on the network must support WPA3 encryption. If a device does not support WPA3, it cannot connect — period. When purchasing new wireless devices (laptops, tablets, phones, printers, cameras, or any other wireless equipment), the device must also support WiFi 7 (802.11be). Use the [Procurement Pass/Fail Checklist](#procurement-passfail-checklist) at the end of this document to verify any device before purchase.
+Every wireless device on the network must support the security mode required by its intended SSID. Devices on MUNI-CORP, MUNI-SECURE, and MUNI-IOT must support WPA3. Devices on MUNI-GUEST must support OWE (Enhanced Open). If a device does not support the required security mode, it cannot connect. When purchasing new wireless devices (laptops, tablets, phones, printers, cameras, or any other wireless equipment), the device must also support WiFi 7 (802.11be). Use the [Procurement Pass/Fail Checklist](#procurement-passfail-checklist) at the end of this document to verify any device before purchase.
 
 **Quick reference:**
 
 | Rule | Requirement |
 |------|-------------|
-| Existing devices | Must support WPA3 |
-| New purchases | Must support WPA3 **and** WiFi 7 |
+| Existing devices | Must support the required security mode for their intended SSID |
+| New purchases | Must support the required security mode **and** WiFi 7 |
 | Authentication (MUNI-CORP, MUNI-SECURE) | EAP-TLS with client certificate |
 | Authentication (MUNI-IOT) | WPA3-Personal (pre-shared key) |
 | Authentication (MUNI-GUEST) | OWE (automatic, no password) |
@@ -34,7 +34,7 @@ Every wireless device on the network must support WPA3 encryption. If a device d
 
 | Standard | Title | Ratification Date | Scope |
 |----------|-------|-------------------|-------|
-| IEEE 802.11be-2024 | Extremely High Throughput WLAN | January 2024 | WiFi 7 client PHY/MAC |
+| IEEE 802.11be-2024 | Extremely High Throughput WLAN | September 2024 | WiFi 7 client PHY/MAC |
 | IEEE 802.11ax-2021 | High Efficiency WLAN | February 2021 | WiFi 6/6E backward compatibility |
 | IEEE 802.11w-2009 | Protected Management Frames | September 2009 | PMF client support |
 | IEEE 802.11k-2008 | Radio Resource Measurement | June 2008 | Neighbor reports |
@@ -43,16 +43,16 @@ Every wireless device on the network must support WPA3 encryption. If a device d
 | Wi-Fi Alliance WPA3 v3.5 | WPA3 Specification | February 2025 | Client security certification |
 | IETF RFC 8446 | TLS 1.3 | August 2018 | Minimum transport security |
 | IETF RFC 9190 | EAP-TLS 1.3 Authentication Protocol | February 2022 | Certificate-based EAP with TLS 1.3 |
-| NIST SP 800-53 Rev. 5 | Security Controls | August 2025 | Federal security requirements |
+| NIST SP 800-53 Rev. 5 | Security Controls | September 2020 | Federal security requirements |
 | NIST SP 800-153 | Guidelines for Securing WLANs | February 2012 | WLAN security guidance |
 
 ## Mandatory Requirements
 
 ### Policy Statements
 
-> **Policy 1 — WPA3 Required (No Exceptions):** All wireless client devices connecting to any municipal SSID must support WPA3 (Personal, Enterprise, or OWE as applicable). Devices limited to WPA2 or earlier are prohibited from network access. There are no exceptions, waivers, or alternative access paths.
+> **Policy 1 — Required Security Mode by SSID:** Wireless clients must support the security mode used by their intended SSID: WPA3-Enterprise for MUNI-CORP and MUNI-SECURE, WPA3-Personal for MUNI-IOT, and OWE (Enhanced Open) for MUNI-GUEST. Devices that lack the required security mode are prohibited from that SSID. There are no exceptions, waivers, or fallback SSIDs.
 
-> **Policy 2 — WiFi 7 Required for New Procurements:** All wireless client devices purchased after the effective date of this policy must support IEEE 802.11be (WiFi 7). This includes laptops, tablets, phones, printers, cameras, and all other wirelessly-connected equipment. Existing managed devices that support WPA3 but predate WiFi 7 remain permitted until end-of-life replacement. Personal/BYOD devices are exempt from the WiFi 7 procurement requirement but must still meet the WPA3 requirement.
+> **Policy 2 — WiFi 7 Required for New Procurements:** All wireless client devices purchased after the effective date of this policy must support IEEE 802.11be (WiFi 7). This includes laptops, tablets, phones, printers, cameras, and all other wirelessly-connected equipment. Existing managed devices that support the required SSID security mode but predate WiFi 7 remain permitted until end-of-life replacement. Personal/BYOD devices are exempt from the WiFi 7 procurement requirement but must still support the security mode for the SSID they use.
 
 > **Policy 3 — EAP-TLS Certificate Authentication:** All devices connecting to MUNI-CORP or MUNI-SECURE must support EAP-TLS with X.509v3 client certificates. No other EAP method is permitted per the 2026 authentication policy.
 
@@ -62,25 +62,29 @@ Every wireless device on the network must support WPA3 encryption. If a device d
 
 ```mermaid
 flowchart TD
-    START[Device Requests<br/>Network Access] --> Q1{Supports<br/>WPA3?}
-    Q1 -->|No| DENY1["❌ ACCESS DENIED<br/>Device not permitted<br/>on any SSID"]
-    Q1 -->|Yes| Q2{New<br/>purchase?}
+    START[Device Requests<br/>Network Access] --> Q1{Which SSID?}
+
+    Q1 -->|MUNI-CORP<br/>MUNI-SECURE| CORP1{Supports WPA3-Enterprise<br/>and EAP-TLS?}
+    Q1 -->|MUNI-IOT| IOT1{Supports<br/>WPA3-Personal?}
+    Q1 -->|MUNI-GUEST| GUEST1{Supports<br/>OWE?}
+
+    CORP1 -->|No| DENY1["❌ ACCESS DENIED<br/>WPA3-Enterprise and EAP-TLS required"]
+    CORP1 -->|Yes| CORP2{Supports<br/>TLS 1.3?}
+
+    CORP2 -->|No| DENY2["❌ ACCESS DENIED<br/>TLS 1.3 minimum"]
+    CORP2 -->|Yes| Q2{New<br/>purchase?}
+
+    IOT1 -->|No| DENY3["❌ ACCESS DENIED<br/>WPA3-Personal required"]
+    IOT1 -->|Yes| Q2
+
+    GUEST1 -->|No| DENY4["❌ ACCESS DENIED<br/>OWE required for MUNI-GUEST"]
+    GUEST1 -->|Yes| Q2
 
     Q2 -->|Yes| Q3{Supports<br/>WiFi 7?}
-    Q2 -->|No / BYOD| Q4{Which SSID?}
+    Q2 -->|No / BYOD| PERMIT["✅ PERMITTED<br/>SSID security requirements met"]
 
-    Q3 -->|No| DENY2["❌ PROCUREMENT DENIED<br/>WiFi 7 required for<br/>new purchases"]
-    Q3 -->|Yes| Q4
-
-    Q4 -->|MUNI-CORP<br/>MUNI-SECURE| Q5{Supports<br/>EAP-TLS?}
-    Q4 -->|MUNI-IOT| PERMIT_IOT["✅ PERMITTED<br/>WPA3-Personal"]
-    Q4 -->|MUNI-GUEST| PERMIT_GUEST["✅ PERMITTED<br/>OWE (automatic)"]
-
-    Q5 -->|No| DENY3["❌ ACCESS DENIED<br/>EAP-TLS required"]
-    Q5 -->|Yes| Q6{Supports<br/>TLS 1.3?}
-
-    Q6 -->|No| DENY4["❌ ACCESS DENIED<br/>TLS 1.3 minimum"]
-    Q6 -->|Yes| PERMIT_CORP["✅ PERMITTED<br/>WPA3-Enterprise"]
+    Q3 -->|No| DENY5["❌ PROCUREMENT DENIED<br/>WiFi 7 required for<br/>new purchases"]
+    Q3 -->|Yes| PERMIT
 ```
 
 ## Supported Operating Systems and Minimum Versions
@@ -219,6 +223,7 @@ This section consolidates all client-side settings required for successful netwo
 #### MUNI-GUEST (No Configuration Required)
 
 - OWE encryption is negotiated automatically by compatible devices
+- Devices that do not support OWE cannot use MUNI-GUEST
 - Users must accept captive portal terms of use
 - No certificates, passwords, or IT configuration needed
 
@@ -230,7 +235,7 @@ Use this checklist to evaluate any wireless device before purchase. Every **Requ
 
 | # | Requirement | Required | Pass | Fail |
 |---|-------------|----------|------|------|
-| 1 | Device supports WPA3 (Personal or Enterprise) | **Yes** | ☐ | ☐ |
+| 1 | Device supports the intended SSID security mode (WPA3-Enterprise, WPA3-Personal, or OWE, as applicable) | **Yes** | ☐ | ☐ |
 | 2 | Device supports IEEE 802.11be (WiFi 7) | **Yes** | ☐ | ☐ |
 | 3 | Device supports Protected Management Frames (PMF / 802.11w) | **Yes** | ☐ | ☐ |
 | 4 | Device supports EAP-TLS authentication (if connecting to MUNI-CORP or MUNI-SECURE) | **Conditional** | ☐ | ☐ |
@@ -238,7 +243,7 @@ Use this checklist to evaluate any wireless device before purchase. Every **Requ
 | 6 | Device supports 802.11k/r/v roaming protocols | **Yes** | ☐ | ☐ |
 | 7 | Device operates on 5 GHz and/or 6 GHz bands | **Yes** | ☐ | ☐ |
 | 8 | Manufacturer provides current firmware/driver updates | **Yes** | ☐ | ☐ |
-| 9 | Wi-Fi Alliance certification (WPA3 and/or WiFi 7) | **Yes** | ☐ | ☐ |
+| 9 | Wi-Fi Alliance certification (WPA3, Enhanced Open, and/or WiFi 7, as applicable) | **Yes** | ☐ | ☐ |
 
 ### Results
 
@@ -252,7 +257,7 @@ Use this checklist to evaluate any wireless device before purchase. Every **Requ
 
 | Checklist Item | Where to Find |
 |----------------|---------------|
-| WPA3 support | Device spec sheet, Wi-Fi Alliance product finder |
+| Required security-mode support | Device spec sheet, Wi-Fi Alliance product finder |
 | WiFi 7 (802.11be) | Device spec sheet, "Wi-Fi CERTIFIED 7" logo |
 | PMF support | Included with WPA3 certification |
 | EAP-TLS | OS documentation, device management capabilities |
@@ -268,12 +273,12 @@ Use this checklist to evaluate any wireless device before purchase. Every **Requ
 
 | Control ID | Control Name | Client Requirement Implementation |
 |------------|--------------|-----------------------------------|
-| AC-18 | Wireless Access | WPA3 required for all client devices |
+| AC-18 | Wireless Access | WPA3 on private SSIDs and OWE on MUNI-GUEST |
 | AC-18(1) | Authentication and Encryption | EAP-TLS with TLS 1.3, AES-GCMP-256 |
 | IA-2 | Identification and Authentication | EAP-TLS client certificates |
 | IA-3 | Device Identification and Authentication | Device certificates (MUNI-CORP/SECURE), WPA3-Personal (MUNI-IOT) |
 | IA-5 | Authenticator Management | Certificate lifecycle via PKI |
-| SC-8 | Transmission Confidentiality | WPA3 encryption on all SSIDs |
+| SC-8 | Transmission Confidentiality | WPA3 on private SSIDs and OWE on MUNI-GUEST |
 | SC-12 | Cryptographic Key Management | TLS 1.3 key exchange, PMK derivation |
 | SC-13 | Cryptographic Protection | AES-GCMP-256, CNSA 2.0 (192-bit mode) |
 | SC-40 | Wireless Link Protection | PMF (802.11w) mandatory on all clients |
@@ -282,7 +287,7 @@ Use this checklist to evaluate any wireless device before purchase. Every **Requ
 
 | Requirement | Client-Side Response |
 |-------------|---------------------|
-| Use strong encryption | WPA3 mandatory — no WPA2 fallback permitted |
+| Use strong encryption | WPA3 required on private SSIDs; OWE required on MUNI-GUEST; no WPA2 or open fallback permitted |
 | Implement mutual authentication | EAP-TLS with server and client certificates |
 | Protect management frames | PMF required on all devices |
 | Verify server identity | Full certificate chain validation with CRL/OCSP |
@@ -293,7 +298,7 @@ Use this checklist to evaluate any wireless device before purchase. Every **Requ
 
 | Symptom | Likely Cause | Resolution |
 |---------|--------------|------------|
-| Device cannot see SSIDs | Device lacks WPA3 support | Verify OS version meets minimum; update or replace device |
+| Device cannot see or join target SSID | Device lacks required WPA3 or OWE support | Verify OS version and target SSID security-mode support; update or replace device |
 | WPA3 association fails | PMF not enabled on client | Enable PMF in wireless settings; update driver |
 | EAP-TLS authentication fails | Certificate expired or invalid | Re-enroll device certificate via PKI |
 | TLS handshake fails | Client using TLS 1.2 or earlier | Update OS to version supporting TLS 1.3 |
@@ -366,9 +371,9 @@ flowchart TD
 
 ## References
 
-1. IEEE 802.11be-2024, "Enhancements for Extremely High Throughput (EHT)," IEEE, January 2024.
+1. IEEE 802.11be-2024, "Enhancements for Extremely High Throughput (EHT)," IEEE, September 2024.
 2. IEEE 802.11ax-2021, "Enhancements for High-Efficiency WLAN," IEEE, February 2021.
-3. IEEE 802.11-2024, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
+3. IEEE 802.11-2024, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, September 2024.
 4. IEEE 802.11w-2009, "Protected Management Frames," IEEE, September 2009.
 5. IEEE 802.11r-2008, "Fast Basic Service Set (BSS) Transition," IEEE, July 2008.
 6. IEEE 802.11k-2008, "Radio Resource Measurement of Wireless LANs," IEEE, June 2008.
@@ -377,7 +382,7 @@ flowchart TD
 9. Wi-Fi Alliance, "Wi-Fi CERTIFIED 7," Wi-Fi Alliance, January 2024.
 10. IETF RFC 8446, "The Transport Layer Security (TLS) Protocol Version 1.3," IETF, August 2018.
 11. IETF RFC 9190, "EAP-TLS 1.3: Using the Extensible Authentication Protocol with TLS 1.3," IETF, February 2022.
-12. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
+12. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
 13. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 14. NSA, "Commercial National Security Algorithm Suite 2.0," NSA Cybersecurity, September 2022.
 

@@ -543,7 +543,7 @@ Use this checklist to verify switch port configuration readiness before deployme
 2. IEEE 802.1X-2020, "IEEE Standard for Local and Metropolitan Area Networks—Port-Based Network Access Control," IEEE, February 2020.
 3. IEEE 802.1AB-2016, "IEEE Standard for Local and Metropolitan Area Networks—Station and Media Access Control Connectivity Discovery," IEEE, March 2016.
 4. IETF RFC 2868, "RADIUS Attributes for Tunnel Protocol Support," IETF, June 2000.
-5. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
+5. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
 6. BICSI TDMM, 15th Edition, "Telecommunications Distribution Methods Manual," BICSI, 2024.
 
 ## Cross-References

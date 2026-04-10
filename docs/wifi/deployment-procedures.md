@@ -21,7 +21,7 @@ This document defines the standard procedures for deploying WiFi 7 (IEEE 802.11b
 | BICSI TDMM 15th Ed. | Telecommunications Distribution Methods Manual | 2024 | Deployment best practices |
 | TIA-569-E | Telecommunications Pathways and Spaces | June 2019 | Physical installation |
 | TIA-606-D | Administration Standard | February 2017 | Labeling and documentation |
-| IEEE 802.11-2024 | Wireless LAN Standard | December 2020 | Technical requirements |
+| IEEE 802.11-2024 | Wireless LAN Standard | September 2024 | Technical requirements |
 | NIST SP 800-153 | Guidelines for Securing WLANs | February 2012 | Security validation |
 
 ## Deployment Workflow
@@ -514,7 +514,7 @@ Use this checklist to verify contractor qualifications before approving a WiFi d
 1. BICSI TDMM, 15th Edition, "Telecommunications Distribution Methods Manual," BICSI, 2024.
 2. TIA-569-E, "Telecommunications Pathways and Spaces," TIA, June 2019.
 3. TIA-606-D, "Administration Standard for Telecommunications Infrastructure," TIA, February 2017.
-4. IEEE 802.11-2024, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
+4. IEEE 802.11-2024, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, September 2024.
 5. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 
 ## Cross-References

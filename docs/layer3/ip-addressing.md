@@ -25,7 +25,7 @@ This document establishes the standards for IP address allocation, subnetting, a
 | IETF RFC 4291 | IPv6 Addressing Architecture | February 2006 | IPv6 address structure |
 | IETF RFC 3021 | /31 Point-to-Point Links | December 2000 | Link addressing |
 | IETF RFC 6598 | Shared Address Space (CGN) | April 2012 | 100.64.0.0/10 |
-| NIST SP 800-53 Rev. 5 | Security Controls | August 2025 | Address management controls |
+| NIST SP 800-53 Rev. 5 | Security Controls | September 2020 | Address management controls |
 
 ## IP Address Architecture
 
@@ -502,7 +502,7 @@ Use this checklist to evaluate any IPAM (IP Address Management) platform before 
 6. IETF RFC 6890, "Special-Purpose IP Address Registries," IETF, April 2013.
 7. IETF RFC 3021, "Using 31-Bit Prefixes on IPv4 Point-to-Point Links," IETF, December 2000.
 8. IETF RFC 2131, "Dynamic Host Configuration Protocol," IETF, March 1997.
-9. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
+9. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
 
 ## Cross-References
 
