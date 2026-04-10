@@ -20,7 +20,7 @@ Physical security is the first line of defense. Logical controls such as 802.1X 
 
 | Standard | Title | Edition | Scope |
 |----------|-------|---------|-------|
-| NIST SP 800-53 Rev. 5 | Security and Privacy Controls | Update 1 (2021) | PE-2 through PE-6, PE-9 physical security controls |
+| NIST SP 800-53 Rev. 5 | Security and Privacy Controls | September 2020 | PE-2 through PE-6, PE-9 physical security controls |
 | NIST SP 800-171 Rev. 3 | Protecting CUI in Nonfederal Systems | May 2024 | Physical protection requirements for CUI |
 | TIA-569-E | Telecommunications Pathways and Spaces | 2019 | Telecom room door, lock, and access requirements |
 | BICSI TDMM | Telecommunications Distribution Methods Manual | 15th Ed. (2024) | Physical security design guidance |
@@ -430,7 +430,7 @@ Use this checklist to evaluate physical security equipment before purchase. Ever
 
 ## References
 
-1. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025 (Release 5.2.0).
+1. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
 2. NIST SP 800-171 Rev. 3, "Protecting Controlled Unclassified Information in Nonfederal Systems and Organizations," NIST, May 2024.
 3. ANSI/TIA-569-E, "Telecommunications Pathways and Spaces," TIA, May 2019.
 4. BICSI, "Telecommunications Distribution Methods Manual (TDMM)," 15th Edition, January 2024.

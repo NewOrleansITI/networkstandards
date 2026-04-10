@@ -27,6 +27,7 @@ This document defines the minimum specifications and configuration requirements 
 | IEEE 802.1w-2001 | Rapid Spanning Tree | July 2001 (incorporated into 802.1Q-2022) | RSTP fast convergence |
 | IETF RFC 3411 | SNMPv3 Architecture | December 2002 | Secure management |
 | IETF RFC 5905 | NTPv4 | June 2010 | Time synchronization |
+| NIST SP 800-63B-4 | Authentication and Authenticator Management | July 2025 | Password/passphrase guidance for local admin access |
 
 ## Switch Tier Architecture
 
@@ -308,7 +309,7 @@ flowchart TD
 | SNMP version | SNMPv3 with authPriv | Authenticated and encrypted |
 | Unused ports | Disabled, VLAN 999 | Prevent unauthorized access |
 | Console access | Password + timeout | Physical security |
-| Password complexity | ≥12 chars, complexity required | NIST SP 800-63B-4 |
+| Local admin password/passphrase | ≥15 characters for password-only accounts; no mandatory composition rules | NIST SP 800-63B-4 |
 | Session timeout | ≤10 minutes idle | Prevent session hijacking |
 | Login banner | Legal warning text | Compliance requirement |
 
@@ -465,7 +466,8 @@ Use this checklist to evaluate network switches before purchase. Every **Require
 5. IEEE 802.1AX-2020, "IEEE Standard for Local and Metropolitan Area Networks—Link Aggregation," IEEE, May 2020.
 6. IETF RFC 3411, "An Architecture for Describing SNMP Management Frameworks," IETF, December 2002.
 7. IETF RFC 5905, "Network Time Protocol Version 4," IETF, June 2010.
-8. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
+8. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+9. NIST SP 800-63B-4, "Digital Identity Guidelines: Authentication and Authenticator Management," NIST, July 2025.
 
 ## Cross-References
 

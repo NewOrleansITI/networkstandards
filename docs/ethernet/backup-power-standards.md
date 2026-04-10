@@ -30,7 +30,7 @@ All network equipment locations — from single-IDF closets to multi-rack MDFs �
 | NFPA 111 | Stored Electrical Energy Emergency and Standby Power Systems | 2025 | UPS and battery systems |
 | IEEE 446 | Recommended Practice for Emergency and Standby Power Systems (Orange Book) | 1995 (Inactive-Reserved) | Power system design |
 | IEEE 1100 | Recommended Practice for Powering and Grounding Electronic Equipment (Emerald Book) | 2005 (Inactive-Reserved) | Sensitive load protection |
-| NIST SP 800-53 Rev. 5 | Security and Privacy Controls — PE-11 Emergency Power | August 2025 (Release 5.2.0) | Federal security requirement |
+| NIST SP 800-53 Rev. 5 | Security and Privacy Controls — PE-11 Emergency Power | September 2020 | Federal security requirement |
 | TIA-607-E | Generic Telecommunications Bonding and Grounding | 2024 | Grounding infrastructure |
 | NEC Article 250 | Grounding and Bonding | 2026 | Electrical grounding |
 | NFPA 780 | Standard for Installation of Lightning Protection Systems | 2026 | Lightning protection |
@@ -477,7 +477,7 @@ Use this checklist to evaluate UPS, generator, and transfer switch equipment bef
 4. NFPA 780, "Standard for the Installation of Lightning Protection Systems," National Fire Protection Association, 2026.
 5. IEEE 446-1995, "IEEE Recommended Practice for Emergency and Standby Power Systems for Industrial and Commercial Applications (Orange Book)," IEEE, 1995 (reaffirmed 2000; Inactive-Reserved 2021 — no successor published; remains widely referenced in power engineering).
 6. IEEE 1100-2005, "IEEE Recommended Practice for Powering and Grounding Electronic Equipment (Emerald Book)," IEEE, 2005 (Inactive-Reserved 2021 — no successor published; remains widely referenced in power engineering).
-7. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
+7. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
 8. TIA-607-E, "Generic Telecommunications Bonding and Grounding (Earthing) for Customer Premises," TIA, May 2024.
 9. UL 1449, "Standard for Surge Protective Devices," 5th Edition, Underwriters Laboratories, 2021.
 10. IEEE C62.41.2-2025, "IEEE Recommended Practice on Characterization of Surges in Low-Voltage AC Power Circuits," IEEE, 2025.

@@ -18,15 +18,17 @@ This document establishes the standards for routing protocols, route management,
 |----------|-------|-------------------|-------|
 | IETF RFC 2328 | OSPF Version 2 | April 1998 | Interior routing (IPv4) |
 | IETF RFC 5340 | OSPF for IPv6 (OSPFv3) | July 2008 | Interior routing (IPv6) |
+| IETF RFC 5709 | OSPFv2 HMAC-SHA Authentication | October 2009 | OSPFv2 authentication |
+| IETF RFC 7166 | OSPFv3 Authentication Trailer | March 2014 | OSPFv3 authentication |
 | IETF RFC 4271 | BGP-4 | January 2006 | Exterior routing |
 | IETF RFC 4456 | BGP Route Reflection | April 2006 | iBGP scaling |
-| IETF RFC 5765 | Security for BGP | February 2010 | BGP security |
+| IETF RFC 4272 | BGP Security Vulnerabilities Analysis | January 2006 | BGP security analysis |
 | IETF RFC 7454 | BGP Operations and Security | February 2015 | BGP best practices |
 | IETF RFC 2281 | HSRP | March 1998 | First-hop redundancy |
 | IETF RFC 9568 | VRRP Version 3 | April 2024 | First-hop redundancy |
 | IETF RFC 7868 | EIGRP | May 2016 | Interior routing (informational) |
 | IETF RFC 8402 | Segment Routing | July 2018 | Modern routing architecture |
-| NIST SP 800-53 Rev. 5 | Security Controls | August 2025 | Routing security |
+| NIST SP 800-53 Rev. 5 | Security Controls | September 2020 | Routing security |
 
 ## Routing Architecture
 
@@ -169,7 +171,8 @@ graph TB
 | Dead interval | 40 seconds (default) | 4× hello interval |
 | Reference bandwidth | 100 Gbps | Accommodate modern link speeds |
 | Cost calculation | Auto (based on bandwidth) | Consistent path selection |
-| Authentication | MD5 or SHA (required) | Prevent route injection |
+| OSPFv2 authentication | HMAC-SHA cryptographic authentication | Prevent OSPFv2 route injection |
+| OSPFv3 authentication | Authentication Trailer (or platform-specific IPsec support) | Prevent OSPFv3 route injection |
 | Passive interfaces | All non-routing interfaces | Security best practice |
 | Router ID | Loopback IP | Stability |
 
@@ -189,7 +192,8 @@ graph TB
 
 | Requirement | Implementation |
 |-------------|----------------|
-| Authentication | MD5 or SHA-256 on all OSPF interfaces |
+| OSPFv2 authentication | HMAC-SHA on all OSPFv2 interfaces |
+| OSPFv3 authentication | Authentication Trailer (or platform-specific IPsec support) on all OSPFv3 interfaces |
 | Passive interfaces | Enable on all access/user-facing interfaces |
 | Route filtering | Filter at redistribution points |
 | Max-LSA | Configure per-area LSA limits |
@@ -627,7 +631,7 @@ Use this checklist to evaluate any router or Layer 3 switch before purchase. Eve
 | 3 | BFD (Bidirectional Forwarding Detection) support | **Yes** | ☐ | ☐ |
 | 4 | VRRP or HSRP first-hop redundancy | **Yes** | ☐ | ☐ |
 | 5 | Route summarization / aggregation support | **Yes** | ☐ | ☐ |
-| 6 | OSPF authentication (MD5 or SHA-256) | **Yes** | ☐ | ☐ |
+| 6 | OSPFv2 HMAC-SHA and OSPFv3 Authentication Trailer support | **Yes** | ☐ | ☐ |
 | 7 | BGP session security (TCP-AO or MD5) | **Yes** | ☐ | ☐ |
 | 8 | BGP max-prefix limits per peer | **Yes** | ☐ | ☐ |
 | 9 | Bogon and Martian route filtering | **Yes** | ☐ | ☐ |
@@ -649,7 +653,7 @@ Use this checklist to evaluate any router or Layer 3 switch before purchase. Eve
 | BFD support | Protocol feature list, BFD configuration guide |
 | VRRP / HSRP | First-hop redundancy documentation, FHRP feature list |
 | Route summarization | Routing configuration guide, aggregation features |
-| OSPF authentication | Security configuration guide, OSPF auth documentation |
+| OSPFv2/OSPFv3 authentication | Security configuration guide, OSPFv2 and OSPFv3 auth documentation |
 | BGP TCP-AO / MD5 | BGP security documentation, session protection features |
 | Max-prefix per peer | BGP neighbor configuration, prefix limit settings |
 | Bogon filtering | Route filtering documentation, prefix list features |
@@ -663,10 +667,12 @@ Use this checklist to evaluate any router or Layer 3 switch before purchase. Eve
 5. IETF RFC 7454, "BGP Operations and Security," IETF, February 2015.
 6. IETF RFC 9568, "Virtual Router Redundancy Protocol (VRRP) Version 3," IETF, April 2024.
 7. IETF RFC 5880, "Bidirectional Forwarding Detection (BFD)," IETF, June 2010.
-8. IETF RFC 5765, "Security Considerations for BGP," IETF, February 2010.
+8. IETF RFC 4272, "BGP Security Vulnerabilities Analysis," IETF, January 2006.
 9. IETF RFC 6811, "BGP Prefix Origin Validation," IETF, January 2013.
 10. IETF RFC 6890, "Special-Purpose IP Address Registries," IETF, April 2013.
-11. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
+11. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+12. IETF RFC 5709, "OSPFv2 HMAC-SHA Cryptographic Authentication," IETF, October 2009.
+13. IETF RFC 7166, "Supporting Authentication Trailer for OSPFv3," IETF, March 2014.
 
 ## Cross-References
 

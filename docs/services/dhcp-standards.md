@@ -3,7 +3,7 @@ title: DHCP Standards and Address Management
 version: 1.0.0
 status: Supported
 last_updated: 2026-04-01
-ietf_reference: RFC 2131, RFC 3315, RFC 8415, RFC 6221
+ietf_reference: RFC 2131, RFC 3315, RFC 8415, RFC 6221, RFC 8156
 ---
 
 # DHCP Standards and Address Management
@@ -14,7 +14,7 @@ This document establishes the Dynamic Host Configuration Protocol (DHCP) standar
 
 DHCP services for IPv4 (DHCPv4) and IPv6 (DHCPv6) are operated across all municipal facilities. These services integrate with IP Address Management (IPAM) systems to maintain accurate inventory of address utilization and provide audit trails for security and compliance requirements.
 
-Properly architected DHCP infrastructure is essential for network reliability—misconfigured or failed DHCP services prevent devices from obtaining network connectivity. These standards ensure high availability through redundant server deployments, scope planning aligned with network segmentation policies, and security controls to prevent unauthorized DHCP servers and address exhaustion attacks.
+Properly architected DHCP infrastructure is essential for network reliability—misconfigured or failed DHCP services prevent devices from obtaining network connectivity. These standards ensure high availability through redundant server deployments, protocol-specific HA designs for DHCPv4 and DHCPv6, scope planning aligned with network segmentation policies, and security controls to prevent unauthorized DHCP servers and address exhaustion attacks.
 
 ## Standards References
 
@@ -26,6 +26,7 @@ Properly architected DHCP infrastructure is essential for network reliability—
 | RFC 3736 | Stateless DHCP Service for IPv6 | April 2004 | DHCPv6 information-only mode |
 | RFC 4361 | Node-specific Client Identifiers for DHCPv4 | February 2006 | DUID-based client identification |
 | RFC 6221 | Lightweight DHCPv6 Relay Agent | May 2011 | DHCPv6 relay operations |
+| RFC 8156 | DHCPv6 Failover Protocol | June 2017 | DHCPv6 failover and lease replication |
 | RFC 8415 | Dynamic Host Configuration Protocol for IPv6 | November 2018 | Consolidated DHCPv6 specification |
 | RFC 3046 | DHCP Relay Agent Information Option | January 2001 | Option 82 for relay identification |
 | RFC 7513 | Source Address Validation Improvement (SAVI) | May 2015 | DHCP snooping and validation |
@@ -59,7 +60,7 @@ graph TB
         VLAN200[VLAN 200<br/>IoT]
     end
 
-    DHCP1 <--> |"Failover<br/>Partnership"| DHCP2
+    DHCP1 <--> |"High Availability<br/>Pairing"| DHCP2
     IPAM1 <--> |"Replication"| IPAM2
 
     DHCP1 --> IPAM1
@@ -77,7 +78,7 @@ graph TB
     VLAN200 --> RELAY3
 ```
 
-### Failover Configuration
+### DHCPv4 Failover Configuration
 
 ```mermaid
 stateDiagram-v2
@@ -100,7 +101,7 @@ stateDiagram-v2
     }
 ```
 
-**MCLT (Maximum Client Lead Time)**: 3600 seconds (1 hour)
+**DHCPv4 MCLT (Maximum Client Lead Time)**: 3600 seconds (1 hour)
 - Time a server can extend a lease beyond partner's knowledge
 - Prevents duplicate assignments during partner communication loss
 
@@ -110,11 +111,11 @@ stateDiagram-v2
 
 | Specification | Requirement | Rationale |
 |---------------|-------------|-----------|
-| **Minimum Instances** | 2 in failover configuration | Eliminate single point of failure |
+| **Minimum Instances** | 2 servers with HA per address family/service role | Eliminate single point of failure |
 | **Geographic Separation** | Different facilities/failure domains | Survive site-level outages |
-| **Failover Protocol** | DHCP Failover (RFC draft) or vendor equivalent | Coordinated address allocation |
-| **MCLT Setting** | 3600 seconds | Balance availability and conflict risk |
-| **Lease Database** | Persistent storage with replication | Survive restarts, sync state |
+| **Failover / HA Strategy** | DHCPv4: vendor-supported failover or standby/split-scope design; DHCPv6: RFC 8156 failover where supported | Family-specific high availability |
+| **MCLT Setting** | 3600 seconds where a failover protocol is used | Balance availability and conflict risk |
+| **Lease Database** | Persistent storage with replication where supported | Survive restarts, sync state |
 | **IPAM Integration** | Real-time synchronization | Accurate address inventory |
 | **Response Time** | < 100ms DORA completion | Client timeout prevention |
 | **Capacity** | 500 DORA transactions/second minimum | Handle boot storms |
@@ -221,6 +222,8 @@ graph TB
     DHCPv6_1 --> |"Advertise/Reply"| WIN
     DHCPv6_1 --> |"Advertise/Reply"| LINUX
 ```
+
+> **Note:** DHCPv6 redundancy is distinct from DHCPv4 failover. Use RFC 8156 where platform support exists; otherwise deploy redundant DHCPv6 servers without assuming DHCPv4-style lease-replication semantics.
 
 ### DHCPv6 Options
 
@@ -419,12 +422,12 @@ sequenceDiagram
 
 ### Capacity Planning
 
-| Network Size | Leases | Recommended Servers | Failover Config |
-|--------------|--------|---------------------|-----------------|
-| Small (< 1,000 devices) | 1,500 | 2 (active/standby) | Hot standby |
-| Medium (1,000-10,000) | 15,000 | 2 (load balanced) | Split scope 50/50 |
-| Large (10,000-50,000) | 75,000 | 4 (2 pairs) | Regional failover |
-| Enterprise (50,000+) | 200,000+ | 6+ (distributed) | Hierarchical |
+| Network Size | Leases | Recommended Servers | HA Strategy |
+|--------------|--------|---------------------|-------------|
+| Small (< 1,000 devices) | 1,500 | 2 (active/standby) | Redundant pair |
+| Medium (1,000-10,000) | 15,000 | 2 (HA pair) | DHCPv4 failover or equivalent, plus DHCPv6 redundancy |
+| Large (10,000-50,000) | 75,000 | 4 (2 regional pairs) | Regional HA pairs |
+| Enterprise (50,000+) | 200,000+ | 6+ (distributed) | Distributed redundant clusters |
 
 ## Implementation Guidelines
 
@@ -433,9 +436,9 @@ sequenceDiagram
 - [ ] **Infrastructure Setup**
   - [ ] Deploy primary DHCP server
   - [ ] Deploy secondary DHCP server (different facility)
-  - [ ] Configure failover partnership
-  - [ ] Verify MCLT and load balance settings
-  - [ ] Test failover scenarios
+  - [ ] Configure DHCPv4 HA and DHCPv6 redundancy
+  - [ ] Verify MCLT and partner state where failover is implemented
+  - [ ] Test HA/failover scenarios
 
 - [ ] **Scope Configuration**
   - [ ] Create scopes aligned with VLAN structure
@@ -502,7 +505,7 @@ Use this checklist to evaluate any DHCP server or IPAM platform before purchase.
 | # | Requirement | Required | Pass | Fail |
 |---|-------------|----------|------|------|
 | 1 | DHCPv4 and DHCPv6 dual-stack support | **Yes** | ☐ | ☐ |
-| 2 | DHCP failover with lease replication | **Yes** | ☐ | ☐ |
+| 2 | Documented high availability for DHCPv4 and DHCPv6; RFC 8156 support where DHCPv6 lease replication is required | **Yes** | ☐ | ☐ |
 | 3 | Option 82 (Relay Agent Information) logging | **Yes** | ☐ | ☐ |
 | 4 | IPAM integration (unified IP address management) | **Yes** | ☐ | ☐ |
 | 5 | Pool utilization alerting (configurable thresholds) | **Yes** | ☐ | ☐ |
@@ -523,7 +526,7 @@ Use this checklist to evaluate any DHCP server or IPAM platform before purchase.
 | Checklist Item | Where to Find |
 |----------------|---------------|
 | DHCPv4 + DHCPv6 | Product datasheet, protocol support documentation |
-| Failover with lease replication | High availability documentation, failover configuration guide |
+| DHCPv4/DHCPv6 HA behavior | High availability documentation, DHCPv4 failover guide, DHCPv6 RFC 8156 support statement |
 | Option 82 logging | DHCP feature list, relay agent documentation |
 | IPAM integration | IPAM product documentation, integration APIs |
 | Pool utilization alerting | Monitoring/alerting feature list, threshold configuration |
@@ -549,9 +552,11 @@ Use this checklist to evaluate any DHCP server or IPAM platform before purchase.
 
 8. IEEE, "IEEE Standard for Local and Metropolitan Area Networks--Port-Based Network Access Control," IEEE 802.1X-2020, 2020.
 
-9. National Institute of Standards and Technology, "Security and Privacy Controls for Information Systems and Organizations," NIST SP 800-53 Rev. 5, August 2025. https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final
+9. National Institute of Standards and Technology, "Security and Privacy Controls for Information Systems and Organizations," NIST SP 800-53 Rev. 5, September 2020. https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final
 
 10. National Institute of Standards and Technology, "Guide to Enterprise Patch Management Technologies," NIST SP 800-40 Rev. 4, April 2022.
+
+11. Internet Engineering Task Force, "DHCPv6 Failover Protocol," RFC 8156, June 2017. https://www.rfc-editor.org/rfc/rfc8156
 
 ## Cross-References
 

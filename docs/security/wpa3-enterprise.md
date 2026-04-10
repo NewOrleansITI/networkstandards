@@ -17,24 +17,24 @@ This document establishes the standards for WPA3-Enterprise wireless security. W
 
 | Standard | Title | Ratification Date | Scope |
 |----------|-------|-------------------|-------|
-| IEEE 802.11-2024 | Wireless LAN Medium Access Control | December 2020 | Consolidated wireless standard |
+| IEEE 802.11-2024 | Wireless LAN Medium Access Control | September 2024 | Consolidated wireless standard |
 | IEEE 802.11i-2004 | Security Enhancements | July 2004 | RSN framework (WPA2 basis) |
 | IEEE 802.11w-2009 | Protected Management Frames | September 2009 | Management frame protection |
 | IEEE 802.11r-2008 | Fast BSS Transition | July 2008 | Fast roaming |
 | Wi-Fi Alliance WPA3 v3.5 | WPA3 Specification | February 2025 | WPA3 certification requirements |
 | IETF RFC 9190 | EAP-TLS 1.3 Authentication Protocol | February 2022 | Certificate-based EAP with TLS 1.3 |
 | IETF RFC 8446 | TLS 1.3 | August 2018 | Transport security |
-| NIST SP 800-53 Rev. 5 | Security Controls | August 2025 | Federal security requirements |
+| NIST SP 800-53 Rev. 5 | Security Controls | September 2020 | Federal security requirements |
 | NIST SP 800-153 | Guidelines for Securing WLANs | February 2012 | WLAN security guidance |
 | CNSA 2.0 | Commercial NSA Suite | September 2022 | High-security cryptography |
 
-## WPA3 Security Modes
+## Municipal Wireless Security Modes
 
 ### Mode Comparison
 
 ```mermaid
 graph TB
-    subgraph WPA3["WPA3 Security Modes"]
+    subgraph MUNICIPAL_SECURITY["Municipal Wireless Security Modes"]
         OWE["OWE<br/>(Enhanced Open)"]
         PERSONAL["WPA3-Personal<br/>(SAE)"]
         ENTERPRISE["WPA3-Enterprise<br/>(802.1X)"]
@@ -77,7 +77,7 @@ graph TB
 | **Key derivation** | HMAC-SHA-256 or HMAC-SHA-384 | HMAC-SHA-384 only |
 | **EAP method** | Any supported (EAP-TLS recommended)¹ | EAP-TLS only |
 | **Certificate requirements** | RSA 2048+ or ECC P-256+ | ECC P-384 or RSA 3072+ |
-| **TLS version** | TLS 1.3 | TLS 1.3 with Suite B ciphers |
+| **TLS version** | TLS 1.3 | TLS 1.3 with AES-256-GCM |
 | **PMF (802.11w)** | Required | Required (BIP-GMAC-256) |
 | **CNSA compliance** | Partial | Full |
 
@@ -194,7 +194,7 @@ sequenceDiagram
 | Group management cipher | BIP-GMAC-256 only | IEEE 802.11w |
 | Key derivation | HMAC-SHA-384 only | Wi-Fi Alliance |
 | EAP method | EAP-TLS only | RFC 9190 |
-| TLS ciphers | TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 | RFC 8446 |
+| TLS cipher suite | TLS_AES_256_GCM_SHA384 | RFC 8446 |
 | Server certificate | ECDSA P-384 or RSA 3072+ | CNSA 2.0 |
 | Client certificate | ECDSA P-384 or RSA 3072+ | CNSA 2.0 |
 
@@ -240,36 +240,18 @@ graph TD
 
 ## Transition Mode (WPA2/WPA3 Mixed)
 
-### When to Use Transition Mode
+### Municipal Policy
 
-Transition mode allows both WPA2 and WPA3 clients on the same SSID during migration:
+WPA2/WPA3 mixed transition mode is not permitted on production MUNI-CORP or MUNI-SECURE SSIDs. Municipal policy requires WPA3-only operation with no WPA2 fallback for managed or BYOD clients.
 
-```mermaid
-flowchart TD
-    ASSESS[Assess Client Inventory] --> Q1{All clients<br/>WPA3 capable?}
-    Q1 -->|Yes| WPA3_ONLY["WPA3-Only Mode<br/>(Recommended)"]
-    Q1 -->|No| Q2{>80% WPA3<br/>capable?}
+If limited interoperability testing is unavoidable before cutover, use a separate isolated staging SSID that is not presented as a production municipal network and retire it before go-live.
 
-    Q2 -->|Yes| TRANSITION["Transition Mode<br/>(Time-limited)"]
-    Q2 -->|No| Q3{Can upgrade<br/>clients?}
-
-    Q3 -->|Yes| UPGRADE["Upgrade clients first"]
-    Q3 -->|No| SEPARATE["Separate SSIDs<br/>WPA2 + WPA3"]
-
-    UPGRADE --> Q1
-    TRANSITION --> TIMELINE["Set transition<br/>end date"]
-    TIMELINE --> WPA3_ONLY
-```
-
-### Transition Mode Configuration
-
-| Setting | Value | Rationale |
-|---------|-------|-----------|
-| Authentication | WPA2-Enterprise + WPA3-Enterprise | Dual support |
-| Encryption | AES-CCMP (WPA2) / AES-GCMP (WPA3) | Per-client negotiation |
-| PMF | Required for WPA3, optional for WPA2 | Maintain WPA2 compatibility |
-| Transition Disable | Enabled | Prevent WPA3 client downgrade |
-| Timeline | Maximum 12 months | Force migration completion |
+| Scenario | Standard | Rationale |
+|---------|----------|-----------|
+| Production corporate SSIDs | WPA3-only | No WPA2 fallback permitted |
+| BYOD devices lacking WPA3 | Deny wireless access until upgraded | Align with client requirements policy |
+| Pre-cutover validation | Isolated staging SSID only | Test readiness without weakening production security |
+| Transition Disable | Enabled where vendor supports it on staged migrations | Prevent WPA3-capable client downgrade |
 
 ### Transition Disable Feature
 
@@ -334,9 +316,9 @@ flowchart TD
     M_CHECK -->|Yes| M_READY["Ready for WPA3"]
     M_CHECK -->|No| M_UPDATE["Update OS or<br/>plan replacement"]
 
-    BYOD --> B_CHECK{Enforce WPA3<br/>or provide fallback?}
-    B_CHECK -->|Enforce| B_NOTIFY["Notify users<br/>of requirement"]
-    B_CHECK -->|Fallback| B_SEPARATE["Separate SSID<br/>(WPA2 legacy)"]
+    BYOD --> B_CHECK{Supports<br/>WPA3?}
+    B_CHECK -->|Yes| B_READY["Ready for WPA3"]
+    B_CHECK -->|No| B_BLOCK["Upgrade device or<br/>deny wireless access"]
 
     IOT --> I_CHECK{Device supports<br/>WPA3-Personal?}
     I_CHECK -->|Yes| I_MIGRATE["Migrate to<br/>WPA3-Personal SSID"]
@@ -374,13 +356,13 @@ gantt
     Test with pilot group      :p3, 2026-03-29, 14d
 
     section Deployment
-    Enable Transition Mode     :d1, 2026-04-15, 1d
+    Enable WPA3-only SSIDs  :d1, 2026-04-15, 1d
     Monitor and remediate      :d2, 2026-04-15, 60d
-    Disable WPA2 (new SSIDs)   :d3, 2026-06-15, 1d
+    Retire staging legacy SSIDs:d3, 2026-06-15, 1d
 
     section Completion
-    Full WPA3-only mode        :c1, 2026-09-01, 1d
-    Legacy SSID retirement     :c2, 2026-09-15, 14d
+    Validate WPA3-only mode    :c1, 2026-09-01, 1d
+    Close migration exceptions :c2, 2026-09-15, 14d
 ```
 
 ## Industry Adoption Data
@@ -586,7 +568,7 @@ Use this checklist to evaluate any wireless infrastructure component before purc
 
 ## References
 
-1. IEEE 802.11-2024, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
+1. IEEE 802.11-2024, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, September 2024.
 2. IEEE 802.11i-2004, "Amendment 6: Medium Access Control (MAC) Security Enhancements," IEEE, July 2004.
 3. IEEE 802.11w-2009, "Amendment 4: Protected Management Frames," IEEE, September 2009.
 4. IEEE 802.11r-2008, "Amendment 2: Fast Basic Service Set (BSS) Transition," IEEE, July 2008.
@@ -594,7 +576,7 @@ Use this checklist to evaluate any wireless infrastructure component before purc
 6. Wi-Fi Alliance, "WPA3 Security Considerations," Wi-Fi Alliance Technical Note, 2024.
 7. IETF RFC 9190, "EAP-TLS 1.3: Using the Extensible Authentication Protocol with TLS 1.3," IETF, February 2022.
 8. IETF RFC 8446, "The Transport Layer Security (TLS) Protocol Version 1.3," IETF, August 2018.
-9. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
+9. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
 10. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 11. NSA, "Commercial National Security Algorithm Suite 2.0," NSA Cybersecurity, September 2022.
 

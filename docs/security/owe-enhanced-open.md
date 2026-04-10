@@ -4,7 +4,7 @@ version: 1.0.0
 status: Supported
 last_updated: 2026-02-18
 ieee_reference: IEEE 802.11-2024
-wpa_reference: Wi-Fi Alliance WPA3 Specification v3.5
+wpa_reference: Wi-Fi CERTIFIED Enhanced Open
 effective_date: 2026-02-02
 ---
 
@@ -12,7 +12,7 @@ effective_date: 2026-02-02
 
 ## Overview
 
-This document establishes the standards for Opportunistic Wireless Encryption (OWE), also known as Wi-Fi CERTIFIED Enhanced Open™. OWE provides encryption on open networks without requiring passwords or authentication, protecting guest users from passive eavesdropping while maintaining zero-friction access.
+This document establishes the standards for Opportunistic Wireless Encryption (OWE), also known as Wi-Fi CERTIFIED Enhanced Open™. OWE provides encryption on open networks without requiring passwords or authentication, protecting guest users from passive eavesdropping while maintaining zero-friction access. Enhanced Open is distinct from WPA3-Personal and WPA3-Enterprise and is intended for unauthenticated guest/public SSIDs.
 
 **Effective 2026:** OWE is **mandatory** for all guest wireless networks. Traditional open (unencrypted) guest SSIDs are prohibited for new deployments.
 
@@ -20,11 +20,11 @@ This document establishes the standards for Opportunistic Wireless Encryption (O
 
 | Standard | Title | Ratification Date | Scope |
 |----------|-------|-------------------|-------|
-| IEEE 802.11-2024 | Wireless LAN MAC and PHY | December 2020 | OWE specification (Section 12.12) |
-| Wi-Fi Alliance WPA3 v3.5 | WPA3 Specification | February 2025 | Enhanced Open certification |
+| IEEE 802.11-2024 | Wireless LAN MAC and PHY | September 2024 | OWE specification (Section 12.12) |
+| Wi-Fi CERTIFIED Enhanced Open | Wi-Fi Alliance certification program | 2018 | Enhanced Open certification |
 | IETF RFC 8110 | OWE | March 2017 | Opportunistic Wireless Encryption |
 | IETF RFC 7748 | Elliptic Curves | January 2016 | Curve25519/Curve448 for DH |
-| NIST SP 800-53 Rev. 5 | Security Controls | August 2025 | Federal security requirements |
+| NIST SP 800-53 Rev. 5 | Security Controls | September 2020 | Federal security requirements |
 | NIST SP 800-153 | Guidelines for Securing WLANs | February 2012 | WLAN security guidance |
 
 ## Standard Rationale and Justification
@@ -96,7 +96,7 @@ graph TD
 | ChromeOS | 89 | ✅ Yes | Native support |
 | Linux | Kernel 5.0+ | ✅ Yes | Driver dependent |
 
-**Legacy Device Handling:** Devices that do not support OWE will see the network but fail to connect. For environments requiring legacy device support, see [Transition Mode](#transition-mode-owe--open-mixed) configuration.
+**Legacy Device Handling:** Devices that do not support OWE cannot use MUNI-GUEST. Municipal production guest SSIDs do not provide open fallback; use a supported device or a separate non-production remediation network if temporary interoperability testing is unavoidable.
 
 ## OWE Technical Architecture
 
@@ -248,34 +248,20 @@ Configure guest SSIDs for OWE-only operation:
 | PMF | Required | Management frame protection |
 | Transition mode | Disabled | OWE-only (no legacy fallback) |
 
-#### Transition Mode (OWE + Open Mixed)
+#### OWE Transition Mode (Informational Only — Not Permitted on Municipal Production SSIDs)
 
-For environments requiring legacy device support during migration:
+OWE transition mode pairs an OWE BSS with a separate open BSS for legacy clients. Municipal policy does not permit this mode on production MUNI-GUEST because it reintroduces an unencrypted fallback path.
 
-| Setting | Value | Notes |
-|---------|-------|-------|
-| Primary SSID | MUNI-GUEST | OWE enabled, visible |
-| Transition SSID | (auto-generated) | Open, hidden (for legacy) |
-| Transition behavior | Automatic steering | OWE clients use OWE; legacy use open |
-| Transition end date | December 31, 2026 | Maximum 12-month transition |
-
-**Note:** Transition mode exposes legacy clients to eavesdropping. Use only when absolutely necessary and set a firm end date.
-
-```mermaid
-flowchart TD
-    CLIENT[Client Device] --> CHECK{Supports OWE?}
-    CHECK -->|Yes| OWE_CONNECT["Connect via OWE<br/>(Encrypted)"]
-    CHECK -->|No| TRANSITION{Transition Mode<br/>Enabled?}
-    TRANSITION -->|Yes| OPEN_CONNECT["Connect via Open<br/>(Unencrypted)"]
-    TRANSITION -->|No| FAIL["Connection Failed<br/>(Device Upgrade Required)"]
-
-    OWE_CONNECT --> SECURE["✅ Encrypted Session"]
-    OPEN_CONNECT --> INSECURE["⚠️ Unencrypted Session"]
-```
+| Scenario | Municipal Standard | Notes |
+|---------|--------------------|-------|
+| Production guest SSID | OWE-only | No open fallback permitted |
+| Pre-cutover lab validation | Isolated staging only | Not connected to production guest VLAN |
+| Legacy clients without OWE | Not permitted on production Wi-Fi | Use a supported device or alternate access method |
+| Wi-Fi 7 / EHT operation | Do not use transition mode | Maintain modern guest security posture |
 
 ### RADIUS/Captive Portal Integration
 
-OWE operates at Layer 2 encryption; captive portal authentication remains at Layer 3:
+OWE completes Layer 2 encryption before any captive portal enforcement occurs; the portal remains a post-association Layer 3 control:
 
 ```mermaid
 sequenceDiagram
@@ -284,24 +270,24 @@ sequenceDiagram
     participant FW as Firewall/Controller
     participant PORTAL as Captive Portal
 
-    Note over C,AP: Layer 2: OWE Encryption
-    C->>AP: OWE Association (encrypted)
-    AP->>C: OWE Association Response
+    Note over C,AP: Layer 2: OWE Association and Key Exchange
+    C->>AP: OWE Association Request/Response
+    AP->>C: 4-Way Handshake Complete
 
-    Note over C,PORTAL: Layer 3: Captive Portal
-    C->>FW: HTTP Request (any site)
-    FW->>C: Redirect to Portal
+    Note over C,FW: Layer 3: Captive Portal After Association
+    C->>FW: DHCP / IPv6 configuration completes
+    C->>FW: Connectivity check or web request
+    FW->>C: Captive portal indication or redirect
     C->>PORTAL: Load Portal Page
     PORTAL->>C: Display Terms of Use
     C->>PORTAL: Accept Terms
-    PORTAL->>FW: Authorize Client MAC
-    FW->>C: Access Granted
-    C->>FW: Internet Access (OWE encrypted to AP)
+    PORTAL->>FW: Authorize Client session
+    FW->>C: Internet Access Allowed
 ```
 
 | Component | Configuration |
 |-----------|---------------|
-| Captive portal trigger | Pre-authentication (before OWE) or post-association |
+| Captive portal trigger | Post-association only (after OWE completes and the client has IP connectivity) |
 | Authentication method | Terms acceptance (no credentials) |
 | Session tracking | MAC address + session token |
 | Session timeout | 8 hours (configurable) |
@@ -526,7 +512,7 @@ Use this checklist to evaluate any wireless infrastructure component before purc
 | 3 | OWE SSID configuration in wireless management platform | **Yes** | ☐ | ☐ |
 | 4 | Captive portal with Layer 3 integration (post-encryption) | **Yes** | ☐ | ☐ |
 | 5 | Client isolation (Layer 2) enabled per SSID | **Yes** | ☐ | ☐ |
-| 6 | OWE Transition Mode support (open + OWE dual SSID) | **Conditional** | ☐ | ☐ |
+| 6 | OWE-only operation (no open fallback on production SSID) | **Yes** | ☐ | ☐ |
 
 ### Results
 
@@ -545,17 +531,16 @@ Use this checklist to evaluate any wireless infrastructure component before purc
 | OWE SSID configuration | Management platform documentation, SSID setup guide |
 | Captive portal L3 integration | Vendor captive portal documentation |
 | Client isolation | Per-SSID configuration options, management platform |
-| OWE Transition Mode | Firmware release notes, vendor documentation |
+| OWE-only operation | SSID security configuration, no transition/open pairing on production guest SSIDs |
 
 ## References
 
-1. IEEE 802.11-2024, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
+1. IEEE 802.11-2024, "Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, September 2024.
 2. IETF RFC 8110, "Opportunistic Wireless Encryption," IETF, March 2017.
 3. IETF RFC 7748, "Elliptic Curves for Security," IETF, January 2016.
-4. Wi-Fi Alliance, "WPA3 Specification Version 3.5," Wi-Fi Alliance, February 2025.
-5. Wi-Fi Alliance, "Wi-Fi CERTIFIED Enhanced Open," Wi-Fi Alliance, 2018. https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-enhanced-open
-6. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
-7. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
+4. Wi-Fi Alliance, "Wi-Fi CERTIFIED Enhanced Open," Wi-Fi Alliance, 2018. https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-enhanced-open
+5. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+6. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 
 ## Cross-References
 

@@ -592,8 +592,8 @@ The WiFi Design Standard increases upfront investment by approximately $17,600 p
 
 | Standard | Title | Date | Relevance to Design Standard |
 |----------|-------|------|------------------------------|
-| IEEE 802.11-2024 | Wireless LAN Medium Access Control and Physical Layer Specifications | December 2020 | Base WLAN technical requirements, RSSI/SNR definitions |
-| IEEE 802.11be-2024 | Extremely High Throughput (EHT) Amendment | January 2024 | WiFi 7 AP requirements, MLO reliability |
+| IEEE 802.11-2024 | Wireless LAN Medium Access Control and Physical Layer Specifications | September 2024 | Base WLAN technical requirements, RSSI/SNR definitions |
+| IEEE 802.11be-2024 | Extremely High Throughput (EHT) Amendment | September 2024 | WiFi 7 AP requirements, MLO reliability |
 | IEEE 802.11k-2008 | Radio Resource Measurement | June 2008 | Client roaming optimization |
 | IEEE 802.11r-2008 | Fast BSS Transition | July 2008 | Seamless roaming between APs |
 | IEEE 802.11v-2011 | Wireless Network Management | February 2011 | Network-assisted roaming |
@@ -627,7 +627,7 @@ The WiFi Design Standard increases upfront investment by approximately $17,600 p
 | Standard | Title | Date | Relevance to Design Standard |
 |----------|-------|------|------------------------------|
 | NIST SP 800-153 | Guidelines for Securing Wireless Local Area Networks | February 2012 | Security design principles |
-| NIST SP 800-53 Rev. 5 | Security and Privacy Controls | August 2025 | AC-18 Wireless Access controls |
+| NIST SP 800-53 Rev. 5 | Security and Privacy Controls | September 2020 | AC-18 Wireless Access controls |
 
 ### Industry Best Practice Citations
 
@@ -707,13 +707,13 @@ Use this checklist to verify design service provider qualifications before appro
 
 ## References
 
-1. IEEE 802.11-2024, "IEEE Standard for Information Technology—Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, December 2020.
-2. IEEE 802.11be-2024, "IEEE Standard for Information Technology—Enhancements for Extremely High Throughput (EHT)," IEEE, January 2024.
+1. IEEE 802.11-2024, "IEEE Standard for Information Technology—Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications," IEEE, September 2024.
+2. IEEE 802.11be-2024, "IEEE Standard for Information Technology—Enhancements for Extremely High Throughput (EHT)," IEEE, September 2024.
 3. BICSI, "Telecommunications Distribution Methods Manual (TDMM)," 15th Edition, BICSI, 2024.
 4. TIA-569-E, "Telecommunications Pathways and Spaces," TIA, June 2019.
 5. ANSI/TIA-1179-B, "Healthcare Facility Telecommunications Infrastructure Standard," TIA, 2023.
 6. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
-7. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, August 2025.
+7. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
 
 ---
 
