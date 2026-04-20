@@ -399,7 +399,7 @@ sequenceDiagram
 |--------|---------------|--------|------|
 | DHCP failover deployment (enterprise) | 87% | EMA | 2024 |
 | IPAM system usage (1000+ devices) | 78% | Gartner | 2024 |
-| DHCP snooping enabled | 82% | Cisco Security | 2025 |
+| DHCP snooping enabled | 82% | SANS Institute | 2025 |
 | DHCPv6 deployment (dual-stack networks) | 64% | APNIC | 2025 |
 | Option 82 logging | 71% | SANS | 2024 |
 | Municipal DHCP redundancy | 91% | MS-ISAC | 2024 |

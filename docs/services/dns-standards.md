@@ -81,8 +81,8 @@ graph TB
 ```mermaid
 graph LR
     subgraph Public["Public Zones"]
-        NOLA["example.gov"]
-        CITY["example.com"]
+        GOV["example.gov"]
+        COM["example.com"]
     end
 
     subgraph Internal["Internal Zones"]
@@ -96,9 +96,9 @@ graph LR
         REV172["172.16-31.in-addr.arpa"]
     end
 
-    NOLA --> |"Delegation"| CORP
-    NOLA --> |"Delegation"| DEPT
-    NOLA --> |"Delegation"| INFRA
+    GOV --> |"Delegation"| CORP
+    GOV --> |"Delegation"| DEPT
+    GOV --> |"Delegation"| INFRA
 ```
 
 ## DNS Server Specifications

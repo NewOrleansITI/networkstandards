@@ -68,7 +68,7 @@ This limit applies to all AP models, vendors, and deployment scenarios. Exceedin
 
 **Technical basis:** Each SSID consumes 2-3% airtime on 2.4 GHz (legacy rates) for beacon transmission alone. Additional overhead from probe responses, authentication, and association frames compounds with client density. Industry consensus identifies 20% management overhead as the degradation threshold—4 SSIDs stays below this; 5+ SSIDs exceeds it.
 
-**Vendor consensus:** Cisco, Aruba, Juniper Mist, Meraki, and Extreme all recommend ≤4 SSIDs per AP in their design guidance.
+**Industry consensus:** Major enterprise wireless vendors independently recommend ≤4 SSIDs per AP in their published design guidance, citing beacon overhead and probe response amplification as the dominant performance constraints.
 
 See [SSID Standards — SSID Count Limits](ssid-standards.md#ssid-count-limits) for complete technical justification.
 
