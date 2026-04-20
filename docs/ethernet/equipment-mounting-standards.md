@@ -378,11 +378,15 @@ Outdoor enclosures face solar heat gain, humidity, and wide temperature swings t
 
 ### Seismic Design Category
 
-New Orleans is classified as **ASCE/SEI 7-22 Seismic Design Category B** (low seismic risk). This means:
+Determine the facility's Seismic Design Category (SDC A-F) per ASCE/SEI 7-22 Chapter 11 using the site's mapped spectral response accelerations and Risk Category. The SDC drives the anchorage requirements below:
 
-- Equipment under 400 lbs does **not** require seismic anchorage by code
-- Standard floor anchoring (per the rack specifications above) is sufficient for normal installations
-- All floor-standing racks should still be bolted to the floor as a best practice for stability during hurricane wind events and incidental contact
+| SDC | Seismic Risk | Equipment Under 400 lbs | Floor-Standing Racks |
+|-----|--------------|-------------------------|----------------------|
+| A, B | Very low to low | No seismic anchorage required by code | Standard floor anchoring per rack specifications above is sufficient |
+| C | Moderate | Anchorage required for components supporting life-safety systems | Seismic-rated floor anchors recommended |
+| D, E, F | High to very high | Full component anchorage required per ASCE 7-22 Chapter 13 | Seismic-rated floor anchors and overhead bracing required |
+
+Regardless of SDC, floor-standing racks should be bolted to the floor as a best practice for stability against wind events, high-water events, and incidental contact.
 
 ### When Seismic Anchorage Is Required
 

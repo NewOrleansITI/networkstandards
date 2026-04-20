@@ -633,8 +633,8 @@ The WiFi Design Standard increases upfront investment by approximately $17,600 p
 
 | Source | Guidance | Alignment |
 |--------|----------|-----------|
-| Cisco WLAN Design Guide | "Design for -67 dBm edge of cell with 15-20% overlap" | Aligned |
-| Aruba Validated Reference Design | "Secondary coverage of -70 dBm minimum recommended for high-availability" | Exceeds (we require -67 dBm) |
+| Enterprise WLAN Design Guide (major controller vendor) | "Design for -67 dBm edge of cell with 15-20% overlap" | Aligned |
+| Enterprise Validated Reference Design (major controller vendor) | "Secondary coverage of -70 dBm minimum recommended for high-availability" | Exceeds (we require -67 dBm) |
 | Ekahau Design Guidelines | "25 dB SNR minimum for voice-grade wireless" | Aligned |
 | CWNA Study Guide (CWNP) | "Secondary coverage ensures redundancy; -67 dBm typical enterprise threshold" | Aligned |
 

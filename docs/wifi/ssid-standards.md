@@ -338,21 +338,19 @@ xychart-beta
 
 **The 20% Threshold:** Industry consensus identifies 20% management overhead as the point where user experience degrades noticeably—increased latency, reduced throughput, and connection reliability issues. At 4 SSIDs, deployments remain under this threshold. A 5th SSID pushes into the degradation zone.
 
-### Vendor Recommendations
+### Industry Consensus
 
-All major enterprise wireless vendors independently recommend limiting SSIDs to 4 or fewer per AP:
+All major enterprise wireless vendors independently recommend limiting SSIDs to 4 or fewer per AP, citing beacon overhead and probe response amplification as primary performance concerns.
 
-All major enterprise wireless vendors (Cisco, Aruba/HPE, Juniper Mist, Meraki, Extreme) independently recommend limiting SSIDs to 4 or fewer per AP, citing beacon overhead and probe response amplification as primary performance concerns.
+#### Industry Consensus Summary
 
-#### Vendor Consensus Summary
-
-| Vendor | Recommended Max | Platform Hard Limit | Notes |
-|--------|-----------------|---------------------|-------|
-| Cisco | 3-4 | 16 | Explicit design guidance |
-| Aruba/HPE | 4 | 16 | Validated reference design |
-| Juniper Mist | 4 | 8 | AI-driven best practices |
-| Meraki | 4 | 15 | Performance warning at 4+ |
-| Extreme | 4 | 16 | RF planning guidance |
+| Guidance Source | Recommended Max | Platform Hard Limit | Notes |
+|-----------------|-----------------|---------------------|-------|
+| Enterprise Controller Vendor A | 3-4 | 16 | Explicit design guidance |
+| Enterprise Controller Vendor B | 4 | 16 | Validated reference design |
+| Cloud-Managed Vendor A | 4 | 8 | AI-driven best practices |
+| Cloud-Managed Vendor B | 4 | 15 | Performance warning at 4+ |
+| Enterprise Controller Vendor C | 4 | 16 | RF planning guidance |
 
 ### Compliance and Enforcement
 
