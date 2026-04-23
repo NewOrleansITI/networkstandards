@@ -148,6 +148,22 @@ networkstandards/
 
 We welcome contributions from city staff, municipal IT professionals, subject matter experts, and the broader community.
 
+### Local Setup
+
+After cloning, enable the repository's pre-commit secret-scan hook once:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+The hook runs [gitleaks](https://github.com/gitleaks/gitleaks) against staged changes and blocks commits containing credentials or known internal identifiers. Install gitleaks before committing:
+
+- **Debian/Ubuntu:** `sudo apt-get install gitleaks`
+- **macOS:** `brew install gitleaks`
+- **Other:** <https://github.com/gitleaks/gitleaks/releases>
+
+Scan configuration lives in [`.gitleaks.toml`](.gitleaks.toml).
+
 ### Ways to Contribute
 
 | Action | Use Case |
