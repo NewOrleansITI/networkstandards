@@ -1,0 +1,65 @@
+title = "networkstandards gitleaks config"
+
+# Extend gitleaks' default rule set (AWS/GCP/Azure keys, generic API keys,
+# JWTs, PEM private keys, etc.) and layer municipal-specific rules on top.
+[extend]
+useDefault = true
+
+# Known-specific internal identifiers. Narrow regexes on purpose: broad
+# private-IP patterns would fight documentation that legitimately references
+# RFC 1918 example allocations (e.g. 10.254.0.0/16 as DMZ policy in
+# docs/layer3/ip-addressing.md).
+
+[[rules]]
+id = "municipal-snmp-community"
+description = "Known internal SNMP community string"
+regex = '''Summ3r\*T1m3'''
+tags = ["credential", "municipal"]
+
+[[rules]]
+id = "municipal-wlc-ip"
+description = "Known internal wireless LAN controller address"
+regex = '''\b10\.254\.5\.179\b'''
+tags = ["internal-host", "municipal"]
+
+[[rules]]
+id = "municipal-mailrelay-ip"
+description = "Known internal mail relay address"
+regex = '''\b172\.31\.254\.100\b'''
+tags = ["internal-host", "municipal"]
+
+[[rules]]
+id = "municipal-meraki-org"
+description = "Known internal Meraki organization ID"
+regex = '''\b1586599\b'''
+tags = ["internal-id", "municipal"]
+
+[[rules]]
+id = "github-pat-classic"
+description = "GitHub personal access token (classic)"
+regex = '''ghp_[A-Za-z0-9]{36}'''
+tags = ["credential", "github"]
+
+[[rules]]
+id = "github-pat-fine-grained"
+description = "GitHub fine-grained personal access token"
+regex = '''github_pat_[A-Za-z0-9_]{82}'''
+tags = ["credential", "github"]
+
+[[rules]]
+id = "github-server-token"
+description = "GitHub server/app/user/oauth/refresh token"
+regex = '''(ghs|gho|ghu|ghr)_[A-Za-z0-9]{36}'''
+tags = ["credential", "github"]
+
+# Allowlist scopes both default rules and the municipal rules above.
+[allowlist]
+description = "known-safe values that appear in documentation"
+paths = [
+  '''\.gitleaks\.toml''',
+  '''\.githooks/''',
+]
+regexes = [
+  '''AA:BB:CC:DD:EE:FF''',
+  '''ABC123456789''',
+]

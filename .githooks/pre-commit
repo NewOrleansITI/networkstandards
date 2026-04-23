@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Block commits that introduce credentials or known internal identifiers.
+# Enable once per clone with: git config core.hooksPath .githooks
+
+set -e
+
+if ! command -v gitleaks >/dev/null 2>&1; then
+    cat >&2 <<'EOF'
+pre-commit: gitleaks is not installed, commit blocked.
+
+Install:
+  Debian/Ubuntu:  sudo apt-get install gitleaks
+  macOS:          brew install gitleaks
+  Other:          https://github.com/gitleaks/gitleaks/releases
+
+To bypass this hook in an emergency (NOT for secret-adjacent changes):
+  git commit --no-verify
+EOF
+    exit 1
+fi
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+exec gitleaks protect --staged \
+    --config "${REPO_ROOT}/.gitleaks.toml" \
+    --source "${REPO_ROOT}" \
+    --redact \
+    --no-banner
