@@ -2,7 +2,7 @@
 title: Network Switch Specifications
 version: 3.1.0
 status: Supported
-last_updated: 2026-02-18
+last_updated: 2026-05-12
 ieee_reference: IEEE 802.3, 802.3bt, 802.1Q, 802.1X, 802.1AX
 ---
 

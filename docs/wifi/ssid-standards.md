@@ -2,7 +2,7 @@
 title: SSID and Wireless Security Standards
 version: 3.1.0
 status: Supported
-last_updated: 2026-02-18
+last_updated: 2026-05-12
 ieee_reference: IEEE 802.11be-2024, 802.11i, 802.11w, 802.1X-2020
 wpa_reference: WPA3-Enterprise (Wi-Fi Alliance)
 ---

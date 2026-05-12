@@ -2,7 +2,7 @@
 title: Structured Cabling Standards
 version: 3.1.0
 status: Supported
-last_updated: 2026-02-24
+last_updated: 2026-05-12
 tia_reference: TIA-568.2-E, TIA-569-E, TIA-606-D, TIA-607-E
 iso_reference: ISO/IEC 11801-1:2017
 ieee_reference: IEEE 802.3bz-2016

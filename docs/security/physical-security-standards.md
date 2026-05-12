@@ -2,7 +2,7 @@
 title: Physical Security Standards for Telecommunications Infrastructure
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-18
+last_updated: 2026-05-12
 nist_reference: NIST SP 800-53 Rev. 5 (PE-2, PE-3, PE-4, PE-5, PE-6, PE-9)
 tia_reference: TIA-569-E
 bicsi_reference: BICSI TDMM 15th Edition

@@ -2,7 +2,7 @@
 title: OWE Enhanced Open Wireless Security Standards
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-18
+last_updated: 2026-05-12
 ieee_reference: IEEE 802.11-2024
 wpa_reference: Wi-Fi CERTIFIED Enhanced Open
 effective_date: 2026-02-02

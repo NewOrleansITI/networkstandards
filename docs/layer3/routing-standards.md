@@ -2,7 +2,7 @@
 title: Routing Protocol Standards
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-18
+last_updated: 2026-05-12
 ietf_reference: RFC 2328 (OSPF), RFC 4271 (BGP)
 ---
 

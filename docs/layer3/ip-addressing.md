@@ -2,7 +2,7 @@
 title: IP Addressing and Subnetting Standards
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-18
+last_updated: 2026-05-12
 ietf_reference: RFC 4632, RFC 1918, RFC 8200
 ---
 

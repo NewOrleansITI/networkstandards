@@ -2,7 +2,7 @@
 title: NTP Standards and Time Synchronization
 version: 1.0.0
 status: Supported
-last_updated: 2026-02-18
+last_updated: 2026-05-12
 ietf_reference: RFC 5905, RFC 8633, RFC 7384
 ---
 
