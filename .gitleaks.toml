@@ -52,6 +52,12 @@ description = "GitHub server/app/user/oauth/refresh token"
 regex = '''(ghs|gho|ghu|ghr)_[A-Za-z0-9]{36}'''
 tags = ["credential", "github"]
 
+[[rules]]
+id = "openssh-private-key"
+description = "OpenSSH-format private key header (not caught by all default PEM rules)"
+regex = '''-----BEGIN OPENSSH PRIVATE KEY-----'''
+tags = ["credential", "ssh"]
+
 # Allowlist scopes both default rules and the municipal rules above.
 [allowlist]
 description = "known-safe values that appear in documentation"

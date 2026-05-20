@@ -197,7 +197,7 @@ flowchart TD
 To report a Code of Conduct violation:
 
 1. **GitHub Issues** — For public violations, open an issue with the `code-of-conduct` label
-2. **Email** — For sensitive matters, email networkingteam@nola.gov with subject line "CoC Report"
+2. **Private Report** — For sensitive matters, use GitHub's private vulnerability reporting (Security tab) or open a confidential issue if available
 3. **Direct Message** — Contact the maintainer directly on GitHub
 
 **Report should include:**
@@ -220,7 +220,7 @@ To report a Code of Conduct violation:
 Only permanent bans may be appealed. Participants who have been permanently banned may request reconsideration by:
 
 1. Waiting at least 6 months from the date of the ban
-2. Emailing networkingteam@nola.gov with:
+2. Contacting the maintainer via GitHub (issue or direct message) with:
    - Acknowledgment of the original violation
    - What you've learned from the experience
    - Why you believe you should be allowed to return
@@ -277,8 +277,7 @@ This Code of Conduct is adapted from:
 
 ## Contact
 
-- **Maintainer:** Christopher, City of New Orleans ITI
-- **Email:** networkingteam@nola.gov
+- **Maintainer:** Repository maintainer (see CONTRIBUTING.md for contact channels)
 - **Response Time:** Within 48 hours for Code of Conduct matters
 
 ---

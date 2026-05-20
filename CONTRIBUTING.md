@@ -66,7 +66,7 @@ When contributing documentation, please follow these guidelines:
 
 ## Review Process
 
-1. All contributions are reviewed by the ITI Networking Team
+1. All contributions are reviewed by the repository maintainers
 2. We may request changes or clarification
 3. Once approved, changes are merged into the main branch
 4. GitHub Pages automatically updates the public documentation
@@ -81,7 +81,7 @@ When contributing documentation, please follow these guidelines:
 ## Questions?
 
 - Open an issue with the **Question** label
-- Contact the ITI Networking Team at networkingteam@nola.gov
+- Start a GitHub Discussion in the repository for broader topics
 
 ---
 
