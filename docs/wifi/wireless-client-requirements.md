@@ -43,7 +43,7 @@ Every wireless device on the network must support the security mode required by 
 | Wi-Fi Alliance WPA3 v3.5 | WPA3 Specification | February 2025 | Client security certification |
 | IETF RFC 8446 | TLS 1.3 | August 2018 | Minimum transport security |
 | IETF RFC 9190 | EAP-TLS 1.3 Authentication Protocol | February 2022 | Certificate-based EAP with TLS 1.3 |
-| NIST SP 800-53 Rev. 5 | Security Controls | September 2020 | Federal security requirements |
+| NIST SP 800-53 Rev. 5, Release 5.2.0 | Security Controls | December 2024 | Federal security requirements |
 | NIST SP 800-153 | Guidelines for Securing WLANs | February 2012 | WLAN security guidance |
 
 ## Mandatory Requirements
@@ -382,7 +382,7 @@ flowchart TD
 9. Wi-Fi Alliance, "Wi-Fi CERTIFIED 7," Wi-Fi Alliance, January 2024.
 10. IETF RFC 8446, "The Transport Layer Security (TLS) Protocol Version 1.3," IETF, August 2018.
 11. IETF RFC 9190, "EAP-TLS 1.3: Using the Extensible Authentication Protocol with TLS 1.3," IETF, February 2022.
-12. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+12. NIST SP 800-53 Rev. 5, Release 5.2.0, "Security and Privacy Controls for Information Systems and Organizations," NIST, December 2024.
 13. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 14. NSA, "Commercial National Security Algorithm Suite 2.0," NSA Cybersecurity, September 2022.
 

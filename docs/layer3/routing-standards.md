@@ -28,7 +28,7 @@ This document establishes the standards for routing protocols, route management,
 | IETF RFC 9568 | VRRP Version 3 | April 2024 | First-hop redundancy |
 | IETF RFC 7868 | EIGRP | May 2016 | Interior routing (informational) |
 | IETF RFC 8402 | Segment Routing | July 2018 | Modern routing architecture |
-| NIST SP 800-53 Rev. 5 | Security Controls | September 2020 | Routing security |
+| NIST SP 800-53 Rev. 5, Release 5.2.0 | Security Controls | December 2024 | Routing security |
 
 ## Routing Architecture
 
@@ -670,7 +670,7 @@ Use this checklist to evaluate any router or Layer 3 switch before purchase. Eve
 8. IETF RFC 4272, "BGP Security Vulnerabilities Analysis," IETF, January 2006.
 9. IETF RFC 6811, "BGP Prefix Origin Validation," IETF, January 2013.
 10. IETF RFC 6890, "Special-Purpose IP Address Registries," IETF, April 2013.
-11. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+11. NIST SP 800-53 Rev. 5, Release 5.2.0, "Security and Privacy Controls for Information Systems and Organizations," NIST, December 2024.
 12. IETF RFC 5709, "OSPFv2 HMAC-SHA Cryptographic Authentication," IETF, October 2009.
 13. IETF RFC 7166, "Supporting Authentication Trailer for OSPFv3," IETF, March 2014.
 

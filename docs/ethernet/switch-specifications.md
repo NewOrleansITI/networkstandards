@@ -466,7 +466,7 @@ Use this checklist to evaluate network switches before purchase. Every **Require
 5. IEEE 802.1AX-2020, "IEEE Standard for Local and Metropolitan Area Networks—Link Aggregation," IEEE, May 2020.
 6. IETF RFC 3411, "An Architecture for Describing SNMP Management Frameworks," IETF, December 2002.
 7. IETF RFC 5905, "Network Time Protocol Version 4," IETF, June 2010.
-8. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+8. NIST SP 800-53 Rev. 5, Release 5.2.0, "Security and Privacy Controls for Information Systems and Organizations," NIST, December 2024.
 9. NIST SP 800-63B-4, "Digital Identity Guidelines: Authentication and Authenticator Management," NIST, July 2025.
 
 ## Cross-References

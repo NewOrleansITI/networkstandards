@@ -552,7 +552,7 @@ Use this checklist to evaluate any DHCP server or IPAM platform before purchase.
 
 8. IEEE, "IEEE Standard for Local and Metropolitan Area Networks--Port-Based Network Access Control," IEEE 802.1X-2020, 2020.
 
-9. National Institute of Standards and Technology, "Security and Privacy Controls for Information Systems and Organizations," NIST SP 800-53 Rev. 5, September 2020. https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final
+9. National Institute of Standards and Technology, "Security and Privacy Controls for Information Systems and Organizations," NIST SP 800-53 Rev. 5, Release 5.2.0, December 2024. https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/r5
 
 10. National Institute of Standards and Technology, "Guide to Enterprise Patch Management Technologies," NIST SP 800-40 Rev. 4, April 2022.
 

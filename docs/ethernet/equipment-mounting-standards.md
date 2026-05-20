@@ -545,7 +545,7 @@ Use this checklist to evaluate racks, enclosures, cable management, and mounting
 15. NEMA VE 2-2018, "Cable Tray Installation Guidelines," 4th Edition, NEMA, 2018.
 16. ASCE/SEI 7-22, "Minimum Design Loads and Associated Criteria for Buildings and Other Structures," ASCE, 2022.
 17. ASTM E84 / UL 723, "Standard Test Method for Surface Burning Characteristics of Building Materials," ASTM International, current edition.
-18. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+18. NIST SP 800-53 Rev. 5, Release 5.2.0, "Security and Privacy Controls for Information Systems and Organizations," NIST, December 2024.
 
 ## Cross-References
 

@@ -627,7 +627,7 @@ The WiFi Design Standard increases upfront investment by approximately $17,600 p
 | Standard | Title | Date | Relevance to Design Standard |
 |----------|-------|------|------------------------------|
 | NIST SP 800-153 | Guidelines for Securing Wireless Local Area Networks | February 2012 | Security design principles |
-| NIST SP 800-53 Rev. 5 | Security and Privacy Controls | September 2020 | AC-18 Wireless Access controls |
+| NIST SP 800-53 Rev. 5, Release 5.2.0 | Security and Privacy Controls | December 2024 | AC-18 Wireless Access controls |
 
 ### Industry Best Practice Citations
 
@@ -713,7 +713,7 @@ Use this checklist to verify design service provider qualifications before appro
 4. TIA-569-E, "Telecommunications Pathways and Spaces," TIA, June 2019.
 5. ANSI/TIA-1179-B, "Healthcare Facility Telecommunications Infrastructure Standard," TIA, 2023.
 6. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
-7. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+7. NIST SP 800-53 Rev. 5, Release 5.2.0, "Security and Privacy Controls for Information Systems and Organizations," NIST, December 2024.
 
 ---
 

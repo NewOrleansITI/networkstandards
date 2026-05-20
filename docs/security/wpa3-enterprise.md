@@ -24,7 +24,7 @@ This document establishes the standards for WPA3-Enterprise wireless security. W
 | Wi-Fi Alliance WPA3 v3.5 | WPA3 Specification | February 2025 | WPA3 certification requirements |
 | IETF RFC 9190 | EAP-TLS 1.3 Authentication Protocol | February 2022 | Certificate-based EAP with TLS 1.3 |
 | IETF RFC 8446 | TLS 1.3 | August 2018 | Transport security |
-| NIST SP 800-53 Rev. 5 | Security Controls | September 2020 | Federal security requirements |
+| NIST SP 800-53 Rev. 5, Release 5.2.0 | Security Controls | December 2024 | Federal security requirements |
 | NIST SP 800-153 | Guidelines for Securing WLANs | February 2012 | WLAN security guidance |
 | CNSA 2.0 | Commercial NSA Suite | September 2022 | High-security cryptography |
 
@@ -576,7 +576,7 @@ Use this checklist to evaluate any wireless infrastructure component before purc
 6. Wi-Fi Alliance, "WPA3 Security Considerations," Wi-Fi Alliance Technical Note, 2024.
 7. IETF RFC 9190, "EAP-TLS 1.3: Using the Extensible Authentication Protocol with TLS 1.3," IETF, February 2022.
 8. IETF RFC 8446, "The Transport Layer Security (TLS) Protocol Version 1.3," IETF, August 2018.
-9. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+9. NIST SP 800-53 Rev. 5, Release 5.2.0, "Security and Privacy Controls for Information Systems and Organizations," NIST, December 2024.
 10. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 11. NSA, "Commercial National Security Algorithm Suite 2.0," NSA Cybersecurity, September 2022.
 

@@ -24,7 +24,7 @@ This document establishes the standards for Opportunistic Wireless Encryption (O
 | Wi-Fi CERTIFIED Enhanced Open | Wi-Fi Alliance certification program | 2018 | Enhanced Open certification |
 | IETF RFC 8110 | OWE | March 2017 | Opportunistic Wireless Encryption |
 | IETF RFC 7748 | Elliptic Curves | January 2016 | Curve25519/Curve448 for DH |
-| NIST SP 800-53 Rev. 5 | Security Controls | September 2020 | Federal security requirements |
+| NIST SP 800-53 Rev. 5, Release 5.2.0 | Security Controls | December 2024 | Federal security requirements |
 | NIST SP 800-153 | Guidelines for Securing WLANs | February 2012 | WLAN security guidance |
 
 ## Standard Rationale and Justification
@@ -539,7 +539,7 @@ Use this checklist to evaluate any wireless infrastructure component before purc
 2. IETF RFC 8110, "Opportunistic Wireless Encryption," IETF, March 2017.
 3. IETF RFC 7748, "Elliptic Curves for Security," IETF, January 2016.
 4. Wi-Fi Alliance, "Wi-Fi CERTIFIED Enhanced Open," Wi-Fi Alliance, 2018. https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-enhanced-open
-5. NIST SP 800-53 Rev. 5, "Security and Privacy Controls for Information Systems and Organizations," NIST, September 2020.
+5. NIST SP 800-53 Rev. 5, Release 5.2.0, "Security and Privacy Controls for Information Systems and Organizations," NIST, December 2024.
 6. NIST SP 800-153, "Guidelines for Securing Wireless Local Area Networks (WLANs)," NIST, February 2012.
 
 ## Cross-References
